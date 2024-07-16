@@ -1,0 +1,4158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Visualization - Graphing Data</title>
+  <meta name="description" content="Data Visualization - Graphing Data">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="../../../site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+  <!-- Bootstrap Lib -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link href="graphingData.css" rel="stylesheet">
+
+  <script id="loadDatasets" src="js/data.js"></script>
+
+  <script id="initChartingForPage">
+     window.onload = function() {
+      /**
+       * Bar Charts
+       * */
+      drawAllBarCharts();
+
+      /**
+       * Line Charts
+       * */
+      drawAllLineCharts();
+
+      /**
+       * Pie Charts
+       * */
+      drawAllPieCharts();
+
+      /**
+       * X/Y Scatter Charts
+       * */
+      drawAllXYScatterCharts();
+
+       /**
+        * X/Y Bubble Charts
+        * */
+       drawAllXYBubbleCharts();
+
+       /**
+        * Radar Charts
+        * */
+       drawAllRadarCharts();
+    }
+  </script>
+
+  <!-- Split the Scripts -->
+  <script id="barCharting">
+    const barChartTitle = "Greco's Bakery";
+
+    let
+      bagelYearLabels = [
+        [0, "2018"],
+        [1, "2019"],
+        [2, "2020"],
+        [3, "2021"],
+        [4, "2022"],
+        [5, "2023"],
+        [6, "2024"],
+      ],
+      bagelsSold = [
+        [
+          [2018, 1039],
+          [2019, 1199],
+          [2020, 1350],
+          [2021, 1475],
+          [2022, 1310],
+          [2023, 1275],
+          [2024, 875]
+        ]
+      ],
+      bagelsSoldWithCombinedYearLabels = [
+        [
+          [0, 1039],
+          [1, 1199],
+          [2, 1350],
+          [3, 1475],
+          [4, 1310],
+          [5, 1275],
+          [6, 875]
+        ]
+      ];
+
+    let
+      color01 = '#00cde2',
+      color02 = '#ffb700',
+      color03 = '#7ac70c',
+      color04 = '#313541',
+      color05 = '#fc3232',
+      bagelTypes = [
+        [0, "Blueberry"],
+        [1, "Cinna-Raisin"],
+        [2, "Jalapeño Cheese"],
+        [3, "Sesame"],
+        [4, "Vanilla Cherry"]
+      ],
+      plottableBagelTypeData = [
+        {data: [[0, 75]], color: color01},
+        {data: [[1, 34]], color: color02},
+        {data: [[2, 27]], color: color03},
+        {data: [[3, 13]], color: color04},
+        {data: [[4, 40]], color: color05},
+      ];
+
+    const drawAllBarCharts = function() {
+      drawBarChart1();
+      drawBarChart2();
+      drawBarChart3();
+      drawBarChart4();
+      drawBarChart5();
+
+      closeAllDrawnBarChartsPostInit();
+    }
+
+    let drawBarChart1 = function() {
+      Flotr.draw(
+        document.getElementById("barChart1"),
+        bagelsSold,
+        {
+          title: barChartTitle,
+          bars: {
+            show: true
+          }
+        }
+      );
+    };
+    let drawBarChart2 = function() {
+      Flotr.draw(
+        document.getElementById("barChart2"),
+        bagelsSold,
+        {
+          title: barChartTitle,
+          bars: {
+            show: true
+          },
+          yaxis: {
+            min: 0,
+            tickDecimals: 0
+          }
+        }
+      );
+    };
+    let drawBarChart3 = function() {
+      Flotr.draw(
+        document.getElementById("barChart3"),
+        bagelsSoldWithCombinedYearLabels,
+        {
+          title: barChartTitle,
+          bars: {
+            show: true,
+            barWidth: 0.5
+          },
+          yaxis: {
+            min: 0,
+            tickDecimals: 0
+          },
+          xaxis: {
+            ticks: bagelYearLabels
+          }
+        }
+      );
+    };
+    let drawBarChart4 = function() {
+      Flotr.draw(
+        document.getElementById("barChart4"),
+        bagelsSoldWithCombinedYearLabels,
+        {
+          title: barChartTitle,
+          colors: ["#89AFD2"],
+          bars: {
+            show: true,
+            barWidth: 0.5,
+            shadowSize: 0,
+            fillOpacity: 1,
+            lineWidth: 0
+          },
+          yaxis: {
+            min: 0,
+            tickDecimals: 0
+          },
+          xaxis: {
+            ticks: bagelYearLabels
+          },
+          grid: {
+            horizontalLines: false,
+            verticalLines: false
+          }
+        }
+      );
+    };
+    let drawBarChart5 = function() {
+      Flotr.draw(
+        document.getElementById("barChart5"),
+        plottableBagelTypeData,
+        {
+          title: "Greco's Bakery Bagels Sold By Type (07-09-2024)",
+          bars: {
+            show: true,
+            barWidth: 0.5,
+            fill: 1,
+            lineWidth: 1
+          },
+          xaxis: {
+            tickLength: 0,
+            ticks: bagelTypes
+          },
+          yaxis: {
+            min: 0,
+            tickDecimals: 0
+          },
+          grid: {
+            horizontalLines: false,
+            verticalLines: false
+          }
+        }
+      );
+    };
+
+    const closeAllDrawnBarChartsPostInit = function() {
+      // Close All Sections Post Chart Draws
+      document.getElementById("sub-collapseBCS2").classList.toggle("show");
+      document.getElementById("sub-collapseBCS3").classList.toggle("show");
+      document.getElementById("sub-collapseBCS4").classList.toggle("show");
+      document.getElementById("sub-collapseBCS5").classList.toggle("show");
+      document.getElementById("sub-collapseBCS6").classList.toggle("show");
+
+      // Close Umbrella Section
+      document.getElementById("flush-collapseBC").classList.toggle("show");
+    };
+  </script>
+  <script id="lineCharting">
+    let
+      lineChartTitle = "Carbon Emissions Since I Graduated High-School (2007)",
+      temps = [
+        [
+          2007,0.66
+        ],
+        [
+          2008,0.55
+        ],
+        [
+          2009,0.66
+        ],
+        [
+          2010,0.73
+        ],
+        [
+          2011,0.63
+        ],
+        [
+          2012,0.66
+        ],
+        [
+          2013,0.68
+        ],
+        [
+          2014,0.77
+        ],
+        [
+          2015,0.92
+        ],
+        [
+          2016,1.03
+        ],
+        [
+          2017,0.86
+        ],
+        [
+          2018,0.86
+        ],
+        [
+          2019,0.98
+        ],
+        [
+          2020,1.01
+        ],
+        [
+          2021,0.86
+        ],
+        [
+          2022,0.91
+        ],
+        [
+          2023,1.18
+        ],
+        [
+          2024,1.0
+        ]
+      ],
+      emissions = [
+        [
+          2007,384.02
+        ],
+        [
+          2008,385.79
+        ],
+        [
+          2009,387.63
+        ],
+        [
+          2010,389.99
+        ],
+        [
+          2011,392.06
+        ],
+        [
+          2012,394.06
+        ],
+        [
+          2013,396.74
+        ],
+        [
+          2014,398.81
+        ],
+        [
+          2015,401.02
+        ],
+        [
+          2016,404.41
+        ],
+        [
+          2017,406.77
+        ],
+        [
+          2018,409.27
+        ],
+        [
+          2019,411.66
+        ],
+        [
+          2020,414.21
+        ],
+        [
+          2021,416.41
+        ],
+        [
+          2022,418.53
+        ],
+        [
+          2023,421.08
+        ],
+        [
+          2024,422.59
+        ]
+      ];
+
+    const drawAllLineCharts = function() {
+      drawLineChart1();
+      drawLineChart2();
+      drawLineChart3();
+      drawLineChart4();
+      drawLineChart5();
+
+      closeAllDrawnLineChartsPostInit();
+    }
+
+    let drawLineChart1 = function() {
+      Flotr.draw(
+        document.getElementById("lineChart1"),
+        [{ data: emissions, lines: { show: true } }],
+        {
+          title: lineChartTitle
+        }
+      );
+    };
+    let drawLineChart2 = function() {
+      Flotr.draw(
+        document.getElementById("lineChart2"),
+        [
+          { data: emissions, lines: { show: true } },
+          { data: temps, lines: { show: true }, yaxis: 2 }
+        ],
+        {
+          title: lineChartTitle
+        }
+      );
+    };
+    let drawLineChart3 = function() {
+      Flotr.draw(
+        document.getElementById("lineChart3"),
+        [
+          { data: emissions, lines: { show: true } },
+          { data: temps, lines: { show: true }, yaxis: 2 }
+        ],
+        {
+          title: lineChartTitle,
+          grid: {
+            horizontalLines: false,
+            verticalLines: false
+          },
+          yaxis: { min: 375, max: 450 },
+          y2axis: {  min: -0.1, max: 1.75 }
+        }
+      );
+    };
+    let drawLineChart4 = function() {
+      let zeroes = [];
+      for(let yr=2007; yr<2030; yr += 1) { zeroes.push([yr, 0]) }
+
+      Flotr.draw(
+        document.getElementById("lineChart4"),
+        [
+          { data: zeroes, lines: { show: true, lineWidth: 1 }, yaxis: 2, shadowSize: 0, color: "#545454" },
+          { data: emissions, lines: { show: true } },
+          { data: temps, lines: { show: true }, yaxis: 2 }
+        ],
+        {
+          title: "Carbon Emissions Since I Graduated (2007)",
+          grid: {
+            horizontalLines: false,
+            verticalLines: false
+          },
+          yaxis: { min: 375, max: 450 },
+          y2axis: { min: -0.1, max: 1.75 }
+        }
+      );
+    };
+    let drawLineChart5 = function() {
+      let zeroes = [];
+      for(let yr=2007; yr<2030; yr += 1) { zeroes.push([yr, 0]) }
+
+      Flotr.draw(
+        document.getElementById("lineChart5"),
+        [
+          {
+            data: zeroes,
+            label: "20<sup>th</sup>-Century Baseline Temperature",
+            lines: { show: true, lineWidth: 1 },
+            shadowSize: 0,
+            color: "#545454"
+          },
+          {
+            data: temps,
+            label: "Yearly Temperature Difference (°C)",
+            lines: { show: true }
+          },
+          {
+            data: emissions,
+            label: "CO<sub>2</sub> Concentration (ppm)",
+            yaxis: 2,
+            lines: { show: true }
+          }
+        ],
+        {
+          title: "Carbon Emissions Since I Graduated (2007)",
+          grid: {
+            horizontalLines: false,
+            verticalLines: false
+          },
+          y2axis: { min: 375, max: 450 },
+          yaxis: { min: -0.1, max: 1.75, tickFormatter: function(val) {return val + "°C"; } }
+        }
+      );
+    };
+
+    const closeAllDrawnLineChartsPostInit = function() {
+      // Close All Sections Post Chart Draws
+      document.getElementById("sub-collapseLCTwo").classList.toggle("show");
+      document.getElementById("sub-collapseLCThree").classList.toggle("show");
+      document.getElementById("sub-collapseLCFour").classList.toggle("show");
+      document.getElementById("sub-collapseLCFive").classList.toggle("show");
+      document.getElementById("sub-collapseLCSix").classList.toggle("show");
+
+      // Close Umbrella Section
+      document.getElementById("flush-collapseLC").classList.toggle("show");
+    };
+  </script>
+  <script id="pieCharting">
+    let
+      examplePieChartTitle = "What are the Percentages of Each Slice? What is the Graph's Purpose?",
+      pieChartTitle = "",
+      piePiece1 = [0, 20],
+      piePiece2 = [1, 19],
+      piePiece3 = [2, 21],
+      piePiece4 = [3, 18],
+      piePiece5 = [4, 22],
+      theTestPie = [
+        [piePiece1],
+        [piePiece2],
+        [piePiece3],
+        [piePiece4],
+        [piePiece5]
+      ];
+
+    const drawAllPieCharts = function() {
+      drawPieChartExample();
+      drawPieChart1();
+      drawPieChart2();
+
+      closeAllDrawnPieChartsPostInit();
+    }
+
+    let drawPieChartExample = function() {
+      Flotr.draw(
+        document.getElementById("pieChartTest"),
+        theTestPie,
+        {
+          title: examplePieChartTitle,
+          pie: {
+            show: true,
+            radius: 1
+          },
+          yaxis: { showLabels: false },
+          xaxis: { showLabels: false },
+          grid: {
+            horizontalLines: false,
+            verticalLines: false
+          }
+        }
+      );
+    };
+    let drawPieChart1 = function() {
+      Flotr.draw(
+        document.getElementById("pieChart1"),
+        plottableBagelTypeData,
+        {
+          pie: {
+            show: true
+          },
+          title: "Greco's Bakery Bagels Sold By Type (07-09-2024)",
+          yaxis: { showLabels: false },
+          xaxis: { showLabels: false },
+          grid: {
+            horizontalLines: false,
+            verticalLines: false
+          }
+        }
+      );
+    };
+    let drawPieChart2 = function() {
+      let plotPieBagelData = [
+        {data: [[0, 75]], color: color01, label: bagelTypes[0][1]},
+        {data: [[1, 34]], color: color02, label: bagelTypes[1][1]},
+        {data: [[2, 27]], color: color03, label: bagelTypes[2][1]},
+        {data: [[3, 13]], color: color04, label: bagelTypes[3][1]},
+        {data: [[4, 40]], color: color05, label: bagelTypes[4][1]},
+      ];
+      Flotr.draw(
+        document.getElementById("pieChart2"),
+        plotPieBagelData,
+        {
+          pie: {
+            show: true
+          },
+          yaxis: {
+            showLabels: false
+          },
+          xaxis: {
+            showLabels: false
+          },
+          grid: {
+            horizontalLines: false,
+            verticalLines: false
+          }
+        }
+      );
+    };
+
+    const closeAllDrawnPieChartsPostInit = function() {
+      // Close All Sections Post Chart Draws
+      document.getElementById("sub-collapsePCOne").classList.toggle("show");
+      document.getElementById("sub-collapsePCTwo").classList.toggle("show");
+      document.getElementById("sub-collapsePCThree").classList.toggle("show");
+
+      // Close Umbrella Section
+      document.getElementById("flush-collapsePieCharts").classList.toggle("show");
+    };
+  </script>
+  <script id="xyScatterCharting">
+    const drawAllXYScatterCharts = function() {
+      drawXYSChart1();
+      drawXYSChart2();
+      drawXYSChart3();
+      drawXYSChart4();
+      drawXYSChart5();
+
+      closeAllDrawnXYSChartsPostInit();
+    }
+
+    let drawXYSChart1 = function() {
+      Flotr.draw(
+        document.getElementById("xysChart1"),
+        [{ data: exportableXYS1Data, points: { show: true } }]
+      );
+    };
+    let drawXYSChart2 = function() {
+      Flotr.draw(
+        document.getElementById("xysChart2"),
+        [{ data: exportableXYS1Data, points: { show: true } }],
+        {
+          xaxis: { min: -1, max: 25 },
+          yaxis: { min: 50, max: 90 }
+        }
+      );
+    };
+    let drawXYSChart3 = function() {
+      Flotr.draw(
+        document.getElementById("xysChart3"),
+        [{ data: exportableXYS1Data, points: { show: true } }],
+        {
+          title: "Life Expectancy vs. Health-care Spending",
+          subtitle: "(by Country, 2021 OECD Data)",
+          xaxis: { min: -1, max: 25, tickDecimals: 0, title: "Spending as Percentage of GDP" },
+          yaxis: { min: 50, max: 90, tickDecimals: 0, title: "Years" }
+        }
+      );
+    };
+    let drawXYSChart4 = function() {
+      Flotr.draw(
+        document.getElementById("xysChart4"),
+        [{ data: exportableXYS1Data, points: { show: true } }],
+        {
+          title: "Life Expectancy vs. Health-care Spending",
+          subtitle: "(by Country, 2021 OECD Data)",
+          xaxis: { min: -1, max: 25, tickDecimals: 0, title: "Spending as Percentage of GDP",
+            tickFormatter: function(val) { return val + "%" }
+          },
+          yaxis: { min: 50, max: 90, tickDecimals: 0, title: "Years" }
+        }
+      );
+    };
+    let drawXYSChart5 = function() {
+      Flotr.draw(
+        document.getElementById("xysChart5"),
+        [
+          { data: africa, points: { show: true }, label: "Africa" },
+          { data: americas, points: { show: true }, label: "Americas" },
+          { data: asia, points: { show: true }, label: "Asia" },
+          { data: europe, points: { show: true }, label: "Europe" },
+          { data: mideast, points: { show: true }, label: "Mid-East" },
+          { data: pacific, points: { show: true }, label: "Pacific" },
+          { data: us, points: { show: true }, label: "USA" }
+        ],
+        {
+          title: "Life Expectancy vs. Health-care Spending",
+          subtitle: "(by Country, 2021 OECD Data)",
+          xaxis: { min: -1, max: 30, tickDecimals: 0, title: "Spending as Percentage of GDP",
+            tickFormatter: function(val) { return val + "%" }
+          },
+          yaxis: { min: 50, max: 90, tickDecimals: 0, title: "Years" },
+          legend: { position: "ne" }
+        }
+      );
+    };
+
+    const closeAllDrawnXYSChartsPostInit = function() {
+      // Close All Sections Post Chart Draws
+      document.getElementById("sub-collapseXYSOne").classList.toggle("show");
+      document.getElementById("sub-collapseXYSTwo").classList.toggle("show");
+      document.getElementById("sub-collapseXYSThree").classList.toggle("show");
+      document.getElementById("sub-collapseXYSFour").classList.toggle("show");
+      document.getElementById("sub-collapseXYSFive").classList.toggle("show");
+      document.getElementById("sub-collapseXYSSix").classList.toggle("show");
+      document.getElementById("sub-collapseXYSSeven").classList.toggle("show");
+
+      // Close Umbrella Section
+      document.getElementById("flush-collapseXYSCharts").classList.toggle("show");
+    };
+  </script>
+  <script id="xyBubbleCharting">
+    const drawAllXYBubbleCharts = function() {
+      drawXYBChart1();
+      drawXYBChart2();
+      drawXYBChart3();
+      drawXYBChart4();
+
+      closeAllDrawnXYBChartsPostInit();
+    }
+
+    let drawXYBChart1 = function() {
+      Flotr.draw(
+        document.getElementById("xybChart1"),
+        [
+          {
+            data: processKatrinaData(katrinaData, null),
+            bubbles: { show: true, baseRadius: 0.3 }
+          }
+        ]
+      );
+    };
+    let drawXYBChart2 = function() {
+      Flotr.draw(
+        document.getElementById("xybChart2"),
+        [
+          {
+            data: processKatrinaData(katrinaData, null),
+            bubbles: { show: true, baseRadius: 0.3 }
+          }
+        ],
+        {
+          grid: {
+            backgroundImage: "./gulf.png",
+            horizontalLines: false,
+            verticalLines: false
+          },
+          yaxis: { showLabels: false, min: 23.607, max: 33.657 },
+          xaxis: { showLabels: false, min: -94.298, max: -77.586 }
+        }
+      );
+    };
+    let drawXYBChart3 = function() {
+      Flotr.draw(
+        document.getElementById("xybChart3"),
+        [
+          { // Cat-1
+            data:  cat1Info,
+            color: "#cefad0",
+            label: "Category 1",
+            bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+          },
+          { // Cat-2
+            data: cat2Info,
+            color: "#e8e337",
+            label: "Category 2",
+            bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+          },
+          { // Cat-3
+            data: cat3Info,
+            color: "#e47200",
+            label: "Category 3",
+            bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+          },
+          { // Cat-4
+            data: cat4Info,
+            color: "#d24e01",
+            label: "Category 4",
+            bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+          },
+          { // Cat 5
+            data: cat5Info,
+            color: "#d73027",
+            label: "Category 5",
+            bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+          }
+        ],
+        {
+          grid: {
+            backgroundImage: "./gulf.png",
+            horizontalLines: false,
+            verticalLines: false
+          },
+          yaxis: { showLabels: false, min: 23.607, max: 33.657 },
+          xaxis: { showLabels: false, min: -94.298, max: -77.586 },
+          legend: { position: "sw" }
+        }
+      );
+      console.log(cat1Info);
+    };
+    let drawXYBChart4 = function() {
+      Flotr.draw(
+        document.getElementById("xybChart4"),
+        [
+          { // Cat-1
+            data:  cat1Info,
+            color: "#cefad0",
+            label: "Category 1",
+            bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+          },
+          { // Cat-2
+            data: cat2Info,
+            color: "#e8e337",
+            label: "Category 2",
+            bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+          },
+          { // Cat-3
+            data: cat3Info,
+            color: "#e47200",
+            label: "Category 3",
+            bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+          },
+          { // Cat-4
+            data: cat4Info,
+            color: "#d24e01",
+            label: "Category 4",
+            bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+          },
+          { // Cat 5
+            data: cat5Info,
+            color: "#d73027",
+            label: "Category 5",
+            bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+          }
+        ],
+        {
+          grid: {
+            backgroundImage: "./gulf.png",
+            horizontalLines: false,
+            verticalLines: false
+          },
+          yaxis: { showLabels: false, min: 23.607, max: 33.657 },
+          xaxis: { showLabels: false, min: -94.298, max: -77.586 },
+          legend: { position: "sw", backgroundOpacity: 0 }
+        }
+      );
+    };
+
+    const closeAllDrawnXYBChartsPostInit = function() {
+      // Close All Sections Post Chart Draws
+      document.getElementById("sub-collapseXYBOne").classList.toggle("show");
+      document.getElementById("sub-collapseXYBTwo").classList.toggle("show");
+      document.getElementById("sub-collapseXYBThree").classList.toggle("show");
+      document.getElementById("sub-collapseXYBFour").classList.toggle("show");
+      document.getElementById("sub-collapseXYBFive").classList.toggle("show");
+
+      // Close Umbrella Section
+      document.getElementById("flush-collapseXYBCharts").classList.toggle("show");
+    };
+  </script>
+  <script id="radarCharting">
+    const drawAllRadarCharts = function() {
+      drawRadarChart1();
+      drawRadarChart2();
+      drawRadarChart3();
+      closeAllDrawnRadarChartsPostInit();
+    };
+
+    const closeAllDrawnRadarChartsPostInit = function() {
+      // Close All Sections Post Chart Draws
+      document.getElementById("sub-collapseRadarOne").classList.toggle("show");
+      document.getElementById("sub-collapseRadarTwo").classList.toggle("show");
+      document.getElementById("sub-collapseRadarThree").classList.toggle("show");
+
+      // Close Umbrella Section
+      document.getElementById("flush-collapseRadarCharts").classList.toggle("show");
+    };
+
+    let drawRadarChart1 = function() {
+      Flotr.draw(
+        document.getElementById("radarChart1"),
+        [
+          [[0,0]]
+        ],
+        {
+          radar: {
+            show: true,
+          },
+          grid: { circular: true },
+          xaxis: { ticks: x_labels },
+          yaxis: { min: 0, max: 4, ticks: y_labels },
+        }
+      );
+    };
+    let drawRadarChart2 = function() {
+      Flotr.draw(
+        document.getElementById("radarChart2"),
+        [
+          { data: torqueAtLv4_PVals },
+          { data: torqueAtLv4_NVals, label: "<p>Negative Skills</p><ul><li>Arcana</li><li>History</li><li>Investigation</li><li>Nature</li><li>Religion</li></ul>" },
+        ],
+        {
+          radar: {
+            show: true,
+          },
+          grid: { circular: true },
+          xaxis: { ticks: x_labelsC2 },
+          yaxis: { min: -1, max: 5, ticks: y_labelsC2, showLabels: false },
+          legend: { position: "ne" }
+        }
+      );
+    };
+    let drawRadarChart3 = function() {
+      Flotr.draw(
+        document.getElementById("radarChart3"),
+        [
+          { data: torqueSkillPointsC3 }
+        ],
+        {
+          radar: {
+            show: true,
+          },
+          grid: { circular: true },
+          xaxis: { ticks: x_labelsC3 },
+          yaxis: { min: 0, max: 5, ticks: y_labelsC3, showLabels: true }
+        }
+      );
+    };
+  </script>
+</head>
+<body style="overflow-x: hidden;">
+<header style="margin: 2rem; text-align: right;">
+  <button type="button" role="button" class="btn btn-danger">
+    <a href="../../../index.html" class="text-white">Back To Main Page</a>
+  </button>
+</header>
+<div class="container-fluid">
+  <div class="row" style="margin: 0 auto;">
+    <h2 class="text-center">Graphing Data</h2>
+    <div class="accordion accordion-flush w-75" id="accordionFlushBCExamples" style="margin: 0 auto 10vh auto;">
+      <!-- Getting Started with Flotr2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseGS" aria-expanded="false" aria-controls="flush-collapseGS">
+            Getting Started with Flotr2
+          </button>
+        </h2>
+        <div id="flush-collapseGS" class="accordion-collapse collapse" data-bs-parent="#accordionFlushGSExamples">
+          <div class="accordion-body">
+            <div class="accordion" id="sub-gettingStartedExamples">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-flotr2Lib">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#sub-collapseFlotr2Lib" aria-expanded="true" aria-controls="collapseFlotr2Lib">
+                    Step 1: Include Required JavaScript Flotr Package
+                  </button>
+                </h2>
+                <div id="sub-collapseFlotr2Lib" class="accordion-collapse collapse" aria-labelledby="sub-flotr2Lib"
+                     data-bs-parent="#sub-gettingStartedExamples">
+                  <div class="accordion-body">
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;JavaScript Flotr2 Charts&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    <strong><em><span class="text-danger">&lt;script src="https://cdn.jsdelivr.net/npm/flotr2@0.1.0/flotr2.min.js"&gt;&lt;/script&gt;</span></em></strong>
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-chartDiv">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#sub-collapseChartDiv" aria-expanded="true" aria-controls="collapseChartDiv">
+                    Step 2: Setting Aside a &lt;div&gt; Element To Hold the Chart
+                  </button>
+                </h2>
+                <div id="sub-collapseChartDiv" class="accordion-collapse collapse" aria-labelledby="sub-chartDiv"
+                     data-bs-parent="#sub-chartDiv">
+                  <div class="accordion-body">
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;JavaScript Flotr2 Charts&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    <strong><em><span class="text-danger">&lt;div id="chart" style="width: 600px; height: 300px;"&gt;&lt;/div&gt;</span></em></strong>
+    &lt;!-- Flotr2 Import --&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/flotr2@0.1.0/flotr2.min.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-Flotr2Bugs">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#sub-collapseFlotr2Bugs" aria-expanded="true" aria-controls="collapseFlotr2Bugs">
+                    Step 3: Work Around Flotr2 "Bugs"
+                  </button>
+                </h2>
+                <div id="sub-collapseFlotr2Bugs" class="accordion-collapse collapse" aria-labelledby="sub-Flotr2Bugs"
+                     data-bs-parent="#sub-Flotr2Bugs">
+                  <div class="accordion-body">
+                    <p>
+                      When building large web pages with a lot of content, it is possible to see a "bug" from Flotr2.
+                      The "bug" is intentional by design from the Flotr2 team. In the process of constructing charts
+                      Flotr2 creates dummy HTML elements so that it can calculate their sizes. Flotr2 does not
+                      intend the dummy elements to be visible on the page, so it "hides" them by positioning them off
+                      screen. What Flotr2 this is off the screen isn't always the case however.
+                    </p>
+                    <p>
+                      Specifically line 2,281 of flotr2.js is:<br/>
+                      <strong>D.setStyles(div, {"position": "absolute", "top": "-10000px" })</strong>
+                    </p>
+                    <p>
+                      Flotr2 intends to place the dummy elements 10,000 pixels above the top of the browser window,
+                      however, CSS absolute positioning can be relative to the containing element which is not always
+                      the browser window. This can cause Flotr2 to scatter text in random-looking locations throughout
+                      the page. There are a few workarounds for this:
+                    </p>
+                    <ul>
+                      <li>
+                        <p>
+                          One option is to modify the open source code directly within the project, however,
+                          you would have to import the library to the project locally, you can not use the CDN.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Another option would be to close all the elements after the Flotr.draw() has been
+                          called for the last time.
+                        </p>
+                        <p>
+                          To close the elements, the following line can be used:<br/>
+                          <strong>document.getElementById("ELEMENT_ID_NAME").classList.toggle("show");</strong>
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bar Charts -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseBC" aria-expanded="false" aria-controls="flush-collapseBC">
+            Creating A Basic Bar Chart
+          </button>
+        </h2>
+        <div id="flush-collapseBC" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushBCExamples">
+          <div class="accordion-body">
+            <blockquote style="width: 50%; margin: 1rem auto 3rem auto; font-size: 20px;">
+              The workhorse of charts. Effective at showing the change of a quantity of over a small number of regular
+              time intervals, or at comparing several different quantities against one another.
+            </blockquote>
+            <div class="accordion" id="sub-barChartExamples">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingBCS1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#sub-collapseBCS1" aria-expanded="true" aria-controls="collapseBCS1">
+                    Step 1: Defining the Data
+                  </button>
+                </h2>
+                <div id="sub-collapseBCS1" class="accordion-collapse collapse" aria-labelledby="sub-headingBCS1"
+                     data-bs-parent="#sub-barChartExamples">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-lg-6" style="border-right: 1px solid black;">
+                        <p>
+                          For this chart example, I'll use fictitious sales data for a bakery that's tracking
+                          bagels sold over the last 7 years.
+                        </p>
+                        <p>As seen in the example to the right, there are three (3) layers of arrays.</p>
+                        <ul>
+                          <li>
+                            Each data point consists of an x-value and a y-value packaged in an array
+                          </li>
+                          <li>
+                            Each series consists of a set of data points packaged in an array
+                          </li>
+                          <li>
+                            The data to chart consists of one or more series packaged in an array
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-6">
+<pre>
+  // Datapoint: bagelsSold = [ YEAR, NUM_OF_BAGELS_SOLD ];
+  let
+      bagelsSold = [
+        [
+          [2018, 1039],
+          [2019, 1199],
+          [2020, 1350],
+          [2021, 1475],
+          [2022, 1310],
+          [2023, 1275],
+          [2024, 875]
+        ]
+      ];
+</pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingBCS2">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#sub-collapseBCS2" aria-expanded="true" aria-controls="collapseBCS2">
+                    Step 2: Drawing the Chart
+                  </button>
+                </h2>
+                <div id="sub-collapseBCS2" class="accordion-collapse collapse show" aria-labelledby="sub-headingBCS2"
+                     data-bs-parent="#sub-barChartExamples">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div style="border: 1px solid black;">
+                          <ul class="nav nav-tabs" id="codeAndDataExampleBCS2Tabber" role="tablist"
+                              style="margin: 2rem;">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="bcs2Info-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs2Info-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs2Info-tab-pane" aria-selected="true">Info
+                              </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="bcs2Code-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs2Code-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs2Code-tab-pane" aria-selected="true">Code
+                              </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="bcs2Data-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs2Data-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs2Data-tab-pane" aria-selected="false">Data
+                              </button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="codeAndDataExampleBCS2TabberContent" style="margin: 2rem;">
+                            <div class="tab-pane fade show active" id="bcs2Info-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs2Info-tab" tabindex="0">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                  <p>
+                                    By default, Flotr2 makes the y-axis min the smallest value of from the series dataset.
+                                    It's usually better to set the y-axis to 0, as I'll do in the next step.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade show" id="bcs2Code-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs2Code-tab" tabindex="0">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("barChart1"),
+  bagelsSold,
+  {
+    title: "Greco Bagel Shop",
+    bars: {
+      show: true
+    }
+  }
+);
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="bcs2Data-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs2Data-tab" tabindex="1">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+let bagelsSold = [
+      [
+        [2018, 1039],
+        [2019, 1199],
+        [2020, 1350],
+        [2021, 1475],
+        [2022, 1310],
+        [2023, 1275],
+        [2024, 875]
+      ]
+    ];
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div id="barChart1" style="width: 600px; height:300px"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingBCS3">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#sub-collapseBCS3" aria-expanded="true" aria-controls="collapseBCS3">
+                    Step 3: Fixing the Vertical Axis
+                  </button>
+                </h2>
+                <div id="sub-collapseBCS3" class="accordion-collapse collapse show" aria-labelledby="sub-headingBCS3"
+                     data-bs-parent="#sub-barChartExamples">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div style="border: 1px solid black;">
+                          <ul class="nav nav-tabs" id="codeAndDataExampleBCS3Tabber" role="tablist"
+                              style="margin: 2rem;">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="bcs3Info-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs3Info-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs3Info-tab-pane" aria-selected="true">Info
+                              </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="bcs3Code-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs3Code-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs3Code-tab-pane" aria-selected="true">Code
+                              </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="bcs3Data-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs3Data-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs3Data-tab-pane" aria-selected="false">Data
+                              </button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="codeAndDataExampleBCS3TabberContent" style="margin: 2rem;">
+                            <div class="tab-pane fade show active" id="bcs3Info-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs3Info-tab" tabindex="0">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                  <p>
+                                    Redrawing the chart and setting the y-axis min to 0 results in a better looking
+                                    chart as seen on the right. All y values now begin at 0, and the value for
+                                    2024 is more in line with the visual expectation as compared to the last chart.
+                                  </p>
+                                  <p>
+                                    There are now some fixes to apply to the x-axis. Flotr2 assumes that all
+                                    x-values are real numbers and shows one decimal place in the labels as seen on
+                                    the right. I'll make a change to the data that sees years replaced by numbers,
+                                    and mapped accordingly for the next chart.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="bcs3Code-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs3Code-tab" tabindex="0">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("barChart2"),
+  bagelsSold,
+  {
+    title: barChartTitle,
+    bars: {
+      show: true
+    },
+    <span class="text-danger">yaxis: {
+      min: 0,
+      tickDecimals: 0
+    }</span>
+  }
+);
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="bcs3Data-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs3Data-tab" tabindex="1">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+let bagelsSold = [
+      [
+        [2018, 1039],
+        [2019, 1199],
+        [2020, 1350],
+        [2021, 1475],
+        [2022, 1310],
+        [2023, 1275],
+        [2024, 875]
+      ]
+    ];
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div id="barChart2" style="width: 600px; height:300px"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingBCS4">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#sub-collapseBCS4" aria-expanded="true" aria-controls="collapseBCS4">
+                    Step 4: Fixing the Horizontal Axis
+                  </button>
+                </h2>
+                <div id="sub-collapseBCS4" class="accordion-collapse collapse show" aria-labelledby="sub-headingBCS4"
+                     data-bs-parent="#sub-barChartExamples">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div style="border: 1px solid black;">
+                          <ul class="nav nav-tabs" id="codeAndDataExampleBCS4Tabber" role="tablist"
+                              style="margin: 2rem;">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="bcs4Info-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs4Info-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs4Info-tab-pane" aria-selected="true">Info
+                              </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="bcs4Code-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs4Code-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs4Code-tab-pane" aria-selected="true">Code
+                              </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="bcs4Data-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs4Data-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs4Data-tab-pane" aria-selected="false">Data
+                              </button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="codeAndDataExampleBCS4TabberContent" style="margin: 2rem;">
+                            <div class="tab-pane fade show active" id="bcs4Info-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs4Info-tab" tabindex="0">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                  <p>
+                                    I used the <strong>ticks</strong> property to tell Flotr2 which labels match
+                                    which x-values. The x-axis labels are appropriate for years, and there is space
+                                    between the bars to improve the chart's legibility.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="bcs4Code-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs4Code-tab" tabindex="1">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("barChart3"),
+  <span class="text-danger">bagelsSoldWithCombinedYearLabels</span>,
+  {
+    title: barChartTitle,
+    bars: {
+      show: true,
+      <span class="text-danger">barWidth: 0.5</span>
+    },
+    yaxis: {
+      min: 0,
+      tickDecimals: 0
+    },
+    <span class="text-danger">xaxis: {
+      ticks: bagelYearLabels
+    }</span>
+  }
+);
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="bcs4Data-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs4Data-tab" tabindex="2">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+let
+  bagelYearLabels = [
+    [0, "2018"],
+    [1, "2019"],
+    [2, "2020"],
+    [3, "2021"],
+    [4, "2022"],
+    [5, "2023"],
+    [6, "2024"],
+  ],
+  bagelsSoldWithCombinedYearLabels = [
+    [
+      [0, 1039],
+      [1, 1199],
+      [2, 1350],
+      [3, 1475],
+      [4, 1310],
+      [5, 1275],
+      [6, 875]
+    ]
+  ];
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div id="barChart3" style="width: 600px; height:300px"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingBCS5">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#sub-collapseBCS5" aria-expanded="true" aria-controls="collapseBCS5">
+                    Step 5: Adjusting the Styling
+                  </button>
+                </h2>
+                <div id="sub-collapseBCS5" class="accordion-collapse collapse show" aria-labelledby="sub-headingBCS5"
+                     data-bs-parent="#sub-barChartExamples">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div style="border: 1px solid black;">
+                          <ul class="nav nav-tabs" id="codeAndDataExampleBCS5Tabber" role="tablist"
+                              style="margin: 2rem;">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="bcs5Info-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs5Info-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs5Info-tab-pane" aria-selected="true">Info
+                              </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="bcs5Code-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs5Code-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs5Code-tab-pane" aria-selected="true">Code
+                              </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="bcs5Data-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs5Data-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs5Data-tab-pane" aria-selected="false">Data
+                              </button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="codeAndDataExampleBCS5TabberContent" style="margin: 2rem;">
+                            <div class="tab-pane fade show active" id="bcs5Info-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs5Info-tab" tabindex="0">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                  <p>
+                                    Now it's time to pay attention to aesthetics. I removed the unnecessary gridlines,
+                                    and adjusted the coloring of the bars.
+                                  </p>
+                                  <p>
+                                    Next I'll look at changing the graph slightly to be polychromatic and show
+                                    a slightly different set of data with text labels.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade show" id="bcs5Code-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs5Code-tab" tabindex="0">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("barChart4"),
+  bagelsSoldWithCombinedYearLabels,
+  {
+    title: barChartTitle,
+    <span class="text-danger">colors: ["#89AFD2"],</span>
+    bars: {
+      show: true,
+      barWidth: 0.5,
+      <span class="text-danger">shadowSize: 0,
+      fillOpacity: 1,
+      lineWidth: 0</span>
+    },
+    yaxis: {
+      min: 0,
+      tickDecimals: 0
+    },
+    xaxis: {
+      ticks: bagelYearLabels
+    },
+    <span class="text-danger">grid: {
+      horizontalLines: false,
+      verticalLines: false
+    }</span>
+  }
+);
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="bcs5Data-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs5Data-tab" tabindex="1">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+let
+  bagelYearLabels = [
+    [0, "2018"],
+    [1, "2019"],
+    [2, "2020"],
+    [3, "2021"],
+    [4, "2022"],
+    [5, "2023"],
+    [6, "2024"],
+  ],
+  bagelsSoldWithCombinedYearLabels = [
+    [
+      [0, 1039],
+      [1, 1199],
+      [2, 1350],
+      [3, 1475],
+      [4, 1310],
+      [5, 1275],
+      [6, 875]
+    ]
+  ];
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div id="barChart4" style="width: 600px; height:300px"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingBCS6">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#sub-collapseBCS6" aria-expanded="true" aria-controls="collapseBCS6">
+                    Step 6: Varying the Bar Color
+                  </button>
+                </h2>
+                <div id="sub-collapseBCS6" class="accordion-collapse collapse show" aria-labelledby="sub-headingBCS6"
+                     data-bs-parent="#sub-barChartExamples">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div style="border: 1px solid black;">
+                          <ul class="nav nav-tabs" id="codeAndDataExampleBCS6Tabber" role="tablist"
+                              style="margin: 2rem;">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="bcs6Info-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs6Info-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs6Info-tab-pane" aria-selected="true">Info
+                              </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="bcs6Code-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs6Code-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs6Code-tab-pane" aria-selected="true">Code
+                              </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="bcs6Data-tab" data-bs-toggle="tab"
+                                      data-bs-target="#bcs6Data-tab-pane" type="button" role="tab"
+                                      aria-controls="bcs6Data-tab-pane" aria-selected="false">Data
+                              </button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="codeAndDataExampleBCS6TabberContent" style="margin: 2rem;">
+                            <div class="tab-pane fade show active" id="bcs6Info-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs6Info-tab" tabindex="0">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                  <p>
+                                    Bar charts are good for comparing different values. This chart uses two series
+                                    to allow Flotr2 to color each bar independently. The data has changed for this
+                                    chart slightly, I replaced years with bagel type labels to create something
+                                    one might expect to find in a Daily Sales report.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade show" id="bcs6Code-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs6Code-tab" tabindex="0">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("barChart5"),
+  <span class="text-danger">plottableBagelTypeData</span>,
+  {
+    <span class="text-danger">title: "Greco's Bakery Bagels Sold By Type (07-09-2024)"</span>,
+    bars: {
+      show: true,
+      barWidth: 0.5,
+      <span class="text-danger">fill: 1,
+      lineWidth: 1</span>
+    },
+    xaxis: {
+      <span class="text-danger">tickLength: 0,
+      ticks: bagelTypes</span>
+    },
+    yaxis: {
+      min: 0,
+      tickDecimals: 0
+    },
+    grid: {
+      horizontalLines: false,
+      verticalLines: false
+    }
+  }
+);
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="bcs6Data-tab-pane" role="tabpanel"
+                                 aria-labelledby="bcs6Data-tab" tabindex="1">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+let
+  color01 = '#00cde2',
+  color02 = '#ffb700',
+  color03 = '#7ac70c',
+  color04 = '#313541',
+  color05 = '#fc3232',
+  bagelTypes = [
+    [0, "Blueberry"],
+    [1, "Cinna-Raisin"],
+    [2, "Jalapeño Cheese"],
+    [3, "Sesame"],
+    [4, "Vanilla Cherry"]
+  ],
+  plottableBagelTypeData = [
+    {data: [[0, 75]], color: color01},
+    {data: [[1, 34]], color: color02},
+    {data: [[2, 27]], color: color03},
+    {data: [[3, 13]], color: color04},
+    {data: [[4, 40]], color: color05},
+  ];
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div id="barChart5" style="width: 600px; height:300px"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Line Charts -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseLC" aria-expanded="false" aria-controls="flush-collapseLC">
+            Plotting Continuous Data With A Line Chart
+          </button>
+        </h2>
+        <div id="flush-collapseLC" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushLCExamples">
+          <div class="accordion-body">
+            <blockquote style="width: 50%; margin: 1rem auto 3rem auto; font-size: 20px;">
+              More effective than bar charts when there is a large number of data values to show, or for showing
+              quantities that vary on an irregular schedule.
+            </blockquote>
+            <div class="accordion" id="sub-lineChartExamples">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingLCOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseLCOne" aria-expanded="true" aria-controls="collapseLCOne">
+                    Step 1: Defining The Data
+                  </button>
+                </h2>
+                <div id="sub-collapseLCOne" class="accordion-collapse collapse" aria-labelledby="sub-headingLCOne" data-bs-parent="#sub-lineChartExamples">
+                  <div class="accordion-body" style="display: flex; flex-direction: row;">
+                    <div class="row">
+                      <div class="col-lg-6" style="border-right: 1px solid black;">
+                        <p>
+                          For this chart example, I'll use factual C0<sub>2</sub> data from NOAA that shows carbon
+                          emissions since I graduated high-school in 2007.
+                        </p>
+                        <p>The data structures I'll begin with are shown on the right.</p>
+                        <p>
+                          Source: <a href="https://www.climate.gov/news-features/understanding-climate/climate-change-atmospheric-carbon-dioxide">NOAA - Atmospheric Carbon Dioxide</a>
+                        </p>
+                      </div>
+                      <div class="col-lg-6">
+<pre>
+  let
+    temps = [ // Datapoint: temp = [ YEAR, SURFACE_TEMP_IN_CELSIUS ];
+      [
+        2007,0.66
+      ],
+      ...18 More Elements
+    ],
+    emissions = [ // Datapoint: emission = [ YEAR, EMISSIONS_IN_ppM ];
+      [
+        2007,384.02
+      ],
+      ...18 More Elements
+    ]
+</pre>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingLCTwo">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseLCTwo" aria-expanded="true" aria-controls="collapseLCTwo">
+                    Step 2: Graph the CO<sub style="padding-right: .25rem;">2</sub> Data
+                  </button>
+                </h2>
+                <div id="sub-collapseLCTwo" class="accordion-collapse collapse show" aria-labelledby="sub-headingLCTwo" data-bs-parent="#sub-lineChartExamples">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div style="border: 1px solid black;">
+                          <ul class="nav nav-tabs" id="codeAndDataExampleLC1Tabber" role="tablist" style="margin: 2rem;">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="lc1Info-tab" data-bs-toggle="tab" data-bs-target="#lc1Info-tab-pane" type="button" role="tab" aria-controls="lc1Info-tab-pane" aria-selected="true">Info</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="lc1Code-tab" data-bs-toggle="tab" data-bs-target="#lc1Code-tab-pane" type="button" role="tab" aria-controls="lc1Code-tab-pane" aria-selected="true">Code</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="lc1Data-tab" data-bs-toggle="tab" data-bs-target="#lc1Data-tab-pane" type="button" role="tab" aria-controls="lc1Data-tab-pane" aria-selected="false">Data</button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="codeAndDataExampleLC1TabberContent" style="margin: 2rem;">
+                            <div class="tab-pane fade show active" id="lc1Info-tab-pane" role="tabpanel" aria-labelledby="lc1Info-tab" tabindex="0">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                  <p>
+                                    This graph uses NOAA data to show the rise in carbon emissions or CO<sub>2</sub>
+                                    in the atmosphere since I've graduated from high-school.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade show" id="lc1Code-tab-pane" role="tabpanel" aria-labelledby="lc1Code-tab" tabindex="1">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+  Flotr.draw(
+    document.getElementById("lineChart1"),
+    <span class="text-danger">[{ data: emissions, lines: { show: true } }]</span>
+  );
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="lc1Data-tab-pane" role="tabpanel" aria-labelledby="lc1Data-tab" tabindex="2">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+let emissions = [
+  [2007, 384.02],
+  [2008, 385.79],
+  [2009, 387.63],
+  [2010, 389.99],
+  [2011, 392.06],
+  [2012, 394.06],
+  [2013, 396.74],
+  [2014, 398.81],
+  [2015, 401.02],
+  [2016, 404.41],
+  [2017, 406.77],
+  [2018, 409.27],
+  [2019, 411.66],
+  [2020, 414.21],
+  [2021, 416.41],
+  [2022, 418.53],
+  [2023, 421.08],
+  [2024, 422.59]
+];
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div id="lineChart1" style="width: 600px; height:300px"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingLCThree">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseLCThree" aria-expanded="true" aria-controls="collapseLCThree">
+                    Step 3: Adding the Temperature Data Series
+                  </button>
+                </h2>
+                <div id="sub-collapseLCThree" class="accordion-collapse collapse show" aria-labelledby="sub-headingLCThree" data-bs-parent="#sub-lineChartExamples">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div style="border: 1px solid black;">
+                          <ul class="nav nav-tabs" id="codeAndDataExampleLC2Tabber" role="tablist" style="margin: 2rem;">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="lc2Info-tab" data-bs-toggle="tab" data-bs-target="#lc2Info-tab-pane" type="button" role="tab" aria-controls="lc2Info-tab-pane" aria-selected="true">Info</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="lc2Code-tab" data-bs-toggle="tab" data-bs-target="#lc2Code-tab-pane" type="button" role="tab" aria-controls="lc2Code-tab-pane" aria-selected="true">Code</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="lc2Data-tab" data-bs-toggle="tab" data-bs-target="#lc2Data-tab-pane" type="button" role="tab" aria-controls="lc2Data-tab-pane" aria-selected="false">Data</button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="codeAndDataExampleLC2TabberContent" style="margin: 2rem;">
+                            <div class="tab-pane fade show active" id="lc2Info-tab-pane" role="tabpanel" aria-labelledby="lc2Info-tab" tabindex="0">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                  <p>
+                                    In this chart, the temperature data series has been layered in. I include the
+                                    <strong>yaxis</strong> option for the temperature data and give it a value of 2.
+                                    That tells FLotr2 to use a different y-scale for the temperature data.
+                                  </p>
+                                  <p>
+                                    This chart is hard to read though and is a little confusing. I'll work
+                                    on improving the readability in the next step.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade show" id="lc2Code-tab-pane" role="tabpanel" aria-labelledby="lc2Code-tab" tabindex="1">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("lineChart2"),
+  <span class="text-danger">[
+    { data: emissions, lines: { show: true } },
+    { data: temps, lines: { show: true }, yaxis: 2 }
+  ]</span>,
+  {
+    title: lineChartTitle
+  }
+);
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="lc2Data-tab-pane" role="tabpanel" aria-labelledby="lc2Data-tab" tabindex="1">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+let temps = [
+  [2007,0.66],
+  [2008,0.55],
+  [2009,0.66],
+  [2010,0.73],
+  [2011,0.63],
+  [2012,0.66],
+  [2013,0.68],
+  [2014,0.77],
+  [2015,0.92],
+  [2016,1.03],
+  [2017,0.86],
+  [2018,0.86],
+  [2019,0.98],
+  [2020,1.01],
+  [2021,0.86],
+  [2022,0.91],
+  [2023,1.18]
+];
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div id="lineChart2" style="width: 600px; height:300px"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingLCFour">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseLCFour" aria-expanded="true" aria-controls="collapseLCFour">
+                    Step 4: Improving the Chart's Readability
+                  </button>
+                </h2>
+                <div id="sub-collapseLCFour" class="accordion-collapse collapse show" aria-labelledby="sub-headingLCFour" data-bs-parent="#sub-lineChartExamples">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div style="border: 1px solid black;">
+                          <ul class="nav nav-tabs" id="codeAndDataExampleLC3Tabber" role="tablist" style="margin: 2rem;">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="lc3Info-tab" data-bs-toggle="tab" data-bs-target="#lc3Info-tab-pane" type="button" role="tab" aria-controls="lc3Info-tab-pane" aria-selected="true">Info</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="lc3Code-tab" data-bs-toggle="tab" data-bs-target="#lc3Code-tab-pane" type="button" role="tab" aria-controls="lc3Code-tab-pane" aria-selected="true">Code</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="lc3Data-tab" data-bs-toggle="tab" data-bs-target="#lc3Data-tab-pane" type="button" role="tab" aria-controls="lc3Data-tab-pane" aria-selected="false">Data</button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="codeAndDataExampleLC3TabberContent" style="margin: 2rem;">
+                            <div class="tab-pane fade show active" id="lc3Info-tab-pane" role="tabpanel" aria-labelledby="lc3Info-tab" tabindex="0">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                  <p>
+                                    In this chart I have eliminated the grid lines as they are not relevant to the
+                                    temperature measurements. I also extended the range of both of the y-axes to provide
+                                    breathing room for the chart.
+                                  </p>
+                                  <p>
+                                    Next I will look at adding more information and labels to clarify the temperature
+                                    measurements.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade show" id="lc3Code-tab-pane" role="tabpanel" aria-labelledby="lc3Code-tab" tabindex="1">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("lineChart3"),
+  [
+    { data: emissions, lines: { show: true } },
+    { data: temps, lines: { show: true }, yaxis: 2 }
+  ],
+  {
+    title: lineChartTitle,
+    <span class="text-danger">grid: {
+      horizontalLines: false,
+      verticalLines: false
+    },
+    yaxis: { min: 375, max: 450 },
+    y2axis: { min: -0.1, max: 1.75 }</span>
+  }
+);
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="lc3Data-tab-pane" role="tabpanel" aria-labelledby="lc3Data-tab" tabindex="2">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+let temps = [
+  [2007,0.66],
+  [2008,0.55],
+  [2009,0.66],
+  [2010,0.73],
+  [2011,0.63],
+  [2012,0.66],
+  [2013,0.68],
+  [2014,0.77],
+  [2015,0.92],
+  [2016,1.03],
+  [2017,0.86],
+  [2018,0.86],
+  [2019,0.98],
+  [2020,1.01],
+  [2021,0.86],
+  [2022,0.91],
+  [2023,1.18]
+],
+  emissions = [
+  [2007, 384.02],
+  [2008, 385.79],
+  [2009, 387.63],
+  [2010, 389.99],
+  [2011, 392.06],
+  [2012, 394.06],
+  [2013, 396.74],
+  [2014, 398.81],
+  [2015, 401.02],
+  [2016, 404.41],
+  [2017, 406.77],
+  [2018, 409.27],
+  [2019, 411.66],
+  [2020, 414.21],
+  [2021, 416.41],
+  [2022, 418.53],
+  [2023, 421.08],
+  [2024, 422.59]
+];
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div id="lineChart3" style="width: 600px; height:300px"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingLCFive">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseLCFive" aria-expanded="true" aria-controls="collapseLCFive">
+                    Step 5: Clarifying Temperature Measurements
+                  </button>
+                </h2>
+                <div id="sub-collapseLCFive" class="accordion-collapse collapse show" aria-labelledby="sub-headingLCFive" data-bs-parent="#sub-lineChartExamples">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div style="border: 1px solid black;">
+                          <ul class="nav nav-tabs" id="codeAndDataExampleLC4Tabber" role="tablist" style="margin: 2rem;">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="lc4Info-tab" data-bs-toggle="tab" data-bs-target="#lc4Info-tab-pane" type="button" role="tab" aria-controls="lc4Info-tab-pane" aria-selected="true">Info</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="lc4Code-tab" data-bs-toggle="tab" data-bs-target="#lc4Code-tab-pane" type="button" role="tab" aria-controls="lc4Code-tab-pane" aria-selected="true">Code</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="lc4Data-tab" data-bs-toggle="tab" data-bs-target="#lc4Data-tab-pane" type="button" role="tab" aria-controls="lc4Data-tab-pane" aria-selected="false">Data</button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="codeAndDataExampleLC4TabberContent" style="margin: 2rem;">
+                            <div class="tab-pane fade show active" id="lc4Info-tab-pane" role="tabpanel" aria-labelledby="lc4Info-tab" tabindex="0">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                  <p>
+                                    In this chart, I have added a "dummy" data set and added it to the chart.
+                                    The dataset contains nothing but zeroes. The zero line reinforces its role
+                                    as a part of the chart framework making it easy to distinguish where the baseline
+                                    0 is in the chart.
+                                  </p>
+                                  <p>
+                                    In the final version of the chart, I will add labels to help clarify the material
+                                    being presented in the chart.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade show" id="lc4Code-tab-pane" role="tabpanel" aria-labelledby="lc4Code-tab" tabindex="1">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+<span class="text-danger">
+let zeroes = [];
+for(let yr=2007; yr<2030; yr += 1) { zeroes.push([yr, 0]) }
+</span>
+Flotr.draw(
+  document.getElementById("lineChart4"),
+  [
+    <span class="text-danger">{ data: zeroes,
+      lines: { show: true, lineWidth: 1 },
+      yaxis: 2,
+      shadowSize: 0,
+      color: "#545454"
+    },</span>
+    { data: emissions, lines: { show: true } },
+    { data: temps, lines: { show: true }, yaxis: 2 }
+  ],
+  {
+    title: lineChartTitle,
+    grid: {
+      horizontalLines: false,
+      verticalLines: false
+    },
+    yaxis: { min: 375, max: 450 },
+    y2axis: { min: -0.01, max: 1.25 }
+  }
+);
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="lc4Data-tab-pane" role="tabpanel" aria-labelledby="lc4Data-tab" tabindex="2">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+let temps = [
+  [2007,0.66],
+  [2008,0.55],
+  [2009,0.66],
+  [2010,0.73],
+  [2011,0.63],
+  [2012,0.66],
+  [2013,0.68],
+  [2014,0.77],
+  [2015,0.92],
+  [2016,1.03],
+  [2017,0.86],
+  [2018,0.86],
+  [2019,0.98],
+  [2020,1.01],
+  [2021,0.86],
+  [2022,0.91],
+  [2023,1.18]
+],
+  emissions = [
+  [2007, 384.02],
+  [2008, 385.79],
+  [2009, 387.63],
+  [2010, 389.99],
+  [2011, 392.06],
+  [2012, 394.06],
+  [2013, 396.74],
+  [2014, 398.81],
+  [2015, 401.02],
+  [2016, 404.41],
+  [2017, 406.77],
+  [2018, 409.27],
+  [2019, 411.66],
+  [2020, 414.21],
+  [2021, 416.41],
+  [2022, 418.53],
+  [2023, 421.08],
+  [2024, 422.59]
+];
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div id="lineChart4" style="width: 600px; height:300px"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingLCSix">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseLCSix" aria-expanded="true" aria-controls="collapseLCSix">
+                    Step 6: Labelling the Chart
+                  </button>
+                </h2>
+                <div id="sub-collapseLCSix" class="accordion-collapse collapse show" aria-labelledby="sub-headingLCSix" data-bs-parent="#sub-lineChartExamples">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div style="border: 1px solid black;">
+                          <ul class="nav nav-tabs" id="codeAndDataExampleLC5Tabber" role="tablist" style="margin: 2rem;">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="lc5CDesc-tab" data-bs-toggle="tab" data-bs-target="#lc5CDesc-tab-pane" type="button" role="tab" aria-controls="lc5CDesc-tab-pane" aria-selected="true">Info</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="lc5Code-tab" data-bs-toggle="tab" data-bs-target="#lc5Code-tab-pane" type="button" role="tab" aria-controls="lc5Code-tab-pane" aria-selected="true">Code</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="lc5Data-tab" data-bs-toggle="tab" data-bs-target="#lc5Data-tab-pane" type="button" role="tab" aria-controls="lc5Data-tab-pane" aria-selected="false">Data</button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="codeAndDataExampleLC5TabberContent" style="margin: 2rem;">
+                            <div class="tab-pane fade show active" id="lc5CDesc-tab-pane" role="tabpanel" aria-labelledby="lc5CDesc-tab" tabindex="0">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                  <p>
+                                    In this last example, I have added the appropriate labels to the chart. That
+                                    includes an overall title, as well as labels for individual data sets. And to make
+                                    it clear which axis refers to temperature, I've added the "&deg;C" suffix to the
+                                    temperature scale. I identify the label for each data series in the <strong>label</strong>
+                                    option for that series. The overall chart title receives its own option, and I
+                                    add the "&deg;C" suffix using the tickFormatter() function.
+                                  </p>
+                                  <p>
+                                    I also changed the order in the way that Flotr2 draws this graph. The changes
+                                    are highlighted in red.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="lc5Code-tab-pane" role="tabpanel" aria-labelledby="lc5Code-tab" tabindex="1">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+let zeroes = [];
+for(let yr=2007; yr<2030; yr += 1) { zeroes.push([yr, 0]) }
+
+Flotr.draw(
+  document.getElementById("lineChart5"),
+  [
+    {
+      data: zeroes,
+      <span class="text-danger">label: "20<sup>th</sup>-Century Baseline Temperature",</span>
+      lines: { show: true, lineWidth: 1 },
+      shadowSize: 0,
+      color: "#545454"
+    },
+    {
+      data: temps,
+      <span class="text-danger">label: "Yearly Temperature Difference (°C)",</span>
+      lines: { show: true }
+    },
+    {
+      data: emissions,
+      <span class="text-danger">label: "CO<sub>2</sub> Concentration (ppm)",</span>
+      <span class="text-danger">yaxis: 2,</span>
+      lines: { show: true }
+    }
+  ],
+  {
+    title: "Carbon Emissions Since I Graduated (2007)",
+    grid: {
+      horizontalLines: false,
+      verticalLines: false
+    },
+    y2axis: { min: 375, max: 450 },
+    yaxis: {
+      min: -0.1, max: 1.75,
+      <span class="text-danger">tickFormatter: function(val) {return val + "°C"; }</span> }
+  }
+);
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="lc5Data-tab-pane" role="tabpanel" aria-labelledby="lc5Data-tab" tabindex="2">
+                              <div class="row">
+                                <div class="col-lg-12">
+<pre>
+
+</pre>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div id="lineChart5" style="width: 600px; height:300px"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Pie Charts -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsePieCharts" aria-expanded="false" aria-controls="flush-collapsePieCharts">
+            Emphasizing Fractions Using A Pie Chart
+          </button>
+        </h2>
+        <div id="flush-collapsePieCharts" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushPieChartExamples">
+          <div class="accordion-body">
+            <blockquote style="width: 50%; margin: 1rem auto 3rem auto; font-size: 20px;">
+              Often overused but can be effective to highlight the proportion of a single value within a whole.
+            </blockquote>
+            <div class="accordion" id="sub-pieChartExamples">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingPCOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapsePCOne" aria-expanded="true" aria-controls="collapsePCOne">
+                    Step 1: Defining The Data
+                  </button>
+                </h2>
+                <div id="sub-collapsePCOne" class="accordion-collapse collapse show" aria-labelledby="sub-headingPCOne" data-bs-parent="#sub-pieChartExamples">
+                  <div class="accordion-body" style="display: flex; flex-direction: row;">
+                    <div class="row">
+                      <div class="col-lg-6" style="border-right: 1px solid black;">
+                        <p>
+                          Pie charts are rarely the most effective way to communicate data and are not popular among
+                          the visualization community.
+                        </p>
+                        <p>
+                          To show a common example of why they are not popular, the figure on the right has been
+                          drawn for you. Can you spot which color is largest? How about the smallest?
+                        </p>
+                        <p>
+                          For the next chart example, I'll go back to my bagel dataset:
+                        </p>
+<pre>
+let
+  color01 = '#00cde2',
+  color02 = '#ffb700',
+  color03 = '#7ac70c',
+  color04 = '#313541',
+  color05 = '#fc3232',
+  bagelTypes = [
+    [0, "Blueberry"],
+    [1, "Cinna-Raisin"],
+    [2, "Jalapeño Cheese"],
+    [3, "Sesame"],
+    [4, "Vanilla Cherry"]
+  ],
+  plottableBagelTypeData = [
+    {data: [[0, 75]], color: color01},
+    {data: [[1, 34]], color: color02},
+    {data: [[2, 27]], color: color03},
+    {data: [[3, 13]], color: color04},
+    {data: [[4, 40]], color: color05},
+  ];
+</pre>
+                      </div>
+                      <div class="col-lg-6">
+                        <div id="pieChartTest" style="width: 600px; height:300px"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="sub-headingPCTwo">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapsePCTwo" aria-expanded="true" aria-controls="collapsePCTwo">
+                      Step 2: Draw the Chart
+                    </button>
+                  </h2>
+                  <div id="sub-collapsePCTwo" class="accordion-collapse collapse show" aria-labelledby="sub-headingPCTwo" data-bs-parent="#sub-pieChartExamples">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div style="border: 1px solid black;">
+                            <ul class="nav nav-tabs" id="codeAndDataExamplePC1Tabber" role="tablist" style="margin: 2rem;">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pc1Info-tab" data-bs-toggle="tab" data-bs-target="#pc1Info-tab-pane" type="button" role="tab" aria-controls="pc1Info-tab-pane" aria-selected="true">Info</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pc1Code-tab" data-bs-toggle="tab" data-bs-target="#pc1Code-tab-pane" type="button" role="tab" aria-controls="pc1Code-tab-pane" aria-selected="true">Code</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pc1Data-tab" data-bs-toggle="tab" data-bs-target="#pc1Data-tab-pane" type="button" role="tab" aria-controls="pc1Data-tab-pane" aria-selected="false">Data</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="codeAndDataExamplePC1TabberContent" style="margin: 2rem;">
+                              <div class="tab-pane fade show active" id="pc1Info-tab-pane" role="tabpanel" aria-labelledby="pc1Info-tab" tabindex="0">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <p>
+                                      When drawing a Pie Chart, there are more option settings that must be included.
+                                      The minimum set of options required to set up a pie chart are:
+                                    </p>
+                                    <ol>
+                                      <li>
+                                        pie: { show: true }
+                                      </li>
+                                      <li>
+                                        yaxis: { showLabels: false }
+                                      </li>
+                                      <li>
+                                        xaxis: { showLabels: false }
+                                      </li>
+                                      <li>
+                                        grid: { horizontalLines: false, verticalLines: false }
+                                      </li>
+                                    </ol>
+                                    <p>
+                                      Without setting a legend or labels, the Pie Chart is still hard to read.
+                                      I'll resolve those issues in the next step.
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade show" id="pc1Code-tab-pane" role="tabpanel" aria-labelledby="pc1Code-tab" tabindex="1">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("pieChart1"),
+  plottableBagelTypeData,
+  {
+    pie: {
+      show: true
+    },
+    title: "Greco's Bakery Bagels Sold By Type (07-09-2024)",
+    yaxis: { showLabels: false },
+    xaxis: { showLabels: false },
+    grid: {
+      horizontalLines: false,
+      verticalLines: false
+    }
+  }
+);
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="pc1Data-tab-pane" role="tabpanel" aria-labelledby="pc1Data-tab" tabindex="2">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+let
+  color01 = '#00cde2',
+  color02 = '#ffb700',
+  color03 = '#7ac70c',
+  color04 = '#313541',
+  color05 = '#fc3232',
+  bagelTypes = [
+    [0, "Blueberry"],
+    [1, "Cinna-Raisin"],
+    [2, "Jalapeño Cheese"],
+    [3, "Sesame"],
+    [4, "Vanilla Cherry"]
+  ],
+  plottableBagelTypeData = [
+    {data: [[0, 75]], color: color01},
+    {data: [[1, 34]], color: color02},
+    {data: [[2, 27]], color: color03},
+    {data: [[3, 13]], color: color04},
+    {data: [[4, 40]], color: color05},
+  ];
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div id="pieChart1" style="width: 600px; height:300px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="sub-headingPCThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapsePCThree" aria-expanded="true" aria-controls="collapsePCThree">
+                      Step 3: Labelling the Values
+                    </button>
+                  </h2>
+                  <div id="sub-collapsePCThree" class="accordion-collapse collapse show" aria-labelledby="sub-headingPCThree" data-bs-parent="#sub-pieChartExamples">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div style="border: 1px solid black;">
+                            <ul class="nav nav-tabs" id="codeAndDataExamplePC2Tabber" role="tablist" style="margin: 2rem;">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pc2Info-tab" data-bs-toggle="tab" data-bs-target="#pc2Info-tab-pane" type="button" role="tab" aria-controls="pc2Info-tab-pane" aria-selected="true">Info</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pc2Code-tab" data-bs-toggle="tab" data-bs-target="#pc2Code-tab-pane" type="button" role="tab" aria-controls="pc2Code-tab-pane" aria-selected="true">Code</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pc2Data-tab" data-bs-toggle="tab" data-bs-target="#pc2Data-tab-pane" type="button" role="tab" aria-controls="pc2Data-tab-pane" aria-selected="false">Data</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="codeAndDataExamplePC2TabberContent" style="margin: 2rem;">
+                              <div class="tab-pane fade show active" id="pc2Info-tab-pane" role="tabpanel" aria-labelledby="pc2Info-tab" tabindex="0">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <p>
+                                      In this step is to add some text labels and a legend to indicate what the
+                                      chart is displaying. To label each quantity separately, the structure of the
+                                      data will need to change.
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade show" id="pc2Code-tab-pane" role="tabpanel" aria-labelledby="pc2Code-tab" tabindex="1">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("pieChart2"),
+  plotPieBagelData,
+  {
+    pie: {
+      show: true
+    },
+    yaxis: {
+      showLabels: false
+    },
+    xaxis: {
+      showLabels: false
+    },
+    grid: {
+      horizontalLines: false,
+      verticalLines: false
+    }
+  }
+);
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="pc2Data-tab-pane" role="tabpanel" aria-labelledby="pc2Data-tab" tabindex="2">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+let
+  color01 = '#00cde2',
+  color02 = '#ffb700',
+  color03 = '#7ac70c',
+  color04 = '#313541',
+  color05 = '#fc3232',
+  bagelTypes = [
+    [0, "Blueberry"],
+    [1, "Cinna-Raisin"],
+    [2, "Jalapeño Cheese"],
+    [3, "Sesame"],
+    [4, "Vanilla Cherry"]
+  ],
+  plotPieBagelData = [
+    {data: [[0, 75]], color: color01, label: bagelTypes[0][1]},
+    {data: [[1, 34]], color: color02, label: bagelTypes[1][1]},
+    {data: [[2, 27]], color: color03, label: bagelTypes[2][1]},
+    {data: [[3, 13]], color: color04, label: bagelTypes[3][1]},
+    {data: [[4, 40]], color: color05, label: bagelTypes[4][1]},
+  ];
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div id="pieChart2" style="width: 600px; height:300px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- X/Y Scatter Charts -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseXYSCharts" aria-expanded="false" aria-controls="flush-collapseXYSCharts">
+            Plotting X/Y Data with a Scatter Chart
+          </button>
+        </h2>
+        <div id="flush-collapseXYSCharts" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushXYSChartExamples">
+          <div class="accordion-body">
+            <blockquote style="width: 50%; margin: 1rem auto 3rem auto; font-size: 20px;">
+              Effective for showing possible relationships between two values.
+            </blockquote>
+            <div class="accordion" id="sub-XYSChartExamples">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingXYSOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseXYSOne" aria-expanded="true" aria-controls="collapseXYSOne">
+                    Step 1: Defining The Data
+                  </button>
+                </h2>
+                <div id="sub-collapseXYSOne" class="accordion-collapse collapse show" aria-labelledby="sub-headingXYSOne" data-bs-parent="#sub-XYSChartExamples">
+                  <div class="accordion-body" style="display: flex; flex-direction: row;">
+                    <div class="row">
+                      <div class="col-lg-6" style="border-right: 1px solid black;">
+                        <p>
+                          For this section's chart type I will look at the relationship between a country's health-care
+                          spending (one quantity) and its life expectancy (the second quantity).
+                        </p>
+                        <p>
+                          A bar chart is often most effect for visualizing data that consists primarily of a single
+                          quantity (such as the number of bagels sold). To explore the relationship between two
+                          different quantities, a scatter chart can be more effective.
+                        </p>
+                        <p>
+                          I will use 2021 data from:
+                          <a href="https://databank.worldbank.org/reports.aspx?source=2&series=SH.XPD.CHEX.GD.ZS&country=">
+                            The WorldBank DataBank
+                          </a>
+                        </p>
+                        <p>
+                          On the right is a sample of the data.
+                        </p>
+                      </div>
+                      <div class="col-lg-6">
+<pre>
+const healthData = [
+  {
+    "countryName": "Afghanistan",
+    "y2021CHE": 21.82794952, // Spending on health
+    "2021LE": 61.982 // Life expectancy
+  },
+  ...229 more elements
+]
+</pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="sub-headingXYSTwo">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseXYSTwo" aria-expanded="true" aria-controls="collapseXYSTwo">
+                      Step 2: Format the DataSource for Flotr2 Consumption
+                    </button>
+                  </h2>
+                  <div id="sub-collapseXYSTwo" class="accordion-collapse collapse show" aria-labelledby="sub-headingXYSTwo" data-bs-parent="#sub-XYSChartExamples">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div style="border: 1px solid black;">
+                            <ul class="nav nav-tabs" id="codeAndDataExampleXYS1Tabber" role="tablist" style="margin: 2rem;">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="xys1Info-tab" data-bs-toggle="tab" data-bs-target="#xys1Info-tab-pane" type="button" role="tab" aria-controls="xys1Info-tab-pane" aria-selected="true">Info</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xys1Code-tab" data-bs-toggle="tab" data-bs-target="#xys1Code-tab-pane" type="button" role="tab" aria-controls="xys1Code-tab-pane" aria-selected="true">Code</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xys1Data-tab" data-bs-toggle="tab" data-bs-target="#xys1Data-tab-pane" type="button" role="tab" aria-controls="xys1Data-tab-pane" aria-selected="false">Data</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="codeAndDataExampleXYS1TabberContent" style="margin: 2rem;">
+                              <div class="tab-pane fade show active" id="xys1Info-tab-pane" role="tabpanel" aria-labelledby="xys1Info-tab" tabindex="0">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <p>
+                                      The raw data must be formatted prior to using it with Flotr2. I have created
+                                      a new variable to store all of the plottable data. An example of the new
+                                      variable can be viewed on the right.
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade show" id="xys1Code-tab-pane" role="tabpanel" aria-labelledby="xys1Code-tab" tabindex="1">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+let exportableXYS1Data = [];
+const processXYS1ChartData = function() {
+  healthData.forEach(item => exportableXYS1Data.push([
+    item["y2021CHE"],
+    item["2021LE"]
+  ]));
+}
+
+processXYS1ChartData();
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="xys1Data-tab-pane" role="tabpanel" aria-labelledby="xys1Data-tab" tabindex="2">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+const healthData = [
+  {
+    "countryName": "Afghanistan",
+    "y2021CHE": 21.82794952,
+    "2021LE": 61.982
+  },
+  ...229 more items
+];
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+<pre>
+let exportableXYS1Data = [
+    [
+      [21.82794952, 61.982],
+      ...229 more items
+    ]
+  ];
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="sub-headingXYSThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseXYSThree" aria-expanded="true" aria-controls="collapseXYSThree">
+                      Step 3: Draw the Chart
+                    </button>
+                  </h2>
+                  <div id="sub-collapseXYSThree" class="accordion-collapse collapse show" aria-labelledby="sub-headingXYSThree" data-bs-parent="#sub-XYSChartExamples">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div style="border: 1px solid black;">
+                            <ul class="nav nav-tabs" id="codeAndDataExampleXYS2Tabber" role="tablist" style="margin: 2rem;">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="xys2Info-tab" data-bs-toggle="tab" data-bs-target="#xys2Info-tab-pane" type="button" role="tab" aria-controls="xys2Info-tab-pane" aria-selected="true">Info</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xys2Code-tab" data-bs-toggle="tab" data-bs-target="#xys2Code-tab-pane" type="button" role="tab" aria-controls="xys2Code-tab-pane" aria-selected="true">Code</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xys2Data-tab" data-bs-toggle="tab" data-bs-target="#xys2Data-tab-pane" type="button" role="tab" aria-controls="xys2Data-tab-pane" aria-selected="false">Data</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="codeAndDataExampleXYS2TabberContent" style="margin: 2rem;">
+                              <div class="tab-pane fade show active" id="xys2Info-tab-pane" role="tabpanel" aria-labelledby="xys2Info-tab" tabindex="0">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <p>
+                                      Upon drawing the chart on the right, Flotr2 will automatically calculate
+                                      the ranges for each axis, and its default algorithm usually results in a chart
+                                      that is too cramped. Flotr2 does have an <em>autoscale</em> option; and if set
+                                      the library will attempt to find sensible ranges for the associated axes.
+                                      Unfortunately, the ranges Flotr2 suggests rarely improve the default option
+                                      significantly, so in most cases it is better to explicitly set the ranges
+                                      in the next step.
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade show" id="xys2Code-tab-pane" role="tabpanel" aria-labelledby="xys2Code-tab" tabindex="1">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("xysChart1"),
+  [{ data: exportableXYS1Data, points: { show: true } }]
+);
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="xys2Data-tab-pane" role="tabpanel" aria-labelledby="xys2Data-tab" tabindex="2">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+let exportableXYS1Data = [
+    [
+      [21.82794952, 61.982],
+      ...229 more items
+    ]
+  ];
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div id="xysChart1" style="width: 600px; height:300px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="sub-headingXYSFour">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseXYSFour" aria-expanded="true" aria-controls="collapseXYSFour">
+                      Step 4: Adjusting the Chart's Axes
+                    </button>
+                  </h2>
+                  <div id="sub-collapseXYSFour" class="accordion-collapse collapse show" aria-labelledby="sub-headingXYSFour" data-bs-parent="#sub-XYSChartExamples">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div style="border: 1px solid black;">
+                            <ul class="nav nav-tabs" id="codeAndDataExampleXYS3Tabber" role="tablist" style="margin: 2rem;">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="xys3Info-tab" data-bs-toggle="tab" data-bs-target="#xys3Info-tab-pane" type="button" role="tab" aria-controls="xys3Info-tab-pane" aria-selected="true">Info</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xys3Code-tab" data-bs-toggle="tab" data-bs-target="#xys3Code-tab-pane" type="button" role="tab" aria-controls="xys3Code-tab-pane" aria-selected="true">Code</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xys3Data-tab" data-bs-toggle="tab" data-bs-target="#xys3Data-tab-pane" type="button" role="tab" aria-controls="xys3Data-tab-pane" aria-selected="false">Data</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="codeAndDataExampleXYS3TabberContent" style="margin: 2rem;">
+                              <div class="tab-pane fade show active" id="xys3Info-tab-pane" role="tabpanel" aria-labelledby="xys3Info-tab" tabindex="0">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <p>
+                                      By explicitly setting the ranges, I now have all of my datapoints contained
+                                      nicely within the graph as compared to the last one.
+                                    </p>
+                                    <p>
+                                      In the next step I will work on labelling the data so that the chart is more
+                                      readable.
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade show" id="xys3Code-tab-pane" role="tabpanel" aria-labelledby="xys3Code-tab" tabindex="1">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("xysChart2"),
+  [{ data: exportableXYS1Data, points: { show: true } }],
+  <span class="text-danger">{
+    xaxis: { min: -1, max: 25 },
+    yaxis: { min: 50, max: 90 }
+  }</span>
+);
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="xys3Data-tab-pane" role="tabpanel" aria-labelledby="xys3Data-tab" tabindex="2">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+let exportableXYS1Data = [
+    [
+      [21.82794952, 61.982],
+      ...229 more items
+    ]
+  ];
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div id="xysChart2" style="width: 600px; height:300px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="sub-headingXYSFive">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseXYSFive" aria-expanded="true" aria-controls="collapseXYSFive">
+                      Step 5: Labelling the Chart
+                    </button>
+                  </h2>
+                  <div id="sub-collapseXYSFive" class="accordion-collapse collapse show" aria-labelledby="sub-headingXYSFive" data-bs-parent="#sub-XYSChartExamples">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div style="border: 1px solid black;">
+                            <ul class="nav nav-tabs" id="codeAndDataExampleXYS4Tabber" role="tablist" style="margin: 2rem;">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="xys4Info-tab" data-bs-toggle="tab" data-bs-target="#xys4Info-tab-pane" type="button" role="tab" aria-controls="xys4Info-tab-pane" aria-selected="true">Info</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xys4Code-tab" data-bs-toggle="tab" data-bs-target="#xys4Code-tab-pane" type="button" role="tab" aria-controls="xys4Code-tab-pane" aria-selected="true">Code</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xys4Data-tab" data-bs-toggle="tab" data-bs-target="#xys4Data-tab-pane" type="button" role="tab" aria-controls="xys4Data-tab-pane" aria-selected="false">Data</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="codeAndDataExampleXYS4TabberContent" style="margin: 2rem;">
+                              <div class="tab-pane fade show active" id="xys4Info-tab-pane" role="tabpanel" aria-labelledby="xys4Info-tab" tabindex="0">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <p>
+                                      In the new draw of the chart, there are now labels that describe the axes,
+                                      making the chart more legible. The x-axis should be changed however to represent
+                                      a percentage rather than a whole number, which I will do in the next step.
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade show" id="xys4Code-tab-pane" role="tabpanel" aria-labelledby="xys4Code-tab" tabindex="1">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("xysChart3"),
+  [{ data: exportableXYS1Data, points: { show: true } }],
+  {
+    title: "Life Expectancy vs. Health-care Spending",
+    subtitle: "(by Country, 2021 OECD Data)",
+    xaxis: {
+      min: -1, max: 25,
+      tickDecimals: 0,
+      title: "Spending as Percentage of GDP"
+    },
+    yaxis: {
+      min: 50, max: 90,
+      tickDecimals: 0,
+      title: "Years"
+    }
+  }
+);
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="xys4Data-tab-pane" role="tabpanel" aria-labelledby="xys4Data-tab" tabindex="2">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+let exportableXYS1Data = [
+    [
+      [21.82794952, 61.982],
+      ...229 more items
+    ]
+  ];
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div id="xysChart3" style="width: 600px; height:300px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="sub-headingXYSSix">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseXYSSix" aria-expanded="true" aria-controls="collapseXYSSix">
+                      Step 6: Clarifying the X-Axis
+                    </button>
+                  </h2>
+                  <div id="sub-collapseXYSSix" class="accordion-collapse collapse show" aria-labelledby="sub-headingXYSSix" data-bs-parent="#sub-XYSChartExamples">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div style="border: 1px solid black;">
+                            <ul class="nav nav-tabs" id="codeAndDataExampleXYS5Tabber" role="tablist" style="margin: 2rem;">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="xys5Info-tab" data-bs-toggle="tab" data-bs-target="#xys5Info-tab-pane" type="button" role="tab" aria-controls="xys5Info-tab-pane" aria-selected="true">Info</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xys5Code-tab" data-bs-toggle="tab" data-bs-target="#xys5Code-tab-pane" type="button" role="tab" aria-controls="xys5Code-tab-pane" aria-selected="true">Code</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xys5Data-tab" data-bs-toggle="tab" data-bs-target="#xys5Data-tab-pane" type="button" role="tab" aria-controls="xys5Data-tab-pane" aria-selected="false">Data</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="codeAndDataExampleXYS5TabberContent" style="margin: 2rem;">
+                              <div class="tab-pane fade show active" id="xys5Info-tab-pane" role="tabpanel" aria-labelledby="xys5Info-tab" tabindex="0">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <p>
+                                      The labels on the chart look good now, but there is still some question as to
+                                      what data point belongs to what Country. They are also shaded the same. This
+                                      could raise questions for the User of the graph. I will work on fixing those
+                                      issues next.
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade show" id="xys5Code-tab-pane" role="tabpanel" aria-labelledby="xys5Code-tab" tabindex="1">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("xysChart3"),
+  [{ data: exportableXYS1Data, points: { show: true } }],
+  {
+    title: "Life Expectancy vs. Health-care Spending",
+    subtitle: "(by Country, 2021 OECD Data)",
+    xaxis: {
+      min: -1, max: 25,
+      tickDecimals: 0,
+      title: "Spending as Percentage of GDP",
+      <span class="text-danger">tickFormatter: function(val) { return val + "%" }</span>
+    },
+    yaxis: {
+      min: 50, max: 90,
+      tickDecimals: 0,
+      title: "Years"
+    }
+  }
+);
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="xys5Data-tab-pane" role="tabpanel" aria-labelledby="xys5Data-tab" tabindex="2">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+let exportableXYS1Data = [
+    [
+      [21.82794952, 61.982],
+      ...229 more items
+    ]
+  ];
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div id="xysChart4" style="width: 600px; height:300px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="sub-headingXYSSeven">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseXYSSeven" aria-expanded="true" aria-controls="collapseXYSSeven">
+                      Step 7: Answering User's Questions
+                    </button>
+                  </h2>
+                  <div id="sub-collapseXYSSeven" class="accordion-collapse collapse show" aria-labelledby="sub-headingXYSSeven" data-bs-parent="#sub-XYSChartExamples">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div style="border: 1px solid black;">
+                            <ul class="nav nav-tabs" id="codeAndDataExampleXYS6Tabber" role="tablist" style="margin: 2rem;">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="xys6Info-tab" data-bs-toggle="tab" data-bs-target="#xys6Info-tab-pane" type="button" role="tab" aria-controls="xys6Info-tab-pane" aria-selected="true">Info</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xys6Code-tab" data-bs-toggle="tab" data-bs-target="#xys6Code-tab-pane" type="button" role="tab" aria-controls="xys6Code-tab-pane" aria-selected="true">Code</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xys6Data-tab" data-bs-toggle="tab" data-bs-target="#xys6Data-tab-pane" type="button" role="tab" aria-controls="xys6Data-tab-pane" aria-selected="false">Data</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="codeAndDataExampleXYS6TabberContent" style="margin: 2rem;">
+                              <div class="tab-pane fade show active" id="xys6Info-tab-pane" role="tabpanel" aria-labelledby="xys6Info-tab" tabindex="0">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <p>
+                                      Some questions that are still left unanswered from the previous example charts
+                                      are:
+                                    </p>
+                                    <ol>
+                                      <li>What countries are shown?</li>
+                                      <li>Are there any regional differences?</li>
+                                      <li>What's that datapoint all the way to the top right?</li>
+                                    </ol>
+                                    <p>Let's answer those questions</p>
+                                    <p>
+                                      To start, one way to answer those questions would be to add mouseovers (or
+                                      tool-tips) to each data point. I will not use that approach in this example
+                                      for a few reasons: First, I will be exploring interactive charts later. Secondly,
+                                      mouseovers and tooltips are ineffective for users accessing a site on a touch
+                                      device, such as a smartphone or tablet.
+                                    </p>
+                                    <p>
+                                      If it were a requirement that users have to mouse to fully understand a visualization,
+                                      then they might be neglecting a significant (and rapidly growing) number of them.
+                                    </p>
+                                    <p>
+                                      My approach to this problem will be to divide the data into mutliple series
+                                      so that I may appropriately shade and label each datapoint independently.
+                                      There are changes to the code and data structure which have been updated in this
+                                      section's code and data tabs.
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade show" id="xys6Code-tab-pane" role="tabpanel" aria-labelledby="xys6Code-tab" tabindex="1">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("xysChart5"),
+  [
+    { data: africa, points: { show: true }, label: "Africa" },
+    { data: americas, points: { show: true }, label: "Americas" },
+    { data: asia, points: { show: true }, label: "Asia" },
+    { data: europe, points: { show: true }, label: "Europe" },
+    { data: mideast, points: { show: true }, label: "Mid-East" },
+    { data: pacific, points: { show: true }, label: "Pacific" },
+    { data: us, points: { show: true }, label: "USA" }
+  ],
+  {
+    title: "Life Expectancy vs. Health-care Spending",
+    subtitle: "(by Country, 2021 OECD Data)",
+    xaxis: {
+      min: -1, max: 30,
+      tickDecimals: 0,
+      title: "Spending as Percentage of GDP",
+      tickFormatter: function(val) { return val + "%" }
+    },
+          yaxis: {
+            min: 50, max: 90,
+            tickDecimals: 0,
+            title: "Years"
+          },
+          legend: { position: "ne" }
+        }
+      );
+
+let
+  africa = [],
+  europe= [],
+  americas = [],
+  mideast = [],
+  asia = [],
+  us = [],
+  pacific = [];
+
+const processXYSFinalChartData = function() {
+  africaData.forEach(country => africa.push([ country.y2021CHE, country["2021LE"] ]));
+  americasData.forEach(country => americas.push([ country.y2021CHE, country["2021LE"] ]));
+  asiaData.forEach(country => asia.push([ country.y2021CHE, country["2021LE"] ]));
+  europeData.forEach(country => europe.push([ country.y2021CHE, country["2021LE"] ]));
+  mideastData.forEach(country => mideast.push([ country.y2021CHE, country["2021LE"] ]));
+  pacificData.forEach(country => pacific.push([ country.y2021CHE, country["2021LE"] ]));
+  usData.forEach(country => us.push([ country.y2021CHE, country["2021LE"] ]));
+}
+
+processXYSFinalChartData();
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="xys6Data-tab-pane" role="tabpanel" aria-labelledby="xys6Data-tab" tabindex="2">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+let
+  africaData = [
+    {
+      "countryName": "Algeria",
+      "y2021CHE": 5.5283432,
+      "2021LE": 76.377
+    },
+    ...43 more elements
+  ],
+  americasData = [
+    {
+      "countryName": "Argentina",
+      "y2021CHE": 9.70880699,
+      "2021LE": 75.39
+    },
+    ...27 more elements
+  ],
+  asiaData = [
+    {
+      "countryName": "Armenia",
+      "y2021CHE": 12.34,
+      "2021LE": 72.043
+    },
+    ...34 more elements
+  ],
+  europeData = [
+    {
+      "countryName": "Albania",
+      "y2021CHE": 7.26731825,
+      "2021LE": 76.463
+    },
+    ...41 more elements
+  ],
+  mideastData = [
+    {
+      "countryName": "Afghanistan",
+      "y2021CHE": 21.82794952,
+      "2021LE": 61.982
+    },
+    ...15 more elements
+  ],
+  pacificData = [
+    {
+      "countryName": "Australia",
+      "y2021CHE": 10.54363918,
+      "2021LE": 83.3
+    },
+    ...23 more elements
+  ],
+  usData = [
+    {
+      "countryName": "United States",
+      "y2021CHE": 17.3625679,
+      "2021LE": 76.3292682926829
+    }
+  ];
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div id="xysChart5" style="width: 600px; height:300px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- X/Y Bubble Charts -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseXYBCharts" aria-expanded="false" aria-controls="flush-collapseXYBCharts">
+            Plotting X/Y Data with a Bubble Chart
+          </button>
+        </h2>
+        <div id="flush-collapseXYBCharts" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushXYBChartExamples">
+          <div class="accordion-body">
+            <blockquote style="width: 50%; margin: 1rem auto 3rem auto; font-size: 20px;">
+              Adds a third value to scatter charts but should be used carefully, as it's difficult to accurately assess
+              the relative areas of circular regions.
+            </blockquote>
+            <div class="accordion" id="sub-XYBChartExamples">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingXYBOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseXYBOne" aria-expanded="true" aria-controls="collapseXYBOne">
+                    Step 1: Defining The Data
+                  </button>
+                </h2>
+                <div id="sub-collapseXYBOne" class="accordion-collapse collapse show" aria-labelledby="sub-headingXYBOne" data-bs-parent="#sub-XYBChartExamples">
+                  <div class="accordion-body" style="display: flex; flex-direction: row;">
+                    <div class="row">
+                      <div class="col-lg-6" style="border-right: 1px solid black;">
+                        <p>
+                          If we need to visualize three (3) variables, we could use a scatter plot framework for two
+                          of the variables and then vary the size of the points according to the third variable. This
+                          results in a bubble chart.
+                        </p>
+                        <p>
+                          Using bubble charts effectively requires some caution. Humans are not very good at accurately
+                          judging the relative areas of non-rectangular shapes, so bubble charts don't lend themselves
+                          to precise comparisons of the bubble size. If the third variable conveys only the general
+                          sense of a quantity rather than an accurate measurement, a bubble chart can be appropriate.
+                        </p>
+                        <p>
+                          I will use 2005 data from Hurricane Katrina from NOAA:
+                        </p>
+                        <p>
+                          On the right is a sample of the data.
+                        </p>
+                        <p>
+                          I will transform the data to fit the expectations of Flotr2's graph requirements in the next
+                          steps using the following function:
+                        </p>
+                        <hr/>
+<pre>
+const processKatrinaDataSplit =
+  function(source_data, filter_function, dataset) {
+    katrinaData.forEach(entry => {
+      if(
+        (typeof filter_function === "undefined") ||
+        (typeof filter_function !== "function") ||
+        filter_function(entry)
+      ) {
+        dataset.push([
+          entry.west * -1,
+          entry.north,
+          entry.wind
+        ]);
+      }
+  });
+  return dataset;
+}
+
+processKatrinaDataSplit(
+  katrinaData,
+  function(obs) {
+    return (obs.wind >= 74) && (obs.wind <= 95);
+  },
+  cat1Info
+);
+</pre>
+                      </div>
+                      <div class="col-lg-6">
+<pre>
+let katrinaData = [
+  { north: 23.2, west: 75.5, wind:  35 },
+  { north: 24.0, west: 76.4, wind:  35 },
+  { north: 25.2, west: 77.0, wind:  45 },
+  { north: 26.0, west: 77.6, wind:  45 },
+  { north: 26.2, west: 78.7, wind:  50 },
+  { north: 26.1, west: 79.9, wind:  75 },
+  { north: 25.5, west: 80.7, wind:  75 },
+  { north: 25.1, west: 82.2, wind: 100 },
+  { north: 24.8, west: 82.9, wind: 100 },
+  { north: 24.4, west: 84.0, wind: 110 },
+  { north: 24.4, west: 84.6, wind: 115 },
+  { north: 25.1, west: 86.8, wind: 145 },
+  { north: 25.7, west: 87.7, wind: 160 },
+  { north: 26.5, west: 88.6, wind: 175 },
+  { north: 27.9, west: 89.5, wind: 160 },
+  { north: 29.7, west: 89.6, wind: 135 },
+  { north: 30.8, west: 89.6, wind: 105 },
+  { north: 31.9, west: 89.6, wind:  75 },
+  { north: 32.9, west: 88.9, wind:  65 },
+  { north: 34.7, west: 88.4, wind:  50 },
+];
+</pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="sub-headingXYBTwo">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseXYBTwo" aria-expanded="true" aria-controls="collapseXYBTwo">
+                      Step 2: Draw the Chart
+                    </button>
+                  </h2>
+                  <div id="sub-collapseXYBTwo" class="accordion-collapse collapse show" aria-labelledby="sub-headingXYBTwo" data-bs-parent="#sub-XYBChartExamples">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div style="border: 1px solid black;">
+                            <ul class="nav nav-tabs" id="codeAndDataExampleXYB1Tabber" role="tablist" style="margin: 2rem;">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="xyb1Info-tab" data-bs-toggle="tab" data-bs-target="#xyb1Info-tab-pane" type="button" role="tab" aria-controls="xyb1Info-tab-pane" aria-selected="true">Info</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xyb1Code-tab" data-bs-toggle="tab" data-bs-target="#xyb1Code-tab-pane" type="button" role="tab" aria-controls="xyb1Code-tab-pane" aria-selected="true">Code</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xyb1Data-tab" data-bs-toggle="tab" data-bs-target="#xyb1Data-tab-pane" type="button" role="tab" aria-controls="xyb1Data-tab-pane" aria-selected="false">Data</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="codeAndDataExampleXYB1TabberContent" style="margin: 2rem;">
+                              <div class="tab-pane fade show active" id="xyb1Info-tab-pane" role="tabpanel" aria-labelledby="xyb1Info-tab" tabindex="0">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <p>
+                                      It will take several iterations to get the chart looking the way it should,
+                                      but this example begins with the minimal options needed to get started.
+                                    </p>
+                                    <p>
+                                      For static charts like this one, it's easiest to experiment with a few values to
+                                      find the best size. A value of <strong>0.3</strong> seems effective for this
+                                      chart which is what I will use.
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade show" id="xyb1Code-tab-pane" role="tabpanel" aria-labelledby="xyb1Code-tab" tabindex="1">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("xybChart1"),
+  [{
+    data: processKatrinaData(katrinaData, null),
+    bubbles: { show: true, <span class="text-danger">baseRadius: 0.3</span> }
+  }]
+);
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="xyb1Data-tab-pane" role="tabpanel" aria-labelledby="xyb1Data-tab" tabindex="2">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+processKatrinaData() => Returns
+[
+  [-75.5, 23.2, 35],
+  [-76.4, 24, 35],
+  [-77, 25.2, 45],
+  [-77.6, 26, 45],
+  [-78.7, 26.2, 50],
+  [-79.9, 26.1, 75],
+  [-80.7, 25.5, 75],
+  [-82.2, 25.1, 100],
+  [-82.9, 24.8, 100],
+  [-84, 24.4, 110],
+  [-84.6, 24.4, 115],
+  [-86.8, 25.1, 145],
+  [-87.7, 25.7, 160],
+  [-88.6, 26.5, 175],
+  [-89.5, 27.9, 160],
+  [-89.6, 29.7, 135],
+  [-89.6, 30.8, 105],
+  [-89.6, 31.9, 75],
+  [-88.9, 32.9, 65],
+  [-88.4, 34.7, 50],
+  [-75.5, 23.2, 35],
+  [-76.4, 24, 35],
+  [-77, 25.2, 45],
+  [-77.6, 26, 45],
+  [-78.7, 26.2, 50],
+  [-79.9, 26.1, 75],
+  [-80.7, 25.5, 75],
+  [-82.2, 25.1, 100],
+  [-82.9, 24.8, 100],
+  [-84, 24.4, 110],
+  [-84.6, 24.4, 115],
+  [-86.8, 25.1, 145],
+  [-87.7, 25.7, 160],
+  [-88.6, 26.5, 175],
+  [-89.5, 27.9, 160],
+  [-89.6, 29.7, 135],
+  [-89.6, 30.8, 105],
+  [-89.6, 31.9, 75],
+  [-88.9, 32.9, 65],
+  [-88.4, 34.7, 50],
+  [-75.5, 23.2, 35],
+  [-76.4, 24, 35],
+  [-77, 25.2, 45],
+  [-77.6, 26, 45],
+  [-78.7, 26.2, 50],
+  [-79.9, 26.1, 75],
+  [-80.7, 25.5, 75],
+  [-82.2, 25.1, 100],
+  [-82.9, 24.8, 100],
+  [-84, 24.4, 110],
+  [-84.6, 24.4, 115],
+  [-86.8, 25.1, 145],
+  [-87.7, 25.7, 160],
+  [-88.6, 26.5, 175],
+  [-89.5, 27.9, 160],
+  [-89.6, 29.7, 135],
+  [-89.6, 30.8, 105],
+  [-89.6, 31.9, 75],
+  [-88.9, 32.9, 65],
+  [-88.4, 34.7, 50]
+]
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div id="xybChart1" style="width: 600px; height:300px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="sub-headingXYBThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseXYBThree" aria-expanded="true" aria-controls="collapseXYBThree">
+                      Step 3: Set a Background for the Chart
+                    </button>
+                  </h2>
+                  <div id="sub-collapseXYBThree" class="accordion-collapse collapse show" aria-labelledby="sub-headingXYBThree" data-bs-parent="#sub-XYBChartExamples">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div style="border: 1px solid black;">
+                            <ul class="nav nav-tabs" id="codeAndDataExampleXBS2Tabber" role="tablist" style="margin: 2rem;">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="xyb2Info-tab" data-bs-toggle="tab" data-bs-target="#xyb2Info-tab-pane" type="button" role="tab" aria-controls="xyb2Info-tab-pane" aria-selected="true">Info</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xyb2Code-tab" data-bs-toggle="tab" data-bs-target="#xyb2Code-tab-pane" type="button" role="tab" aria-controls="xyb2Code-tab-pane" aria-selected="true">Code</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xyb2Data-tab" data-bs-toggle="tab" data-bs-target="#xyb2Data-tab-pane" type="button" role="tab" aria-controls="xyb2Data-tab-pane" aria-selected="false">Data</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="codeAndDataExampleXYB2TabberContent" style="margin: 2rem;">
+                              <div class="tab-pane fade show active" id="xyb2Info-tab-pane" role="tabpanel" aria-labelledby="xyb2Info-tab" tabindex="0">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <p>
+                                      In this example I've added in a background image. When adding a background image
+                                      we can remove the grid lines and disable the axis labels: latitude and longitude
+                                      values do not have much meaning for the average user, and they're certainly
+                                      not necessary with the map. Finally, I adjust the scale of the chart to match the
+                                      map image.
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade show" id="xyb2Code-tab-pane" role="tabpanel" aria-labelledby="xyb2Code-tab" tabindex="1">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("xybChart2"),
+  [{
+    data: processKatrinaData(katrinaData, null),
+    bubbles: { show: true, baseRadius: 0.3 }
+  }],
+  <span class="text-danger">{
+    grid: {
+      backgroundImage: "./gulf.png",
+      horizontalLines: false,
+      verticalLines: false
+    },
+    yaxis: { showLabels: false, min: 23.607, max: 33.657 },
+    xaxis: { showLabels: false, min: -94.298, max: -77.586 }
+  }</span>
+);
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="xyb2Data-tab-pane" role="tabpanel" aria-labelledby="xyb2Data-tab" tabindex="2">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+processKatrinaData() => Returns
+[
+  [-75.5, 23.2, 35],
+  [-76.4, 24, 35],
+  [-77, 25.2, 45],
+  [-77.6, 26, 45],
+  [-78.7, 26.2, 50],
+  [-79.9, 26.1, 75],
+  [-80.7, 25.5, 75],
+  [-82.2, 25.1, 100],
+  [-82.9, 24.8, 100],
+  [-84, 24.4, 110],
+  [-84.6, 24.4, 115],
+  [-86.8, 25.1, 145],
+  [-87.7, 25.7, 160],
+  [-88.6, 26.5, 175],
+  [-89.5, 27.9, 160],
+  [-89.6, 29.7, 135],
+  [-89.6, 30.8, 105],
+  [-89.6, 31.9, 75],
+  [-88.9, 32.9, 65],
+  [-88.4, 34.7, 50],
+  [-75.5, 23.2, 35],
+  [-76.4, 24, 35],
+  [-77, 25.2, 45],
+  [-77.6, 26, 45],
+  [-78.7, 26.2, 50],
+  [-79.9, 26.1, 75],
+  [-80.7, 25.5, 75],
+  [-82.2, 25.1, 100],
+  [-82.9, 24.8, 100],
+  [-84, 24.4, 110],
+  [-84.6, 24.4, 115],
+  [-86.8, 25.1, 145],
+  [-87.7, 25.7, 160],
+  [-88.6, 26.5, 175],
+  [-89.5, 27.9, 160],
+  [-89.6, 29.7, 135],
+  [-89.6, 30.8, 105],
+  [-89.6, 31.9, 75],
+  [-88.9, 32.9, 65],
+  [-88.4, 34.7, 50],
+  [-75.5, 23.2, 35],
+  [-76.4, 24, 35],
+  [-77, 25.2, 45],
+  [-77.6, 26, 45],
+  [-78.7, 26.2, 50],
+  [-79.9, 26.1, 75],
+  [-80.7, 25.5, 75],
+  [-82.2, 25.1, 100],
+  [-82.9, 24.8, 100],
+  [-84, 24.4, 110],
+  [-84.6, 24.4, 115],
+  [-86.8, 25.1, 145],
+  [-87.7, 25.7, 160],
+  [-88.6, 26.5, 175],
+  [-89.5, 27.9, 160],
+  [-89.6, 29.7, 135],
+  [-89.6, 30.8, 105],
+  [-89.6, 31.9, 75],
+  [-88.9, 32.9, 65],
+  [-88.4, 34.7, 50]
+]
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div id="xybChart2" style="width: 600px; height:300px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="sub-headingXYBFour">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseXYBFour" aria-expanded="true" aria-controls="collapseXYBFour">
+                      Step 4: Shading the Bubbles
+                    </button>
+                  </h2>
+                  <div id="sub-collapseXYBFour" class="accordion-collapse collapse show" aria-labelledby="sub-headingXYBFour" data-bs-parent="#sub-XYBChartExamples">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div style="border: 1px solid black;">
+                            <ul class="nav nav-tabs" id="codeAndDataExampleXYB3Tabber" role="tablist" style="margin: 2rem;">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="xyb3Info-tab" data-bs-toggle="tab" data-bs-target="#xyb3Info-tab-pane" type="button" role="tab" aria-controls="xyb3Info-tab-pane" aria-selected="true">Info</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xyb3Code-tab" data-bs-toggle="tab" data-bs-target="#xyb3Code-tab-pane" type="button" role="tab" aria-controls="xyb3Code-tab-pane" aria-selected="true">Code</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xyb3Data-tab" data-bs-toggle="tab" data-bs-target="#xyb3Data-tab-pane" type="button" role="tab" aria-controls="xyb3Data-tab-pane" aria-selected="false">Data</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="codeAndDataExampleXYB3TabberContent" style="margin: 2rem;">
+                              <div class="tab-pane fade show active" id="xyb3Info-tab-pane" role="tabpanel" aria-labelledby="xyb3Info-tab" tabindex="0">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <p>
+                                      This example gives me a chance to provide even more information to the users of
+                                      this chart without overly distracting them: Flotr2 provides the option to modify the
+                                      bubble colors.
+                                    </p>
+                                    <p>
+                                      In this exmaple, I've passed an optional filter function to filter the initial
+                                      katrinaData dataset to split the dataset into five (5) categories: one for each
+                                      wind speed category defining a hurricane.
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade show" id="xyb3Code-tab-pane" role="tabpanel" aria-labelledby="xyb3Code-tab" tabindex="1">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("xybChart3"),
+  <span class="text-danger">[
+    { // Cat-1
+      data:  cat1Info,
+      color: "#cefad0",
+      label: "Category 1",
+      bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+    },
+    { // Cat-2
+      data: cat2Info,
+      color: "#e8e337",
+      label: "Category 2",
+      bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+    },
+    { // Cat-3
+      data: cat3Info,
+      color: "#e47200",
+      label: "Category 3",
+      bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+    },
+    { // Cat-4
+      data: cat4Info,
+      color: "#d24e01",
+      label: "Category 4",
+      bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+    },
+    { // Cat 5
+      data: cat5Info,
+      color: "#d73027",
+      label: "Category 5",
+      bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+    }
+  ]</span>,
+  {
+    grid: {
+      backgroundImage: "./gulf.png",
+      horizontalLines: false,
+      verticalLines: false
+    },
+    yaxis: { showLabels: false, min: 23.607, max: 33.657 },
+    xaxis: { showLabels: false, min: -94.298, max: -77.586 },
+    <span class="text-danger">legend: { position: "sw" }</span>
+  }
+);
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="xyb3Data-tab-pane" role="tabpanel" aria-labelledby="xyb3Data-tab" tabindex="2">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+processKatrinaDataSplit(
+  katrinaData,
+  function(obs) {
+    return (obs.wind >= 74) && (obs.wind <= 95);
+  },
+  cat1Info
+); => Returns to catInfo1:
+[
+  [-79.9, 26.1, 75],
+  [-80.7, 25.5, 75],
+  [-89.6, 31.9, 75]
+]
+  ...Called for Cat1-Cat5
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div id="xybChart3" style="width: 600px; height:300px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="sub-headingXYBFive">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseXYBFive" aria-expanded="true" aria-controls="collapseXYBFive">
+                      Step 5: Adjusting the Legend Styles
+                    </button>
+                  </h2>
+                  <div id="sub-collapseXYBFive" class="accordion-collapse collapse show" aria-labelledby="sub-headingXYBFive" data-bs-parent="#sub-XYBChartExamples">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div style="border: 1px solid black;">
+                            <ul class="nav nav-tabs" id="codeAndDataExampleXYB4Tabber" role="tablist" style="margin: 2rem;">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="xyb4Info-tab" data-bs-toggle="tab" data-bs-target="#xyb4Info-tab-pane" type="button" role="tab" aria-controls="xyb4Info-tab-pane" aria-selected="true">Info</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xyb4Code-tab" data-bs-toggle="tab" data-bs-target="#xyb4Code-tab-pane" type="button" role="tab" aria-controls="xyb4Code-tab-pane" aria-selected="true">Code</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="xyb4Data-tab" data-bs-toggle="tab" data-bs-target="#xyb4Data-tab-pane" type="button" role="tab" aria-controls="xyb4Data-tab-pane" aria-selected="false">Data</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="codeAndDataExampleXYB4TabberContent" style="margin: 2rem;">
+                              <div class="tab-pane fade show active" id="xyb4Info-tab-pane" role="tabpanel" aria-labelledby="xyb4Info-tab" tabindex="0">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <p>
+                                      By default, Flotr2 prefers all elements as large as possible. The legend in the
+                                      previous example looks camped and unattractive. I will add some CSS styles
+                                      to give the legend some padding, and also set the legend background opacity.
+                                    </p>
+                                    <p>
+                                      To prevent Flotr2 from creating its own background for the legend, set the
+                                      opacity to 0.
+                                    </p>
+                                    <p>
+                                      I won't add a chart title because Flotr2 will shrink the chart's area by an
+                                      unpredictable amount. That would further distort the latitude transformation.
+                                      Instead, I will use HTML to provide the title.
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade show" id="xyb4Code-tab-pane" role="tabpanel" aria-labelledby="xyb4Code-tab" tabindex="1">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+# CSS Rule Added
+<span class="text-danger">.flotr-legend {
+  padding: 5px;
+  background-color: #ececec;
+}</span>
+
+# Flotr Draw
+Flotr.draw(
+  document.getElementById("xybChart4"),
+  [
+    { // Cat-1
+      data:  cat1Info,
+      color: "#cefad0",
+      label: "Category 1",
+      bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+    },
+    { // Cat-2
+      data: cat2Info,
+      color: "#e8e337",
+      label: "Category 2",
+      bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+    },
+    { // Cat-3
+      data: cat3Info,
+      color: "#e47200",
+      label: "Category 3",
+      bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+    },
+    { // Cat-4
+      data: cat4Info,
+      color: "#d24e01",
+      label: "Category 4",
+      bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+    },
+    { // Cat 5
+      data: cat5Info,
+      color: "#d73027",
+      label: "Category 5",
+      bubbles: { show: true, baseRadius: 0.3, lineWidth: 1 }
+    }
+  ],
+  {
+    grid: {
+      backgroundImage: "./gulf.png",
+      horizontalLines: false,
+      verticalLines: false
+    },
+    yaxis: { showLabels: false, min: 23.607, max: 33.657 },
+    xaxis: { showLabels: false, min: -94.298, max: -77.586 },
+    legend: { position: "sw", <span class="text-danger">backgroundOpacity: 0</span> }
+  }
+);
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="xyb4Data-tab-pane" role="tabpanel" aria-labelledby="xyb4Data-tab" tabindex="2">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+processKatrinaDataSplit(
+  katrinaData,
+  function(obs) {
+    return (obs.wind >= 74) && (obs.wind <= 95);
+  },
+  cat1Info
+); => Returns to catInfo1:
+[
+  [-79.9, 26.1, 75],
+  [-80.7, 25.5, 75],
+  [-89.6, 31.9, 75]
+]
+  ...Called for Cat1-Cat5
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <h4 class="text-center">Hurricane Katrina 2005</h4>
+                          <div id="xybChart4" style="width: 600px; height:300px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Radar Charts -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseRadarCharts" aria-expanded="false" aria-controls="flush-collapseRadarCharts">
+            Displaying Multidimensional Data with a Radar Chart
+          </button>
+        </h2>
+        <div id="flush-collapseRadarCharts" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushRadarChartsExamples">
+          <div class="accordion-body">
+            <blockquote style="width: 50%; margin: 1rem auto 3rem auto; font-size: 20px;">
+              Designed to show several aspects of the subject on one chart. Not as familiar to many users but can
+              be effective for certain specialized cases.
+            </blockquote>
+            <div class="accordion" id="sub-RadarChartsExamples">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="sub-headingRadarOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseRadarOne" aria-expanded="true" aria-controls="collapseRadarOne">
+                    Step 1: Defining The Data
+                  </button>
+                </h2>
+                <div id="sub-collapseRadarOne" class="accordion-collapse collapse show" aria-labelledby="sub-headingRadarOne" data-bs-parent="#sub-RadarChartExamples">
+                  <div class="accordion-body" style="display: flex; flex-direction: row;">
+                    <div class="row">
+                      <div class="col-lg-6" style="border-right: 1px solid black;">
+                        <p>
+                          Dungeons and Dragons! That's the data I'll be using for this section. Torque is a
+                          forest gnome life cleric. His basic point distribution at level four (4) is:
+                        </p>
+                        <ol>
+                          <li>
+                            Strength: +1 => 13
+                          </li>
+                          <li>
+                            Dexterity: +1 => 12
+                          </li>
+                          <li>
+                            Constitution: +4 => 18
+                          </li>
+                          <li>
+                            Intelligence: -1 => 8
+                          </li>
+                          <li>
+                            Wisdom: +3 => 16
+                          </li>
+                          <li>
+                            Charisma: +0 => 10
+                          </li>
+                        </ol>
+                        <p>
+                          His basic skill point distribution at level four (4) is:
+                        </p>
+                        <ol>
+                          <li>
+                            Acrobatics (Dex) => 1
+                          </li>
+                          <li>
+                            Animal Handling (Wis) => 5
+                          </li>
+                          <li>
+                            Arcana (Int) => -1
+                          </li>
+                          <li>
+                            Athletics (Str) => 1
+                          </li>
+                          <li>
+                            Deception (Cha) => 0
+                          </li>
+                          <li>
+                            History (Int) => -1
+                          </li>
+                          <li>
+                            Insight (Wis) => 5
+                          </li>
+                          <li>
+                            Intimidation (Cha) => 0
+                          </li>
+                          <li>
+                            Investigation (Int) => -1
+                          </li>
+                          <li>
+                            Medicine (Wis) => 5
+                          </li>
+                          <li>
+                            Nature (Int) => -1
+                          </li>
+                          <li>
+                            Perception (Wis) => 3
+                          </li>
+                          <li>
+                            Performance (Cha) => 0
+                          </li>
+                          <li>
+                            Persuasion (Cha) => 0
+                          </li>
+                          <li>
+                            Religion (Int) => -1
+                          </li>
+                          <li>
+                            Sleight of Hand (Dex) => 1
+                          </li>
+                          <li>
+                            Stealth (Dex) => 1
+                          </li>
+                          <li>
+                            Survival (Wis) => 5
+                          </li>
+                        </ol>
+                      </div>
+                      <div class="col-lg-6">
+                        <div id="radarChart1" style="width: 600px; height:300px"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="sub-headingRadarTwo">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseRadarTwo" aria-expanded="true" aria-controls="collapseRadarTwo">
+                      Step 2: Draw the Chart
+                    </button>
+                  </h2>
+                  <div id="sub-collapseRadarTwo" class="accordion-collapse collapse show" aria-labelledby="sub-headingRadarTwo" data-bs-parent="#sub-RadarChartExamples">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div style="border: 1px solid black;">
+                            <ul class="nav nav-tabs" id="codeAndDataExampleRadar1Tabber" role="tablist" style="margin: 2rem;">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="radar1Info-tab" data-bs-toggle="tab" data-bs-target="#radar1Info-tab-pane" type="button" role="tab" aria-controls="radar1Info-tab-pane" aria-selected="true">Info</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="radar1Code-tab" data-bs-toggle="tab" data-bs-target="#radar1Code-tab-pane" type="button" role="tab" aria-controls="radar1Code-tab-pane" aria-selected="true">Code</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="radar1Data-tab" data-bs-toggle="tab" data-bs-target="#radar1Data-tab-pane" type="button" role="tab" aria-controls="radar1Data-tab-pane" aria-selected="false">Data</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="codeAndDataExampleRadar1TabberContent" style="margin: 2rem;">
+                              <div class="tab-pane fade show active" id="radar1Info-tab-pane" role="tabpanel" aria-labelledby="radar1Info-tab" tabindex="0">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <p>
+                                      If there is data with many dimensions, a radar chart may be the most effective
+                                      way to visualize it. Radar charts are not as common as other charts, though,
+                                      and their unfamiliarity makes them a little harder for users to interpret.
+                                      When designing radar charts, try to be cognizant to not increase the burden.
+                                    </p>
+                                    <p>
+                                      Radar charts are most effective when data has several characteristics:
+                                    </p>
+                                    <ul>
+                                      <li>
+                                        When there are not too many data points to show. Half a dozen is about the
+                                        maximum that a radar chart can accommodate.
+                                      </li>
+                                      <li>
+                                        The data points have multiple dimensions. With two or even three dimensions
+                                        to the data would probably be better off with a more traditional chart type.
+                                        Radar charts come into play with data of four or more dimensions.
+                                      </li>
+                                      <li>
+                                        Each data dimension is a scale that can at least be ranked (from good to bad),
+                                        if not assigned a number outright. Radar charts do not work well with data
+                                        dimensions that are merely arbitrary categories (such as political parties or
+                                        nationality).
+                                      </li>
+                                    </ul>
+                                    <p>
+                                      A classic usage of radar charts is analyzing the performance of players on sports
+                                      teams.
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade show" id="radar1Code-tab-pane" role="tabpanel" aria-labelledby="radar1Code-tab" tabindex="1">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("radarChart2"),
+  [
+    player_data("Torque", 4)
+  ],
+  {
+    title: "Torque's Skill Chart",
+    radar: {
+      show: true,
+    },
+    grid: { circular: true },
+    xaxis: { ticks: x_labelsC2 },
+    yaxis: { min: -1, max: 5, ticks: y_labelsC2, showLabels: false }
+  }
+);
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="radar1Data-tab-pane" role="tabpanel" aria-labelledby="radar1Data-tab" tabindex="2">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+// Values have been offset by +1, use -1 to find the actual values
+let torqueAtLv4 = [
+  [0, 0],
+  [1, 0],
+  [2, 0],
+  [3, 0],
+  [4, 0],
+  [5, 1],
+  [6, 1],
+  [7, 1],
+  [8, 2],
+  [9, 2],
+  [10, 2],
+  [11, 2],
+  [12, 4],
+  [13, 5],
+  [14, 5],
+  [15, 5],
+  [16, 5],
+  [17, 5]
+];
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div id="radarChart2" style="width: 600px; height:200px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="sub-headingRadarThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseRadarThree" aria-expanded="true" aria-controls="collapseRadarThree">
+                      Step 3: Draw another Chart
+                    </button>
+                  </h2>
+                  <div id="sub-collapseRadarThree" class="accordion-collapse collapse show" aria-labelledby="sub-headingRadarThree" data-bs-parent="#sub-RadarChartExamples">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div style="border: 1px solid black;">
+                            <ul class="nav nav-tabs" id="codeAndDataExampleRadar2Tabber" role="tablist" style="margin: 2rem;">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="radar2Info-tab" data-bs-toggle="tab" data-bs-target="#radar2Info-tab-pane" type="button" role="tab" aria-controls="radar2Info-tab-pane" aria-selected="true">Info</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="radar2Code-tab" data-bs-toggle="tab" data-bs-target="#radar2Code-tab-pane" type="button" role="tab" aria-controls="radar2Code-tab-pane" aria-selected="true">Code</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="radar2Data-tab" data-bs-toggle="tab" data-bs-target="#radar2Data-tab-pane" type="button" role="tab" aria-controls="radar2Data-tab-pane" aria-selected="false">Data</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="codeAndDataExampleRadar2TabberContent" style="margin: 2rem;">
+                              <div class="tab-pane fade show active" id="radar2Info-tab-pane" role="tabpanel" aria-labelledby="radar2Info-tab" tabindex="0">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <p>
+                                      Here is another example of a Radar chart using Torque's primary point distribution.
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade show" id="radar2Code-tab-pane" role="tabpanel" aria-labelledby="radar2Code-tab" tabindex="1">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+Flotr.draw(
+  document.getElementById("radarChart3"),
+  [
+    { data: torqueSkillPointsC3 }
+  ],
+  {
+    radar: {
+      show: true,
+    },
+    grid: { circular: true },
+    xaxis: { ticks: x_labelsC3 },
+    yaxis: { min: 0, max: 5, ticks: y_labelsC3, showLabels: true }
+  }
+);
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane fade" id="radar2Data-tab-pane" role="tabpanel" aria-labelledby="radar2Data-tab" tabindex="2">
+                                <div class="row">
+                                  <div class="col-lg-12">
+<pre>
+let
+  x_labelsC3 = [
+    [0, "Strength"],
+    [1, "Dexterity"],
+    [2, "Constitution"],
+    [3, "Intelligence"],
+    [4, "Wisdom"],
+    [5, "Charisma"]
+  ],
+  y_labelsC3 = [
+    [0, 0],
+    [1, 4],
+    [2, 8],
+    [3, 12],
+    [4, 16],
+    [5, 20]
+  ],
+  torqueSkillPointsC3 = [
+    [0, 13/4],
+    [1, 12/4],
+    [2, 18/4],
+    [3, 8/4],
+    [4, 16/4],
+    [5, 10/4]
+  ];
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div id="radarChart3" style="width: 600px; height:300px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Flotr2 Lib -->
+<script src=" https://cdn.jsdelivr.net/npm/flotr2@0.1.0/flotr2.min.js"></script>
+</body>
+</html>

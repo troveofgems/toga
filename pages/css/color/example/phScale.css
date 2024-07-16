@@ -1,0 +1,82 @@
+body {
+  background-color: silver;
+  color: white;
+  padding: 20px;
+  font-family: Arial, Verdana, sans-serif;
+}
+
+h1 {
+  background-color: #fff;
+  background-color: hsla(0, 100%, 100%, 0.5);
+  color: #64645a;
+  padding: inherit;
+}
+
+p {
+  padding: 5px;
+  margin: 0;
+}
+
+.alkalineLabel, .acidicLabel, .neutralLabel {
+  text-transform: uppercase;
+}
+
+p.phScale_0 {
+  background-color: rgb(238, 62, 128);
+}
+
+p.phScale_1 {
+  background-color: rgb(244, 90, 139);
+}
+
+p.phScale_2 {
+  background-color: rgb(243, 106, 152);
+}
+
+p.phScale_3 {
+  background-color: rgb(244, 123, 166);
+}
+
+p.phScale_4 {
+  background-color: rgb(245, 140, 178);
+}
+
+p.phScale_5 {
+  background-color: rgb(246, 159, 192);
+}
+
+p.phScale_6 {
+  background-color: rgb(245, 176, 204);
+}
+
+p.phScale_7 {
+  background-color: rgb(0, 187, 136);
+}
+
+p.phScale_8 {
+  background-color: rgb(140, 202, 242);
+}
+
+p.phScale_9 {
+  background-color: rgb(114, 193, 240);
+}
+
+p.phScale_10 {
+  background-color: rgb(84, 182, 237);
+}
+
+p.phScale_11 {
+  background-color: rgb(48, 170, 233);
+}
+
+p.phScale_12 {
+  background-color: rgb(0, 160, 230);
+}
+
+p.phScale_13 {
+  background-color: rgb(0, 149, 226);
+}
+
+p.phScale_14 {
+  background-color: rgb(0, 136, 221);
+}

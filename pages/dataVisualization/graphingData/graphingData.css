@@ -1,0 +1,8 @@
+div#pieChartTest div.flotr-labels div.flotr-grid-label {
+  visibility: hidden;
+}
+
+.flotr-legend {
+  padding: 5px;
+  background-color: #ececec;
+}

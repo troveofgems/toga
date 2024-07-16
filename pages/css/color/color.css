@@ -1,0 +1,208 @@
+.foregroundExampleH1 {
+  color: DarkCyan;
+}
+
+.foregroundExampleH2 {
+  color: #ee3e80;
+}
+
+.foregroundExampleP {
+  color: rgb(100, 100, 90);
+}
+
+.backgroundExampleBody {
+  background-color: rgb(200, 200, 200);
+}
+.backgroundExampleH1 {
+  background-color: DarkCyan;
+  color: white;
+}
+
+.backgroundExampleH2 {
+  background-color: #ee3e80;
+  color: white;
+}
+
+.backgroundExampleP {
+  background-color: white;
+}
+
+#red-hsl {
+  margin: 5px;
+  padding: 5px;
+  background-color: hsl(0 100% 50%);
+  color: white;
+}
+#red-hsl-80 {
+  margin: 5px;
+  padding: 5px;
+  background-color: hsl(0 80% 50%);
+  color: white;
+}
+#red-hsl-60 {
+  margin: 5px;
+  padding: 5px;
+  background-color: hsl(0 60% 50%);
+  color: white;
+}
+#red-hsl-40 {
+  margin: 5px;
+  padding: 5px;
+  background-color: hsl(0 40% 50%);
+  color: white;
+}
+#red-hsl-20 {
+  margin: 5px;
+  padding: 5px;
+  background-color: hsl(0 20% 50%);
+  color: white;
+}
+#red-hsl-0 {
+  margin: 5px;
+  padding: 5px;
+  background-color: hsl(0 0% 50%);
+  color: white;
+}
+
+#red-hsl-bright {
+  margin: 5px;
+  padding: 5px;
+  background-color: red;
+  filter: brightness(100%);
+}
+#red-hsl-80-bright {
+  margin: 5px;
+  padding: 5px;
+  background-color: red;
+  color: white;
+  filter: brightness(80%);
+}
+#red-hsl-60-bright {
+  margin: 5px;
+  padding: 5px;
+  background-color: red;
+  color: white;
+  filter: brightness(60%);
+}
+#red-hsl-50-bright {
+  margin: 5px;
+  padding: 5px;
+  background-color: red;
+  color: white;
+  filter: brightness(50%);
+}
+#red-hsl-40-bright {
+  margin: 5px;
+  padding: 5px;
+  background-color: red;
+  color: white;
+  filter: brightness(40%);
+}
+#red-hsl-20-bright {
+  margin: 5px;
+  padding: 5px;
+  background-color: red;
+  color: white;
+  filter: brightness(20%);
+}
+#red-hsl-0-bright {
+  margin: 5px;
+  padding: 5px;
+  background-color: red;
+  color: white;
+  filter: brightness(0%);
+}
+
+#css3OpacityExample {
+  position: absolute;
+  height: fit-content;
+  color: white;
+}
+
+.css3Opacity1 {
+  margin: 10px 10px;
+  padding: 10px 10px;
+  width: 150px;
+  height: 150px;
+  background-color: red;
+}
+
+.css3Opacity2 {
+  margin: 10px 10px;
+  padding: 10px 10px;
+  width: 150px;
+  height: 150px;
+  /*  Fallback for Older Browsers
+  *   that do not recognize RGBA
+  */
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: -75px;
+  right: -30px;
+}
+
+.css3Opacity3 {
+  margin: 10px 10px;
+  padding: 10px 10px;
+  width: 150px;
+  height: 150px;
+  background-color: rgb(0, 0, 0);
+  position: relative;
+  top: -75px;
+  right: -30px;
+}
+
+
+#green-hsl-light {
+  margin: 5px;
+  padding: 5px;
+  background-color: hsl(120 100% 100%);
+}
+#green-hsl-80-light {
+  margin: 5px;
+  padding: 5px;
+  background-color: hsl(120 100% 80%);
+  color: white;
+}
+#green-hsl-60-light {
+  margin: 5px;
+  padding: 5px;
+  background-color: hsl(120 100% 60%);
+  color: white;
+}
+#green-hsl-50-light {
+  margin: 5px;
+  padding: 5px;
+  background-color: hsl(120 100% 50%);
+  color: white;
+}
+#green-hsl-40-light {
+  margin: 5px;
+  padding: 5px;
+  background-color: hsl(120 100% 40%);
+  color: white;
+}
+#green-hsl-20-light {
+  margin: 5px;
+  padding: 5px;
+  background-color: hsl(120 100% 20%);
+  color: white;
+}
+#green-hsl-0-light {
+  margin: 5px;
+  padding: 5px;
+  background-color: hsl(120 100% 0%);
+  color: white;
+}
+
+
+.hslExampleBody {
+  background-color: #c8c8c8;
+  background-color: hsl(0, 0%, 78%);
+}
+
+.hslExampleP {
+  background-color: #ffffff;
+  background-color: hsla(0, 100%, 100%, 0.5);
+}
