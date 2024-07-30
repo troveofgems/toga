@@ -1,0 +1,23 @@
+#schoolSchedule, #gymSchedule, #longTable {
+  th, td {
+    padding: 7px 10px 10px 10px;
+  }
+
+  th {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 90%;
+    border-bottom: 2px solid #999;
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+    text-align: left;
+    color: #fff;
+  }
+
+  td {
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    color: #fff;
+  }
+}
+

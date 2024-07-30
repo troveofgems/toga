@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML5 Lists</title>
+  <meta name="description" content="HTML5 Lists">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="../../../../../site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="lists.css" rel="stylesheet">
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      let btn = document.getElementById('viewSourceBtn');
+      btn.addEventListener('click', function() {
+        let sourceCode = document.documentElement.outerHTML;
+        let pre = document.createElement('pre');
+        pre.textContent = sourceCode;
+        document.body.appendChild(pre);
+      });
+    });
+  </script>
+</head>
+<body style="overflow-x: hidden;">
+<header style="margin: 2rem; text-align: right;">
+  <button type="button" role="button" class="btn btn-danger">
+    <a href="../../../../../index.html" class="text-white">Back To Main Page</a>
+  </button>
+</header>
+<div class="container-fluid mb-5">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center mb-5">HTML5 Lists</h1>
+      <div id="preamble" class="w-75" style="margin: 0 auto;">
+        <p>
+          There are many occasions when developers need to use a list. HTML provides developers with three (3)
+          different types of lists:
+        </p>
+        <ul>
+          <li>
+            <h5>Ordered Lists</h5>
+            <p>Each item in the list is numbered. Examples that need this type of list might be instructions, a recipe, etc.</p>
+          </li>
+          <li>
+            <h5>Unordered Lists</h5>
+            <p>Each item in the list is generically bulleted to denote no specific order.</p>
+          </li>
+          <li>
+            <h5>Definition Lists</h5>
+            <p>This list comprises a set of terms along with the definitions for those terms.</p>
+          </li>
+        </ul>
+      </div>
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Ordered Lists</h3>
+        <hr/>
+      </div>
+      <div id="orderedList" class="w-75" style="margin: 0 auto;">
+        <h3>Creating an Ordered List</h3>
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <p>
+              To create an ordered list, two tags are used: &lt;ol&gt; and its child tag &lt;li&gt;
+            </p>
+            <ol>
+              <li>
+                <h5>ol Tag &lt;ol&gt;</h5>
+                <p>
+                  Used to create an ordered list. Sometimes there might be a <strong>type</strong> attribute attached
+                  to the ol Tag used to specify the type of numbering (letters, roman vs arabic numerals, etc.). It
+                  is better to use the CSS list-style-type property instead.
+                </p>
+              </li>
+              <li>
+                <h5>li Tag &lt;li&gt;</h5>
+                <p>Used to enclose each item in the list. Browsers indent lists by default.</p>
+              </li>
+            </ol>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <small>Examples:</small>
+            <div style="border: 1px solid black;">
+              <small style="padding: .25rem;">Default Without Type Attr</small>
+              <ol>
+                <li>Chop potatoes into quarters</li>
+                <li>Simmer in salted water for 15-20 minutes until tender</li>
+                <li>Heat butter, milk, and nutmeg in a pot</li>
+                <li>Drain potatoes and mash</li>
+                <li>Mix in the milk mixture</li>
+              </ol>
+              <small style="padding: .25rem;">With Type Attr [I]</small>
+              <ol type="I">
+                <li>Chop potatoes into quarters</li>
+                <li>Simmer in salted water for 15-20 minutes until tender</li>
+                <li>Heat butter, milk, and nutmeg in a pot</li>
+                <li>Drain potatoes and mash</li>
+                <li>Mix in the milk mixture</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Unordered List</h3>
+        <hr/>
+      </div>
+      <div id="unorderedList" class="w-75" style="margin: 0 auto;">
+        <h3>Creating an Unordered List</h3>
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <p>
+              To create an unordered list, two tags are used: &lt;ul&gt; and its child tag &lt;li&gt;
+            </p>
+            <ol>
+              <li>
+                <h5>ul Tag &lt;ul&gt;</h5>
+                <p>
+                  Used to create an unordered list. Sometimes there might be a <strong>type</strong> attribute attached
+                  to the ul Tag used to specify the type of bullet points (circles, squares, diamonds, etc.). It
+                  is better to use the CSS list-style-type property instead.
+                </p>
+              </li>
+              <li>
+                <h5>li Tag &lt;li&gt;</h5>
+                <p>Used to enclose each item in the list. Browsers indent lists by default.</p>
+              </li>
+            </ol>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <small>Examples:</small>
+            <div style="border: 1px solid black;">
+              <small style="padding: .25rem;">Default Without Type Attr</small>
+              <ul>
+                <li>1 lb/kg Potatoes</li>
+                <li>100ml milk</li>
+                <li>50g salted butter</li>
+                <li>Freshly grated nutmeg</li>
+                <li>Salt and pepper to taste</li>
+              </ul>
+              <small style="padding: .25rem;">With Type Attr [circle]</small>
+              <ul type="circle">
+                <li>1 lb/kg Potatoes</li>
+                <li>.5 cup/100ml milk</li>
+                <li>50g salted butter</li>
+                <li>Freshly grated nutmeg</li>
+                <li>Salt and pepper to taste</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Definitions List</h3>
+        <hr/>
+      </div>
+      <div id="definitionList" class="w-75" style="margin: 0 auto;">
+        <h3>Creating a Definitions List</h3>
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <p>
+              To create a definitions list, three tags are used: &lt;dl&gt; and its children tags &lt;dt&gt; & &lt;dd&gt;
+            </p>
+            <ol>
+              <li>
+                <h5>dl Tag &lt;dl&gt;</h5>
+                <p>
+                  A definition list is created with the dl Tag and usually consists of a series of terms and their
+                  definitions.
+                </p>
+              </li>
+              <li>
+                <h5>dt Tag &lt;dt&gt;</h5>
+                <p>Used to contain the term being defined (the definition term).</p>
+              </li>
+              <li>
+                <h5>dd Tag &lt;dd&gt;</h5>
+                <p>
+                  Used to contain the term's definition. It is possible to see a list where there are two terms used
+                  for the same definition or two different definitions for the same term.
+                </p>
+              </li>
+            </ol>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <small>Examples:</small>
+            <div style="border: 1px solid black;">
+              <h4 style="padding: 1rem 1rem 0 1rem;">Contronyms</h4>
+              <dl style="padding: 0 1rem 1rem 1rem;">
+                <dt>Bolt</dt>
+                <dd>To Secure; To Flee</dd>
+                <dt>Buckle</dt>
+                <dd>To Connect; To Collapse</dd>
+                <dt>Fast</dt>
+                <dd>Quick; Stuck or made stable</dd>
+              </dl>
+              <h4 style="padding: 1rem 1rem 0 1rem;">Multiple Terms or Definitions</h4>
+              <dl style="padding: 0 1rem 1rem 1rem;">
+                <dt>Scale</dt>
+                <dd>A device used to accurately measure the weight of ingredients</dd>
+                <dd>A technique by which the scales are removed from the skin of a fish.</dd>
+                <dt>Scamorze</dt>
+                <dt>Scamorzo</dt>
+                <dd>An Italian cheese usually made from whole cow's milk (the traditional milk was buffalo).</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Nested Lists</h3>
+        <hr/>
+      </div>
+      <div id="nestedLists" class="w-75" style="margin: 0 auto;">
+        <h3>Creating Nested Lists</h3>
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <p>
+              You can put a second list inside an &lt;li&gt; element to create a sub-list or nested list. Browsers
+              display nested lists indented further than the parent list. In nested unordered lists, the browser will
+              usually change the style of the bullet point too.
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <small>Examples:</small>
+            <div style="border: 1px solid black;">
+              <small style="padding: .25rem;">Nested Ordered List</small>
+              <ol>
+                <li>Mousses</li>
+                <li>
+                  Pastries
+                  <ol>
+                    <li>Croissants</li>
+                    <li>Mille-feuille</li>
+                    <li>Palmier</li>
+                    <li>Profiterole</li>
+                  </ol>
+                </li>
+                <li>Tarts</li>
+              </ol>
+              <small style="padding: .25rem;">Nested Unordered List</small>
+              <ul>
+                <li>Mousses</li>
+                <li>
+                  Pastries
+                  <ul>
+                    <li>Croissants</li>
+                    <li>Mille-feuille</li>
+                    <li>Palmier</li>
+                    <li>Profiterole</li>
+                  </ul>
+                </li>
+                <li>Tarts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr/>
+<div class="container-fluid text-center mt-5">
+  <button id="viewSourceBtn" class="btn btn-info">View Source In Page</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+#pullquote, .important {
+  text-transform: uppercase;
+}
+
+.admittance {
+  color: red;
+}
+
+#natalDesc {
+  font-style: italic;
+  font-size: small;
+}

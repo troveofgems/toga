@@ -1,0 +1,2438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Text</title>
+  <meta name="description" content="CSS Text">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="../../../../../site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="text.css" rel="stylesheet">
+</head>
+<body style="overflow-x: hidden;">
+<header style="margin: 2rem; text-align: right;">
+  <button type="button" role="button" class="btn btn-danger">
+    <a href="../../../../../index.html" class="text-white">Back To Main Page</a>
+  </button>
+</header>
+<div class="container-fluid mb-5">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center mb-5">CSS Text</h1>
+      <div id="preamble" class="w-75" style="margin: 0 auto;">
+        <h5>
+          <em>
+            The properties that allow you to control the appearance of text can be split into two groups:
+          </em>
+        </h5>
+        <div class="mt-3 mb-5">
+          <ol>
+            <li>
+              Those that directly affect the font and its appearance including typefae, whether it is regular, bold,
+              or italic, and the font-size.
+            </li>
+            <li>
+              Those that would have the same effect on text no matter what font is being used, including the color of the text or
+              the spacing between words and letters.
+            </li>
+          </ol>
+          <p>
+            Formatting text can have a significant effect on how readable pages are.
+          </p>
+        </div>
+      </div>
+
+      <!-- Typeface Terminology -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Typeface Terminology</h3>
+        <hr/>
+      </div>
+      <div id="typefaceTerminology" class="w-75" style="margin: 0 auto;">
+        <div class="container row">
+          <div class="col-lg-12 row">
+            <div class="col-lg-4">
+              <h3 class="text-decoration-underline">serif</h3>
+              <p style="width: 75%;">
+                Serif fonts have extra details on the ends of the main strokes of the letters. These details are
+                known as serifs:
+              </p>
+              <p style="font-family: serif; font-size: 25px;">
+                im
+              </p>
+              <p style="width: 75%;">
+                In print, serif fonts were traditionally used for long passages of text because they were considered
+                easier to read.
+              </p>
+            </div>
+            <div class="col-lg-4">
+              <h3 class="text-decoration-underline">sans-serif</h3>
+              <p style="width: 75%;">
+                Sans-Serif fonts have straight ends to letters, and therefor have a much cleaner design.
+              </p>
+              <p style="font-family: sans-serif; font-size: 25px;">
+                im
+              </p>
+              <p style="width: 75%;">
+                Screens have a lower resolution than print. If the text is small, sans-serif fonts can be clearer to
+                read.
+              </p>
+            </div>
+            <div class="col-lg-4">
+              <h3 class="text-decoration-underline">monospace</h3>
+              <p style="width: 75%;">
+                Every letter in a monospace (or fixed-width) font is the same width (Non-monospace fonts have different
+                widths).
+              </p>
+              <p style="font-family: monospace; font-size: 25px;">
+                im
+              </p>
+              <p style="width: 75%;">
+                Monospace fonts are commonly used for code because they align nicely, making the text easier to follow.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-12 row mt-5">
+            <div class="col-lg-4">
+              <h3 class="text-decoration-underline">weight</h3>
+              <p style="font-weight: lighter;">Light</p>
+              <p style="font-weight: normal;">Normal</p>
+              <p style="font-weight: bold;">Bold</p>
+              <p style="font-weight: bolder;">Bolder</p>
+              <p style="width: 75%;">
+                The font weight not only adds emphasis but can also affect the amount of whitespace and contrast of a page.
+              </p>
+            </div>
+            <div class="col-lg-4">
+              <h3 class="text-decoration-underline">style</h3>
+              <p style="font-style: normal;">Normal</p>
+              <p style="font-style: italic;">Italic</p>
+              <p style="font-style: oblique;">Oblique</p>
+              <p style="width: 75%;">
+                The font weight not only adds emphasis but can also affect the amount of whitespace and contrast of a page.
+              </p>
+            </div>
+            <div class="col-lg-4">
+              <h3 class="text-decoration-underline">stretch</h3>
+              <p style="font-stretch: condensed;">Condensed</p>
+              <p style="font-stretch: normal;">Normal</p>
+              <p style="font-stretch: expanded;">Expanded</p>
+              <p style="width: 75%;">
+                In condensed (or narrow) versions of the font, letters are thinner and closer together. In expanded
+                versions they are thicker and futher apart.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Choosing A Typeface for a Website -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Choosing A Typeface for a Website</h3>
+        <hr/>
+      </div>
+      <div id="choosingTypeface" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-12 col-lg-6" style="padding-right: 2rem;">
+            <h5>
+              How to choose a Typeface?
+            </h5>
+            <p>
+              When choosing a typeface, it is important to understand that a browser will usually only display it if
+              it's installed on that user's computer.
+            </p>
+            <p>
+              As a result, sites often use a small set of typefaces that are installed on most computers (explore the
+              right panel for more details). There are some techniques to get around this limitation, covered in
+              a section further down.<br/><a href="#" alt="Go To Techniques">Go To Section</a>
+            </p>
+            <p>
+              It is possible to specify more than one typeface and create an order of preference (in case the user
+              does not have the first choice of typefaces installed). This is sometimes referred to as the
+              <em>font stack</em>.
+            </p>
+            <p>
+              Browsers are supposed to support at least one typeface from each of the groups to the right. For this
+              reason, it is common to add the generic font name after the preferred choice of typefaces.
+            </p>
+            <p>
+              For example:<br/>
+              <span class="text-danger">font-family: Georgia, Times, serif;</span>
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <p class="d-inline-flex gap-1 flex-wrap">
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChooseSerif" aria-expanded="false" aria-controls="collapseChooseSerif">
+                Serif
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChooseSansSerif" aria-expanded="false" aria-controls="collapseChooseSansSerif">
+                Sans-Serif
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChooseMonospace" aria-expanded="false" aria-controls="collapseChooseMonospace">
+                Monospace
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChooseCursive" aria-expanded="false" aria-controls="collapseChooseCursive">
+                Cursive
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChooseFantasy" aria-expanded="false" aria-controls="collapseChooseFantasy">
+                Fantasy
+              </button>
+            </p>
+            <div class="collapse" id="collapseChooseSerif">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">Serif Examples</h5>
+                <div class="serifExamples">
+                  <p style="font-family: Georgia, serif;">Georgia</p>
+                  <p style="font-family: Times, serif;">Times</p>
+                  <p style="font-family: 'Times New Roman', serif;">Times New Roman</p>
+                </div>
+              </div>
+            </div>
+            <div class="collapse" id="collapseChooseSansSerif">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">Sans-Serif Examples</h5>
+                <div class="sansSerifExamples">
+                  <p style="font-family: Arial, sans-serif;">Arial</p>
+                  <p style="font-family: Verdana, sans-serif;">Verdana</p>
+                  <p style="font-family: Helvetica, sans-serif;">Helvetica</p>
+                </div>
+              </div>
+            </div>
+            <div class="collapse" id="collapseChooseMonospace">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">Monospace Examples</h5>
+                <div class="monospaceExamples">
+                  <p style="font-family: Courier, monospace;">Courier</p>
+                  <p style="font-family: 'Courier New', monospace;">Courier New</p>
+                </div>
+              </div>
+            </div>
+            <div class="collapse" id="collapseChooseCursive">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">Cursive Examples</h5>
+                <div class="cursiveExamples">
+                  <p style="font-family: 'Comic Sans MS', cursive;">Comic Sans MS</p>
+                  <p style="font-family: 'Monotype Corsiva', cursive;">Monotype Corsiva</p>
+                </div>
+              </div>
+            </div>
+            <div class="collapse" id="collapseChooseFantasy">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">Fantasy Examples</h5>
+                <div class="cursiveExamples">
+                  <p style="font-family: Impact, fantasy;">Impact</p>
+                  <p style="font-family: Haettenschweiler, fantasy;">Haettenschweiler</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Techniques that Offer a Wider Choice of Typefaces -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Techniques that Offer a Wider Choice of Typefaces</h3>
+        <hr/>
+      </div>
+      <div id="typefaceTechniques" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-8" style="margin: 0 auto;">
+            <h5>
+              There are several ways to use fonts other than those listed in the prior section. However,
+              typefaces are subject to copyright, so the typefaces used are limited by their respective licenses.
+            </h5>
+            <p>
+              If a site is designed on a Mac, it is important to check what the typefaces look like on PC
+              because PC can render the type less smoothly. But if designed on a PC, it should look fine on Mac.
+            </p>
+            <p class="d-inline-flex gap-1 flex-wrap" style="width: 100%; justify-content: center;">
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChooseFontFamily" aria-expanded="false" aria-controls="collapseChooseFontFamily">
+                Font-Family
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChooseFontFace" aria-expanded="false" aria-controls="collapseChooseFontFace">
+                Font-Face
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChooseSBFontFace" aria-expanded="false" aria-controls="collapseChooseSBFontFace">
+                Service-Based Font-Face
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChooseImages" aria-expanded="false" aria-controls="collapseChooseImages">
+                Images
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChooseCUFON" aria-expanded="false" aria-controls="collapseChooseCUFON">
+                CUFON
+              </button>
+            </p>
+            <div class="collapse" id="collapseChooseFontFamily">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">Font-Family</h5>
+                <small>Suitable for any length of text</small>
+                <p>The user's computer needs the typeface installed. CSS is used to specify the typeface.</p>
+                <div class="p-2">
+                  <h6 class="text-decoration-underline">Issues</h6>
+                  <p>There is a limited choice of typefaces that most users have installed.</p>
+                  <h6 class="text-decoration-underline">Licensing</h6>
+                  <p>The typeface is not being distributed so there is no licensing issue.</p>
+                  <h6 class="text-decoration-underline">Choice of Typefaces</h6>
+                  <p>
+                    There is a limited choice because the font needs to be installed on the user's computer.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="collapse" id="collapseChooseFontFace">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">Font-Face</h5>
+                <small>Suitable for any length of text</small>
+                <p>CSS Specifies where a font can be downloaded from if it is not installed on the computer.</p>
+                <div class="p-2">
+                  <h6 class="text-decoration-underline">Issues</h6>
+                  <p>The user has to download the font-file, which can slow the loading of a webpage.</p>
+                  <h6 class="text-decoration-underline">Licensing</h6>
+                  <p>The license to use the font must permit its distribution using @font-face</p>
+                  <h6 class="text-decoration-underline">Choice of Typefaces</h6>
+                  <p>
+                    Choice is limited because few typefaces can be freely distributed this way.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="collapse" id="collapseChooseSBFontFace">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">Service-Based Font-Face</h5>
+                <small>Suitable for any length of text</small>
+                <p>Commercial services give users access to a wider range of fonts using @font-face</p>
+                <div class="p-2">
+                  <h6 class="text-decoration-underline">Issues</h6>
+                  <p>There is an ongoing fee to cover licenses paid to font foundries.</p>
+                  <h6 class="text-decoration-underline">Licensing</h6>
+                  <p>The service takes care of the licensing issues with the people who made the font.</p>
+                  <h6 class="text-decoration-underline">Choice of Typefaces</h6>
+                  <p>
+                    Each service offers a different choice of fonts based on their agreements with font foundries.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="collapse" id="collapseChooseImages">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">Images</h5>
+                <small class="text-danger">NOT suitable for long passages of text</small>
+                <p>Graphics can be used that contains the text as it's needed to appear in a different typeface.</p>
+                <div class="p-2">
+                  <h6 class="text-decoration-underline">Issues</h6>
+                  <p>People who use screen readers will rely on the alt text to know what was said.</p>
+                  <h6 class="text-decoration-underline">Licensing</h6>
+                  <p>
+                    Any typeface may be used if a license is owned for it (distribution of a typeface is another matter).
+                  </p>
+                  <h6 class="text-decoration-underline">Choice of Typefaces</h6>
+                  <p>
+                    Some typeface manufacturers are not keen on this technique. May be limited.
+                  </p>
+                  <h6 class="text-decoration-underline">Choice of Typefaces</h6>
+                  <p>
+                    Very wide choice because any typeface with an owned license may be used.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="collapse" id="collapseChooseCUFON">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">CUFON</h5>
+                <small class="text-danger">NOT suitable for long passages of text</small>
+                <p>
+                  Cufon offers similar functionality to sIFR. It uses JavaScript to create either an SVG or VML version
+                  of the text.
+                </p>
+                <div class="p-2">
+                  <h6 class="text-decoration-underline">Issues</h6>
+                  <p>
+                    Requires JavaScript to be enabled. Also, users cannot select text, and text can't change when
+                    a user hovers over it.
+                  </p>
+                  <h6 class="text-decoration-underline">Licensing</h6>
+                  <p>
+                    Some typeface makers allow use of their fonts with CUFON, but the license will need to be checked.
+                  </p>
+                  <h6 class="text-decoration-underline">Choice of Typefaces</h6>
+                  <p>
+                    Some typeface manufacturers are not keen on this technique. May be limited.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specifying Typefaces -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Specifying Typefaces</h3>
+        <hr/>
+      </div>
+      <div id="specifyingTypeface" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              Font-Family
+            </h5>
+            <p>
+              The <em>font-family</em> property allows you to specify the typeface that should be used for any text
+              inside the element(s) to which a CSS rule applies.
+            </p>
+            <p>
+              The value of this property is the name of the typeface that should be used.
+            </p>
+            <p>
+              A list of fonts may be specified by using a comma to separate each font. The browser will run down
+              the prioritized font list to see if the user has any of them installed in the order you specify.
+            </p>
+            <p>
+              It is common to end the list with a generic font name for that type of font.
+            </p>
+            <p>
+              If a font name is made up of more than one word, double quotations should be used to specify the name.
+            </p>
+            <p>
+              Designers suggest pages usually look better if they use no more than three (3) typefaces on a page.
+            </p>
+            <h6><em class="text-decoration-underline">CSS Being Applied in this Example</em></h6>
+<pre>
+font-family: fantasy;
+</pre>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div>
+              <div style="border: 1px solid black; padding: 1rem;">
+                <div class="row">
+                  <div class="col-lg-6" style="border-right: 1px solid grey">
+                    <h6><em class="text-decoration-underline">No Typefaces Applied</em></h6>
+                    <div id="fontFamilyExampleNoApply">
+                      <div class="fontFamilyExampleBody" style="padding: 10px;">
+                        <h4>Dawn<br/><small><em>5th Level Evocation</em></small></h4>
+                        <p><span class="fw-bold">Casting Time: </span>1 Action</p>
+                        <p><span class="fw-bold">Range: </span>60 Feet</p>
+                        <p><span class="fw-bold">Components: </span><br/>VSM - A sunburst pendant worth at least 100gp</p>
+                        <p><span class="fw-bold">Duration: </span> Concentration, Up to 1 minute</p>
+                        <p>
+                          The light of dawn shines down on a location you specify within range. Until the spell ends,
+                          a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.
+                        </p>
+                        <p>
+                          When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10
+                          radiant damage on a failed save, or half as much damage on a successful one. A creature must also
+                          make this saving throw whenever it ends its turn in the cylinder.
+                        </p>
+                        <p>
+                          If you are within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action
+                          on your turn.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <h6><em class="text-decoration-underline">Typefaces Applied</em></h6>
+                    <div id="fontFamilyExampleApplied">
+                      <div class="fontFamilyExampleBody" style="padding: 10px; font-family: fantasy;">
+                        <h4>Dawn<br/><small><em>5th Level Evocation</em></small></h4>
+                        <p><span class="fw-bold">Casting Time: </span>1 Action</p>
+                        <p><span class="fw-bold">Range: </span>60 Feet</p>
+                        <p><span class="fw-bold">Components: </span><br/>VSM - A sunburst pendant worth at least 100gp</p>
+                        <p><span class="fw-bold">Duration: </span> Concentration, Up to 1 minute</p>
+                        <p>
+                          The light of dawn shines down on a location you specify within range. Until the spell ends,
+                          a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.
+                        </p>
+                        <p>
+                          When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10
+                          radiant damage on a failed save, or half as much damage on a successful one. A creature must also
+                          make this saving throw whenever it ends its turn in the cylinder.
+                        </p>
+                        <p>
+                          If you are within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action
+                          on your turn.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Size of Type -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Type Sizes</h3>
+        <hr/>
+      </div>
+      <div id="sizeOfTypes" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              Font-Size
+            </h5>
+            <p>
+              The <em>font-size</em> property enables you to specify a size for the font. There are several ways
+              to specify the size of the font. The most common are:
+            </p>
+            <p class="d-inline-flex gap-1 flex-wrap">
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChoosePixels" aria-expanded="false" aria-controls="collapseChoosePixels">
+                Pixels
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChoosePercentages" aria-expanded="false" aria-controls="collapseChoosePercentages">
+                Percentages
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChooseEMS" aria-expanded="false" aria-controls="collapseChooseEMS">
+                EM
+              </button>
+            </p>
+            <div class="collapse mb-3" id="collapseChoosePixels">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">Pixels</h5>
+                <p>
+                  Pixels are commonly used because they allow web designers very precise control over how much space
+                  their text will take up. The number of pixels is followed by the letters <em>px</em>.
+                </p>
+              </div>
+            </div>
+            <div class="collapse mb-3" id="collapseChoosePercentages">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">Percentages</h5>
+                <p>
+                  The default size of text in browsers is 16px. So a size of 75% would be the equivalent of 12px,
+                  and 200% would be 32px.
+                </p>
+                <p>
+                  If a rule is created to make all text inside the &lt;body&gt; element to be 75% of the default size
+                  (to make it 12px), and then specify another rule that indicates the content of an element inside
+                  the &lt;body&gt; element should be 75%, the resultant size will be 9px (75% of the default 12px).
+                </p>
+              </div>
+            </div>
+            <div class="collapse mb-3" id="collapseChooseEMS">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">EM</h5>
+                <p>An em is the equivalent to the width of a letter m.</p>
+              </div>
+            </div>
+            <span class="mt-3 pt-3"></span>
+            <h6><em class="text-decoration-underline">CSS Being Applied in this Example</em></h6>
+<pre>
+font-size: 12px;
+</pre>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div>
+              <div style="border: 1px solid black; padding: 1rem;">
+                <div class="row">
+                  <div class="col-lg-6" style="border-right: 1px solid grey">
+                    <h6><em class="text-decoration-underline">No Font-Sizes Applied</em></h6>
+                    <div id="fontSizeTypeExampleNoApply">
+                      <div class="fontFamilyExampleBody" style="padding: 10px; font-family: fantasy;">
+                        <h4>Dawn<br/><small><em>5<sup>th</sup> Level Evocation</em></small></h4>
+                        <p><span class="fw-bold">Casting Time: </span>1 Action</p>
+                        <p><span class="fw-bold">Range: </span>60 Feet</p>
+                        <p><span class="fw-bold">Components: </span><br/>VSM - A sunburst pendant worth at least 100gp</p>
+                        <p><span class="fw-bold">Duration: </span> Concentration, Up to 1 minute</p>
+                        <p>
+                          The light of dawn shines down on a location you specify within range. Until the spell ends,
+                          a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.
+                        </p>
+                        <p>
+                          When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10
+                          radiant damage on a failed save, or half as much damage on a successful one. A creature must also
+                          make this saving throw whenever it ends its turn in the cylinder.
+                        </p>
+                        <p>
+                          If you are within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action
+                          on your turn.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <h6><em class="text-decoration-underline">Font-Sizes Applied</em></h6>
+                    <div id="fontSizeTypeFamilyExampleApplied">
+                      <div class="fontFamilyExampleBody" style="padding: 10px; font-family: fantasy;">
+                        <h4>Dawn<br/><small style="font-size: 14pt;"><em>5<sup>th</sup> Level Evocation</em></small></h4>
+                        <p class="mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold">Casting Time: </span>1 Action</p>
+                        <p class="mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold">Range: </span>60 Feet</p>
+                        <p class="mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold">Components: </span><br/>VSM - A sunburst pendant worth at least 100gp</p>
+                        <p><span class="fw-bold">Duration: </span> Concentration, Up to 1 minute</p>
+                        <div id="spellDescription__dawn" style="font-size: 14pt;">
+                          <p>
+                            The light of dawn shines down on a location you specify within range. Until the spell ends,
+                            a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.
+                          </p>
+                          <p>
+                            When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10
+                            radiant damage on a failed save, or half as much damage on a successful one. A creature must also
+                            make this saving throw whenever it ends its turn in the cylinder.
+                          </p>
+                          <p>
+                            If you are within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action
+                            on your turn.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Type Scales -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Type Scales</h3>
+        <hr/>
+      </div>
+      <div id="typeScales" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <h5>
+              Type Scales
+            </h5>
+            <p>
+              Many text programs offer the same sizes of text (word, pdf, indesign, et al.). This is because they are
+              set to a scale or ratio that was developed by the European typographers in the sixteenth century.
+            </p>
+            <p>
+              It is considered that this scale for type is pleasing to the eye and has therefore changed little in the
+              last 400 years.
+            </p>
+            <p>
+              For thies reason, when designing pages, using sizes from this scale will help them look more attractive.
+            </p>
+            <p>
+              Print designers often refer to the size of text in terms of points rather than pixels (hence the use of
+              pt in the scale on the right). A pixel roughly equates to a point because a point corresponds to
+              <sup>1</sup>&frasl;<sub>72</sub> of an inch, and most computer displays have a resolution of 72 dots
+              per inch.
+            </p>
+            <p>
+              The default size of text in a browser is 16 pixels. If you use percentages or ems, you calculate
+              the size of the text you want based on the default size of the text used in browsers. For example,
+              you could scale down to 12 pixels for body, and scale up to 24pixels for headings.
+            </p>
+            <p>
+              Some web designers have started to leave the body text at the default size of 16 pixels and adjust the
+              other font sizes using a scale that keeps the relative proportions.
+            </p>
+            <p>
+              When a user first sees body text at 16 pixels it can seem large. Once they get used to it though,
+              a change back to 12 pixels will often seem too small and hard to read.
+            </p>
+            <span class="mt-3 pt-3"></span>
+            <h6><em class="text-decoration-underline">CSS Being Applied in this Example</em></h6>
+<pre>
+&lt;p style="font-size: 8pt;"&gt;8pt&lt;/p&gt;
+&lt;p style="font-size: 9pt;"&gt;9pt&lt;/p&gt;
+&lt;p style="font-size: 10pt;"&gt;10pt&lt;/p&gt;
+&lt;p style="font-size: 11pt;"&gt;11pt&lt;/p&gt;
+&lt;p style="font-size: 12pt;"&gt;12pt&lt;/p&gt;
+&lt;p style="font-size: 14pt;"&gt;14pt&lt;/p&gt;
+&lt;p style="font-size: 18pt;"&gt;18pt&lt;/p&gt;
+&lt;p style="font-size: 24pt;"&gt;24pt&lt;/p&gt;
+&lt;p style="font-size: 36pt;"&gt;36pt&lt;/p&gt;
+&lt;p style="font-size: 48pt;"&gt;48pt&lt;/p&gt;
+&lt;p style="font-size: 60pt;"&gt;60pt&lt;/p&gt;
+&lt;p style="font-size: 72pt;"&gt;72pt&lt;/p&gt;
+</pre>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <div style="border: 1px solid black;">
+              <div style="margin: 1rem;">
+                <p style="font-size: 8pt;">8pt</p>
+                <p style="font-size: 9pt;">9pt</p>
+                <p style="font-size: 10pt;">10pt</p>
+                <p style="font-size: 11pt;">11pt</p>
+                <p style="font-size: 12pt;">12pt</p>
+                <p style="font-size: 14pt;">14pt</p>
+                <p style="font-size: 18pt;">18pt</p>
+                <p style="font-size: 24pt;">24pt</p>
+                <p style="font-size: 36pt;">36pt</p>
+                <p style="font-size: 48pt;">48pt</p>
+                <p style="font-size: 60pt;">60pt</p>
+                <p style="font-size: 72pt;">72pt</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Type Size Units -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Type Sizes</h3>
+        <hr/>
+      </div>
+      <div id="typeSizes" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <h5>
+              Units of Type Size
+            </h5>
+            <p>
+              Setting font size in pixels is the best way to ensure that the type appears at the size intended
+              (because percentages and ems are more likely to vary if a user has changed the default size of the
+              text in their window).
+            </p>
+            <p>
+              Pixels are relative to the resolution of the screen, so the same type size will look larger when a screen
+              has a resolution of 800x600 than it would if it were 1280x800.
+            </p>
+            <p>
+              The pt can also be used for point sizes instead of pixels, but this should only be done when creating
+              stylesheets for printer-friendly versions of a page.
+            </p>
+            <p>
+              The default size of text in a web browser is 16 pixels. Using percentages of this amount, a scale can be created
+              where the default text size is 12 pixels, and headings are sized in relation to this.
+            </p>
+            <p>
+              It is possible for users to change the default size of text in their web browsers. If they have done this,
+              the fonts will be displayed at the same scale that the designer intended, but at a larger size.
+            </p>
+            <p>
+              EMs allow you to change the size of the text relative to the size of the text in the parent element.
+              Since the default size of text in web browsers is 16 pixels, you can use similar rules to those shown
+              for percentages.
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <div style="border: 1px solid black;">
+              <div style="margin: 1rem;">
+                <!-- 12 Pixel Scale -->
+                <p class="text-decoration-underline text-center w-100">12 Pixel Scale</p>
+                <div class="row justify-content-evenly">
+                  <div class="col-lg-3">
+                    <small class="text-decoration-underline">Pixels</small>
+                    <pre>h1   => 24px</pre>
+                    <pre>h2   => 18px</pre>
+                    <pre>h3   => 14px</pre>
+                    <pre>body => 12px</pre>
+                  </div>
+                  <div class="col-lg-3">
+                    <small class="text-decoration-underline">Percentages</small>
+                    <pre>h1   => 200%</pre>
+                    <pre>h2   => 150%</pre>
+                    <pre>h3   => 117%</pre>
+                    <pre>body => 75%</pre>
+                  </div>
+                  <div class="col-lg-3">
+                    <small class="text-decoration-underline">ems</small>
+                    <pre>h1   => 1.5em</pre>
+                    <pre>h2   => 1.3em</pre>
+                    <pre>h3   => 0.875em</pre>
+                    <pre>body => 100%</pre>
+                    <pre>p    => 0.75em</pre>
+                  </div>
+                </div>
+                <hr/>
+                <!-- 16 Pixel Scale -->
+                <p class="text-decoration-underline text-center w-100">16 Pixel Scale</p>
+                <div class="row justify-content-evenly">
+                  <div class="col-lg-3">
+                    <small class="text-decoration-underline">Pixels</small>
+                    <pre>h1   => 32px</pre>
+                    <pre>h2   => 24px</pre>
+                    <pre>h3   => 18px</pre>
+                    <pre>body => 16px</pre>
+                  </div>
+                  <div class="col-lg-3">
+                    <small class="text-decoration-underline">Percentages</small>
+                    <pre>h1   => 200%</pre>
+                    <pre>h2   => 150%</pre>
+                    <pre>h3   => 112.5%</pre>
+                    <pre>body => 100%</pre>
+                  </div>
+                  <div class="col-lg-3">
+                    <small class="text-decoration-underline">ems</small>
+                    <pre>h1   => 2em</pre>
+                    <pre>h2   => 1.5em</pre>
+                    <pre>h3   => 1.125em</pre>
+                    <pre>body => 100%</pre>
+                    <pre>p    => 1em</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- More Font Choices -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>More Font Choices</h3>
+        <hr/>
+      </div>
+      <div id="moreFontChoices" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              Using @font-face
+            </h5>
+            <p>
+              @font-face allows you to use a font, even if it is not installed on the computer of the person browsing,
+              by allowing you to specify a path to a copy of the font, which will be downloaded if it is not on the user's
+              machine.
+            </p>
+            <p>
+              Because this technique allows a version of the font to be downloaded to the user's machine, it is important
+              that the license for the font permists it to be used in this way.
+            </p>
+            <p>
+              You add the font to your style-sheet using the @font-face rule.
+            </p>
+            <p class="d-inline-flex gap-1 flex-wrap">
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChooseFontFamilyFF" aria-expanded="false" aria-controls="collapseChooseFontFamilyFF">
+                font-family
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChooseSrcFF" aria-expanded="false" aria-controls="collapseChooseSrcFF">
+                src
+              </button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChooseFormatFF" aria-expanded="false" aria-controls="collapseChooseFormatFF">
+                format
+              </button>
+            </p>
+            <div class="collapse mb-3" id="collapseChooseFontFamilyFF">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">font-family</h5>
+                <p>
+                  This specifies the name of the font. This name can then be used as a value of the font-family
+                  property in the rest of the style-sheet.
+                </p>
+              </div>
+            </div>
+            <div class="collapse mb-3" id="collapseChooseSrcFF">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">src</h5>
+                <p>
+                  This specifies the path to the font. In order for this technique to work in all browsers,
+                  you will need to specify paths to a few different versions of the font.
+                </p>
+              </div>
+            </div>
+            <div class="collapse mb-3" id="collapseChooseFormatFF">
+              <div class="card card-body">
+                <h5 class="text-decoration-underline">format</h5>
+                <p>
+                  This specifies the format that the font is supplied in. Many typeface makers do not allow you
+                  to use their fonts in this way, but there are open source fonts that may be used freely.
+                </p>
+                <p>
+                  Here is a quick list for free fonts:
+                </p>
+                <ul>
+                  <li>
+                    <a href="https://www.fontsquirrel.com">Font Squirrel</a>
+                  </li>
+                  <li>
+                    <a href="https://www.fontex.org">Fontex</a>
+                  </li>
+                  <li>
+                    <a href="https://www.openfontlibrary.org">Open Font Library</a>
+                  </li>
+                </ul>
+                <p>
+                  Here is a quick list for fonts that can be licensed for a fee:
+                </p>
+                <ul>
+                  <li>
+                    <a href="https://www.typekit.com">Typekit</a>
+                  </li>
+                  <li>
+                    <a href="https://www.kernest.com">Kernest</a>
+                  </li>
+                  <li>
+                    <a href="https://www.fontspring.org">Font Spring</a>
+                  </li>
+                </ul>
+                <p>
+                  Google also provides open source fonts. Rather than adding the @font-face rule to your own style-sheet,
+                  you link to a CSS file and font files on their servers: <a href="https://www.google.com/webfonts">Google Web Fonts</a>
+                </p>
+              </div>
+            </div>
+            <span class="mt-3 pt-3"></span>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div id="fontFaceTypeExample">
+                    <div class="fontFamilyExampleBodyUsingMystFont" style="padding: 10px;">
+                      <h4>Dawn<br/><small style="font-size: 14pt;"><em>5<sup>th</sup> Level Evocation</em></small></h4>
+                      <p class="mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold">Casting Time: </span>1 Action</p>
+                      <p class="mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold">Range: </span>60 Feet</p>
+                      <p class="mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold">Components: </span><br/>VSM - A sunburst pendant worth at least 100gp</p>
+                      <p><span class="fw-bold">Duration: </span> Concentration, Up to 1 minute</p>
+                      <div id="spellDescription__dawnWithFontFace" style="font-size: 14pt;">
+                        <p>
+                          The light of dawn shines down on a location you specify within range. Until the spell ends,
+                          a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.
+                        </p>
+                        <p>
+                          When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10
+                          radiant damage on a failed save, or half as much damage on a successful one. A creature must also
+                          make this saving throw whenever it ends its turn in the cylinder.
+                        </p>
+                        <p>
+                          If you are within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action
+                          on your turn.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+<pre>
+@font-face {
+  font-family: 'EXILE12';
+  src: url("../../../fonts/myst/EXILE12.ttf");
+}
+
+.fontFamilyExampleBodyUsingMystFont {
+  font-family: 'EXILE12', sans-serif;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Understanding Font Formats -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Understanding Font Formats</h3>
+        <hr/>
+      </div>
+      <div id="understandingFontFormats" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              Font Formats
+            </h5>
+            <p>
+              Different browsers support different formats for fonts (in the same way that they support different audio
+              and video formats), so you will need to supply the font in several variations to reach all browsers.
+            </p>
+            <p>
+              If you do not have all of these formats for your font, you can upload the font to a website called
+              <a href="https://www.fontsquirrel.com/tools/webfont-generator">Font Squirrel</a> where it can be converted. If converted this way, Font Squirrel will also provide you with
+              the CSS code for the @font-face rule. This is very helpful because, when you are dealing with multiple
+              font formats, the src and format properties of the @font-face rule can get rather complicated.
+            </p>
+            <p>
+              The various font formats should always be loaded in a specific order:
+            </p>
+            <ol>
+              <li>eot</li>
+              <li>woff</li>
+              <li>ttf/otf</li>
+              <li>svg</li>
+            </ol>
+            <p>
+              Because the browser needs to download the font file in order to show it, users might see something known
+              as a Flash of Un-styled Content (FOUC) or Flash of Un-styled Text (FOUT), Two things that can be done to
+              minimize that behavior are to delete any unnecessary glyphs from the font and/or host the font on a
+              Content Delivery Network (web hosting that offers faster delivery of files).
+            </p>
+            <p>View More On The Font TypeFace Being Used In This Example <a href="../../../../../assets/fonts/myst/exile12-demo.html">Here</a>.</p>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div id="fontFaceTypeExample2">
+                    <div class="fontFamilyExampleBodyUsingMystFont2" style="padding: 10px;">
+                      <h4>Dawn<br/><small style="font-size: 14pt;"><em>5<sup>th</sup> Level Evocation</em></small></h4>
+                      <p class="mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold">Casting Time: </span>1 Action</p>
+                      <p class="mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold">Range: </span>60 Feet</p>
+                      <p class="mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold">Components: </span><br/>VSM - A sunburst pendant worth at least 100gp</p>
+                      <p><span class="fw-bold">Duration: </span> Concentration, Up to 1 minute</p>
+                      <div id="spellDescription__dawnWithFontFace2" style="font-size: 14pt;">
+                        <p>
+                          The light of dawn shines down on a location you specify within range. Until the spell ends,
+                          a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.
+                        </p>
+                        <p>
+                          When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10
+                          radiant damage on a failed save, or half as much damage on a successful one. A creature must also
+                          make this saving throw whenever it ends its turn in the cylinder.
+                        </p>
+                        <p>
+                          If you are within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action
+                          on your turn.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+<pre>
+/*! Generated by Font Squirrel (https://www.fontsquirrel.com) on July 16, 2024 */
+@font-face {
+  font-family: 'mystregular';
+  src:
+    url('../../../fonts/myst/exile12-webfont.woff2') format('woff2'),
+    url('../../../fonts/myst/exile12-webfont.woff') format('woff'),
+    url('../../../fonts/myst/EXILE12.ttf') format('ttf');
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+.fontFamilyExampleBodyUsingMystFont2 {
+  font-family: 'mystregular', sans-serif;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bold -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Bold</h3>
+        <hr/>
+      </div>
+      <div id="css3Bold" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              font-weight
+            </h5>
+            <p>
+              The font-weight property allows a developer to create bold text.
+            </p>
+            <p>
+
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div id="boldExample1">
+                    <div class="boldExampleBody" style="padding: 10px;">
+                      <h4 class="spellCardHeader">Dawn<br/><small style="font-size: 14pt;"><em>5<sup>th</sup> Level Evocation</em></small></h4>
+                      <p class="spellCardDescription mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold">Casting Time: </span>1 Action</p>
+                      <p class="spellCardDescription mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold">Range: </span>60 Feet</p>
+                      <p class="spellCardDescription mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold">Components: </span><br/>VSM - A sunburst pendant worth at least 100gp</p>
+                      <p><span class="fw-bold">Duration: </span> Concentration, Up to 1 minute</p>
+                      <div id="spellDescription__dawnBold" class="spellCardDescription" style="font-size: 14pt;">
+                        <p>
+                          The light of dawn shines down on a location you specify within range. Until the spell ends,
+                          a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.
+                        </p>
+                        <p>
+                          When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10
+                          radiant damage on a failed save, or half as much damage on a successful one. A creature must also
+                          make this saving throw whenever it ends its turn in the cylinder.
+                        </p>
+                        <p>
+                          If you are within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action
+                          on your turn.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+<pre>
+.spellCardHeader {
+  font-weight: bold;
+}
+
+.spellDescription {
+  font-weight: normal;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Italic -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Italic</h3>
+        <hr/>
+      </div>
+      <div id="css3Italic" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              font-style
+            </h5>
+            <p>
+              The font-style property allows a developer to create italic text.
+            </p>
+            <p>
+              It accepts one (1) of three (3) values:
+            </p>
+            <ol>
+              <li>
+                normal
+                <ul>
+                  <li>This causes text to appear in a normal style.</li>
+                </ul>
+              </li>
+              <li>
+                italic
+                <ul>
+                  <li>This causes text to appear in an italic style.</li>
+                </ul>
+              </li>
+              <li>
+                oblique
+                <ul>
+                  <li>
+                    This causes text to appear in oblique. It is not unusual for the browser to fail to find
+                    an italic version of a typeface, in which case it will use an algorithm to place the normal
+                    version of the type on a slant, which means that a lot of italic text online is actually oblique.
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div id="italicExample1">
+                    <div class="boldExampleBody" style="padding: 10px;">
+                      <h4 class="spellCardHeader">Dawn<br/><small class="spellDescriptionOblique" style="font-size: 14pt;"><em>5<sup>th</sup> Level Evocation</em></small></h4>
+                      <p class="spellDescriptionItalic mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Casting Time: </span>1 Action</p>
+                      <p class="spellDescriptionItalic mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Range: </span>60 Feet</p>
+                      <p class="spellDescriptionItalic mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Components: </span><br/>VSM - A sunburst pendant worth at least 100gp</p>
+                      <p class="spellDescriptionItalic"><span class="fw-bold spellDescriptionNormal">Duration: </span> Concentration, Up to 1 minute</p>
+                      <div id="spellDescription__dawnItalic" class="spellCardDescription" style="font-size: 14pt;">
+                        <p class="spellDescriptionNormal">
+                          The light of dawn shines down on a location you specify within range. Until the spell ends,
+                          a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.
+                        </p>
+                        <p class="spellDescriptionNormal">
+                          When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10
+                          radiant damage on a failed save, or half as much damage on a successful one. A creature must also
+                          make this saving throw whenever it ends its turn in the cylinder.
+                        </p>
+                        <p class="spellDescriptionNormal">
+                          If you are within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action
+                          on your turn.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+<pre>
+.spellDescriptionItalic {
+  font-style: italic;
+}
+
+.spellDescriptionNormal {
+  font-style: normal;
+}
+
+.spellDescriptionOblique {
+  font-style: oblique;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lowercase & Uppercase -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Lowercase &amp; Uppercase</h3>
+        <hr/>
+      </div>
+      <div id="css3LCAndUC" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              text-transform
+            </h5>
+            <p>
+              The text-transform property allows a developer to change the case of text by giving it one (1) of
+              the following values:
+            </p>
+            <ol>
+              <li>
+                uppercase
+                <ul>
+                  <li>This causes the text to appear in uppercase</li>
+                </ul>
+              </li>
+              <li>
+                lowercase
+                <ul>
+                  <li>This causes text to appear in lowercase.</li>
+                </ul>
+              </li>
+              <li>
+                capitalize
+                <ul>
+                  <li>
+                    This causes the first letter of each word to appear capitalized. Often this is used in conjunction
+                    with the letter-spacing property to increase the gap between each letter. This helps with readability.
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div id="textTransformExample1">
+                    <div class="boldExampleBody" style="padding: 10px;">
+                      <h4 class="spellCardHeader"><span class="spellTextTransformUppercase">Dawn</span><br/><small class="spellDescriptionOblique" style="font-size: 14pt;"><span class="spellTextTransformLowercase"><em>5<sup>th</sup> Level Evocation</em></span></small></h4>
+                      <p class="spellDescriptionItalic mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Casting Time: </span>1 Action</p>
+                      <p class="spellDescriptionItalic mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Range: </span>60 Feet</p>
+                      <p class="spellDescriptionItalic mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Components: </span><br/><span class="spellTextTransformCapitalize">VSM - A sunburst pendant worth at least 100gp</span></p>
+                      <p class="spellDescriptionItalic"><span class="fw-bold spellDescriptionNormal">Duration: </span> Concentration, Up to 1 minute</p>
+                      <div id="spellDescription__dawnTextTransform" class="spellCardDescription" style="font-size: 14pt;">
+                        <p class="spellDescriptionNormal">
+                          The light of dawn shines down on a location you specify within range. Until the spell ends,
+                          a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.
+                        </p>
+                        <p class="spellDescriptionNormal">
+                          When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10
+                          radiant damage on a failed save, or half as much damage on a successful one. A creature must also
+                          make this saving throw whenever it ends its turn in the cylinder.
+                        </p>
+                        <p class="spellDescriptionNormal">
+                          If you are within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action
+                          on your turn.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+<pre>
+.spellTextTransformUppercase {
+  text-transform: uppercase;
+}
+
+.spellTextTransformLowercase {
+  text-transform: lowercase;
+}
+
+.spellTextTransformCapitalize {
+  text-transform: capitalize;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Underline & Strike -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Underline &amp; Strike</h3>
+        <hr/>
+      </div>
+      <div id="css3UnderlineAndStrike" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              text-decoration
+            </h5>
+            <p>
+              The text-decoration property allows a developer to change the decoration of the text. It accepts one (1)
+              of five (5) values:
+            </p>
+            <ol>
+              <li>
+                none
+                <ul>
+                  <li>This removes any decoration already applied to the text.</li>
+                </ul>
+              </li>
+              <li>
+                underline
+                <ul>
+                  <li>This adds a line underneath the text.</li>
+                </ul>
+              </li>
+              <li>
+                overline
+                <ul>
+                  <li>
+                    This adds a line over the top of the text.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                line-through
+                <ul>
+                  <li>
+                    This adds a line through words
+                  </li>
+                </ul>
+              </li>
+              <li>
+                blink
+                <ul>
+                  <li>
+                    This animates the text to make it flash on and off (however this is generally frowned upon, as it is
+                    considered rather annoying).
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div id="textDecorationExample1">
+                    <div class="boldExampleBody" style="padding: 10px;">
+                      <h4 class="spellCardHeader"><span class="spellTextTransformUppercase spellTextDecorateUnderline">Dawn</span><br/><small class="spellDescriptionOblique" style="font-size: 14pt;"><span class="spellTextTransformLowercase"><em>5<sup>th</sup> Level Evocation</em></span></small></h4>
+                      <p class="spellDescriptionItalic mb-0 pb-0 spellTextDecorateOverline" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Casting Time: </span>1 Action</p>
+                      <p class="spellDescriptionItalic mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Range: </span>60 Feet</p>
+                      <p class="spellDescriptionItalic mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Components: </span><br/><span class="spellTextTransformCapitalize">VSM - A sunburst pendant worth at least 100gp</span></p>
+                      <p class="spellDescriptionItalic"><span class="fw-bold spellDescriptionNormal">Duration: </span> Concentration, Up to 1 minute</p>
+                      <div id="spellDescription__dawnTextDecoration" class="spellCardDescription" style="font-size: 14pt;">
+                        <p class="spellDescriptionNormal">
+                          The light of dawn shines down on a location you specify within range. Until the spell ends,
+                          a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.
+                        </p>
+                        <p class="spellTextDecorateBlink">
+                          When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10
+                          radiant damage on a failed save, or half as much damage on a successful one. A creature must also
+                          make this saving throw whenever it ends its turn in the cylinder.
+                        </p>
+                        <p class="spellDescriptionNormal spellTextDecorateLineThrough">
+                          If you are within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action
+                          on your turn.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+                  <pre>
+.spellTextDecorateNone {
+  text-decoration: none;
+}
+
+.spellTextDecorateUnderline {
+  text-decoration: underline;
+}
+
+.spellTextDecorateOverline {
+  text-decoration: overline;
+}
+
+.spellTextDecorateLineThrough {
+  text-decoration: line-through;
+}
+
+.spellTextDecorateBlink {
+  text-decoration: blink;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leading -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Leading</h3>
+        <hr/>
+      </div>
+      <div id="css3Leading" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              line-height
+            </h5>
+            <p>
+              Leading (pronounced ledding) is a term used by typographers to describe the vertical space between lines of
+              text. In a typeface, the part of a letter that drops beneath the baseline is called a <strong>descender</strong>,
+              while the highest point of a letter is called the <strong>ascender</strong>. Leading is measured from the bottom
+              of the descender on one line to the top of the ascender on the next.
+            </p>
+            <p>
+              In CSS, the line-height property sets the height of an entire line of text, so the difference between the font-size
+              and the line-height is the equivalent to the leading.
+            </p>
+            <p>
+              Increasing the line-height makes the vertical gap between lines of text larger.
+            </p>
+            <p>
+              Increasing the default amount of leading can make text easier to read. The vertical space between
+              lines should be larger than the space between each word as this helps the eye move along the line
+              instead of down them. A good starter setting is around 1.4 to 1.5em. Because users can adjust
+              the default size of text in their browser, the value of the line-height property is best given in
+              ems, not pixels, so that the gap between lines is relative to the size of text the user has selected.
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div id="lineHeightExampleExample1">
+                    <div class="boldExampleBody" style="padding: 10px;">
+                      <h4 class="spellCardHeader"><span class="spellTextTransformUppercase spellTextDecorateUnderline">Dawn</span><br/><small class="spellDescriptionOblique" style="font-size: 14pt;"><span class="spellTextTransformLowercase"><em>5<sup>th</sup> Level Evocation</em></span></small></h4>
+                      <p class="spellDescriptionItalic mb-0 pb-0 spellTextDecorateOverline" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Casting Time: </span>1 Action</p>
+                      <p class="spellDescriptionItalic mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Range: </span>60 Feet</p>
+                      <p class="spellDescriptionItalic mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Components: </span><br/><span class="spellTextTransformCapitalize">VSM - A sunburst pendant worth at least 100gp</span></p>
+                      <p class="spellDescriptionItalic"><span class="fw-bold spellDescriptionNormal">Duration: </span> Concentration, Up to 1 minute</p>
+                      <div id="spellDescription__dawnLineheight" class="spellCardDescription" style="font-size: 14pt;">
+                        <p class="spellLineHeight">
+                          The light of dawn shines down on a location you specify within range. Until the spell ends,
+                          a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.
+                        </p>
+                        <p class="spellLineHeight">
+                          When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10
+                          radiant damage on a failed save, or half as much damage on a successful one. A creature must also
+                          make this saving throw whenever it ends its turn in the cylinder.
+                        </p>
+                        <p class="spellLineHeight">
+                          If you are within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action
+                          on your turn.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+                  <pre>
+.spellLineHeight {
+  line-height: 1.4em;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter & Word Spacing -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Letter &amp; Word Spacing</h3>
+        <hr/>
+      </div>
+      <div id="css3LetterAndWordSpacing" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              letter-spacing, word-spacing
+            </h5>
+            <p>
+              <strong>Kerning</strong> is the term typographers use for the space between each letter. You can
+              control the space between each letter with the letter-spacing property.
+            </p>
+            <p>
+              It is particularly helpful to increase the kerning when your heading or sentence is in uppercase.
+              If your text is in sentence (or normal) case, increasing or decreasing the kerning can make it harder to
+              read.
+            </p>
+            <p>
+              You can also control the gap between words using the word-spacing property.
+            </p>
+            <p>
+              The default gap between words is set by the typeface (often around 0.25em), and it is unlikely
+              that you would need to change this property regularly. If the typeface is bold or you have increased the space
+              between letters, then a larger gap between words can increase readability.
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div id="lsAndWSExampleExample1">
+                    <div class="boldExampleBody" style="padding: 10px;">
+                      <h4 class="spellCardHeader"><span class="spellTextTransformUppercase spellTextDecorateUnderline">Dawn</span><br/><small class="spellDescriptionOblique" style="font-size: 14pt;"><span class="spellTextTransformLowercase"><em>5<sup>th</sup> Level Evocation</em></span></small></h4>
+                      <p class="spellDescriptionItalic mb-0 pb-0 spellTextDecorateOverline" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Casting Time: </span>1 Action</p>
+                      <p class="spellDescriptionItalic mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Range: </span>60 Feet</p>
+                      <p class="spellDescriptionItalic mb-0 pb-0" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Components: </span><br/><span class="spellTextTransformCapitalize">VSM - A sunburst pendant worth at least 100gp</span></p>
+                      <p class="spellDescriptionItalic"><span class="fw-bold spellDescriptionNormal">Duration: </span> Concentration, Up to 1 minute</p>
+                      <div id="spellDescription__dawnlsAndWs" class="spellCardDescription" style="font-size: 14pt;">
+                        <p class="spellLineHeight">
+                          The light of dawn shines down on a location you specify within range. Until the spell ends,
+                          a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.
+                        </p>
+                        <p class="spellLineHeight">
+                          When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10
+                          radiant damage on a failed save, or half as much damage on a successful one. A creature must also
+                          make this saving throw whenever it ends its turn in the cylinder.
+                        </p>
+                        <p class="spellLineHeight spellLetterSpacing spellWordSpacing">
+                          If you are within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action
+                          on your turn.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+                  <pre>
+.spellLetterSpacing {
+  letter-spacing: 0.2em;
+}
+
+.spellWordSpacing {
+  word-spacing: 1em;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alignment -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Alignment</h3>
+        <hr/>
+      </div>
+      <div id="css3Alignment" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              text-align
+            </h5>
+            <p>
+              The text-align property allows you to control the alignment of text. The property can take one (1) of
+              four (4) values:
+            </p>
+            <ol>
+              <li>
+                left
+                <ul>
+                  <li>
+                    This indicates that the text should be left-aligned.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                right
+                <ul>
+                  <li>
+                    This indicates that the text should be right-aligned.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                center
+                <ul>
+                  <li>
+                    This indicates that the text should be centered.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                justify
+                <ul>
+                  <li>
+                    This indicates that every line in a paragraph, except the last line, should be set to take up the full
+                    width of the containing box.
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div id="alignmentExample1">
+                    <div class="boldExampleBody" style="padding: 10px;">
+                      <h4 class="spellCardHeader justifyCenter"><span class="spellTextTransformUppercase spellTextDecorateUnderline">Dawn</span><br/><small class="spellDescriptionOblique" style="font-size: 14pt;"><span class="spellTextTransformLowercase"><em>5<sup>th</sup> Level Evocation</em></span></small></h4>
+                      <p class="spellDescriptionItalic mb-0 pb-0 spellTextDecorateOverline justifyRight" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Casting Time: </span>1 Action</p>
+                      <p class="spellDescriptionItalic mb-0 pb-0 justifyRight" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Range: </span>60 Feet</p>
+                      <p class="spellDescriptionItalic mb-0 pb-0 justifyRight" style="font-size: 12pt;"><span class="fw-bold spellDescriptionNormal">Components: </span><br/><span class="spellTextTransformCapitalize">VSM - A sunburst pendant worth at least 100gp</span></p>
+                      <p class="spellDescriptionItalic justifyRight"><span class="fw-bold spellDescriptionNormal">Duration: </span> Concentration, Up to 1 minute</p>
+                      <div id="spellDescription__dawnAlignment" class="spellCardDescription" style="font-size: 14pt;">
+                        <p class="spellLineHeight">
+                          The light of dawn shines down on a location you specify within range. Until the spell ends,
+                          a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight.
+                        </p>
+                        <p class="spellLineHeight justifyLeft">
+                          When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10
+                          radiant damage on a failed save, or half as much damage on a successful one. A creature must also
+                          make this saving throw whenever it ends its turn in the cylinder.
+                        </p>
+                        <p class="spellLineHeight justify">
+                          If you are within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action
+                          on your turn.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+<pre>
+.justifyCenter {
+  text-align: center;
+}
+
+.justifyRight {
+  text-align: right;
+}
+
+.justifyLeft {
+  text-align: left;
+}
+
+.justify {
+  text-align: justify;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vertical Alignment -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Vertical Alignment</h3>
+        <hr/>
+      </div>
+      <div id="css3VerticalAlignment" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              vertical-align
+            </h5>
+            <p>
+              The vertical-align property is a common source of confusion. It is <strong>NOT</strong> intended to allow
+              you to vertically align text in the middle of block level elements such as &lt;p&gt; or &lt;div&gt;, although,
+              it does have this effect when used with table cells (&lt;td&gt; and &lt;th&gt;).
+            </p>
+            <p>
+              It is more commonly used with inline elements (&lt;img/&gt;, &lt;em&gt;, &lt;strong&gt;, et al.). When
+              used with these elements, it performs a task very similar to the HTML align attribute used on the
+              &lt;img/&gt; Tag. It can also take a <strong>length</strong> (specified in pixels or ems) or
+              <strong>percentage</strong> of the line height.
+            </p>
+            <p>
+              The property can take one (1) of eight (8) values:
+            </p>
+            <ol>
+              <li>
+                baseline
+                <ul>
+                  <li>
+                    Aligns the baseline of the element with the baseline of its parent. This setting can vary by
+                    browser with fields like &lt;textarea&gt;.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                sub
+                <ul>
+                  <li>
+                    Aligns the baseline of the element with the subscript-baseline of its parent.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                super
+                <ul>
+                  <li>
+                    Aligns the baseline of the element with the superscript-baseline of its parent.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                top
+                <ul>
+                  <li>
+                    Aligns the top of the element and its descendants with the top of the entire line.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                text-top
+                <ul>
+                  <li>
+                    Aligns the top of the element with the top of the parent element's font.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                middle
+                <ul>
+                  <li>
+                    Aligns the middle of the element with the baseline plus half the x-height of the parent.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                bottom
+                <ul>
+                  <li>
+                    Aligns the bottom of the element and its descendants with the bottom of the entire line.
+                    For elements that do not have a baseline, the bottom margin edge is used instead.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                text-bottom
+                <ul>
+                  <li>
+                    Aligns the bottom of the element with the bottom of the parent element's font.
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div>
+                    <div style="padding: 10px;">
+                      <div class="container">
+                        <p>
+                          <img class="verticalAlignBaseline" src="../../../../../img/css/text/sqpurple.gif" width="10" height="10" alt="Image of Purple Square - Baseline Aligned"/>
+                          Baseline Alignment
+                        </p>
+                        <p>
+                          <img class="verticalAlignSub" src="../../../../../img/css/text/sqpurple.gif" width="10" height="10" alt="Image of Purple Square - Sub Aligned"/>
+                          Sub Alignment
+                        </p>
+                        <p>
+                          <img class="verticalAlignSuper" src="../../../../../img/css/text/sqpurple.gif" width="10" height="10" alt="Image of Purple Square - Super Aligned"/>
+                          Super Alignment
+                        </p>
+                        <p>
+                          <img class="verticalAlignTop" src="../../../../../img/css/text/sqpurple.gif" width="10" height="10" alt="Image of Purple Square - Top Aligned"/>
+                          Top Alignment
+                        </p>
+                        <p>
+                          <img class="verticalAlignTextTop" src="../../../../../img/css/text/sqpurple.gif" width="10" height="10" alt="Image of Purple Square - Text-Top Aligned"/>
+                          Text-Top Alignment
+                        </p>
+                        <p>
+                          <img class="verticalAlignMiddle" src="../../../../../img/css/text/sqpurple.gif" width="10" height="10" alt="Image of Purple Square - Middle Aligned"/>
+                          Middle Alignment
+                        </p>
+                        <p>
+                          <img class="verticalAlignBottom" src="../../../../../img/css/text/sqpurple.gif" width="10" height="10" alt="Image of Purple Square  - Bottom Aligned"/>
+                          Bottom Alignment
+                        </p>
+                        <p>
+                          <img class="verticalAlignTextBottom" src="../../../../../img/css/text/sqpurple.gif" width="10" height="10" alt="Image of Purple Square - Text-Bottom Aligned"/>
+                          Text-Bottom Alignment
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+                  <pre>
+.verticalAlignBaseline {
+  vertical-align: baseline;
+}
+
+.verticalAlignSub {
+  vertical-align: sub;
+}
+
+.verticalAlignSuper {
+  vertical-align: super;
+}
+
+.verticalAlignTop {
+  vertical-align: top;
+}
+
+.verticalAlignTextTop {
+  vertical-align: text-top;
+}
+
+.verticalAlignMiddle {
+  vertical-align: middle;
+}
+
+.verticalAlignBottom {
+  vertical-align: bottom;
+}
+
+.verticalAlignTextBottom {
+  vertical-align: text-bottom;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indenting Text -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Indenting Text</h3>
+        <hr/>
+      </div>
+      <div id="css3IndentingText" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              text-indent
+            </h5>
+            <p>
+              The text-indent property allows you to indent the first line of text within an element. The amount
+              to indent by can be specified in a number of ways but is usually given in pixels or ems.
+            </p>
+            <p>
+              It can take a negative value, which means it can be used to push text off the browser window.
+              We still want the heading text to be on the page (for search engines and those who cannot see the image).
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div>
+                    <div style="padding: 10px;">
+                      <div class="container">
+                        <h1 class="mainHeader">CSS</h1>
+                        <img src="../../../../../assets/logos/site-nav/css3Logo.png" width="100px" height="100px" alt="CSS/3 Logo" />
+                        <p class="credits">By Dustin K Greco</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+                  <pre>
+.mainHeader {
+  text-indent: -9999px;
+}
+
+.credits {
+  text-indent: 20px;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CSS3: Drop Shadow -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>CSS3: Drop Shadow</h3>
+        <hr/>
+      </div>
+      <div id="css3DropShadow" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              text-shadow
+            </h5>
+            <p>
+              The text-shadow property has become commonly used.
+            </p>
+            <p>
+              It is used to create a drop shadow, which is a dark version of the word just behind it and slightly offset.
+              It can also be used to create an embossed effect by adding a shadow that is slightly larger than the text.
+            </p>
+            <p>
+              The value of this property can be complicated because it can take three lengths and a color:
+            </p>
+            <ol>
+              <li>
+                The first length indicates how far to the left or right the shadow should fall.
+              </li>
+              <li>
+                The second length indicates the distance to the top or bottom that the shadow should fall.
+              </li>
+              <li>
+                The third length is optional and specifies the amount of blur that should be applied to the drop shadow.
+              </li>
+              <li>
+                The fourth value specifies a color of the drop shadow.
+              </li>
+            </ol>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div>
+                    <div style="padding: 10px;">
+                      <div class="container">
+                        <p class="dsOne">Louie is a Blue-Heeler Lab Mix!</p>
+                        <p class="dsTwo">Louie is a Blue-Heeler Lab Mix!</p>
+                        <p class="dsThree">Louie is a Blue-Heeler Lab Mix!</p>
+                        <p class="dsFour">Louie is a Blue-Heeler Lab Mix!</p>
+                        <p class="dsFive">Louie is a Blue-Heeler Lab Mix!</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+<pre>
+.dsOne {
+  background-color: #eee;
+  color: #666;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.dsTwo {
+  background-color: #ddd;
+  color: #666;
+  text-shadow: 1px 1px 3px #666;
+}
+
+.dsThree {
+  background-color: #ccc;
+  color: #fff;
+  text-shadow: 2px 2px 7px #111;
+}
+
+.dsFour {
+  background-color: #bbb;
+  color: #ccc;
+  text-shadow: -1px -2px #666;
+}
+
+.dsFive {
+  background-color: #aaa;
+  color: #ccc;
+  text-shadow: -1px -1px #666;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- First Letter or Line -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>First Letter or Line</h3>
+        <hr/>
+      </div>
+      <div id="css3FLorLine" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              :first-letter, :first-line
+            </h5>
+            <p>
+              You can specify different values for the first letter or first line of text inside an element using
+              <strong>:first-letter</strong> or <strong>:first-line</strong>.
+            </p>
+            <p>
+              Technically, these are not properties. They are <strong>pseudo-elements</strong>.
+            </p>
+            <p>
+              You can specify the pseudo-element at the end of the selector, and then specify the declarations as
+              you would normally for any other element.
+            </p>
+            <p>
+              CSS introduces both pseudo-elements and pseudo-classes.
+            </p>
+            <p>
+              A pseudo-element acts like an extra element in the code.
+              In the case of the :first-letter and :first-line pseudo-elements, it ias as if there is an extra element
+              around the first letter or first line which can have its own styles applied.
+            </p>
+            <p>
+              A pseudo-class acts like an extra value for a class attribute. In the case of the <strong>:visited</strong>
+              pseudo-class, it allows you to have different styles for links that have been visited. Similarly, the
+              <strong>:hover</strong> attribute allows you to style elements differently when a user hovers over them.
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div>
+                    <div style="padding: 10px;">
+                      <div class="container">
+                        <h1>Labraheelers</h1>
+                        <p class="authorFLOLExample">by Dustin Greco</p>
+                        <p class="flolExampleP">
+                          The Labraheeler,
+                        </p>
+                        <p style="text-indent: 20px;">
+                          is a hybrid with paws in both hemispheres. One parent is a Labrador Retriever,
+                          which has origins in Newfoundland, Canada. The other is an Australian Cattle Dog, which,
+                          as the name suggests, harks from down under.<br/><br/>
+                          Read more at: <a href="https://wagwalking.com/breed/labraheeler">WagWalking</a>.com
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+<pre>
+.flolExampleP:first-letter {
+  font-size: 200%;
+}
+
+.flolExampleP:first-line {
+  font-weight: bold;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Styling Links -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Styling Links</h3>
+        <hr/>
+      </div>
+      <div id="css3StylingLinks" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              :link, :visited
+            </h5>
+            <p>
+              Browsers tend to show links in blue with an underline by default, and they will change the color of links
+              that have been visited to help users know which pages they've already visited.
+            </p>
+            <p>
+              In CSS there are two pseudo-classes that allow you to set different styles for your links that have
+              and have not yet been visited:
+            </p>
+            <ol>
+              <li>
+                :link
+                <p>
+                  This allows you to set styles for links that have not yet been visited.
+                </p>
+              </li>
+              <li>
+                :visited
+                <p>
+                  This allows you to set styles for links that have been clicked on.
+                </p>
+              </li>
+            </ol>
+            <p>
+              They are commonly used to control colors of the links and also whether they are to appear underlined
+              or not.
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div>
+                    <div style="padding: 10px;">
+                      <div class="container">
+                        <h2>Dog Breeds</h2>
+                        <ul>
+                          <li class="linkStyleExample">
+                            <a href="#" alt="Link To No-where">Basset Hound</a>
+                          </li>
+                          <li class="linkStyleExample">
+                            <a href="#" alt="Link To No-where">Beagle</a>
+                          </li>
+                          <li class="linkStyleExample">
+                            <a href="#" alt="Link To No-where">Bearded Collie</a>
+                          </li>
+                          <li class="linkStyleExample">
+                            <a href="#" alt="Link To No-where">Beauceron</a>
+                          </li>
+                          <li class="linkStyleExample">
+                            <a href="#" alt="Link To No-where">Bedlington Terrier</a>
+                          </li>
+                          <li id="anchor6" class="linkStyleExample2">
+                            <a href="#anchor6" alt="Link To No-where">Belgian Shephard</a>
+                          </li>
+                          <li class="linkStyleExample">
+                            <a href="#" alt="Link To No-where">Bergamasco</a>
+                          </li>
+                          <li class="linkStyleExample">
+                            <a href="#" alt="Link To No-where">Bichon Frise</a>
+                          </li>
+                          <li class="linkStyleExample">
+                            <a href="#" alt="Link To No-where">BloodHound</a>
+                          </li>
+                          <li class="linkStyleExample">
+                            <a href="#" alt="Link To No-where">Border Terrier</a>
+                          </li>
+                          <li class="linkStyleExample">
+                            <a href="#" alt="Link To No-where">Borzoi</a>
+                          </li>
+                          <li class="linkStyleExample">
+                            <a href="#" alt="Link To No-where">Bouvier des Flandres</a>
+                          </li>
+                          <li id="anchor7" class="linkStyleExample">
+                            <a class="" href="#anchor7" alt="Link To No-where">Briard*</a>
+                          </li>
+                          <li class="linkStyleExample">
+                            <a href="#" alt="Link To No-where">Bull Terrier</a>
+                          </li>
+                          <li id="disabledOption" class="linkStyleExample">
+                            <a class="disabled" href="#disabledOption" alt="Link To No-where">Bulldog</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+<pre>
+.linkStyleExample2>a:visited {
+  color: black;
+}
+
+.linkStyleExample>a:hover {
+  color: deeppink;
+  text-decoration: underline;
+}
+
+.linkStyleExample>a:active {
+  color: darkcyan;
+}
+
+.linkStyleExample>a {
+  color: deeppink;
+  text-decoration: none;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Responding To Users -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Responding To Users</h3>
+        <hr/>
+      </div>
+      <div id="respondingToUsers" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <h5>
+              :hover, :active, :focus
+            </h5>
+            <p>
+              There are three (3) pseudo-classes that allow a developer to change the appearance of elements
+              when a user is interacting with them.
+            </p>
+            <p>
+              The pseudo-classes that are used to help achieve this are:
+            </p>
+            <ol>
+              <li>
+                :hover
+                <p>
+                  This is applied when a user hovers over an element with a pointing device such as a mouse.
+                  This has commonly been used to change the appearance of links and buttons when a user places their
+                  cursor over them. It is worth noting that such events do not work on devices that use touch screens because
+                  the screen is not able to tell when someone is hovering their finger over an element.
+                </p>
+              </li>
+              <li>
+                :active
+                <p>
+                  This is applied when an element is being activated by a user; for example, when a button is being
+                  pressed or a link is being clicked. Sometimes this is used to make a button or link feel more like it
+                  is being pressed by changing the style or position of the element slightly.
+                </p>
+              </li>
+              <li>
+                :focus
+                <p>
+                  This is applied when an element has focus. Any element that can be interacted with, such as a link,
+                  or any form control can have focus. It is possible to use the tab key of the keyboard to move through
+                  each page's focusable elements.
+                </p>
+              </li>
+            </ol>
+            <p>
+              When using pseudo-classes, they should be applied/declared in the following order:
+            </p>
+            <ol>
+              <li>
+                :link
+              </li>
+              <li>
+                :visited
+              </li>
+              <li>
+                :hover
+              </li>
+              <li>
+                :focus
+              </li>
+              <li>
+                :active
+              </li>
+            </ol>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="col-lg-6" style="border-right: 1px solid grey">
+                  <h6><em class="text-decoration-underline">Implementation</em></h6>
+                  <div>
+                    <div style="padding: 10px;">
+                      <div class="container">
+                        <form>
+                          <div class="form-group">
+                            <label class="rtuLabel">
+                              Email Address
+                              <input class="form-control rtuInput" type="email" placeholder="Enter Email Address" />
+                            </label>
+                          </div>
+                          <button class="btn btn-primary my-3 rtuBtn" role="button" type="button">Submit</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <h6><em class="text-decoration-underline">Code</em></h6>
+<pre>
+.rtuLabel {
+  color: #665544;
+}
+.rtuInput {
+  padding: 6px 12px 6px 12px;
+  border: 1px solid #665544;
+}
+
+.rtuBtn:hover {
+  background-color: #665544;
+  color: #fff;
+}
+
+.rtuBtn:active {
+  background-color: chocolate!important;
+  color: #fff;
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Attribute Selectors -->
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3>Attribute Selectors</h3>
+        <hr/>
+      </div>
+      <div id="attributeSelectors" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-4">
+            <p>
+              There are also a set of attribute selectors that allow a developer to create rules that apply to elements
+              that have an attribute with a specific value.
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <div style="border: 1px solid black; padding: 1rem;">
+              <div class="row">
+                <div class="row col-lg-12 col-sm-12">
+                  <div class="col-lg-4 col-sm-12" style="border-bottom: 1px solid black;">
+                    <h4>Selector</h4>
+                  </div>
+                  <div class="col-lg-4 col-sm-12" style="border-bottom: 1px solid black;">
+                    <h4>Meaning</h4>
+                  </div>
+                  <div class="col-lg-4 col-sm-12" style="border-bottom: 1px solid black;">
+                    <h4>Example</h4>
+                  </div>
+                  <div class="exampleList">
+                    <div class="row col-lg-12 col-sm-12">
+                      <div class="example1 row col-lg-12 col-sm-12 mt-3">
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <h5 class="text-uppercase">existence</h5>
+                        </div>
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <p class="mb-0">[]</p>
+                          <p class="mt-0">Matches a specific attribute's value</p>
+                        </div>
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <p class="mb-0">p[class]</p>
+                          <p class="mt-0">Targets any &lt;p&gt; element with an attribute called <em>class</em></p>
+                        </div>
+                      </div>
+                      <div class="example2 row col-lg-12 col-sm-12 mt-3">
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <h5 class="text-uppercase">equality</h5>
+                        </div>
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <p class="mb-0">[=]</p>
+                          <p class="mt-0">Matches a specific attribute's specific value</p>
+                        </div>
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <p class="mb-0">p[class="dog"]</p>
+                          <p class="mt-0">Targets any &lt;p&gt; element with an attribute <em>class</em> where the value is dog.</p>
+                        </div>
+                      </div>
+                      <div class="example3 row col-lg-12 col-sm-12 mt-3">
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <h5 class="text-uppercase">space</h5>
+                        </div>
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <p class="mb-0">[~=]</p>
+                          <p class="mt-0">Matches a specific attribute whose value appears in a space-seperated list of words.</p>
+                        </div>
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <p class="mb-0">p[class~="dog"]</p>
+                          <p class="mt-0">
+                            Targets any &lt;p&gt; element with an attribute <em>class</em> whose value is a list of space-separated
+                            words, one of which is dog.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="example4 row col-lg-12 col-sm-12 mt-3">
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <h5 class="text-uppercase">prefix</h5>
+                        </div>
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <p class="mb-0">[^=]</p>
+                          <p class="mt-0">Matches a specific attribute whose value begins with a specific string.</p>
+                        </div>
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <p class="mb-0">p[attr^"d"]</p>
+                          <p class="mt-0">
+                            Targets any &lt;p&gt; element with an attribute whose value begins with the letter d.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="example4 row col-lg-12 col-sm-12 mt-3">
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <h5 class="text-uppercase">substring</h5>
+                        </div>
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <p class="mb-0">[*=]</p>
+                          <p class="mt-0">Matches a specific attribute whose value contains a specific substring.</p>
+                        </div>
+                        <div class="col-lg-4 col-sm-12" style="border-bottom: 3px dotted grey;">
+                          <p class="mb-0">p[attr*"do"]</p>
+                          <p class="mt-0">
+                            Targets any &lt;p&gt; element with an attribute whose value contains the letters "do".
+                          </p>
+                        </div>
+                      </div>
+                      <div class="example4 row col-lg-12 col-sm-12 mt-3">
+                        <div class="col-lg-4 col-sm-12">
+                          <h5 class="text-uppercase">suffix</h5>
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                          <p class="mb-0">[$=]</p>
+                          <p class="mt-0">Matches a specific attribute whose value ends a specific string.</p>
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                          <p class="mb-0">p[attr$"g"]</p>
+                          <p class="mt-0">
+                            Targets any &lt;p&gt; element with an attribute whose value ends the letter "g".
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr/>
+<div class="container-fluid text-center mt-5 mb-5">
+  <a id="viewExample" class="btn btn-info" href="example/text.html">View Text Example</a>
+</div>
+</body>
+</html>

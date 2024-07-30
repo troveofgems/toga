@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML5 Links</title>
+  <meta name="description" content="HTML5 Links">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="../../../../../site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="links.css" rel="stylesheet">
+
+  <script>
+
+    function confirmOpenNewWindow(goToScripts) {
+      let confirmation = window.confirm("Would you like to navigate away from this site to read the article?");
+      if(confirmation && goToScripts) {
+        window.open("https://en.wikipedia.org/wiki/Elvish_languages_of_Middle-earth#Elvish_scripts");
+      } else if (confirmation) {
+        window.open("https://en.wikipedia.org/wiki/Elvish_languages_of_Middle-earth");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      let btn = document.getElementById('viewSourceBtn');
+      btn.addEventListener('click', function() {
+        let sourceCode = document.documentElement.outerHTML;
+        let pre = document.createElement('pre');
+        pre.textContent = sourceCode;
+        document.body.appendChild(pre);
+      });
+    });
+  </script>
+</head>
+<body style="overflow-x: hidden;">
+<header style="margin: 2rem; text-align: right;">
+  <button type="button" role="button" class="btn btn-danger">
+    <a href="../../../../../index.html" class="text-white">Back To Main Page</a>
+  </button>
+</header>
+<div class="container-fluid mb-5">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center mb-5">HTML5 Links</h1>
+      <div id="preamble" class="w-75" style="margin: 0 auto;">
+        <p>
+          Links are the defining feature of the web because they allow someone to move from one place to another -
+          browsing across pages and accessing content. Here are just a few common link examples:
+        </p>
+        <ul>
+          <li>Links going from one website to another</li>
+          <li>Links from one page on a website to another page on the same website</li>
+          <li>Links from one part of a web page to another part of the same page</li>
+          <li>Links that open in a new browser window</li>
+          <li>Links that start up your email program and address a new email to someone</li>
+        </ul>
+      </div>
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3 id="linking">Linking</h3>
+        <hr/>
+      </div>
+      <div id="creatingLinks" class="w-75" style="margin: 0 auto;">
+        <h3>Creating a Link</h3>
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <p>
+              To create a link, the &lt;a&gt; Tag is used. The content that sits between the &lt;a&gt; Tag is known as<br/>
+              &lt;a href="www.google.com"&gt;<strong><em>Link Text</em></strong>&lt;/a&gt;<br/><br/>
+              Link destinations are specified by using the <strong>href</strong> attribute.
+            </p>
+            <ol>
+              <li>
+                <h5>a Tag &lt;a&gt;</h5>
+                <p>
+                  Used to create linkable text. Users can click on anything that appears between the opening and closing
+                  &lt;a&gt; Tags and will be taken to the page specified in the href attr. When a link to a different website
+                  is created, the value of the href attr will be an absolute path to the full web address for the site.
+                  Browsers show links in blue with an underline by default.
+                </p>
+              </li>
+            </ol>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <small>Examples:</small>
+            <div style="border: 1px solid black;">
+              <small style="padding: .25rem;">Linking to other sites - Absolute URLs</small>
+              <p style="margin-bottom: 0;"><small style="padding: .5rem .5rem 0 .5rem;"><strong>Movie Reviews</strong></small></p>
+              <ul style="margin-top: 0; padding-top: 0;">
+                <li>
+                  <a href="https://www.empireonline.com">Empire</a>
+                </li>
+                <li>
+                  <a href="https://www.metacritic.com">Metacritic</a>
+                </li>
+                <li>
+                  <a href="https://www.rottentomatoes.com">Rotten Tomatoes</a>
+                </li>
+                <li>
+                  <a href="https://www.variety.com">Variety</a>
+                </li>
+              </ul>
+              <small style="padding: .25rem;">Linking to other pages on the same site - Relative URLs</small>
+              <p style="margin-bottom: 0;"><small style="padding: .5rem .5rem 0 .5rem;"><strong>Site Table Of Contents</strong></small></p>
+              <ul>
+                <li>
+                  <a href="../../../../../index.html">Landing Page</a>
+                </li>
+                <li>
+                  <a href="../structure/structure.html">Structure</a>
+                </li>
+                <li>
+                  <a href="../text/text.html">Text</a>
+                </li>
+                <li>
+                  <a href="../lists/lists.html">Lists</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3 id="absoluteVsRelative">Absolute vs Relative URL Paths</h3>
+        <hr/>
+      </div>
+      <div id="absRelPaths" class="w-75" style="margin: 0 auto;">
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <p>
+              URL stands for Uniform Resource Locator. Every web page has its own URL. This is the web address that
+              would normally be typed into the address bar of a browser to visit that specific page.
+            </p>
+            <p>
+              An absolute URL starts with the domain name of the site, and can be followed by the path to a specific
+              page. If no page is specified, the site will display the homepage.
+            </p>
+            <p>
+              A relative URL can be used when linking to pages within the same site. A domain name is not needed.
+              Relative URLs are also helpful when building a site on the computer because links can be created between
+              pages without having to set up a domain name or hosting.
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <small>Examples:</small>
+            <div style="border: 1px solid black;">
+              <small style="padding: .25rem;">Absolute URLs</small>
+              <ul style="margin-top: 0; padding-top: 0;">
+                <li>https://www.empireonline.com</li>
+                <li>https://www.metacritic.com</li>
+                <li>https://www.rottentomatoes.com</li>
+                <li>https://www.variety.com</li>
+              </ul>
+              <small style="padding: .25rem;">Relative URLs</small>
+              <ul>
+                <li>"../../index.html"</li>
+                <li>"../structure/structure.html"</li>
+                <li>"../text/text.html"</li>
+                <li>"../lists/lists.html"</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3 id="relativePathRelationships">Relative Path Relationships</h3>
+        <hr/>
+      </div>
+      <div class="w-75" style="margin: 0 auto;">
+        <h3>Understanding the Relative Path Shorthand</h3>
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <p>
+              Relative URLs can be used when linking to pages within the same website. They provide a shorthand way of
+              telling the browser where to find specific files. If all the files in your site are in one folder, the
+              filename for that page is simply referenced. If a site is organized into separate folders or directories,
+              the browser will need to be told how to reach those pages <em>from the current page</em>.
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <table style="border: 1px solid black;">
+              <tr style="border: 1px solid black;">
+                <th style="border: 1px solid black;">Relative Link Type</th>
+                <th style="border: 1px solid black;">Example</th>
+              </tr>
+              <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">
+                  <p style="color: #d63384; padding: .25rem; margin-bottom: 0; padding-bottom: 0;">Same Folder</p>
+                  <small style="padding: .25rem; margin-bottom: 0;">To link to a file in the same folder, just use the filename.</small>
+                </td>
+                <td style="border: 1px solid black; padding: .5rem;">
+                  &lt;a <strong>href="reviews.html"</strong>&gt;Reviews&lt;/a&gt;
+                </td>
+              </tr>
+              <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">
+                  <p style="color: #d63384; padding: .25rem; margin-bottom: 0; padding-bottom: 0;">Child Folder</p>
+                  <small style="padding: .25rem; margin-bottom: 0;">For a child folder, use the name of the child folder, followed by a forward slash, then the filename.</small>
+                </td>
+                <td style="border: 1px solid black; padding: .5rem;">
+                  &lt;a <strong>href="music/listings.html"</strong>&gt;Listings&lt;/a&gt;
+                </td>
+              </tr>
+              <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">
+                  <p style="color: #d63384; padding: .25rem; margin-bottom: 0; padding-bottom: 0;">Grandchild Folder</p>
+                  <small style="padding: .25rem; margin-bottom: 0;">
+                    Use the name of the child folder, followed by a forward slash, then the name of the grandchild
+                    folder, followed by another forward slash, then the filename.
+                  </small>
+                </td>
+                <td style="border: 1px solid black; padding: .5rem;">
+                  &lt;a <strong>href="movies/dvd/reviews.html"</strong>&gt;DVD Reviews&lt;/a&gt;
+                </td>
+              </tr>
+              <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">
+                  <p style="color: #d63384; padding: .25rem; margin-bottom: 0; padding-bottom: 0;">Parent Folder</p>
+                  <small style="padding: .25rem; margin-bottom: 0;">
+                    Use ../ to indicate the folder above the current one, then follow it with the filename.
+                  </small>
+                </td>
+                <td style="border: 1px solid black; padding: .5rem;">
+                  &lt;a <strong>href="../index.html"</strong>&gt;Home&lt;/a&gt;
+                </td>
+              </tr>
+              <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">
+                  <p style="color: #d63384; padding: .25rem; margin-bottom: 0; padding-bottom: 0;">Grandparent Folder</p>
+                  <small style="padding: .25rem; margin-bottom: 0;">
+                    Repeat ../ as needed to indicate going up X folder(s) above the current one,
+                    then follow it with the filename.
+                  </small>
+                </td>
+                <td style="border: 1px solid black; padding: .5rem;">
+                  &lt;a <strong>href="../../index.html"</strong>&gt;Home&lt;/a&gt;
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
+        <hr/>
+        <h3 id="otherLinkTypes">Other Link Types & Behavior</h3>
+        <hr/>
+      </div>
+      <div id="linkTypesBehaviors" class="w-75" style="margin: 0 auto;">
+        <h3>Other Link Types</h3>
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <p>
+              Links can also be created to manage other functionality such as starting up a user's email program while
+              addressing the email to a specified email address, or, prompting the computer or a phone to make an
+              outbound phone call to a specified telephone number.
+            </p>
+            <h3>Other Link Behaviors</h3>
+            <p>
+              A link can open a new window when redirecting. The <strong>target</strong> attribute is used on the
+              opening &lt;a&gt; Tag and setting it to "_blank". Generally it is recommended to avoid opening links
+              in a new window, but if implemented it is considered good practice to inform users that the link
+              will open a new window before they proceed with a redirect.
+            </p>
+            <h3>Linking To Specific Sections Of The Same Page</h3>
+            <p>
+              When pages begin to become longer, it may be nice to add a table of contents that links to each specific
+              section so that it is easier for the reader to reach. Or perhaps it might be nice to place a link at the
+              bottom of a long page that allows a user to scroll all the way back to the top without actually requiring
+              the user to manually scroll once they've reached the bottom of the page.
+            </p>
+            <p>
+              Before these types of links can be created a developer must identify the points in the page that the
+              link will go to. They do that by using the <strong>id</strong> attribute (which can be used on all HTML
+              Elements). The value of the <strong>id</strong> attribute should start with a letter or underscore and on
+              a single page, no two id attributes should ever have the same value.
+            </p>
+            <p>
+              To link to an element that uses an <stong>id</stong> attribute use the  &lt;a&gt; Tag. The value for the
+              <strong>href</strong> attribute starts with the <strong>#</strong> symbol followed by the value of the
+              <strong>id</strong> attribute of the element that needs to be linked to.
+            </p>
+            <h3>Linking To Specific Sections Of Another Page</h3>
+            <p>
+              When a developer wants to link to a specific part of a different page (whether on the same site or another
+              site) a similar technique can be used. As long as the page being linked to has <strong>id</strong>
+              attributes that identify specific parts of the page, add the same syntax to the end of the link for that
+              page.
+            </p>
+            <p>
+              Therefore, the <strong>href</strong> attribute will contain the address for the page (either an absolute
+              or relative url), followed by a <strong>#</strong> symbol, followed by the value of the <strong>id</strong>
+              attribute that is used on the element being linked to.
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <small>Examples:</small>
+            <div style="border: 1px solid black;">
+              <small style="padding: .25rem;">Other Link Types</small>
+              <ul>
+                <li>
+                  <a href="mailto:dkgreco@thetroveofgems.tech">Email Me!</a>
+                </li>
+                <li>
+                  <a href="tel:+14802279551">Call Me!</a>
+                </li>
+                <li>
+                  <a href="javascript:alert('You Clicked Me!')">Execute JavaScript!</a>
+                </li>
+              </ul>
+              <small style="padding: .25rem;">Link Behavioral Changes</small>
+              <ul>
+                <li>
+                  <a href="https://en.wikipedia.org/wiki/Elvish_languages_of_Middle-earth" target="_blank">
+                    Wikipedia's <cite>Elvish Languages Of Middle Earth</cite>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:confirmOpenNewWindow(false)">
+                    Wikipedia's <cite>Elvish Languages Of Middle Earth</cite> - Best Practice
+                  </a>
+                </li>
+              </ul>
+              <small style="padding: .25rem;">Linking To Page Sections</small>
+              <ul>
+                <li>
+                  <a href="#linking" target="_blank">
+                    Linking
+                  </a>
+                </li>
+                <li>
+                  <a href="#absoluteVsRelative">
+                    Absolute vs Relative URL Paths
+                  </a>
+                </li>
+                <li>
+                  <a href="#relativePathRelationships">
+                    Relative Path Relationships
+                  </a>
+                </li>
+                <li>
+                  <a href="#otherLinkTypes">
+                    Other Link Types & Behavior
+                  </a>
+                </li>
+              </ul>
+              <small style="padding: .25rem;">Linking To Specific Sections Of Another Page</small>
+              <ul>
+                <li>
+                  <a href="../lists/lists.html#nestedLists">
+                    Lists - Nested Lists
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:confirmOpenNewWindow(true)">
+                    Wikipedia's <cite>Elvish Languages Of Middle Earth - Elvish Scripts</cite>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr/>
+<div class="container-fluid text-center mt-5">
+  <button id="viewSourceBtn" class="btn btn-info">View Source In Page</button>
+</div>
+</body>
+</html>

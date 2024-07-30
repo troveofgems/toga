@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTML5 Structure</title>
+    <meta name="description" content="HTML5 Structure">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#fafafa">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="structure.css" rel="stylesheet">
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var btn = document.getElementById('viewSourceBtn');
+        btn.addEventListener('click', function() {
+          var sourceCode = document.documentElement.outerHTML;
+          var pre = document.createElement('pre');
+          pre.textContent = sourceCode;
+          document.body.appendChild(pre);
+        });
+      });
+    </script>
+  </head>
+  <body style="overflow-x: hidden;">
+    <header style="margin: 2rem; text-align: right;">
+      <button type="button" role="button" class="btn btn-danger">
+      <a href="../../../../../index.html" class="text-white">Back To Main Page</a>
+      </button>
+    </header>
+    <div class="container-fluid mb-5">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="text-center mb-5">How HTML5 Enforces Structure</h1>
+          <div id="preamble" class="w-75" style="margin: 0 auto;">
+            <h3>What is a webpage and how is it structured?</h3>
+            <p>
+              Consider the differences between a newspaper, an online article, and an insurance form.
+              The modes of delivery and presentation are all very different, but all follow structures that organize the
+              content being presented to the user. Much like the table of contents on this project's landing page.
+              Newspapers will often tell a story by providing a header for the story, the text body content of the story,
+              who authored the story, and there might be images included. An online article might follow a similar format
+              as a newspaper, but by presenting a story online, a new structure is introduced when we add videos or
+              linkable content. An insurance form on the other hand is unlikely to include images, and instead is more
+              geared towards getting feedback from a user by way of checkboxes, radio options, text-boxes, etc.
+            </p>
+            <p>
+              When we structure word documents, we may reach for headings and subheadings to reflect a hierarchy of
+              information. A document might start with a large heading, followed by an introduction or the most important
+              information. It can be further broken down under subheadings and paragraphs for each new topic or section
+              of material.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid mb-5">
+      <div class="row">
+        <div style="display: flex;">
+          <div class="col-sm-12 col-md-4 text-center">
+            <p>
+              <button class="btn btn-primary " type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                What Are HTML <b>Elements?</b>
+              </button>
+            </p>
+            <div style="min-height: 120px;">
+              <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                <div class="card card-body" style="width: 600px; text-align: left;">
+                  <p>
+                    HTML <strong>Elements</strong> are usually made from two tags: an
+                    <span style="color: green;">opening</span> and a
+                    <span style="color: #d63384">closing</span> tag.
+                  </p>
+                  <p>
+                    Each <strong>Element</strong> tells the browser something about the information being presented
+                    between its opening and closing tags, for example:
+                  </p>
+                  <small>Examples</small>
+                  <ul>
+                    <li>
+                      <code><span style="color: green">&lt;a&gt;</span><span style="color: black;">Link Descriptor Content</span>&lt;/a&gt;</code>
+                    </li>
+                    <li>
+                      <code><span style="color: green">&lt;h1&gt;</span><span style="color: black;">Header Content</span>&lt;/h1&gt;</code>
+                    </li>
+                    <li>
+                      <code><span style="color: green">&lt;h1&gt;</span><span style="color: black;">Header Content</span>&lt;/h1&gt;</code>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4 text-center">
+            <p>
+              <button class="btn btn-primary " type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthAttributes" aria-expanded="false" aria-controls="collapseWidthAttributes">
+                What Are HTML <b>Attributes?</b>
+              </button>
+            </p>
+            <div style="min-height: 120px;">
+              <div class="collapse collapse-horizontal" id="collapseWidthAttributes">
+                <div class="card card-body" style="width: 600px; text-align: left;">
+                  <p>
+                    HTML <strong>Attributes</strong> provide additional information about the contents of an element.
+                    They appear on the opening tag of an element are made up of two parts: a <span style="color: green">name</span> and a <span style="color: #d63384;">value</span>.
+                  </p>
+                  <p>
+                    Each <strong>Attribute</strong> name indicates what kind of extra information you are supplying
+                    about the element's content. The majority of attributes can only be used on certain elements and
+                    either follow a pre-defined or stipulated format, although a few attributes (such as lang) can
+                    appear on any element.
+                  </p>
+                  <small>Examples</small>
+                  <ul>
+                    <li>
+                      <code class="text-center"><span style="color: black;">&lt;p</span> <span style="color: green;">lang=</span><span style="color: #d63384;">"en"</span><span class="text-black">&gt;Paragraph in English&lt;/p&gt;</span></code>
+                    </li>
+                    <li>
+                      <code class="text-center"><span style="color: black;">&lt;p</span> <span style="color: green;">lang=</span><span style="color: #d63384;">"cz"</span><span class="text-black">&gt;Odstavec v češtině&lt;/p&gt;</span></code>
+                    </li>
+                    <li>
+                      <code class="text-center"><span style="color: black;">&lt;a</span> <span style="color: green;">href=</span><span style="color: #d63384;">"/some/fileOrUrlPath"</span><span class="text-black">&gt;Link Descriptor Content&lt;/a&gt;</span></code>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4 text-center">
+            <p>
+              <button class="btn btn-primary " type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthValues" aria-expanded="false" aria-controls="collapseWidthValues">
+                What Are HTML <b>Values?</b>
+              </button>
+            </p>
+            <div style="min-height: 120px;">
+              <div class="collapse collapse-horizontal" id="collapseWidthValues">
+                <div class="card card-body" style="width: 600px; text-align: left;">
+                  <p>
+                    HTML <strong>Values</strong> are usually static strings of text that can either represent
+                    content on the page, or values provided to attributes or application functions.
+                  </p>
+                  <small>Examples</small>
+                  <ul>
+                    <li>
+                      <code class="text-center"><span style="color: black;">&lt;a href=</span>"/some/fileOrUrlPath"<span class="text-black">&gt;</span>Link Descriptor Content<span class="text-black">&lt;/a&gt;</span></code>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <h2 style="text-align: center">Basic Page Structure</h2>
+      <div class="row">
+        <div class="col-sm-12 col-lg-6">
+          <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <article class="card d-block" style="width: 64%; margin: 0 auto;">
+                  <div class="card-body">
+                    <hgroup>
+                      <h5 class="card-title">Document Type Declaration Tag</h5>
+                      <h6 class="card-subtitle mb-2 text-body-secondary">&lt;!DOCTYPE html&gt;</h6>
+                    </hgroup>
+                    <p class="card-text">
+                      This element is required as the very first line of an HTML document and serves as an instruction
+                      to the web browser about the type of document to expect and which version of HTML is being used.
+                    </p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Glossary/Doctype" class="card-link">
+                      MDN Web Docs
+                    </a>
+                  </div>
+                </article>
+              </div>
+              <div class="carousel-item">
+                <article class="card" style="width: 64%; margin: 0 auto;">
+                  <div class="card-body">
+                    <hgroup>
+                      <h5 class="card-title">HTML Tag</h5>
+                      <h6 class="card-subtitle mb-2 text-body-secondary">&lt;html&gt;...&lt;/html&gt;</h6>
+                    </hgroup>
+                    <p class="card-text">
+                      This tag indicates that anything between it and the closing tag is HTML code.
+                    </p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html" class="card-link">
+                      MDN Web Docs
+                    </a>
+                  </div>
+                </article>
+              </div>
+              <div class="carousel-item">
+                <article class="card" style="width: 64%; margin: 0 auto;">
+                  <div class="card-body">
+                    <hgroup>
+                      <h5 class="card-title">Head Tag</h5>
+                      <h6 class="card-subtitle mb-2 text-body-secondary">&lt;head&gt;...&lt;/head&gt;</h6>
+                    </hgroup>
+                    <p class="card-text">
+                      This tag is placed before the body element. This tag should contain information <i>about</i> the
+                      page, rather than information that is shown within the main part of the browser window. Common
+                      tags included in the head tag are title, meta, and script tags.
+                    </p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head" class="card-link">
+                      MDN Web Docs
+                    </a>
+                  </div>
+                </article>
+              </div>
+              <div class="carousel-item">
+                <article class="card" style="width: 64%; margin: 0 auto;">
+                  <div class="card-body">
+                    <hgroup>
+                      <h5 class="card-title">Body Tag</h5>
+                      <h6 class="card-subtitle mb-2 text-body-secondary">&lt;body&gt;...&lt;/body&gt;</h6>
+                    </hgroup>
+                    <p class="card-text">
+                      This tag indicates that anything between it and the closing tag should be shown inside the main
+                      browser window.
+                    </p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body" class="card-link">
+                      MDN Web Docs
+                    </a>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev"
+                    style="background-color: rgba(0, 0, 0, .75); width: 7%;"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden" style="color: black;">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next"
+              style="background-color: rgba(0, 0, 0, .75); width: 7%;"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        <!-- Output Page Code Preview -->
+        <div class="col-sm-12 col-lg-6">
+          <div class="container" style="background-color: #fff;">
+            <fieldset style="background-color: black;">
+              <div style="display: flex; justify-content: space-around; margin-bottom: 1rem;">
+                <label><span style="color: red;">HTML Elements</span></label>
+                <label><span style="color: dodgerblue;">HTML Attributes</span></label>
+                <label><span style="color: white;">HTML Values</span></label>
+              </div>
+            </fieldset>
+            <pre style="">&lt;!DOCTYPE html&gt;</pre>
+            <pre>&lt;html <span style="color: dodgerblue">lang=</span><span style="color: #fff">"en"</span>&gt;</pre>
+            <pre> &lt;head&gt;</pre>
+            <pre>   &lt;meta <span style="color: dodgerblue">charset=</span><span style="color: #fff;">"utf-8"</span>&gt;</pre>
+            <pre>   &lt;title&gt;<span style="color: #fff">HTML5 Structure</span>&lt;/title&gt;</pre>
+            <pre>   &lt;link <span style="color: dodgerblue">rel=</span><span style="color: #fff;">"icon"</span> <span style="color: dodgerblue">href=</span><span style="color: #fff">"/favicon.ico"</span> <span style="color: dodgerblue">sizes=</span><span style="color: #fff;">"any"</span>&gt;</pre>
+            <pre> &lt;/head&gt;</pre>
+            <pre> &lt;body&gt;</pre>
+            <pre>  &lt;h1&gt;<span style="color: #fff">Header Content</span>&lt;/h1&gt;</pre>
+            <pre>   &lt;script
+        <span style="color: dodgerblue;">src=</span><span style="color: white;">"https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"</span>
+        <span style="color: dodgerblue;">integrity=</span><span style="color: white;">"sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"</span>
+        <span style="color: dodgerblue;">crossorigin=</span><span style="color: white">"anonymous"</span>
+    &gt;&lt;/script&gt;</pre>
+            <pre style="background-color: #000; color: red; margin: 0;"> &lt;/body&gt;</pre>
+            <pre style="background-color: #000; color: red; margin: 0;">&lt;/html&gt;</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr/>
+    <div class="container-fluid text-center mt-5">
+      <button id="viewSourceBtn" class="btn btn-info">View Source In Page</button>
+    </div>
+  </body>
+</html>

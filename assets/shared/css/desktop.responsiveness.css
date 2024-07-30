@@ -1,0 +1,180 @@
+/**
+* Screen Sizes Handled:
+* 1920x1080 - Natively Developed
+* 1600x900
+* 1536x864
+* 1440x900
+* 1366x768
+* 1280x1024
+* 1280x720
+* 1024x768
+* 768x1024
+*/
+
+@media screen and (min-width: 1600px) and (max-width: 1600px) and (min-height: 900px) and (max-height: 900px) {
+  .linkingBookHeader {
+    margin: 5rem 0 1rem 4rem;
+  }
+
+  .directoryLinkHeader {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .bookP_1, .bookP_2 {
+    font-size: 1.25rem;
+  }
+}
+@media screen and (min-width: 1536px) and (max-width: 1536px) and (min-height: 864px) and (max-height: 864px) {
+  .linkingBookHeader {
+    margin: 6rem 0 1rem 4rem;
+  }
+
+  .directoryLinkHeader {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .bookP_1, .bookP_2 {
+    font-size: 1.25rem;
+  }
+}
+@media screen and (min-width: 1440px) and (max-width: 1440px) and (min-height: 900px) and (max-height: 900px) {
+  .linkingBookHeader {
+    margin: 7rem 0 1rem 3rem;
+  }
+
+  .directoryLinkHeader {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .bookP_1, .bookP_2 {
+    font-size: 1.25rem;
+    margin: .25rem 3rem;
+  }
+}
+@media screen and (min-width: 1366px) and (max-width: 1366px) and (min-height: 768px) and (max-height: 768px) {
+  .linkingBookHeader {
+    margin: 7rem 0 1rem 3rem;
+  }
+
+  .directoryLinkHeader {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .bookP_1, .bookP_2 {
+    font-size: 1.25rem;
+    margin: .25rem 3rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1280px) and (min-height: 1024px) and (max-height: 1024px) {
+  .linkingBookHeader {
+    margin: 8rem 0 1rem 3rem;
+    font-size: 1.5rem;
+  }
+
+  .directoryLinkHeader {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .bookP_1, .bookP_2 {
+    font-size: 1.15rem;
+    margin: .25rem 3rem;
+  }
+
+  .pageLinkingPanel {
+    width: 75%;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1280px) and (min-height: 720px) and (max-height: 720px) {
+  .linkingBookHeader {
+    margin: 8rem 0 1rem 3rem;
+    font-size: 1.5rem;
+  }
+
+  .directoryLinkHeader {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .bookP_1, .bookP_2 {
+    font-size: 1.15rem;
+    margin: .25rem 3rem;
+  }
+
+  .pageLinkingPanel {
+    width: 75%;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1024px) and (min-height: 768px) and (max-height: 768px) {
+  .bookOfHTML, .bookOfCSS, .bookOfDataVisualizations, .bookOfAccessibility, .bookOfOWASP, .emptyLinkingBook {
+    background-position: unset;
+    height: unset;
+  }
+
+  .linkingBookHeader {
+    margin: 0 0 .25rem 2rem;
+    overflow: hidden;
+    font-size: 1.5rem;
+  }
+
+  .bookP_1, .bookP_2 {
+    margin: .25rem .5rem .25rem 2rem;
+    font-size: 1rem;
+  }
+
+  .directoryLinkHeader {
+    font-size: 1.5rem;
+    width: 85%;
+    overflow: hidden;
+  }
+
+  .pageLinkingPanel {
+    width: 75%;
+    height: 180px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 768px) and (min-height: 1024px) and (max-height: 1024px) {
+  .bookOfHTML, .bookOfCSS, .bookOfDataVisualizations, .bookOfAccessibility, .bookOfOWASP, .emptyLinkingBook {
+    background-position: center;
+    height: 437px;
+  }
+
+  .linkingBookHeader {
+    margin: 1rem 0 .25rem 3rem;
+    overflow: hidden;
+    font-size: 2rem;
+  }
+
+  .bookP_1, .bookP_2 {
+    margin: .25rem .5rem .25rem 3rem;
+    font-size: 1.25rem;
+  }
+
+  .directoryLinkHeader {
+    font-size: 1.5rem;
+    width: 85%;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .pageLinkingPanel {
+    width: 60%;
+    height: 180px;
+  }
+}
