@@ -96,3 +96,7 @@
 .linkToPage>a:hover {
   text-decoration: underline!important;
 }
+
+.material-symbols-outlined {
+  overflow: hidden;
+}

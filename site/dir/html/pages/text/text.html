@@ -16,420 +16,701 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <link rel="stylesheet" href="../../../../../constants/vars.css" />
+  <link rel="stylesheet" href="../../../../../default.css" />
+  <link rel="stylesheet" href="../../../../../assets/shared/css/sidebar.styles.css" />
   <link href="text.css" rel="stylesheet">
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      let btn = document.getElementById('viewSourceBtn');
-      btn.addEventListener('click', function() {
-        let sourceCode = document.documentElement.outerHTML;
-        let pre = document.createElement('pre');
-        pre.textContent = sourceCode;
-        document.body.appendChild(pre);
-      });
-    });
-  </script>
+  <link rel="icon" href="../../../../../favicon.ico" sizes="any">
 </head>
-<body style="overflow-x: hidden;">
-<header style="margin: 2rem; text-align: right;">
-  <button type="button" role="button" class="btn btn-danger">
-    <a href="../../../../../index.html" class="text-white">Back To Main Page</a>
-  </button>
-</header>
-<div class="container-fluid mb-5">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1 class="text-center mb-5">HTML5 Text Elements</h1>
-      <div id="preamble" class="w-75" style="margin: 0 auto;">
-        <h2>Structuring Using the HTML5 Text Elements</h2>
-        <p>
-          When developers create a web page, they add tags, also known as <em>markup</em> to the contents of their page.
-          These tags provide extra meaning and allow browsers to show users the appropriate structure for a given page.
-        </p>
-        <p>
-          There are two general types of <em>markup</em> to consider:
-        </p>
-        <ul>
-          <li>
-            <h5>Structural Markup</h5>
-            <p>Markup used to describe elements like headings and paragraphs</p>
-          </li>
-          <li>
-            <h5>Semantic Markup</h5>
-            <p>Markup used to describe things like emphasis, quotations, the meaning of acronyms, etc.</p>
-          </li>
-        </ul>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3>Structural Markup</h3>
-        <p>
-          These text elements are intended to affect the structure of webpages.
-        </p>
-        <hr/>
-      </div>
-      <div id="headings" class="w-75" style="margin: 0 auto;">
-        <h3>The Headings Elements</h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <p>
-              HTML5 has six (6) levels of headings:
-            </p>
-            <ol>
-              <li>
-                <h5>h1 Heading &lt;h1&gt;</h5>
-                <p>Used for main headings</p>
-              </li>
-              <li>
-                <h5>h2 Heading &lt;h2&gt;</h5>
-                <p>Used for subheadings</p>
-              </li>
-              <li>
-                <h5>h3 Heading &lt;h3&gt;</h5>
-                <p>Used for subheadings nested under h2</p>
-              </li>
-              <li>
-                <h5>h4 Heading &lt;h4&gt;</h5>
-                <p>Used for subheadings nested under h3</p>
-              </li>
-              <li>
-                <h5>h5 Heading &lt;h5&gt;</h5>
-                <p>Used for subheadings nested under h4</p>
-              </li>
-              <li>
-                <h5>h6 Heading &lt;h6&gt;</h5>
-                <p>Used for subheadings nested under h5</p>
-              </li>
-            </ol>
-          </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <h1>This is an h1 Heading</h1>
-            <h2>This is an h2 Heading</h2>
-            <h3>This is an h3 Heading</h3>
-            <h4>This is an h4 Heading</h4>
-            <h5>This is an h5 Heading</h5>
-            <h6>This is an h6 Heading</h6>
+<body>
+<main class="mainSubSection">
+  <!-- SideBar Nav -->
+  <div id="offcanvas" class="offcanvas offcanvas-start bg-dark canvasWidth" tabindex="-1" data-bs-keyboard="false" data-bs-backdrop="false">
+    <div class="offcanvas-header mb-0 pb-0">
+      <h6 class="offcanvas-title d-none d-sm-block sideBarHeader">Main Navigation</h6>
+      <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body px-0 pt-0">
+      <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+        <li class="nav-item">
+          <a href="/" class="nav-link text-truncate">
+            <i class="fs-5 bi-house"></i><span class="ms-1 d-none d-sm-inline navItemLabel">Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#submenu1" data-bs-toggle="collapse" class="nav-link">
+            <span class="ms-1 d-none d-sm-inline navItemLabel">Structural Markup</span></a>
+          <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+            <li style="padding-left: 10px;">
+              <a href="#structuralMarkupAnchor" class="nav-link"> <span class="d-none d-sm-inline subLink">1. Headings Elements</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">2. Paragraph Element</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">3. Bold, Italic, Superscript, &amp; Subscript Elements</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">4. White Space</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">5. Line Breaks &amp; Horizontal Rules</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#submenu2" data-bs-toggle="collapse" class="nav-link">
+            <span class="ms-1 d-none d-sm-inline navItemLabel">Semantic Markup</span></a>
+          <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+            <li style="padding-left: 10px;">
+              <a href="#structuralMarkupAnchor" class="nav-link"> <span class="d-none d-sm-inline subLink">1. Strong &amp; Emphasis Tags</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">2. Quotations &amp; Citations</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">3. Abbreviations &amp; Acronyms</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">4. Citations &amp; Definitions</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">5. Address</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">6. Content Changes</span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <footer>
+      <span class="sidebarFooter">2024 <a class="linkToMainWebsite" href="https://thegemtrove.herokuapp.com/">ToG</a> - DKGreco</span>
+    </footer>
+  </div>
+  <!-- End SideBar Nav -->
+
+
+  <div class="container-fluid pageContent">
+    <div class="row col-lg-12 col-sm-12 rowContainer">
+      <!-- Page Intro Section -->
+      <div class="col-lg-3 col-sm-12 menuTogglerContainer">
+        <div class="col-lg-12">
+          <div id="menuToggler">
+            <button class="btn expandMenuBtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
+              Menu <span class="material-symbols-outlined">subdirectory_arrow_right</span>
+            </button>
           </div>
         </div>
       </div>
-      <div id="paragraphs" class="w-75" style="margin: 0 auto;">
-        <h3>The Paragraph Element</h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <h1 class="text-center m-3">HTML5 Text Elements</h1>
+        <div id="pagePreambles">
+          <p class="pagePreamble_1">
+            When developers create a web page, they add tags, also known as <strong><em>markup</em></strong> to the contents of their page.
+            These tags provide extra meaning and allow browsers to show users the appropriate structure for a given page.
+          </p>
+          <p class="pagePreamble_2">
+            There are two (2) general types of <strong><em>markup</em></strong> to consider:
+          </p>
+          <ol class="olTypesOfMarkup">
+            <li>Structural Markup
+              <ul>
+                <li>Markup used to describe elements like headings and paragraphs.</li>
+              </ul>
+            </li>
+            <li>Semantic Markup
+              <ul>
+                <li>Markup used to describe things like emphasis, quotations, the meaning of acronyms, etc.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Structural Markup Section -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="structuralMarkupContainer">
+          <span id="structuralMarkupAnchor"></span>
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Structural Markup</h2>
             <p>
-              HTML5 provides the paragraph tag &lt;p&gt; to set paragraphs. By default, a browser will show each
-              paragraph on a new line with space between it and any subsequent paragraphs.
+              These text elements are intended to affect the structure of webpages.
             </p>
+            <hr class="hrStyle"/>
           </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <div style="border: 1px solid black;">
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                A paragraph consists of one or more sentences that form a self-contained unit of discourse. The start
-                of a paragraph is indicated by a new line.
-              </p>
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                Text is easier to understand when it is split up into units of text. For example, a book may have
-                chapters. Chapters can have subheadings. Under each heading there will be one more paragraphs.
-              </p>
+          <div id="headings">
+            <div class="row">
+              <h3 class="subHeading">1. The Headings Elements</h3>
+              <div class="col-sm-12 col-lg-12">
+                <p class="textEntry_1">
+                  HTML5 has six (6) levels of headings:
+                </p>
+                <div class="row">
+                  <div class="row col-lg-12 col-sm-12 tablePanel1">
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                      <p style="margin-bottom: 0; font-size: 2rem;">
+                        <strong>&lt;h1&gt;h1 Header&lt;/h1&gt;</strong>
+                      </p>
+                      <p style="font-size: 1.75rem;">
+                        Used for main headings
+                      </p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                      <h1>This is an h1 Heading</h1>
+                    </div>
+                  </div>
+                  <div class="row col-lg-12 col-sm-12">
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                      <p style="margin-bottom: 0; font-size: 2rem;">
+                        <strong>&lt;h2&gt;h2 Header&lt;/h2&gt;</strong>
+                      </p>
+                      <p style="font-size: 1.75rem;">
+                        Used for headings nested under main headings
+                      </p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                      <h2>This is an h2 Heading</h2>
+                    </div>
+                  </div>
+                  <div class="row col-lg-12 col-sm-12">
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                      <p style="margin-bottom: 0; font-size: 2rem;">
+                        <strong>&lt;h3&gt;h3 Header&lt;/h3&gt;</strong>
+                      </p>
+                      <p style="font-size: 1.75rem;">
+                        Used for headings nested under h2 headings
+                      </p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                      <h3>This is an h3 Heading</h3>
+                    </div>
+                  </div>
+                  <div class="row col-lg-12 col-sm-12">
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                      <p style="margin-bottom: 0; font-size: 2rem;">
+                        <strong>&lt;h4&gt;h4 Header&lt;/h4&gt;</strong>
+                      </p>
+                      <p style="font-size: 1.75rem;">
+                        Used for headings nested under h3 headings
+                      </p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                      <h4>This is an h4 Heading</h4>
+                    </div>
+                  </div>
+                  <div class="row col-lg-12 col-sm-12">
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                      <p style="margin-bottom: 0; font-size: 2rem;">
+                        <strong>&lt;h5&gt;h5 Header&lt;/h5&gt;</strong>
+                      </p>
+                      <p style="font-size: 1.75rem;">
+                        Used for headings nested under h4 headings
+                      </p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                      <h5>This is an h5 Heading</h5>
+                    </div>
+                  </div>
+                  <div class="row col-lg-12 col-sm-12">
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                      <p style="margin-bottom: 0; font-size: 2rem;">
+                        <strong>&lt;h6&gt;h6 Header&lt;/h6&gt;</strong>
+                      </p>
+                      <p style="font-size: 1.75rem;">
+                        Used for headings nested under h5 headings
+                      </p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                      <h6>This is an h6 Heading</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div id="emphasis" class="w-75" style="margin: 0 auto;">
-        <h3>Bold, Italic, Superscript, & Subscript Elements</h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <ul>
-              <li>
-                <h5>b Tag &lt;b&gt;</h5>
-                <p>
-                  Makes enclosed chars appear in bold. This element can also represent a section of text that would
-                  be presented in a visually different way (key words in a paragraph) although the use of the b
-                  tag does not imply any additional meaning. Also review: strong Tag &lt;strong&gt;
-                </p>
-              </li>
-              <li>
-                <h5>i Tag &lt;i&gt;</h5>
-                <p>
-                  Makes enclosed chars appear in italic. This element can also represent a section of text that would
-                  be said in a different way from the surrounding content - such as technical terms, names of ships,
-                  foreign words, thoughts, etc. Also review: em Tag &lt;em&gt;
-                </p>
-              </li>
-              <li>
-                <h5>sup Tag &lt;sup&gt;</h5>
-                <p>
-                  The sup tag is used to contain chars that should be superscript such as the suffixes of dates or
-                  mathematical concepts like raising a number to a power such as 2<sup>2</sup>
-                </p>
-              </li>
-              <li>
-                <h5>sub Tag &lt;sub&gt;</h5>
-                <p>
-                  The sub tag is used to contain chars that should be subscript such as declaring footnotes or
-                  creating or representing chemical equations/formulae like H<sub>2</sub>0
-                </p>
-              </li>
-            </ul>
-          </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <div style="border: 1px solid black;">
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                <b>I am text using the b tag</b><br/>
-                <strong>I am text using the strong tag</strong>
-              </p>
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                <i>I am text using the i tag</i><br/>
-                <em>I am text using the em tag</em>
-              </p>
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                <span>Einstein created the famous equation: E=MC<sup>2</sup></span><br/>
-              </p>
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                <span>The amount of CO<sub>2</sub> in the atmosphere grew by 2ppm in 2009<sub>9</sub>.</span>
-              </p>
+          <hr class="hrStyle"/>
+          <div id="paragraphs">
+            <div class="row">
+              <h3 class="subHeading">2. The Paragraph Element</h3>
+              <div class="row col-lg-12 col-sm-12">
+                <p class="textEntry_1">HTML5 provides the paragraph tag &lt;p&gt; to set paragraphs. By default, a browser will show each
+                  paragraph on a new line with space between it and any subsequent paragraphs.</p>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                  <p style="margin-bottom: 0; font-size: 2rem;">
+                    <strong>&lt;p&gt;Paragraph Content&lt;/p&gt;</strong>
+                  </p>
+                  <p style="font-size: 1.75rem;">
+                    Used to hold text content in a paragraph format
+                  </p>
+                </div>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)">
+                  <p class="example tablePanel3">
+                    A paragraph consists of one or more sentences that form a self-contained unit of discourse. The start
+                    of a paragraph is indicated by a new line.
+                  </p>
+                  <p class="example tablePanel3">
+                    Text is easier to understand when it is split up into units of text. For example, a book may have
+                    chapters. Chapters can have subheadings. Under each heading there will be one or more paragraphs.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div id="whitespace" class="w-75" style="margin: 0 auto;">
-        <h3>White Space</h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <p>
-              In order to make code easier to read, web page authors tend to add extra space or start elements on new lines.
-              When the browser comes across two (2) or more spaces next to each other, it only displays one space.
-              Similarly, if it comes across a line break, it treats that as a single space as well. This is known as
-              <strong>white space collapsing</strong>.
-            </p>
-            <ul>
-              <li>
-                <h5>Example 1</h5>
-                <pre>&lt;p&gt;The moon is drifting away from Earth.&lt;/p&gt;</pre>
-              </li>
-              <li>
-                <h5>Example 2</h5>
-                <pre>&lt;p&gt;The moon is                                  drifting away from Earth.&lt;/p&gt;</pre>
-              </li>
-              <li>
-                <h5>Example 3</h5>
-                <pre>&lt;p&gt;The moon
-is drifting                         away from Earth.
-                &lt;/p&gt;</pre>
-              </li>
-            </ul>
-          </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <div style="border: 1px solid black;">
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                The moon is drifting away from Earth.
-              </p>
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                The moon is                                  drifting away from Earth.
-              </p>
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                The moon
-                is drifting                         away from Earth.
-              </p>
+          <hr class="hrStyle"/>
+          <div id="emphasis">
+            <div class="row">
+              <h3 class="subHeading">3. Bold, Italic, Superscript, & Subscript Elements</h3>
+              <div class="row col-lg-12 col-sm-12">
+                <div class="row col-lg-12 col-sm-12">
+                  <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                    <p style="margin-bottom: 0; font-size: 2rem;">
+                      <strong>&lt;b&gt;b Tag&lt;/b&gt;</strong>
+                    </p>
+                    <p style="font-size: 1.75rem; text-align: left;">
+                      Makes enclosed chars appear in bold. This element can also represent a section of text that would
+                      be presented in a visually different way (keywords in a paragraph) although the use of the b
+                      tag does not imply any additional meaning.
+                    </p>
+                    <p>
+                      Also Review the Semantic: strong Tag &lt;strong&gt;
+                    </p>
+                  </div>
+                  <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                    <p class="example tablePanel3">
+                      <b>I am text using the b tag</b>
+                    </p>
+                  </div>
+                </div>
+                <div class="row col-lg-12 col-sm-12">
+                  <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                    <p style="margin-bottom: 0; font-size: 2rem;">
+                      <strong>&lt;em&gt;em Tag&lt;/em&gt;</strong>
+                    </p>
+                    <p style="font-size: 1.75rem; text-align: left;">
+                      Makes enclosed chars appear in italic. This element can also represent a section of text that would
+                      be said in a different way from the surrounding content - such as technical terms, names of ships,
+                      foreign words, thoughts, etc.
+                    </p>
+                    <p>
+                      Also Review The Semantic: em Tag &lt;em&gt;
+                    </p>
+                  </div>
+                  <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                    <p class="example tablePanel3">
+                      <em>I am text using the em tag</em>
+                    </p>
+                  </div>
+                </div>
+                <div class="row col-lg-12 col-sm-12">
+                  <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                    <p style="margin-bottom: 0; font-size: 2rem;">
+                      <strong>&lt;sup&gt;sup Tag&lt;/sup&gt;</strong>
+                    </p>
+                    <p style="font-size: 1.75rem; text-align: left;">
+                      The sup tag is used to contain chars that should be superscript such as the suffixes of dates or
+                      mathematical concepts like raising a number to a power such as 2<sup>2</sup>.
+                    </p>
+                  </div>
+                  <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                    <p class="example tablePanel3">
+                      <span>Einstein created the famous equation: E=MC<sup>2</sup></span><br/>
+                    </p>
+                  </div>
+                </div>
+                <div class="row col-lg-12 col-sm-12">
+                  <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                    <p style="margin-bottom: 0; font-size: 2rem;">
+                      <strong>&lt;sub&gt;sub Tag&lt;/sub&gt;</strong>
+                    </p>
+                    <p style="font-size: 1.75rem; text-align: left;">
+                      The sub tag is used to contain chars that should be subscript such as declaring footnotes or
+                      creating or representing chemical equations/formulae like H<sub>2</sub>0.
+                    </p>
+                  </div>
+                  <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                    <p class="example tablePanel3">
+                      <span>The amount of CO<sub>2</sub> in the atmosphere grew by 2ppm in 2009<sub>9</sub>.</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div id="lineBreaksAndHR" class="w-75" style="margin: 0 auto;">
-        <h3>Line Breaks & Horizontal Rules</h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <p>
-              There are two (2) <strong>self-closing</strong> tags to help with line breaks and horizontal rules.<br/>
-              They are &lt;br/&gt; and &lt;hr/&gt;<br>
-              They are also known as <strong>Empty Elements</strong>
-            </p>
-            <ul>
-              <li>
-                <h5>br Tag &lt;br/&gt;</h5>
-                <p>Used to add a line break inside the middle of a paragraph or within the page itself.</p>
-              </li>
-              <li>
-                <h5>hr Tag &lt;hr/&gt;</h5>
-                <p>Used to create a break between theme - such as a change in topic.</p>
-              </li>
-            </ul>
-          </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <div style="border: 1px solid black;">
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                The Earth<br/> gets one hundred tons heavier every day<br/>due to falling space dust.
+          <hr class="hrStyle"/>
+          <div id="whitespace">
+            <div class="row">
+              <h3 class="subHeading">4. White Space</h3>
+              <p class="textEntry_1">
+                In order to make code easier to read, web page authors tend to add extra space or start elements on new lines.
+                When the browser comes across two (2) or more spaces next to each other, it only displays one space.
+                Similarly, if it comes across a line break, it treats that as a single space as well. This is known as
+                <strong>white space collapsing</strong>.
               </p>
-              <div style="padding: 2rem;">
-                <p>
-                  Venus is the only planet that rotates clockwise.
+              <div class="row col-lg-12 col-sm-12">
+                <div class="row col-lg-12 col-sm-12">
+                  <div class="col-lg-2 col-sm-12 p-3">
+                  </div>
+                  <div class="col-lg-5 col-sm-12 p-3 text-center align-content-center" >
+                    <p>Written Code</p>
+                  </div>
+                  <div class="col-lg-5 col-sm-12 p-3 text-center align-content-center" >
+                    <p>Rendered</p>
+                  </div>
+                </div>
+                <div class="row col-lg-12 col-sm-12">
+                  <div class="col-lg-2 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                    <p style="margin-bottom: 0; font-size: 2rem;">
+                      <strong>Example #1</strong>
+                    </p>
+                  </div>
+                  <div class="col-lg-5 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                    <pre>&lt;p&gt;The moon is drifting away from Earth.&lt;/p&gt;</pre>
+                  </div>
+                  <div class="col-lg-5 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                    <p class="example tablePanel3">
+                      The moon is drifting away from Earth.
+                    </p>
+                  </div>
+                </div>
+                <div class="row col-lg-12 col-sm-12">
+                  <div class="col-lg-2 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                    <p style="margin-bottom: 0; font-size: 2rem;">
+                      <strong>Example #2</strong>
+                    </p>
+                  </div>
+                  <div class="col-lg-5 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                    <pre>&lt;p&gt;The moon is     drifting away from Earth.&lt;/p&gt;</pre>
+                  </div>
+                  <div class="col-lg-5 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                    <p class="example tablePanel3">The moon is            drifting away from Earth.</p>
+                  </div>
+                </div>
+                <div class="row col-lg-12 col-sm-12">
+                  <div class="col-lg-2 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                    <p style="margin-bottom: 0; font-size: 2rem;">
+                      <strong>Example #3</strong>
+                    </p>
+                  </div>
+                  <div class="col-lg-5 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                    <pre>
+                      &lt;p&gt;The moon
+                      is drifting                         away from Earth.&lt;/p&gt;
+                    </pre>
+                  </div>
+                  <div class="col-lg-5 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                    <p class="example tablePanel3">
+                      The moon
+                      is drifting                         away from Earth.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="hrStyle"/>
+          <div id="lineBreaksAndHR">
+            <div class="row">
+              <h3 class="subHeading lbHRSubHeading">5. Line Breaks & Horizontal Rules</h3>
+              <div class="row col-lg-12 col-sm-12">
+                <p class="textEntry_1">
+                  There are two (2) <strong>self-closing</strong> tags to help with line breaks and horizontal rules.<br/>
+                  They are &lt;br/&gt; and &lt;hr/&gt;. They are also known as <strong>Empty Elements</strong>.
                 </p>
-                <hr/>
-                <p>Jupiter is bigger than all the other planets combined.</p>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                  <p style="margin-bottom: 0; font-size: 2rem;">
+                    <strong>&lt;br/&gt;</strong>
+                  </p>
+                  <p style="font-size: 1.75rem;">
+                    Used to add a line break inside the middle of a paragraph or within the page itself.
+                  </p>
+                </div>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)">
+                  <p class="example tablePanel3">
+                    The Earth<br/> gets one hundred tons heavier every day<br/>due to falling space dust.
+                  </p>
+                </div>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                  <p style="margin-bottom: 0; font-size: 2rem;">
+                    <strong>&lt;hr/&gt;</strong>
+                  </p>
+                  <p style="font-size: 1.75rem;">
+                    Used to create a break between theme - such as a change in topic.
+                  </p>
+                </div>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)">
+                  <div class="tablePanel2">
+                    <p class="example tablePanel3">
+                      Venus is the only planet that rotates clockwise.
+                    </p>
+                    <hr/>
+                    <p  class="example tablePanel3">Jupiter is bigger than all the other planets combined.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3>Semantic Markup</h3>
-        <p>
-          These text elements are not intended to affect the structure of webpages, but they do add extra
-          information to the pages.
-        </p>
-        <hr/>
-      </div>
-      <div id="strong" class="w-75" style="margin: 0 auto;">
-        <h3>
-          Strong, Emphasis, Quotations, Abbreviations & Acronyms, Citations & Definitions, Address, Content Changes
-        </h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <ol>
-              <li>
-                <h5>strong Tag &lt;strong&gt;</h5>
-                <p>Use of the strong element indicates that its content has strong importance.</p>
-              </li>
-              <li>
-                <h5>em Tag &lt;em&gt;</h5>
-                <p>Use of the em element indicates emphasis that subtly changes the meaning of a sentence.</p>
-              </li>
-              <li>
-                <h5>blockquote Tag &lt;blockquote&gt;</h5>
-                <p>
-                  Used for longer quotes that take up an entire paragraph. p Tags may be used within blockquote elements.
-                  This element uses the <strong>cite</strong> attribute to indicate where a quote is from. Its value
-                  should be a URL that will have more information about the source of the quotation.
-                </p>
-              </li>
-              <li>
-                <h5>q Tag &lt;q&gt;</h5>
-                <p>
-                  Used for shorter quotes that sit within a paragraph. Browsers are supposed to put quotes around the
-                  q Tag, however IE did not, so q was usually avoided. This element uses the <strong>cite</strong>
-                  attribute to indicate where a quote is from. Its value should be a URL that will have more
-                  information about the source of the quotation.
-                </p>
-              </li>
-              <li>
-                <h5>abbr Tag &lt;abbr&gt;</h5>
-                <p>
-                  Used for abbreviations or acronyms. A <strong>title</strong> attribute on the opening tag is used
-                  to specify the full term. HTML5 deprecated the HTML4 &lt;acronym&gt; Tag: Use &lt;abbr&gt;
-                </p>
-              </li>
-              <li>
-                <h5>cite Tag &lt;cite&gt;</h5>
-                <p>
-                  Used for referencing a piece of work such as a book, fil, or research paper. The cite element
-                  can be used to indicate where the citation is from. In HTML5, it is not recommended that the cite
-                  Tag be used to cite a person's name. It was allowed in HTML4. Browsers render the content of a cite
-                  Tag in italic.
-                </p>
-              </li>
-              <li>
-                <h5>dfn Tag &lt;dfn&gt;</h5>
-                <p>
-                  Used to indicate the defining instance of a new term. The first time new terminology is explained in
-                  a document, it is known as the defining instance of it. Some browsers show the content of the &lt;dfn&gt;
-                  Tag in italics. Safari and Chrome do not change its appearance.
-                </p>
-              </li>
-              <li>
-                <h5>address Tag &lt;address&gt;</h5>
-                <p>
-                  Specifically used to contain contact details for the author of the page. It can contain a physical
-                  address, phone number, or email address. Browsers often display the content of the &lt;address&gt;
-                  Tag in italic.
-                </p>
-              </li>
-              <li>
-                <h5>ins Tag &lt;ins&gt;</h5>
-                <p>
-                  Used for showing content that has been inserted into a document. Usually formatted with an underline.
-                </p>
-              </li>
-              <li>
-                <h5>del Tag &lt;ins&gt;</h5>
-                <p>
-                  Used for showing content that has been deleted from a document. Usually formatted with strikethrough.
-                </p>
-              </li>
-              <li>
-                <h5>s Tag &lt;s&gt;</h5>
-                <p>
-                  Used to indicate that something is no longer accurate or relevant (but should also not be deleted from
-                  the document). Usually formatted with strikethrough. Older versions of HTML have the &lt;u&gt; Tag,
-                  but is being phased out.
-                </p>
-              </li>
-            </ol>
+
+      <!-- Semantic Markup Section -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="structuralMarkupContainer">
+          <span id="semanticMarkupAnchor"></span>
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Semantic Markup</h2>
+            <p>
+              These text elements are not intended to affect the structure of webpages, but they do add extra
+              information to the pages.
+            </p>
+            <hr class="hrStyle"/>
           </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <div style="border: 1px solid black; margin: 1rem; padding: 0.5rem;">
-              <small>Strong</small>
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                <strong>Beware</strong>: Crocodiles Do Not Swim Here.<br/>
-                This toy has many small pieces and is <strong>not suitable for children under 5 years old.</strong>
-              </p>
-              <small>em</small>
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                I <em>think</em> Lou was the first.<br/>
-                I think <em>Lou</em> was the first.<br/>
-                I think Lou was the <em>first</em>.
-              </p>
-              <small>blockquote</small>
-              <blockquote cite="https://en.wikipedia.org/wiki/Custard_apple" style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                <p>The Annonaceae are a family of flowering plants consisting of trees, shrubs, or rarely lianas[3] commonly known as the custard apple family[4][3] or soursop family. With 108 accepted genera and about 2400 known species,[5] it is the largest family in the Magnoliales. Several genera produce edible fruit, most notably Annona, Anonidium, Asimina, Rollinia, and Uvaria. Its type genus is Annona. The family is concentrated in the tropics, with few species found in temperate regions. About 900 species are Neotropical, 450 are Afrotropical, and the remaining are Indomalayan. </p>
-              </blockquote>
-              <small>q</small>
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                Ursula K Le Guin once said, <q>It is good to have an end to journey toward; but it is the journey that matters, in the end.</q>
-              </p>
-              <small>abbr</small>
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                <abbr title="Professor">Prof</abbr> Sprout belongs to Hufflepuff.
-              </p>
-              <small>cite</small>
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                <cite>The Name of the Wind</cite> by Patrick Rothfuss has sold over one (1) million copies worldwide.
-              </p>
-              <small>dfn</small>
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                A <dfn>black hole</dfn> is a region of space from which nothing, not even light, can escape.
-              </p>
-              <small>address</small>
-              <address style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                <p><a href="mailto:dkgreco@thetroveofgems.tech">dkgreco@thetroveofgems.tech</a></p>
-                <p>Chandler, AZ USA</p>
-              </address>
-              <small>ins & del</small>
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                It was the <del>worst</del> <ins>best</ins> idea I ever had.
-              </p>
-              <small>s</small>
-              <p style="border: 1px solid grey; margin: 1rem; padding: 0.5rem;">
-                Laptop Computer:<br/>
-                <s>Was $995</s><br/>
-                Now only $375
-              </p>
+          <div id="strongAndEmphasisSection">
+            <div class="row">
+              <h3 class="subHeading">1. Strong &amp; Emphasis</h3>
+              <div class="col-sm-12 col-lg-12">
+                <div class="row">
+                  <div class="row col-lg-12 col-sm-12">
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                      <p style="margin-bottom: 0; font-size: 2rem;">
+                        <strong>&lt;strong&gt;strong Tag&lt;/strong&gt;</strong>
+                      </p>
+                      <p style="font-size: 1.75rem;">
+                        Use of the strong element indicates that its content has strong importance.
+                      </p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                      <p class="example tablePanel3">
+                        <strong>Beware</strong>: Crocodiles Do Not Swim Here.<br/>
+                      </p>
+                      <p class="example tablePanel3">
+                        This toy has many small pieces and is <strong>not suitable for children under 5 years old.</strong>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row col-lg-12 col-sm-12">
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                      <p style="margin-bottom: 0; font-size: 2rem;">
+                        <strong>&lt;em&gt;em Tag&lt;/em&gt;</strong>
+                      </p>
+                      <p style="font-size: 1.75rem;">
+                        Use of the em element indicates emphasis that subtly changes the meaning of a sentence.
+                      </p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                      <p class="example tablePanel3">
+                        I <em>think</em> Lou was the first.<br/>
+                      </p>
+                      <p class="example tablePanel3">
+                        I think <em>Lou</em> was the first.<br/>
+                      </p>
+                      <p class="example tablePanel3">
+                        I think Lou was the <em>first</em>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="hrStyle"/>
+          <div id="quotationsSection">
+            <div class="row">
+              <h3 class="subHeading">2. Quotations &amp; Citations</h3>
+              <div class="row col-lg-12 col-sm-12">
+                <p class="textEntry_1">
+                  HTML5 provides three (3) tags:  &lt;blockquote&gt;, &lt;q&gt;, and &lt;cite&gt;, for citations.
+                </p>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                  <p style="margin-bottom: 0; font-size: 1.75rem;">
+                    <strong>&lt;blockquote&gt;Citation Content&lt;/blockquote&gt;</strong>
+                  </p>
+                  <p style="font-size: 1.75rem; text-align: left;">
+                    Used for longer quotes that take up an entire paragraph. p Tags may be used within blockquote elements.
+                    This element uses the <strong>cite</strong> attribute to indicate where a quote is from. Its value
+                    should be a URL that will have more information about the source of the quotation.
+                  </p>
+                </div>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)">
+                  <blockquote cite="https://en.wikipedia.org/wiki/Custard_apple">
+                    <p class="example tablePanel3">The Annonaceae are a family of flowering plants consisting of trees, shrubs, or rarely lianas[3] commonly known as the custard apple family[4][3] or soursop family. With 108 accepted genera and about 2400 known species,[5] it is the largest family in the Magnoliales. Several genera produce edible fruit, most notably Annona, Anonidium, Asimina, Rollinia, and Uvaria. Its type genus is Annona. The family is concentrated in the tropics, with few species found in temperate regions. About 900 species are Neotropical, 450 are Afrotropical, and the remaining are Indomalayan. </p>
+                  </blockquote>
+                </div>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                  <p style="margin-bottom: 0; font-size: 1.75rem;">
+                    <strong>&lt;q&gt;Citation Content&lt;/q&gt;</strong>
+                  </p>
+                  <p style="font-size: 1.75rem; text-align: left;">
+                    Used for shorter quotes that sit within a paragraph. Browsers are supposed to put quotes around the
+                    q Tag, however IE did not, so q was usually avoided. This element uses the <strong>cite</strong>
+                    attribute to indicate where a quote is from. Its value should be a URL that will have more
+                    information about the source of the quotation.
+                  </p>
+                </div>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)">
+                  <p class="example tablePanel3">
+                    Ursula K Le Guin once said, <q>It is good to have an end to journey toward; but it is the journey that matters, in the end.</q>
+                  </p>
+                </div>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                  <p style="margin-bottom: 0; font-size: 1.75rem;">
+                    <strong>&lt;cite&gt;Citation Content&lt;/cite&gt;</strong>
+                  </p>
+                  <p style="font-size: 1.75rem; text-align: left;">
+                    Used for referencing a piece of work such as a book, file, or research paper. The cite element
+                    can be used to indicate where the citation is from. In HTML5, it is not recommended that the cite
+                    Tag be used to cite a person's name. It was allowed in HTML4. Browsers render the content of a cite
+                    Tag in italic.
+                  </p>
+                </div>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)">
+                  <p class="example tablePanel3">
+                    <cite>The Name of the Wind</cite> by Patrick Rothfuss has sold over one (1) million copies worldwide.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="hrStyle"/>
+          <div id="abbreviationsAndAcronymsSection">
+            <div class="row">
+              <h3 class="subHeading">3. Abbreviations &amp; Acronyms</h3>
+              <div class="row col-lg-12 col-sm-12">
+                <div class="row col-lg-12 col-sm-12">
+                  <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                    <p style="margin-bottom: 0; font-size: 2rem;">
+                      <strong>&lt;abbr&gt;abbr Tag&lt;/abbr&gt;</strong>
+                    </p>
+                    <p style="font-size: 1.75rem; text-align: left;">
+                      Used for abbreviations or acronyms. A <strong>title</strong> attribute on the opening tag is used
+                      to specify the full term.
+                    </p>
+                    <p>
+                      HTML5 deprecated the HTML4 &lt;acronym&gt; Tag: Use &lt;abbr&gt;
+                    </p>
+                  </div>
+                  <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)" >
+                    <p class="example tablePanel3">
+                      <abbr title="Professor">Prof</abbr> Sprout belongs to Hufflepuff.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="hrStyle"/>
+          <div id="definitionsSection">
+            <div class="row">
+              <h3 class="subHeading">4. Definitions</h3>
+              <div class="row col-lg-12 col-sm-12">
+                <div class="row col-lg-12 col-sm-12">
+                  <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                    <p style="margin-bottom: 0; font-size: 1.75rem;">
+                      <strong>&lt;dfn&gt;Definition Content&lt;/dfn&gt;</strong>
+                    </p>
+                    <p style="font-size: 1.75rem; text-align: left;">
+                      Used to indicate the defining instance of a new term on a webpage.
+                    </p>
+                  </div>
+                  <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)">
+                    <p class="example tablePanel3">
+                      A <dfn>black hole</dfn> is a region of space from which nothing, not even light, can escape.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="hrStyle"/>
+          <div id="addressSection">
+            <div class="row">
+              <h3 class="subHeading lbHRSubHeading">5. Address</h3>
+              <div class="row col-lg-12 col-sm-12">
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                  <p style="margin-bottom: 0; font-size: 2rem;">
+                    <strong>&lt;address&gt;Address Details&lt;/address&gt;</strong>
+                  </p>
+                  <p style="font-size: 1.75rem; text-align: left;">
+                    Specifically used to contain contact details for the author of the page. It can contain a physical
+                    address, phone number, or email address. Browsers often display the content of the &lt;address&gt;
+                    Tag in italic.
+                  </p>
+                </div>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)">
+                  <address>
+                    <div class="example tablePanel3">
+                      <p class="example tablePanel3" ><a style="color: var(--book-cover-4);" href="mailto:dkgreco@thetroveofgems.tech">dkgreco@thetroveofgems.tech</a></p>
+                      <p  class="example tablePanel3" >Chandler, AZ USA</p>
+                    </div>
+                  </address>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="hrStyle"/>
+          <div id="contentChangesSection">
+            <div class="row">
+              <h3 class="subHeading lbHRSubHeading">6. Content Changes</h3>
+              <div class="row col-lg-12 col-sm-12">
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                  <p style="margin-bottom: 0; font-size: 2rem;">
+                    <strong>&lt;ins&gt;ins Tag&lt;/ins&gt;</strong>
+                  </p>
+                  <p style="font-size: 1.75rem; text-align: left;">
+                    Used for showing content that has been inserted into a document. Usually formatted with an underline.
+                  </p>
+                </div>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)">
+                  <p class="example tablePanel3">
+                    It was the <del>worst</del> <ins>best</ins> idea I ever had.
+                  </p>
+                </div>
+
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                  <p style="margin-bottom: 0; font-size: 2rem;">
+                    <strong>&lt;del&gt;del Tag&lt;/del&gt;</strong>
+                  </p>
+                  <p style="font-size: 1.75rem; text-align: left;">
+                    Used for showing content that has been deleted from a document. Usually formatted with strikethrough.
+                  </p>
+                </div>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)">
+                  <p class="example tablePanel3">
+                    It was the <del>worst</del> <ins>best</ins> idea I ever had.
+                  </p>
+                </div>
+
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel1" style="border: 1px solid var(--book-cover-4)">
+                  <p style="margin-bottom: 0; font-size: 2rem;">
+                    <strong>&lt;s&gt;s Tag&lt;/s&gt;</strong>
+                  </p>
+                  <p style="font-size: 1.75rem; text-align: left;">
+                    Used to indicate that something is no longer accurate or relevant (but should also not be deleted from
+                    the document). Usually formatted with strikethrough. Older versions of HTML have the &lt;u&gt; Tag,
+                    but is being phased out.
+                  </p>
+                </div>
+                <div class="col-lg-6 col-sm-12 p-3 text-center align-content-center tablePanel2" style="border: 1px solid var(--book-cover-4)">
+                  <p class="example tablePanel3">
+                    Laptop Computer:<br/>
+                    <s>Was $995</s><br/>
+                    Now only $375
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<hr/>
-<div class="container-fluid text-center mt-5">
-  <button id="viewSourceBtn" class="btn btn-info">View Source In Page</button>
-</div>
+</main>
 </body>
 </html>

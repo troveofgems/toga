@@ -16,264 +16,552 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <link href="lists.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      let btn = document.getElementById('viewSourceBtn');
-      btn.addEventListener('click', function() {
-        let sourceCode = document.documentElement.outerHTML;
-        let pre = document.createElement('pre');
-        pre.textContent = sourceCode;
-        document.body.appendChild(pre);
-      });
-    });
-  </script>
+
+  <link rel="stylesheet" href="../../../../../constants/vars.css" />
+  <link rel="stylesheet" href="../../../../../default.css" />
+  <link rel="stylesheet" href="../../../../../assets/shared/css/sidebar.styles.css" />
+  <link href="lists.css" rel="stylesheet">
 </head>
-<body style="overflow-x: hidden;">
-<header style="margin: 2rem; text-align: right;">
-  <button type="button" role="button" class="btn btn-danger">
-    <a href="../../../../../index.html" class="text-white">Back To Main Page</a>
-  </button>
-</header>
-<div class="container-fluid mb-5">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1 class="text-center mb-5">HTML5 Lists</h1>
-      <div id="preamble" class="w-75" style="margin: 0 auto;">
-        <p>
-          There are many occasions when developers need to use a list. HTML provides developers with three (3)
-          different types of lists:
-        </p>
-        <ul>
-          <li>
-            <h5>Ordered Lists</h5>
-            <p>Each item in the list is numbered. Examples that need this type of list might be instructions, a recipe, etc.</p>
-          </li>
-          <li>
-            <h5>Unordered Lists</h5>
-            <p>Each item in the list is generically bulleted to denote no specific order.</p>
-          </li>
-          <li>
-            <h5>Definition Lists</h5>
-            <p>This list comprises a set of terms along with the definitions for those terms.</p>
-          </li>
-        </ul>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3>Ordered Lists</h3>
-        <hr/>
-      </div>
-      <div id="orderedList" class="w-75" style="margin: 0 auto;">
-        <h3>Creating an Ordered List</h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <p>
-              To create an ordered list, two tags are used: &lt;ol&gt; and its child tag &lt;li&gt;
-            </p>
-            <ol>
-              <li>
-                <h5>ol Tag &lt;ol&gt;</h5>
-                <p>
-                  Used to create an ordered list. Sometimes there might be a <strong>type</strong> attribute attached
-                  to the ol Tag used to specify the type of numbering (letters, roman vs arabic numerals, etc.). It
-                  is better to use the CSS list-style-type property instead.
-                </p>
-              </li>
-              <li>
-                <h5>li Tag &lt;li&gt;</h5>
-                <p>Used to enclose each item in the list. Browsers indent lists by default.</p>
-              </li>
-            </ol>
-          </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <div style="border: 1px solid black;">
-              <small style="padding: .25rem;">Default Without Type Attr</small>
-              <ol>
-                <li>Chop potatoes into quarters</li>
-                <li>Simmer in salted water for 15-20 minutes until tender</li>
-                <li>Heat butter, milk, and nutmeg in a pot</li>
-                <li>Drain potatoes and mash</li>
-                <li>Mix in the milk mixture</li>
-              </ol>
-              <small style="padding: .25rem;">With Type Attr [I]</small>
-              <ol type="I">
-                <li>Chop potatoes into quarters</li>
-                <li>Simmer in salted water for 15-20 minutes until tender</li>
-                <li>Heat butter, milk, and nutmeg in a pot</li>
-                <li>Drain potatoes and mash</li>
-                <li>Mix in the milk mixture</li>
-              </ol>
-            </div>
+<body>
+<main class="mainSubSection">
+  <!-- SideBar Nav -->
+  <div id="offcanvas" class="offcanvas offcanvas-start bg-dark canvasWidth" tabindex="-1" data-bs-keyboard="false" data-bs-backdrop="false">
+    <div class="offcanvas-header mb-0 pb-0">
+      <h6 class="offcanvas-title d-none d-sm-block sideBarHeader">Main Navigation</h6>
+      <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body px-0 pt-0">
+      <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+        <li class="nav-item">
+          <a href="/" class="nav-link text-truncate">
+            <i class="fs-5 bi-house"></i><span class="ms-1 d-none d-sm-inline navItemLabel">Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#submenu1" data-bs-toggle="collapse" class="nav-link active">
+            <span class="ms-1 d-none d-sm-inline navItemLabel">Lists</span></a>
+          <ul class="collapse nav flex-column ms-1 show" id="submenu1" data-bs-parent="#menu">
+            <li style="padding-left: 10px;">
+              <a href="#structuralMarkupAnchor" class="nav-link"> <span class="d-none d-sm-inline subLink">1. Ordered Lists</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">2. Unordered Lists</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">3. Definition Lists</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">4. Nested Lists</span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <footer>
+      <span class="sidebarFooter">2024 <a class="linkToMainWebsite" href="https://thegemtrove.herokuapp.com/">ToG</a> - DKGreco</span>
+    </footer>
+  </div>
+  <!-- End SideBar Nav -->
+
+  <div class="container-fluid pageContent">
+    <div class="row col-lg-12 col-sm-12 rowContainer">
+      <!-- Page Intro Section -->
+      <div class="col-lg-3 col-sm-12 menuTogglerContainer">
+        <div class="col-lg-12">
+          <div id="menuToggler">
+            <button class="btn expandMenuBtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
+              Menu <span class="material-symbols-outlined">subdirectory_arrow_right</span>
+            </button>
           </div>
         </div>
       </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3>Unordered List</h3>
-        <hr/>
-      </div>
-      <div id="unorderedList" class="w-75" style="margin: 0 auto;">
-        <h3>Creating an Unordered List</h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <p>
-              To create an unordered list, two tags are used: &lt;ul&gt; and its child tag &lt;li&gt;
-            </p>
-            <ol>
-              <li>
-                <h5>ul Tag &lt;ul&gt;</h5>
-                <p>
-                  Used to create an unordered list. Sometimes there might be a <strong>type</strong> attribute attached
-                  to the ul Tag used to specify the type of bullet points (circles, squares, diamonds, etc.). It
-                  is better to use the CSS list-style-type property instead.
-                </p>
-              </li>
-              <li>
-                <h5>li Tag &lt;li&gt;</h5>
-                <p>Used to enclose each item in the list. Browsers indent lists by default.</p>
-              </li>
-            </ol>
-          </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <div style="border: 1px solid black;">
-              <small style="padding: .25rem;">Default Without Type Attr</small>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <h1 class="text-center m-3">HTML5 Lists</h1>
+        <div id="pagePreambles">
+          <p class="pagePreamble_1">
+            There are many occasions when developers need to use a list. HTML provides developers with three (3)
+            different types of lists:
+          </p>
+          <ol>
+            <li>
+              Ordered Lists
               <ul>
-                <li>1 lb/kg Potatoes</li>
-                <li>100ml milk</li>
-                <li>50g salted butter</li>
-                <li>Freshly grated nutmeg</li>
-                <li>Salt and pepper to taste</li>
-              </ul>
-              <small style="padding: .25rem;">With Type Attr [circle]</small>
-              <ul type="circle">
-                <li>1 lb/kg Potatoes</li>
-                <li>.5 cup/100ml milk</li>
-                <li>50g salted butter</li>
-                <li>Freshly grated nutmeg</li>
-                <li>Salt and pepper to taste</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3>Definitions List</h3>
-        <hr/>
-      </div>
-      <div id="definitionList" class="w-75" style="margin: 0 auto;">
-        <h3>Creating a Definitions List</h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <p>
-              To create a definitions list, three tags are used: &lt;dl&gt; and its children tags &lt;dt&gt; & &lt;dd&gt;
-            </p>
-            <ol>
-              <li>
-                <h5>dl Tag &lt;dl&gt;</h5>
-                <p>
-                  A definition list is created with the dl Tag and usually consists of a series of terms and their
-                  definitions.
-                </p>
-              </li>
-              <li>
-                <h5>dt Tag &lt;dt&gt;</h5>
-                <p>Used to contain the term being defined (the definition term).</p>
-              </li>
-              <li>
-                <h5>dd Tag &lt;dd&gt;</h5>
-                <p>
-                  Used to contain the term's definition. It is possible to see a list where there are two terms used
-                  for the same definition or two different definitions for the same term.
-                </p>
-              </li>
-            </ol>
-          </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <div style="border: 1px solid black;">
-              <h4 style="padding: 1rem 1rem 0 1rem;">Contronyms</h4>
-              <dl style="padding: 0 1rem 1rem 1rem;">
-                <dt>Bolt</dt>
-                <dd>To Secure; To Flee</dd>
-                <dt>Buckle</dt>
-                <dd>To Connect; To Collapse</dd>
-                <dt>Fast</dt>
-                <dd>Quick; Stuck or made stable</dd>
-              </dl>
-              <h4 style="padding: 1rem 1rem 0 1rem;">Multiple Terms or Definitions</h4>
-              <dl style="padding: 0 1rem 1rem 1rem;">
-                <dt>Scale</dt>
-                <dd>A device used to accurately measure the weight of ingredients</dd>
-                <dd>A technique by which the scales are removed from the skin of a fish.</dd>
-                <dt>Scamorze</dt>
-                <dt>Scamorzo</dt>
-                <dd>An Italian cheese usually made from whole cow's milk (the traditional milk was buffalo).</dd>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3>Nested Lists</h3>
-        <hr/>
-      </div>
-      <div id="nestedLists" class="w-75" style="margin: 0 auto;">
-        <h3>Creating Nested Lists</h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <p>
-              You can put a second list inside an &lt;li&gt; element to create a sub-list or nested list. Browsers
-              display nested lists indented further than the parent list. In nested unordered lists, the browser will
-              usually change the style of the bullet point too.
-            </p>
-          </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <div style="border: 1px solid black;">
-              <small style="padding: .25rem;">Nested Ordered List</small>
-              <ol>
-                <li>Mousses</li>
                 <li>
-                  Pastries
+                  Each item in the list is numbered. Examples that need this type of list might be instructions,
+                  a recipe, etc.
+                </li>
+              </ul>
+            </li>
+            <li>
+              Unordered Lists
+              <ul>
+                <li>
+                  Each item in the list is generically bulleted to denote no specific order.
+                </li>
+              </ul>
+            </li>
+            <li>
+              Definition Lists
+              <ul>
+                <li>
+                  This list comprises a set of terms along with the definitions for those terms.
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Ordered Lists Section -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Ordered Lists</h2>
+            <p>
+              Generating A Numbered List
+            </p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="orderedList">
+            <h3>Creating an Ordered List</h3>
+            <div class="row">
+              <div class="col-sm-12 col-lg-6">
+                <div class="col-lg-12">
+                  <p class="textEntry_1">
+                    To create an ordered list, two tags are used: &lt;ol&gt; and its child tag &lt;li&gt;
+                  </p>
                   <ol>
-                    <li>Croissants</li>
-                    <li>Mille-feuille</li>
-                    <li>Palmier</li>
-                    <li>Profiterole</li>
+                    <li>
+                      ol Tag &lt;ol&gt;
+                      <ul>
+                        <li>
+                          Used to create an ordered list. Sometimes there might be a <strong>type</strong> attribute attached
+                          to the ol Tag used to specify the type of numbering (letters, roman vs arabic numerals, etc.). It
+                          is better to use the CSS list-style-type property instead.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      li Tag &lt;li&gt;
+                      <ul>
+                        <li>
+                          Used to enclose each item in the list. Browsers indent lists by default.
+                        </li>
+                      </ul>
+                    </li>
                   </ol>
-                </li>
-                <li>Tarts</li>
-              </ol>
-              <small style="padding: .25rem;">Nested Unordered List</small>
-              <ul>
-                <li>Mousses</li>
-                <li>
-                  Pastries
-                  <ul>
-                    <li>Croissants</li>
-                    <li>Mille-feuille</li>
-                    <li>Palmier</li>
-                    <li>Profiterole</li>
+                </div>
+                <div class="col-lg-12">
+                  <ul class="nav nav-pills mb-3" id="pills-tab-1" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="pills-olListExample1-tab" data-bs-toggle="pill" data-bs-target="#pills-olListExample1" type="button" role="tab" aria-controls="pills-olListExample1" aria-selected="true">Example 1</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="pills-olListExample2-tab" data-bs-toggle="pill" data-bs-target="#pills-olListExample2" type="button" role="tab" aria-controls="pills-olListExample2" aria-selected="false">Example 2</button>
+                    </li>
                   </ul>
-                </li>
-                <li>Tarts</li>
-              </ul>
+                  <div class="tab-content example1-container" id="pills-tabContent-1">
+                    <div class="tab-pane fade show active tablePanel3 p-3" id="pills-olListExample1" role="tabpanel" aria-labelledby="pills-olListExample1-tab">
+                        <pre>
+&lt;ol class="tablePanel3 olExample1 m-1"&gt;
+  &lt;li&gt;Chop potatoes into quarters&lt;/li&gt;
+  &lt;li&gt;Simmer in salted water for 15-20 minutes until tender&lt;/li&gt;
+  &lt;li&gt;Heat butter, milk, and nutmeg in a pot&lt;/li&gt;
+  &lt;li&gt;Drain potatoes and mash&lt;/li&gt;
+  &lt;li&gt;Mix in the milk mixture&lt;/li&gt;
+&lt;/ol&gt;
+                        </pre>
+                    </div>
+                    <div class="tab-pane fade tablePanel3 p-3" id="pills-olListExample2" role="tabpanel" aria-labelledby="pills-olListExample2-tab">
+                        <pre>
+&lt;ol class="tablePanel3 olExample2 m-1" type="I"&gt;
+  &lt;li&gt;Chop potatoes into quarters&lt;/li&gt;
+  &lt;li&gt;Simmer in salted water for 15-20 minutes until tender&lt;/li&gt;
+  &lt;li&gt;Heat butter, milk, and nutmeg in a pot&lt;/li&gt;
+  &lt;li&gt;Drain potatoes and mash&lt;/li&gt;
+  &lt;li&gt;Mix in the milk mixture&lt;/li&gt;
+&lt;/ol&gt;
+                        </pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-6">
+                <div class="tablePanel2" style="border: 1px solid black;">
+                  <div class="example p-3">
+                    <small style="padding: .25rem;">Default Without Type Attr</small>
+                    <ol class="tablePanel3 olExample1 m-1">
+                      <li>Chop potatoes into quarters</li>
+                      <li>Simmer in salted water for 15-20 minutes until tender</li>
+                      <li>Heat butter, milk, and nutmeg in a pot</li>
+                      <li>Drain potatoes and mash</li>
+                      <li>Mix in the milk mixture</li>
+                    </ol>
+                  </div>
+                  <div class="example p-3">
+                    <small style="padding: .25rem;">With Type Attr [I]</small>
+                    <ol class="tablePanel3 olExample2 m-1" type="I">
+                      <li>Chop potatoes into quarters</li>
+                      <li>Simmer in salted water for 15-20 minutes until tender</li>
+                      <li>Heat butter, milk, and nutmeg in a pot</li>
+                      <li>Drain potatoes and mash</li>
+                      <li>Mix in the milk mixture</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unordered Lists Section -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Unordered Lists</h2>
+            <p>
+              Generating A General List
+            </p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="unorderedList">
+            <h3>Creating an Unordered List</h3>
+            <div class="row">
+              <div class="col-sm-12 col-lg-6">
+                <div class="col">
+                  <div class="col-lg-12 col-sm-12">
+                    <p class="textEntry_1">
+                      To create an unordered list, two tags are used: &lt;ul&gt; and its child tag &lt;li&gt;
+                    </p>
+                    <ol>
+                      <li>
+                        ul Tag &lt;ul&gt;
+                        <ul>
+                          <li>
+                            Used to create an unordered list. Sometimes there might be a <strong>type</strong> attribute attached
+                            to the ul Tag used to specify the type of bullet points (circles, squares, diamonds, etc.). It
+                            is better to use the CSS list-style-type property instead.
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        li Tag &lt;li&gt;
+                        <ul>
+                          <li>
+                            Used to enclose each item in the list. Browsers indent lists by default.
+                          </li>
+                        </ul>
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="col-lg-12 col-sm-12">
+                    <ul class="nav nav-pills mb-3" id="pills-tab-2" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-ulListExample1-tab" data-bs-toggle="pill" data-bs-target="#pills-ulListExample1" type="button" role="tab" aria-controls="pills-ulListExample1" aria-selected="true">Example 1</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-ulListExample2-tab" data-bs-toggle="pill" data-bs-target="#pills-ulListExample2" type="button" role="tab" aria-controls="pills-ulListExample2" aria-selected="false">Example 2</button>
+                      </li>
+                    </ul>
+                    <div class="tab-content example1-container" id="pills-tabContent-2">
+                      <div class="tab-pane fade show active tablePanel3 p-3" id="pills-ulListExample1" role="tabpanel" aria-labelledby="pills-ulListExample1-tab">
+                        <pre>
+&lt;ul class="tablePanel3 ulExmaple1"&gt;
+  &lt;li&gt;1 lb/kg Potatoes&lt;/li&gt;
+  &lt;li&gt;100ml milk&lt;/li&gt;
+  &lt;li&gt;50g salted butter&lt;/li&gt;
+  &lt;li&gt;Freshly grated nutmeg&lt;/li&gt;
+  &lt;li&gt;Salt and pepper to taste&lt;/li&gt;
+&lt;/ul&gt;
+                        </pre>
+                      </div>
+                      <div class="tab-pane fade tablePanel3 p-3" id="pills-ulListExample2" role="tabpanel" aria-labelledby="pills-ulListExample2-tab">
+                        <pre>
+&lt;ul class="tablePanel3 ulExample2" type="circle"&gt;
+  &lt;li&gt;1 lb/kg Potatoes&lt;/li&gt;
+  &lt;li&gt;.5 cup/100ml milk&lt;/li&gt;
+  &lt;li&gt;50g salted butter&lt;/li&gt;
+  &lt;li&gt;Freshly grated nutmeg&lt;/li&gt;
+  &lt;li&gt;Salt and pepper to taste&lt;/li&gt;
+&lt;/ul&gt;
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-6">
+                <div class="tablePanel2" style="border: 1px solid var(--book-cover-4);">
+                  <div style="border: 1px solid black;">
+                    <div class="example p-3">
+                      <small style="padding: .25rem;">Default Without Type Attr</small>
+                      <ul class="tablePanel3 ulExmaple1">
+                        <li>1 lb/kg Potatoes</li>
+                        <li>100ml milk</li>
+                        <li>50g salted butter</li>
+                        <li>Freshly grated nutmeg</li>
+                        <li>Salt and pepper to taste</li>
+                      </ul>
+                    </div>
+                    <div class="example p-3">
+                      <small style="padding: .25rem;">With Type Attr [circle]</small>
+                      <ul class="tablePanel3 ulExample2" type="circle">
+                        <li>1 lb/kg Potatoes</li>
+                        <li>.5 cup/100ml milk</li>
+                        <li>50g salted butter</li>
+                        <li>Freshly grated nutmeg</li>
+                        <li>Salt and pepper to taste</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Definition Lists Section -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Definition Lists</h2>
+            <p>
+              Generating A Definitions List
+            </p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="definitionsSection">
+            <h3>Creating a Definition List</h3>
+            <div class="row">
+              <div class="col-sm-12 col-lg-6">
+                <div class="col">
+                  <div class="col-lg-12">
+                    <p class="textEntry_1">
+                      To create a definitions list, three tags are used: &lt;dl&gt; and its children tags &lt;dt&gt; & &lt;dd&gt;
+                    </p>
+                    <ol>
+                      <li>
+                        dl Tag &lt;dl&gt;
+                        <ul>
+                          <li>
+                            A definition list is created with the dl Tag and usually consists of a series of terms and their
+                            definitions.
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        dt Tag &lt;dt&gt;
+                        <ul>
+                          <li>
+                            Used to contain the term being defined (the definition term).
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        dd Tag &lt;dd&gt;
+                        <ul>
+                          <li>
+                            Used to contain the term's definition. It is possible to see a list where there are two terms used
+                            for the same definition or two different definitions for the same term.
+                          </li>
+                        </ul>
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="col-lg-12">
+                    <ul class="nav nav-pills mb-3" id="pills-tab-3" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-definitionListExample1-tab" data-bs-toggle="pill" data-bs-target="#pills-definitionListExample1" type="button" role="tab" aria-controls="pills-definitionListExample1" aria-selected="true">Example 1</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-definitionListExample2-tab" data-bs-toggle="pill" data-bs-target="#pills-definitionListExample2" type="button" role="tab" aria-controls="pills-definitionListExample2" aria-selected="false">Example 2</button>
+                      </li>
+                    </ul>
+                    <div class="tab-content example1-container" id="pills-tabContent-3">
+                      <div class="tab-pane fade show active tablePanel3 p-3" id="pills-definitionListExample1" role="tabpanel" aria-labelledby="pills-definitionListExample1-tab">
+                        <pre>
+ &lt;dl class="defListExample1" style="padding: 0 1rem 1rem 1rem;"&gt;
+   &lt;dt&gt;Bolt&lt;/dt&gt;
+   &lt;dd&gt;To Secure; To Flee&lt;/dd&gt;
+   &lt;dt&gt;Buckle&lt;/dt&gt;
+   &lt;dd&gt;To Connect; To Collapse&lt;/dd&gt;
+   &lt;dt&gt;Fast&lt;/dt&gt;
+   &lt;dd&gt;Quick; Stuck or made stable&lt;/dd&gt;
+ &lt;/dl&gt;
+                        </pre>
+                      </div>
+                      <div class="tab-pane fade tablePanel3 p-3" id="pills-definitionListExample2" role="tabpanel" aria-labelledby="pills-definitionListExample2-tab">
+                        <pre>
+&lt;dl class="defListExample2" style="padding: 0 1rem 1rem 1rem;"&gt;
+  &lt;dt&gt;Scale&lt;/dt&gt;
+  &lt;dd&gt;A device used to accurately measure the weight of ingredients&lt;/dd&gt;
+  &lt;dd&gt;A technique by which the scales are removed from the skin of a fish.&lt;/dd&gt;
+  &lt;dt&gt;Scamorze&lt;/dt&gt;
+  &lt;dt&gt;Scamorzo&lt;/dt&gt;
+  &lt;dd&gt;An Italian cheese usually made from whole cow's milk (the traditional milk was buffalo).&lt;/dd&gt;
+&lt;/dl&gt;
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-6">
+                <div class="tablePanel2" style="border: 1px solid black;">
+                  <div class="example tablePanel3 p-3">
+                    <h4 style="padding: 1rem 1rem 0 1rem;">Contronyms</h4>
+                    <dl class="defListExample1" style="padding: 0 1rem 1rem 1rem;">
+                      <dt>Bolt</dt>
+                      <dd>To Secure; To Flee</dd>
+                      <dt>Buckle</dt>
+                      <dd>To Connect; To Collapse</dd>
+                      <dt>Fast</dt>
+                      <dd>Quick; Stuck or made stable</dd>
+                    </dl>
+                  </div>
+                  <div class="example tablePanel3 p-3">
+                    <h4 style="padding: 1rem 1rem 0 1rem;">Multiple Terms or Definitions</h4>
+                    <dl class="defListExample2" style="padding: 0 1rem 1rem 1rem;">
+                      <dt>Scale</dt>
+                      <dd>A device used to accurately measure the weight of ingredients</dd>
+                      <dd>A technique by which the scales are removed from the skin of a fish.</dd>
+                      <dt>Scamorze</dt>
+                      <dt>Scamorzo</dt>
+                      <dd>An Italian cheese usually made from whole cow's milk (the traditional milk was buffalo).</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nested Lists Section -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Nested Lists</h2>
+            <p>
+              Creating Nested Lists
+            </p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="nestedLists">
+            <h3>Creating a Nested List</h3>
+            <div class="row">
+              <div class="col-sm-12 col-lg-6">
+                <div class="col">
+                  <div class="col-lg-12">
+                    <p class="textEntry_1">
+                      You can put a second list inside an &lt;li&gt; element to create a sub-list or nested list. Browsers
+                      display nested lists indented further than the parent list. In nested unordered lists, the browser will
+                      usually change the style of the bullet point too.
+                    </p>
+                  </div>
+                  <div class="col-lg-12">
+                    <ul class="nav nav-pills mb-3" id="pills-tab-4" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-nestedExample1-tab" data-bs-toggle="pill" data-bs-target="#pills-nestedExample1" type="button" role="tab" aria-controls="pills-nestedExample1" aria-selected="true">Example 1</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-nestedExample2-tab" data-bs-toggle="pill" data-bs-target="#pills-nestedExample2" type="button" role="tab" aria-controls="pills-nestedExample2" aria-selected="false">Example 2</button>
+                      </li>
+                    </ul>
+                    <div class="tab-content example1-container" id="pills-tabContent-4">
+                      <div class="tab-pane fade show active tablePanel3 p-3" id="pills-nestedExample1" role="tabpanel" aria-labelledby="pills-nestedExample1-tab">
+                        <pre>
+ &lt;ol class="nestedListExample1"&gt;
+   &lt;li&gt;Mousses&lt;/li&gt;
+   &lt;li&gt;
+     Pastries
+     &lt;ol&gt;
+       &lt;li&gt;Croissants&lt;/li&gt;
+       &lt;li&gt;Mille-feuille&lt;/li&gt;
+       &lt;li&gt;Palmier&lt;/li&gt;
+       &lt;li&gt;Profiterole&lt;/li&gt;
+     &lt;/ol&gt;
+   &lt;/li&gt;
+   &lt;li&gt;Tarts&lt;/li&gt;
+ &lt;/ol&gt;
+                        </pre>
+                      </div>
+                      <div class="tab-pane fade tablePanel3 p-3" id="pills-nestedExample2" role="tabpanel" aria-labelledby="pills-nestedExample2-tab">
+                        <pre>
+&lt;ul class="nestedListExample2"&gt;
+  &lt;li&gt;Mousses&lt;/li&gt;
+  &lt;li&gt;
+    Pastries
+    &lt;ul&gt;
+      &lt;li&gt;Croissants&lt;/li&gt;
+      &lt;li&gt;Mille-feuille&lt;/li&gt;
+      &lt;li&gt;Palmier&lt;/li&gt;
+      &lt;li&gt;Profiterole&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Tarts&lt;/li&gt;
+&lt;/ul&gt;
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-sm-12 col-lg-6">
+                <div class="tablePanel2" style="border: 1px solid black;">
+                  <div class="example tablePanel3 p-3">
+                    <small style="padding: .25rem;">Nested Ordered List</small>
+                    <ol class="nestedListExample1">
+                      <li>Mousses</li>
+                      <li>
+                        Pastries
+                        <ol>
+                          <li>Croissants</li>
+                          <li>Mille-feuille</li>
+                          <li>Palmier</li>
+                          <li>Profiterole</li>
+                        </ol>
+                      </li>
+                      <li>Tarts</li>
+                    </ol>
+                  </div>
+                  <div class="example tablePanel3 p-3">
+                    <small style="padding: .25rem;">Nested Unordered List</small>
+                    <ul class="nestedListExample2">
+                      <li>Mousses</li>
+                      <li>
+                        Pastries
+                        <ul>
+                          <li>Croissants</li>
+                          <li>Mille-feuille</li>
+                          <li>Palmier</li>
+                          <li>Profiterole</li>
+                        </ul>
+                      </li>
+                      <li>Tarts</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<hr/>
-<div class="container-fluid text-center mt-5">
-  <button id="viewSourceBtn" class="btn btn-info">View Source In Page</button>
-</div>
+</main>
 </body>
 </html>

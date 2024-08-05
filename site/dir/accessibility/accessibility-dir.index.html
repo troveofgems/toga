@@ -13,15 +13,17 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+  <link rel="stylesheet" href="../../../constants/vars.css" />
   <link rel="stylesheet" href="../../../default.css" />
   <link rel="stylesheet" href="../../../assets/shared/css/sidebar.styles.css" />
   <link rel="stylesheet" href="../../../assets/shared/css/single.page.styles.css" />
+  <link rel="stylesheet" href="../../../assets/shared/css/desktop.responsiveness.css" />
   <link rel="stylesheet" href="accessibility-dir.index.css" />
 </head>
 <body>
 <main>
   <!-- SideBar Nav -->
-  <div class="offcanvas offcanvas-start bg-dark" style="width: 26%!important" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
+  <div class="offcanvas offcanvas-start bg-dark canvasWidth" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
     <div class="offcanvas-header mb-0 pb-0">
       <h6 class="offcanvas-title d-none d-sm-block sideBarHeader">Main Navigation</h6>
       <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -219,51 +221,21 @@
       </div>
       <div id="tableRest" class="col-lg-6 col-sm-12">
         <div class="row navigationContent col-lg-12 col-md-12 col-sm-12">
-          <div class="col-lg-6 col-md-6" style="margin: 8rem 0; padding: 0 3rem 0 8rem;">
-            <h2 class="page__h2">
+          <div class="col-lg-6 col-md-6 pagePanel_1" style="margin: 8rem 0; padding: 0 3rem 0 8rem;">
+            <h2 class="page__h2 accessibilityHeader">
               Accessibility Directory
             </h2>
-            <p class="lead page__intro_2">
+            <p class="lead page__intro_1">
               The following page introduces you to various Accessibility concepts, grouped into the following sections:
             </p>
           </div>
-          <div class="col-lg-6 col-md-6" style="margin: 8rem 0; padding: 0 7rem 0 3rem;">
-
+          <div class="col-lg-6 col-md-6 pagePanel_2" style="margin: 8rem 0; padding: 0 7rem 0 3rem;">
+            <p class="lead page__intro_2">
+              The following page introduces you to various Accessibility concepts, grouped into the following sections:
+            </p>
             <ol id="linksDirectory">
               <li class="linkToPage">
-                <a href="pages/basicCSS">Semantic HTML</a>
-              </li>
-              <li class="linkToPage">
-                <a href="pages/color/color.html">Color Accessibility</a>
-              </li>
-              <li class="linkToPage">
-                <a href="pages/text/text.html">ARIA Attributes</a>
-              </li>
-              <li class="linkToPage">
-                <a href="pages/boxes">Images</a>
-              </li>
-              <li class="linkToPage">
-                <a href="pages/listsTablesForms">Outline Property</a>
-              </li>
-              <li class="linkToPage">
-                <a href="pages/layout">Tab Indexing</a>
-              </li>
-              <li class="linkToPage">
-                <a href="pages/images">Bypassing Blocks</a>
-              </li>
-              <li class="linkToPage">
-                <a href="pages/processAndDesign">Video &amp; Audio</a>
-              </li>
-              <li class="linkToPage">
-                <a href="pages/processAndDesign">Navigation</a>
-                <ul>
-                  <li>
-                    <a href="#">Desktop</a>
-                  </li>
-                  <li>
-                    <a href="#">Mobile</a>
-                  </li>
-                </ul>
+                <a href="pages/basicCSS">Getting Started</a>
               </li>
               <li class="linkToPage">
                 <a href="pages/processAndDesign">iFrames</a>

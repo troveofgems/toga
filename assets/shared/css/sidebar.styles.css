@@ -53,6 +53,7 @@ body {
   border: 1px solid #f7f7f7;
   color: #f7f7f7;
   margin: 10px;
+  position: absolute;
 }
 
 .expandMenuBtn:hover {

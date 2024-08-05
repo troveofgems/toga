@@ -1,0 +1,121 @@
+* {
+  color: var(--book-cover-4);
+}
+
+.expandMenuBtn {
+  position: fixed;
+}
+
+/* Set Page Background */
+.topicContents {
+  background-image: url("../../../../../assets/images/main-site/oldPaper.jpg");
+  background-position: top;
+  background-repeat: repeat;
+  background-size: cover;
+  color: var(--book-cover-4);
+}
+
+.material-symbols-outlined {
+  color: var(--tiana-off-white);
+}
+
+#pagePreambles {
+  margin: 0 auto;
+  width: 75%;
+}
+
+.pagePreamble_1 {
+  font-size: var(--h6-font-size);
+  margin: 2rem auto 1rem auto;
+  padding-bottom: 1rem;
+}
+
+.pagePreamble_2 {
+  font-size: var(--h6-font-size);
+  margin-bottom: 0;
+}
+
+ol {
+  list-style-type: upper-roman;
+  font-size: 1.5rem;
+}
+ul {
+  list-style-type: circle;
+  font-size: 1.35rem;
+}
+
+.olTypesOfMarkup {
+  margin-bottom: 4rem;
+}
+
+.hrStyle {
+  color: var(--book-cover-4);
+  border-width: 3px;
+  border-color: inherit;
+  opacity: .75;
+}
+
+.sectionHeader {
+  margin-bottom: 4rem;
+}
+
+.sectionHeader > p {
+  font-size: var(--h6-font-size);
+}
+
+.structuralMarkupContainer,
+.semanticMarkupContainer,
+.generalContainer {
+  width: 90%;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+#headings,
+#paragraphs,
+#emphasis,
+#whitespace,
+#lineBreaksAndHR,
+#strongAndEmphasisSection,
+#quotationsSection,
+#abbreviationsAndAcronymsSection,
+#definitionsSection,
+#addressSection,
+#contentChangesSection {
+  text-align: left;
+  margin-bottom: 4rem;
+}
+
+.textEntry_1 {
+  font-size: 1.75rem;
+}
+
+.example {
+  border: 1px solid var(--book-cover-4);
+  font-size: 1.5rem;
+  margin: 1rem;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.tablePanel1 > p {
+  color: var(--font-color-old-page-text);
+  font-size: var(--h6-font-size);
+}
+
+.tablePanel2 > p {
+  color: var(--font-color-old-page-text);
+  font-size: var(--body-font-size-3);
+}
+
+.tablePanel1 {
+  background: rgba(169, 121, 66, .08);
+}
+
+.tablePanel2 {
+  background: rgba(169, 121, 66, .65);
+}
+
+.tablePanel3 {
+  background: rgba(169, 121, 66, .90);
+}

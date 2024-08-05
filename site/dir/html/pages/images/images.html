@@ -16,262 +16,353 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <link href="images.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      let btn = document.getElementById('viewSourceBtn');
-      btn.addEventListener('click', function() {
-        let sourceCode = document.documentElement.outerHTML;
-        let pre = document.createElement('pre');
-        pre.textContent = sourceCode;
-        document.body.appendChild(pre);
-      });
-    });
-  </script>
+
+  <link rel="stylesheet" href="../../../../../constants/vars.css" />
+  <link rel="stylesheet" href="../../../../../default.css" />
+  <link rel="stylesheet" href="../../../../../assets/shared/css/sidebar.styles.css" />
+  <link href="images.css" rel="stylesheet">
 </head>
 <body style="overflow-x: hidden;">
-<header style="margin: 2rem; text-align: right;">
-  <button type="button" role="button" class="btn btn-danger">
-    <a href="../../../../../index.html" class="text-white">Back To Main Page</a>
-  </button>
-</header>
-<div class="container-fluid mb-5">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1 class="text-center mb-5">HTML5 Images</h1>
-      <div id="preamble" class="w-75" style="margin: 0 auto;">
-        <p>
-          Webpages that include images provide a richer content experience for the user or visitor of a page.
-          There are many reasons why a developer might want to add images to a webpage:
-        </p>
-        <ul>
-          <li>Branding a site with logos</li>
-          <li>Adding gallery photos</li>
-          <li>Adding background illustrations, diagrams or charts</li>
-        </ul>
-        <p>
-          There are several things to consider when selecting and preparing images for a site. It is worth the time
-          to get them right as it will make the site look more professional and attractive. Some questions about
-          images might include:
-        </p>
-        <ul>
-          <li>What formats should be used?</li>
-          <li>How does a developer show an image at the right size?</li>
-          <li>What goes into optimizing an image for use on the web to make pages load faster?</li>
-        </ul>
+<main class="mainSubSection">
+  <!-- SideBar Nav -->
+  <div id="offcanvas" class="offcanvas offcanvas-start bg-dark canvasWidth" tabindex="-1" data-bs-keyboard="false" data-bs-backdrop="false">
+    <div class="offcanvas-header mb-0 pb-0">
+      <h6 class="offcanvas-title d-none d-sm-block sideBarHeader">Main Navigation</h6>
+      <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body px-0 pt-0">
+      <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+        <li class="nav-item">
+          <a href="/" class="nav-link text-truncate">
+            <i class="fs-5 bi-house"></i><span class="ms-1 d-none d-sm-inline navItemLabel">Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#submenu1" data-bs-toggle="collapse" class="nav-link active">
+            <span class="ms-1 d-none d-sm-inline navItemLabel">Images</span></a>
+          <ul class="collapse nav flex-column ms-1 show" id="submenu1" data-bs-parent="#menu">
+            <li style="padding-left: 10px;">
+              <a href="#structuralMarkupAnchor" class="nav-link"> <span class="d-none d-sm-inline subLink">1. Choosing Images For A Website</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">2. Inserting Images Into A Webpage</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">3. Height &amp; Width of Images</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">4. Image Placement In Code</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">5. Deprecated Align Attribute</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">6. Image Formats</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">7. Image Dimensions</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">8. Image Resolutions</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">9. Vector Images</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">10. Animated Gifs</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">11. Image Transparency</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">12. HTML5 Figure &amp; Figure Caption Elements</span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <footer>
+      <span class="sidebarFooter">2024 <a class="linkToMainWebsite" href="https://thegemtrove.herokuapp.com/">ToG</a> - DKGreco</span>
+    </footer>
+  </div>
+  <!-- End SideBar Nav -->
+
+  <div class="container-fluid pageContent">
+    <div class="row col-lg-12 col-sm-12 rowContainer">
+      <!-- Page Intro Section -->
+      <div class="col-lg-3 col-sm-12 menuTogglerContainer">
+        <div class="col-lg-12">
+          <div id="menuToggler">
+            <button class="btn expandMenuBtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
+              Menu <span class="material-symbols-outlined">subdirectory_arrow_right</span>
+            </button>
+          </div>
+        </div>
       </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3 id="linking">Choosing Images For A Website</h3>
-        <hr/>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <h1 class="text-center m-3">HTML5 Images</h1>
+        <div id="pagePreambles">
+          <p class="pagePreamble_1">
+            Webpages that include images provide a richer content experience for the user or visitor of a page.
+            There are many reasons why a developer might want to add images to a webpage:
+          </p>
+          <ul>
+            <li>Branding a site with logos</li>
+            <li>Adding gallery photos</li>
+            <li>Adding background illustrations, diagrams or charts</li>
+          </ul>
+          <p class="pagePreamble_1">
+            There are several things to consider when selecting and preparing images for a site. It is worth the time
+            to get them right as it will make the site look more professional and attractive. Some questions about
+            images might include:
+          </p>
+          <ul>
+            <li>What formats should be used?</li>
+            <li>How does a developer show an image at the right size?</li>
+            <li>What goes into optimizing an image for use on the web to make pages load faster?</li>
+          </ul>
+        </div>
       </div>
-      <div id="creatingLinks" class="w-75" style="margin: 0 auto;">
-        <h3>The importance of Images</h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <blockquote>
-              <q><em>A Picture Is Worth a 1000 Words</em></q>
-            </blockquote>
+
+      <!-- Choosing Images For A Website Section -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Choosing Images For A Website</h2>
             <p>
-              Images are used to set the tone for a site in less time than it takes to read a description.
-              If there are a lot of images on a page, putting them on a simple, consistent background helps them look
-              better as a group. Some companies will also sell <strong>stock images</strong>; these are images that
-              require payment to use. It should be remembered that all images are subject to copyright, and you can
-              get in trouble for simply taking photographs from another website.
+              "A Picture Is Worth a 1000 Words"
             </p>
-            <p>
-              As a website grows, keeping images in a separate folder helps provide clarity on how the site is organized.
-              Generally, images are stored in a directory hierarchy beginning with a parent directory labeled <strong>images</strong>
-              or <strong>img</strong>.
-            </p>
-            <div class="row col-lg-12">
-              <div class="col-lg-6">
-                <h4>Images Should...</h4>
-                <ul>
-                  <li>
-                    <p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="choosingImages">
+            <h3>The Importance of Images</h3>
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <p class="textEntry_1">
+                    Images are used to set the tone for a site in less time than it takes to read a description.
+                    If there are a lot of images on a page, putting them on a simple, consistent background helps them look
+                    better as a group. Some companies will also sell <strong>stock images</strong>; these are images that
+                    require payment to use. It should be remembered that all images are subject to copyright, and you can
+                    get in trouble for simply taking photographs from another website.
+                  </p>
+                  <p class="textEntry_1">
+                    As a website grows, keeping images in a separate folder helps provide clarity on how the site is organized.
+                    Generally, images are stored in a directory hierarchy beginning with a parent directory labeled <strong>images</strong>
+                    or <strong>img</strong>.
+                  </p>
+                </div>
+              </div>
+              <hr class="hrStyle" />
+              <div class="row col-sm-12 col-lg-12">
+                <div class="col-lg-4">
+                  <h6>Images Should...</h6>
+                  <ul>
+                    <li>
                       Be relevant
-                    </p>
-                  </li>
-                  <li>
-                    <p>
+                    </li>
+                    <li>
                       Convey Information
-                    </p>
-                  </li>
-                  <li>
-                    <p>
+                    </li>
+                    <li>
                       Convey Correct Mood
-                    </p>
-                  </li>
-                  <li>
-                    <p>
+                    </li>
+                    <li>
                       Be Instantly Recognizable
-                    </p>
-                  </li>
-                  <li>
-                    <p>
+                    </li>
+                    <li>
                       Fit the Site's Color Palette
-                    </p>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <h4>3 Rules For Creating Images</h4>
-                <ol>
-                  <li>
-                    <p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-4">
+                  <h6>3 Rules For Creating Images</h6>
+                  <ol>
+                    <li>
                       Save Images In The Right Format
-                    </p>
-                  </li>
-                  <li>
-                    <p>
+                    </li>
+                    <li>
                       Save Images At The Right Size
-                    </p>
-                  </li>
-                  <li>
-                    <p>
+                    </li>
+                    <li>
                       Measure Images In Pixels
-                    </p>
-                  </li>
-                </ol>
+                    </li>
+                  </ol>
+                </div>
+                <div class="col-lg-4">
+                  <h6>Stock Photo Resources</h6>
+                  <ul style="margin-top: 0; padding-top: 0;">
+                    <li>
+                      <a href="https://www.istockphoto.com">iStock Photo</a>
+                    </li>
+                    <li>
+                      <a href="https://www.gettyimages.com">Getty Images</a>
+                    </li>
+                    <li>
+                      <a href="https://www.veer.com">Veer</a>
+                    </li>
+                    <li>
+                      <a href="https://www.sxc.hu">SXC</a>
+                    </li>
+                    <li>
+                      <a href="https://www.fotolia.com">Fotolia</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-4">
+                  <h6>Image Editing Tools</h6>
+                  <ul style="margin-top: 0; padding-top: 0;">
+                    <li>
+                      <a href="https://www.pixlr.com">Pixlr</a>
+                    </li>
+                    <li>
+                      <a href="https://www.splashup.com">Splash Up</a>
+                    </li>
+                    <li>
+                      <a href="https://www.ipiccy.com">Ipiccy</a>
+                    </li>
+                    <li>
+                      <strong style="color: var(--split-complimentary-3);">Avoid Photoshop At All Costs.</strong>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Resources</small>
-            <div style="border: 1px solid black;">
-              <small style="padding-left: .5rem">For Stock Photos</small>
-              <ul style="margin-top: 0; padding-top: 0;">
-                <li>
-                  <a href="https://www.istockphoto.com">iStock Photo</a>
-                </li>
-                <li>
-                  <a href="https://www.gettyimages.com">Getty Images</a>
-                </li>
-                <li>
-                  <a href="https://www.veer.com">Veer</a>
-                </li>
-                <li>
-                  <a href="https://www.sxc.hu">SXC</a>
-                </li>
-                <li>
-                  <a href="https://www.fotolia.com">Fotolia</a>
-                </li>
-              </ul>
-              <small style="padding-left: .5rem">Editing Image Tools</small>
-              <ul style="margin-top: 0; padding-top: 0;">
-                <li>
-                  <a href="https://www.pixlr.com">Pixlr</a>
-                </li>
-                <li>
-                  <a href="https://www.splashup.com">Splash Up</a>
-                </li>
-                <li>
-                  <a href="https://www.ipiccy.com">Ipiccy</a>
-                </li>
-                <li style="color: red;">
-                  Avoid Photoshop At All Costs.
-                </li>
-              </ul>
+        </div>
+      </div>
+
+      <!-- Adding Images Using the &lt;img&gt; Tag -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Inserting Images Into A Webpage</h2>
+            <p>
+              The &lt;img&gt; Tag
+            </p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="insertingImages">
+            <h3>Inserting Images Using the &lt;img&gt; Tag</h3>
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <p class="textEntry_1">
+                    To add an image into a page, the &lt;img&gt; Tag is used. This is an empty element (which means there is
+                    no closing tag). The &lt;img&gt; Tag must specify values for two (2) attributes: <strong>src</strong>
+                    and <strong>alt</strong>.
+                  </p>
+                  <p class="textEntry_1">
+                    The <strong>src</strong> attribute tells the browser where it can find the image file. This will usually
+                    be a relative URL pointing to the image within the site's image or img directory.
+                  </p>
+                  <p class="textEntry_1">
+                    The <strong>alt</strong> attribute provides a text description of the image which describes the image
+                    if the site cannot load the image file appropriately or a screen reader (For the visually impaired; ie.
+                    accessibility) is being used on the site. The text used in the <strong>alt</strong> attribute is often
+                    referred to as <strong>alt text</strong>. It should give an accurate description of the image content so
+                    that it can be understood by screen reader software and search engines (SEO). If an image is just to make
+                    a page look more attractive (and it has no meaning such as a graphic dividing line), then the
+                    <strong>alt</strong> attribute should still be used but the quotes should be left empty.
+                  </p>
+                  <p class="textEntry_1 pb-3">
+                    The optional <strong>title</strong> attribute provides additional information about the image. Most
+                    browsers will display the content of this attribute in a tooltip when the user hovers over the image.
+                  </p>
+                </div>
+              </div>
+              <div class="row col-sm-12 col-lg-12">
+                <div class="col-lg-6">
+                  <div class="tablePanel2" style="border: 1px solid var(--book-cover-4);">
+                    <div class="example p-3 text-center">
+                      <p class="example text-center">Example 1: Without the title attribute<br/>(No Hover Effect)</p>
+                      <img src="../../../../../img/custard-apple.jpg" alt="Eight Custard Apples in a Wicker Bowl" />
+                    </div>
+                    <div class="example p-3 text-center">
+                      <p class="example text-center">Example 2: With the <strong>title</strong> attribute<br/>(Hover Over Image)</p>
+                      <img src="../../../../../img/custard-apple.jpg"
+                           alt="Eight Custard Apples in a Wicker Bowl"
+                           title="Custard Apples - Species Cherimoya"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="col-lg-12">
+                    <ul class="nav nav-pills mb-3" id="pills-tab-1" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-olListExample1-tab" data-bs-toggle="pill" data-bs-target="#pills-olListExample1" type="button" role="tab" aria-controls="pills-olListExample1" aria-selected="true">Example 1</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-olListExample2-tab" data-bs-toggle="pill" data-bs-target="#pills-olListExample2" type="button" role="tab" aria-controls="pills-olListExample2" aria-selected="false">Example 2</button>
+                      </li>
+                    </ul>
+                    <div class="tab-content example1-container" id="pills-tabContent-1">
+                      <div class="tab-pane fade show active tablePanel3 p-3" id="pills-olListExample1" role="tabpanel" aria-labelledby="pills-olListExample1-tab">
+                        <pre>
+&lt;img
+  src="../../img/custard-apple.jpg"
+  alt="Eight Custard Apples in a Wicker Bowl"
+/&gt;
+                        </pre>
+                      </div>
+                      <div class="tab-pane fade tablePanel3 p-3" id="pills-olListExample2" role="tabpanel" aria-labelledby="pills-olListExample2-tab">
+                        <pre>
+&lt;img
+  src="../../img/custard-apple.jpg"
+  alt="Eight Custard Apples in a Wicker Bowl"
+  title="Custard Apples - Species Cherimoya"
+/&gt;
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3 id="absoluteVsRelative">Adding Images Using the &lt;img&gt; Tag</h3>
-        <hr/>
-      </div>
-      <div id="absRelPaths" class="w-75" style="margin: 0 auto;">
-        <div class="row" style="display: flex; flex-direction: row;">
-          <div class="col-sm-12 col-lg-6">
+
+      <!-- Height & Width of Images -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Height &amp; Width of Images</h2>
             <p>
-              To add an image into a page, the &lt;img&gt; Tag is used. This is an empty element (which means there is
-              no closing tag). The &lt;img&gt; Tag must specify values for two (2) attributes: <strong>src</strong>
-              and <strong>alt</strong>.
+              Specifying Image Sizes
             </p>
-            <p>
-              The <strong>src</strong> attribute tells the browser where it can find the image file. This will usually
-              be a relative URL pointing to the image within the site's image or img directory.
-            </p>
-            <p>
-              The <strong>alt</strong> attribute provides a text description of the image which describes the image
-              if the site cannot load the image file appropriately or a screen reader (For the visually impaired; ie.
-              accessibility) is being used on the site. The text used in the <strong>alt</strong> attribute is often
-              referred to as <strong>alt text</strong>. It should give an accurate description of the image content so
-              that it can be understood by screen reader software and search engines (SEO). If an image is just to make
-              a page look more attractive (and it has no meaning such as a graphic dividing line), then the
-              <strong>alt</strong> attribute should still be used but the quotes should be left empty.
-            </p>
-            <p>
-              The optional <strong>title</strong> attribute provides additional information about the image. Most
-              browsers will display the content of this attribute in a tooltip when the user hovers over the image.
-            </p>
+            <hr class="hrStyle"/>
           </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Example of the &lt;img&gt; Tag:</small>
-            <div style="border: 1px solid black;">
-              <small style="padding: .25rem;">Without the title attribute</small>
-              <ul style="margin-top: 0; padding-top: 0;">
-                <li>
-<pre>
-&lt;img
-    src="../../img/custard-apple.jpg"
-    alt="Eight Custard Apples in a Wicker Bowl"
-  /&gt;
-</pre>
-                </li>
-                <li>
-                  <img src="../../../../../img/custard-apple.jpg" alt="Eight Custard Apples in a Wicker Bowl" />
-                </li>
-              </ul>
-              <small style="padding: .25rem;">With the title attribute</small>
-              <ul>
-                <li>
-<pre>
-&lt;img
-      src="../../img/custard-apple.jpg"
-      alt="Eight Custard Apples in a Wicker Bowl"
-      title="Custard Apples - Species Cherimoya"
-   /&gt;
-</pre>
-                </li>
-                <li>
-                  <img src="../../../../../img/custard-apple.jpg"
-                       alt="Eight Custard Apples in a Wicker Bowl"
-                       title="Custard Apples - Species Cherimoya"
-                  />
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3 id="imgHeightAndWidth">Height & Width of Images</h3>
-        <hr/>
-      </div>
-      <div class="w-75" style="margin: 0 auto;">
-        <h3>The <strong>height</strong> and <strong>width</strong> Attributes</h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <p>
-              The &lt;img/&gt; Tag has two (2) other attributes that are used to control an image's height and width
-              rendered to the browser. Generally, the two attributes should be set, as images often take longer to load than the HTML
-              code that makes up the rest of the page. By specifying values for the two attributes, the browser is able
-              to render the rest of the text on the page while leaving the right amount of space for the image that is
-              still loading. It is ultimately better to control image height and width via CSS rather than HTML.
-            </p>
-          </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Example of the &lt;img&gt; Tag:</small>
-            <div style="border: 1px solid black;">
-              <small style="padding: .25rem;">Example</small>
-              <ul style="margin-top: 0; padding-top: 0;">
-                <li>
-<pre>
+          <div id="imgHeightAndWidth">
+            <h3>The <strong>height</strong> and <strong>width</strong> Attributes</h3>
+            <div class="row">
+              <div class="col-sm-12 col-lg-6">
+                <div class="col-lg-12">
+                  <p class="textEntry_1">
+                    The &lt;img/&gt; Tag has two (2) other attributes that are used to control an image's height and width
+                    rendered to the browser. Generally, the two attributes should be set, as images often take longer to load than the HTML
+                    code that makes up the rest of the page. By specifying values for the two attributes, the browser is able
+                    to render the rest of the text on the page while leaving the right amount of space for the image that is
+                    still loading. It is ultimately better to control image height and width via CSS rather than HTML.
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-6">
+                <div class="tablePanel2" style="border: 1px solid black;">
+                  <div class="example p-3 text-center">
+                    <img src="../../../../../img/custard-apple.jpg" alt="Eight Custard Apples in a Wicker Bowl" width="235" height="307" />
+                  </div>
+                  <div class="example p-3">
+<pre style="font-size: var(--body-font-size-5);">
 &lt;img
     src="../../img/custard-apple.jpg"
     alt="Eight Custard Apples in a Wicker Bowl"
@@ -279,623 +370,867 @@
     width="235"
   /&gt;
 </pre>
-                </li>
-                <li>
-                  <img src="../../../../../img/custard-apple.jpg" alt="Eight Custard Apples in a Wicker Bowl" width="235" height="307" />
-                </li>
-              </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3 id="otherLinkTypes">Image Placement In Code</h3>
-        <hr/>
-      </div>
-      <div id="imagePlacement" class="w-75" style="margin: 0 auto;">
-        <h3>Where should an image be placed?</h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
+
+      <!-- Image Placement In Code -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Image Placement In Code</h2>
             <p>
-              Where an image is placed in the code will affect how it is displayed. Here are three (3) basic examples
-              of image placement that produce different results:
+              Where should an image be placed?
             </p>
-            <ol>
-              <li>Before a paragraph</li>
-              <li>Inside the start of a paragraph</li>
-              <li>In the middle of a paragraph</li>
-            </ol>
-            <p>
-              Where an image is placed in code is important because browsers show HTML elements in one of two ways:
-            </p>
-            <ol>
-              <li>
-                Block Elements
-                <p><strong>Always appear on a new line</strong> - <small>Examples: h1, p Tags</small></p>
-              </li>
-              <li>
-                Inline Elements
-                <p><strong>Sit within a block level element and do not start on a new line.</strong> - <small>Examples: b, em Tags</small></p>
-              </li>
-            </ol>
+            <hr class="hrStyle"/>
           </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <div style="border: 1px solid black;">
-              <div class="example1" style="padding: .5rem;">
-                <h6>Example 1</h6>
-<pre>
-  &lt;img
-    src="../../img/custard-apple.jpg"
-    alt="Eight Custard Apples in a Wicker Bowl"
-    height="100"
-    width="100"
+          <div id="imgPlacement">
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <p class="textEntry_1">
+                    Where an image is placed in the code will affect how it is displayed. Below are three (3) basic examples
+                    of image placement that produce different results:
+                  </p>
+                  <ol>
+                    <li>Before a paragraph</li>
+                    <li>Inside the start of a paragraph</li>
+                    <li>In the middle of a paragraph</li>
+                  </ol>
+                  <p class="textEntry_1">
+                    Where an image is placed in code is important because browsers show HTML elements in one of two ways:
+                  </p>
+                  <ol>
+                    <li>
+                      Block Elements
+                      <strong>Always appear on a new line</strong> - Examples: h1, p Tags
+                    </li>
+                    <li>
+                      Inline Elements
+                      <strong>Sit within a block level element and do not start on a new line.</strong> - Examples: b, em Tags
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div class="row col-sm-12 col-lg-12">
+                <div class="col-lg-4 col-sm-12">
+                  <div class="tablePanel2" style="border: 1px solid black;">
+                    <div class="example p-3 text-center">
+                      <img  src="../../../../../img/custard-apple.jpg"
+                            alt="Eight Custard Apples in a Wicker Bowl"
+                            height="100"
+                            width="100"
+                      />
+                      <p class="text-start">
+                        The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
+                        edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
+                        closely related sweetsop and soursop.
+                      </p>
+                    </div>
+                    <div class="example p-3">
+<pre style="font-size: .75rem">
+&lt;img
+  src="../../img/custard-apple.jpg"
+  alt="Eight Custard Apples in a Wicker Bowl"
+  height="100"
+  width="100"
+/&gt;
+&lt;p&gt;The cherimoya, also...&lt;/p&gt;
+</pre>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                  <div class="tablePanel2" style="border: 1px solid black;">
+                    <div class="example p-3 text-center">
+                      <p class="text-start">
+                        <img  src="../../../../../img/custard-apple.jpg"
+                              alt="Eight Custard Apples in a Wicker Bowl"
+                              height="100"
+                              width="100"
+                        />
+                        The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
+                        edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
+                        closely related sweetsop and soursop.
+                      </p>
+                    </div>
+                    <div class="example p-3">
+<pre style="font-size: .74rem;">
+&lt;p&gt;
+ &lt;img
+   src="../../img/custard-apple.jpg"
+   alt="Eight Custard Apples in a Wicker Bowl"
+   height="100"
+   width="100"
   /&gt;
-  &lt;p&gt;The cherimoya, also...&lt;/p&gt;
+The cherimoya, also...
+&lt;/p&gt;
 </pre>
-                <img  src="../../../../../img/custard-apple.jpg"
-                      alt="Eight Custard Apples in a Wicker Bowl"
-                      height="100"
-                      width="100"
-                />
-                <p>
-                  The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
-                  edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
-                  closely related sweetsop and soursop.
-                </p>
-              </div>
-              <hr/>
-              <div class="example2" style="padding: .5rem;">
-                <h6>Example 2</h6>
-                <pre>
-  &lt;p&gt;
-   &lt;img
-    src="../../img/custard-apple.jpg"
-    alt="Eight Custard Apples in a Wicker Bowl"
-    height="100"
-    width="100"
-   /&gt;
-  The cherimoya, also...
-  &lt;/p&gt;
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                  <div class="tablePanel2" style="border: 1px solid black;">
+                    <div class="example p-3 text-center">
+                      <p class="text-start">
+                        The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
+                        edible fruit-bearing plant in the genus Annona <img  src="../../../../../img/custard-apple.jpg"
+                                                                             alt="Eight Custard Apples in a Wicker Bowl"
+                                                                             height="100"
+                                                                             width="100"
+                      />, from the family Annonaceae, which includes the
+                        closely related sweetsop and soursop.
+                      </p>
+                    </div>
+                    <div class="example p-3">
+<pre style="font-size: .75rem;">
+&lt;p&gt;
+ The cherimoya, also...
+ &lt;img
+  src="../../img/custard-apple.jpg"
+  alt="Eight Custard Apples in a Wicker Bowl"
+  height="100"
+  width="100"
+/&gt;...
+&lt;/p&gt;
 </pre>
-                <p>
-                  <img  src="../../../../../img/custard-apple.jpg"
-                        alt="Eight Custard Apples in a Wicker Bowl"
-                        height="100"
-                        width="100"
-                  />
-                  The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
-                  edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
-                  closely related sweetsop and soursop.
-                </p>
-              </div>
-              <hr/>
-              <div class="example3" style="padding: .5rem;">
-                <h6>Example 3</h6>
-                <pre>
-  &lt;p&gt;
-  The cherimoya, also...
-   &lt;img
-    src="../../img/custard-apple.jpg"
-    alt="Eight Custard Apples in a Wicker Bowl"
-    height="100"
-    width="100"
-   /&gt;...
-  &lt;/p&gt;
-</pre>
-                <p>
-                  The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
-                  edible fruit-bearing plant in the genus Annona <img  src="../../../../../img/custard-apple.jpg"
-                                                                       alt="Eight Custard Apples in a Wicker Bowl"
-                                                                       height="100"
-                                                                       width="100"
-                />, from the family Annonaceae, which includes the
-                  closely related sweetsop and soursop.
-                </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3 id="deprecatedAttribs">Deprecated Align Attribute</h3>
-        <hr/>
-      </div>
-      <div id="deprecatedAttributes" class="w-75" style="margin: 0 auto;">
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <p>
-              In older code the deprecated <strong>align</strong> attribute might be present.
-              The align attribute was commonly used to indicate how the other parts of a page should
-              flow around an image. It has been removed from HTML5 and new websites should use CSS to control the
-              alignment of images.
-            </p>
-            <h4>Aligning Images Horizontally - Deprecated!</h4>
-            <p>
-              When aligning horizontally the <strong>align</strong> attribute can take two (2) possible values:
-            </p>
-            <ol>
-              <li>
-                left - aligns the image to the left (allowing text to flow around its right-hand side).
-              </li>
-              <li>
-                right - aligns the image to the right (allowing text to flow around its left-hand side).
-              </li>
-            </ol>
-            <h4>Aligning Images Vertically - Deprecated!</h4>
-            <p>
-              When aligning vertically the <strong>align</strong> attribute can take three (3) possible values:
-            </p>
-            <ol>
-              <li>
-                top - aligns the first line of surrounding text with the top of the image.
-              </li>
-              <li>
-                middle - aligns the first line of the surrounding text with the middle of the image.
-              </li>
-              <li>
-                bottom - aligns the first line of the surrounding text with the bottom of the image.
-              </li>
-            </ol>
+
+      <!-- Deprecated Align Attribute -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Deprecated Align Attribute</h2>
+            <hr class="hrStyle"/>
           </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <div style="border: 1px solid black;">
-              <div class="example1" style="padding: .5rem;">
-                <h6>Example - Horizontal Left</h6>
-                <pre>
-  &lt;img
-    src="../../img/custard-apple.jpg"
+          <div id="deprecatedAlign">
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <p class="textEntry_1">
+                    In older code the deprecated <strong>align</strong> attribute might be present.
+                    The align attribute was commonly used to indicate how the other parts of a page should
+                    flow around an image. It has been removed from HTML5 and new websites should use CSS to control the
+                    alignment of images.
+                  </p>
+                  <hr class="hrStyle" />
+                  <h4>Aligning Images Horizontally - Deprecated!</h4>
+                  <p class="textEntry_1">
+                    When aligning horizontally the <strong>align</strong> attribute can take two (2) possible values:
+                  </p>
+                  <ol>
+                    <li>
+                      left - aligns the image to the left (allowing text to flow around its right-hand side).
+                    </li>
+                    <li>
+                      right - aligns the image to the right (allowing text to flow around its left-hand side).
+                    </li>
+                  </ol>
+                  <div class="row col-sm-12 col-lg-12">
+                    <div class="col-lg-6 col-sm-12">
+                      <div class="tablePanel2" style="border: 1px solid black;">
+                        <h6 class="p-3">Example - Horizontal Left</h6>
+                        <div class="example p-3 text-center">
+                          <p class="text-start">
+                            <img  src="../../../../../img/custard-apple.jpg"
+                                  alt="Eight Custard Apples in a Wicker Bowl"
+                                  height="100"
+                                  width="100"
+                                  align="left"
+                                  style="padding-right: 5px;"
+                            />
+                            The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
+                            edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
+                            closely related sweetsop and soursop.
+                          </p>
+                        </div>
+                        <div class="example p-3">
+<pre style="font-size: .75rem">
+&lt;p&gt;
+ &lt;img
+  src="../../img/custard-apple.jpg"
+  alt="Eight Custard Apples in a Wicker Bowl"
+  height="100"
+  width="100"
+  align="left"
+/&gt;
+The cherimoya, also...
+&lt;/p&gt;
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 mb-5">
+                      <div class="tablePanel2" style="border: 1px solid black;">
+                        <h6 class="p-3">Example - Horizontal Right</h6>
+                        <div class="example p-3 text-center">
+                          <p class="text-start">
+                            <img  src="../../../../../img/custard-apple.jpg"
+                                  alt="Eight Custard Apples in a Wicker Bowl"
+                                  height="100"
+                                  width="100"
+                                  align="right"
+                            />
+                            The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
+                            edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
+                            closely related sweetsop and soursop.
+                          </p>
+                        </div>
+                        <div class="example p-3">
+<pre style="font-size: .74rem;">
+&lt;p&gt;
+ &lt;img
+  src="../../img/custard-apple.jpg"
+  alt="Eight Custard Apples in a Wicker Bowl"
+  height="100"
+  width="100"
+  align="right"
+/&gt;
+The cherimoya, also...
+&lt;/p&gt;
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="hrStyle" />
+                <div class="col-lg-12">
+                  <h4>Aligning Images Vertically - Deprecated!</h4>
+                  <p class="textEntry_1">
+                    When aligning vertically, the <strong>align</strong> attribute can take three (3) possible values:
+                  </p>
+                  <ol>
+                    <li>
+                      top - aligns the first line of surrounding text with the top of the image.
+                    </li>
+                    <li>
+                      middle - aligns the first line of the surrounding text with the middle of the image.
+                    </li>
+                    <li>
+                      bottom - aligns the first line of the surrounding text with the bottom of the image.
+                    </li>
+                  </ol>
+                  <div class="row col-sm-12 col-lg-12">
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="tablePanel2" style="border: 1px solid black;">
+                        <div class="example p-3 text-start">
+                          <p>
+                            <img  src="../../../../../img/custard-apple.jpg"
+                                  alt="Eight Custard Apples in a Wicker Bowl"
+                                  height="100"
+                                  width="100"
+                                  align="top"
+                            />
+                            The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
+                            edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
+                            closely related sweetsop and soursop.
+                          </p>
+                        </div>
+                        <div class="example p-3">
+<pre style="font-size: .75rem">
+&lt;p&gt;
+ &lt;img
+  src="../../img/custard-apple.jpg"
+  alt="Eight Custard Apples in a Wicker Bowl"
+  height="100"
+  width="100"
+  align="top"
+/&gt;
+The cherimoya, also...
+&lt;/p&gt;
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="tablePanel2" style="border: 1px solid black;">
+                        <div class="example p-3 text-start">
+                          <p>
+                            <img  src="../../../../../img/custard-apple.jpg"
+                                  alt="Eight Custard Apples in a Wicker Bowl"
+                                  height="100"
+                                  width="100"
+                                  align="middle"
+                            />
+                            The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
+                            edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
+                            closely related sweetsop and soursop.
+                          </p>
+                        </div>
+                        <div class="example p-3">
+<pre style="font-size: .74rem;">
+&lt;p&gt;
+ &lt;img
+  src="../../img/custard-apple.jpg"
+  alt="Eight Custard Apples in a Wicker Bowl"
+  height="100"
+  width="100"
+  align="middle"
+/&gt;
+The cherimoya, also...
+&lt;/p&gt;
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                      <div class="tablePanel2" style="border: 1px solid black;">
+                        <div class="example p-3">
+                          <p>
+                            <img  src="../../../../../img/custard-apple.jpg"
+                                  alt="Eight Custard Apples in a Wicker Bowl"
+                                  height="100"
+                                  width="100"
+                                  align="bottom"
+                            />
+                            The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
+                            edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
+                            closely related sweetsop and soursop.
+                          </p>
+                        </div>
+                        <div class="example p-3">
+<pre style="font-size: .75rem;">
+&lt;p&gt;
+ &lt;img
+  src="../../img/custard-apple.jpg"
+  alt="Eight Custard Apples in a Wicker Bowl"
+  height="100"
+  width="100"
+  align="bottom"
+/&gt;
+The cherimoya, also...
+&lt;/p&gt;
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Formats -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Image Formats</h2>
+            <p>
+              When To Use A Specific Format
+            </p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="imgFormats">
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <ul>
+                    <li>Use <strong>JPEG</strong>: Whenever a photo has many different colors.</li>
+                    <li>
+                      Use <strong>GIF</strong> or <strong>PNG</strong>: Whenever images utilize few or flat colors. Logos, illustrations, and diagrams often use
+                      flat colors.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row col-sm-12 col-lg-12">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="tablePanel2" style="border: 1px solid black;">
+                    <div class="example p-3 text-center">
+                      <h6>Example - JPEG</h6>
+                      <p>
+                        Rich Color Contrast
+                      </p>
+                      <img  src="../../../../../img/custard-apple.jpg"
+                            alt="Eight Custard Apples in a Wicker Bowl"
+                            height="100"
+                            width="100"
+                      />
+                    </div>
+                    <div class="example p-3">
+<pre style="font-size: .75rem">
+&lt;h6&gt;Example - JPEG&lt;/h6&gt;
+&lt;p&gt;
+  Rich Color Contrast
+&lt;/p&gt;
+&lt;img  src="../../../../../img/custard-apple.jpg"
+  alt="Eight Custard Apples in a Wicker Bowl"
+  height="100"
+  width="100"
+/&gt;
+</pre>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <div class="tablePanel2" style="border: 1px solid black;">
+                    <div class="example p-3 text-center">
+                      <h6>Example - PNG</h6>
+                      <p>
+                        Three flat colors (Green, Black, White). No color contrast.
+                      </p>
+                      <img  src="../../../../../img/cherimoyaLogo.png"
+                            alt="Logo Of A Cherimoya Fruit With A Clock Face"
+                            height="100"
+                            width="100"
+                      />
+                    </div>
+                    <div class="example p-3">
+<pre style="font-size: .75rem;">
+&lt;h6&gt;Example - PNG&lt;/h6&gt;
+&lt;p&gt;
+  Three flat colors (Green, Black, White). No color contrast.
+&lt;/p&gt;
+&lt;img  src="../../../../../img/cherimoyaLogo.png"
+  alt="Logo Of A Cherimoya Fruit With A Clock Face"
+  height="100"
+  width="100"
+/&gt;
+</pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Dimensions -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Image Dimensions</h2>
+            <p>
+              When To Use A Specific Format
+            </p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="imgDimensions">
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <h3>How to Determine An Image's Dimensions</h3>
+                  <p class="textEntry_1">
+                    The images that must be used on a website should be saved at the same width and height that is needed
+                    for them to appear on the page.
+                  </p>
+                  <p class="textEntry_1">
+                    Images should be considered for whether they best present in landscape or portrait mode. Another example:
+                    An image of a giraffe would be best suited to appearing in portrait mode. An image of an elephant would
+                    be better suited to appearing in landscape mode. Cropping either images would
+                    result in losing the head and feet of a giraffe (landscape mode), and losing the trunk and hidequarters
+                    of the elephant (portrait mode). Extra space on either image would result in a background that is not
+                    continued either horizontally or vertically.
+                  </p>
+                  <p class="textEntry_1">
+                    For example, if a page is designed to include an image that is 300px wide by 150px tall, the image used
+                    should be 300 x 150 pixels. The use of image editing tools to resize and/or crop an image can help with
+                    achieving that goal.
+                  </p>
+                  <p class="textEntry_1">
+                    When the dimensions of an image (example: 300 x 150) are altered, the following effects occur:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Reducing Image Size</strong>
+                      <ul>
+                        <li>
+                          If the dimensions of a loaded image were reduced by 50%, this would create an image that is
+                          <em>faster</em> to load.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Increasing Image Size</strong>
+                      <ul>
+                        <li>
+                          If the dimensions of a loaded image were increased by 300%, this would create an image that is
+                          <em>blurry or blocked</em>.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Changing Image Shape</strong>
+                      <ul>
+                        <li>
+                          If the image is cropped, it is possible to lose valuable information.
+                          Only some images can be cropped and still make sense.
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row col-sm-12 col-lg-12">
+                <div class="col-lg-4 col-sm-12">
+                  <div class="tablePanel2" style="border: 1px solid black;">
+                    <div class="example p-3 text-center">
+                      <h6 style="font-size: 1.5rem;">Reducing Image Size By 50%</h6>
+                      <p>
+                        Original Size: 470x614 - Reduced Size: 235x307
+                      </p>
+                      <img  src="../../../../../img/custard-apple.jpg"
+                            alt="Eight Custard Apples in a Wicker Bowl"
+                            height="307"
+                            width="235"
+                      />
+                    </div>
+                    <div class="example p-3">
+<pre style="font-size: .75rem">
+&lt;h6&gt;Example - JPEG&lt;/h6&gt;
+&lt;p&gt;
+  Rich Color Contrast
+&lt;/p&gt;
+&lt;img  src="../../../../../img/custard-apple.jpg"
+  alt="Eight Custard Apples in a Wicker Bowl"
+  height="100"
+  width="100"
+/&gt;
+</pre>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                  <div class="tablePanel2" style="border: 1px solid black;">
+                    <div class="example p-3 text-center" style="overflow: hidden;">
+                      <h6>Increasing Image Size By 115%</h6>
+                      <p style="overflow: hidden;">
+                        Image can become blurred and disproportionate.
+                      </p>
+                      <img  src="../../../../../img/custard-apple.jpg"
+                            alt="Logo Of A Cherimoya Fruit With A Clock Face"
+                            height="1842"
+                            width="1410"
+                            style="width: 115%; height: 115%; overflow: hidden;"
+                      />
+                    </div>
+                    <div class="example p-3">
+<pre style="font-size: .75rem;">
+&lt;h6&gt;Increasing Image Size By 115%&lt;/h6&gt;
+&lt;p style="overflow: hidden;"&gt;
+  Image can become blurred and disproportionate.
+&lt;/p&gt;
+&lt;img  src="../../../../../img/custard-apple.jpg"
+  alt="Logo Of A Cherimoya Fruit With A Clock Face"
+  height="1842"
+  width="1410"
+  style="width: 115%; height: 115%;"
+/&gt;
+</pre>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                  <div class="tablePanel2" style="border: 1px solid black;">
+                    <div class="example p-3 text-center">
+                      <h6>Bad Cropping</h6>
+                      <p style="overflow: hidden;">
+                        Hard to tell what this would be
+                      </p>
+                      <img  src="../../../../../img/croppedCherimoyaLogo.png"
+                            alt="Cropped Logo Of A Cherimoya Fruit With A Clock Face"
+                            height="104"
+                            width="272"
+                            style="width: 272px; height: 104px"
+                      />
+                    </div>
+                    <div class="example p-3">
+<pre style="font-size: .75rem;">
+&lt;h6&gt;Bad Cropping&lt;/h6&gt;
+&lt;p style="overflow: hidden;"&gt;
+  Hard to tell what this would be
+&lt;/p&gt;
+&lt;img  src="../../../../../img/croppedCherimoyaLogo.png"
+  alt="Cropped Logo Of A Cherimoya Fruit With A Clock Face"
+  height="104"
+  width="272"
+  style="width: 272px; height: 104px"
+/&gt;
+</pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Resolutions -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Image Resolutions</h2>
+            <p>
+              How to Determine An Image's Resolution
+            </p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="imgResolutions">
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <p class="textEntry_1">
+                    When image sizes are set for use on the screen, they should always be set dimensions of the image in
+                    terms of pixels. Not centimeters or inches.
+                  </p>
+                  <p class="textEntry_1">
+                    Images are made up of tiny squares of color on a monitor which are known as pixels. The <strong>resolution</strong>
+                    of the screen is the number of pixels represented on it and most computers can increase or decrease this
+                    number.
+                  </p>
+                  <p class="textEntry_1">
+                    If a screen's resolution is set at 640x480, and it is then increased to 1024x768 pixels, the images
+                    and text will appear smaller because the screen is showing a lot more pixels within the same amount of space.
+                    (There are more pixels per inch.) When creating images for print, it is best to save them at a resolution
+                    of 300 dots per inch (DPI) or higher to ensure sharpness.
+                  </p>
+                  <p class="textEntry_1">
+                    On the web however, the resolution of an image is irrelevant. The only important aspect of an image
+                    is the size in terms of its <strong>dimensions</strong> in pixels. It is recommended that images for the
+                    web should be 72 pixels per inch. But users can change the resolution of the screen itself (affecting
+                    the number of pixels shown per inch of the screen). Screens therefore determine the size of an image
+                    based solely on its width and height in pixels.
+                  </p>
+                  <p class="textEntry_1">
+                    On a screen, an image that is 300x300 pixels at 72ppi looks exactly the same as an image that is 300x300
+                    pixels at 500ppi. The resolution of the image only matters when the image is printed.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vector Images -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Vector Images</h2>
+            <p>
+              What Are Vector Images?
+            </p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="vectorImages">
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <p class="textEntry_1">
+                    Vector images differ from bitmap images and are resolution-independent. Vector images are commonly created
+                    in programs such as Sketch or CoreIDRAW.
+                  </p>
+                  <p class="textEntry_1">
+                    When an image is a line drawing (such as a logo, illustration, or diagram), designers will often create
+                    it in a vector format. Vector formatted images are created by placing points on a grid, and drawing lines
+                    between those points. A color can then be added to "fill in" the lines that have been created. The
+                    advantage of creating line drawings is that the dimensions may be increased without affecting the quality
+                    of it.
+                  </p>
+                  <p class="textEntry_1">
+                    The current method of using vector images for display on websites involves saving a bitmap version of the
+                    original vector image and using that.
+                  </p>
+                  <p class="textEntry_1">
+                    The Scalable Vector Graphics (<strong>SVG</strong>) format is relatively new and used to display vector
+                    images directly on the web (eliminating the need to create bitmap versions of them), however its use
+                    is not yet widespread.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Gifs -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Animated Gifs</h2>
+            <p>
+              Using Gifs In Webpages
+            </p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="animatedGifs">
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <p class="textEntry_1">
+                    Animated GIFs show several frames of an image in sequence and therefore can be used to create simple
+                    animations. It's possible to create your own GIFs using specialized software.
+                  </p>
+                  <p class="textEntry_1">
+                    When using an animated GIF, it is important to remember that: each extra frame of the image increases
+                    the size of the file, and can add to the time it takes for an image to download (and web users do not
+                    like to wait a long time for images to download).
+                  </p>
+                  <p class="textEntry_1">
+                    Because GIFs are not an ideal format for displaying photographs, they are really only suitable for simple
+                    illustrations.
+                  </p>
+                  <p class="textEntry_1">
+                    Overuse of animated GIFs on a site can be seen as an amateur web design by other devs. But it is okay
+                    to use them where they make sense.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transparency -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Image Transparency</h2>
+            <p>
+              Adding Transparency To Images
+            </p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="transparency">
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <p class="textEntry_1">
+                    Creating an image that is partially transparent (or "see-through") for the web involves selecting
+                    1 (one) of 2 (two) formats:
+                  </p>
+                  <ol>
+                    <li>
+                      Transparent GIF
+                      <ul>
+                        <li>
+                          If the transparent part of the image has straight edges and is 100% transparent (that is, not
+                          semi-opaque), save the image as a GIF (with the transparency option selected).
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      PNG
+                      <ul>
+                        <li>
+                          If the transparent part of the image has a diagonal or rounded edges or if you want a semi-opaque
+                          transparency or drop-shadow, then save it as a PNG.
+                        </li>
+                      </ul>
+                    </li>
+                  </ol>
+                  <p class="example">Note: Transparent PNGs were not supported back when IE6 existed...Not sure if this is still a use case today.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HTML5 Figure And Figure Caption Elements -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>HTML5 Figure And Figure Caption Elements</h2>
+            <p>
+              Setting a New Standard
+            </p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="html5FigAndCap">
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <ul>
+                    <li>
+                      <strong>&lt;figure&gt;</strong> Tag: Images often come with captions. HTML5 introduced a new <strong>&lt;figure&gt;</strong>
+                      element to contain images and their caption so that the two are more closely associated. There can
+                      be more than one image inside the figure element so long as they call share the same caption. Some
+                      browsers may indent the contents of the <strong>&lt;figure&gt;</strong> element.
+                    </li>
+                    <li>
+                      <strong>&lt;figcaption&gt;</strong> Tag: The <strong>&lt;figcaption&gt;</strong> element has been added
+                      to HTML5 in order to allow the web page authors to add a caption to an image. Before these elements
+                      were created there was no way to associate an <strong>&lt;img&gt;</strong> Tag with its caption.
+                      Older browsers that do not understand HTML5 elements will ignore the new elements and display the
+                      content of them.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row col-sm-12 col-lg-12">
+                <div class="col-lg-12 col-sm-12">
+                  <div class="tablePanel2" style="border: 1px solid black;">
+                    <div class="example p-3 text-center" style="overflow: hidden;">
+                      <h6>Using <span style="color: red;">Figure</span> and <span style="color: blue;">FigCaption</span></h6>
+                      <figure class="text-center p-3" style="border: 1px solid red;">
+                        <img  src="../../../../../img/custard-apple.jpg"
+                              alt="Eight Custard Apples in a Wicker Bowl"
+                              height="100"
+                              width="100"
+                              class="p-3"
+                        />
+                        <figcaption style="border: 1px solid blue;" class="p-3">
+                          The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
+                          edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
+                          closely related sweetsop and soursop.
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <div class="example p-3">
+<pre style="font-size: .75rem;">
+&lt;h6&gt;Using &lt;span style="color: red;"&gt;Figure&lt;/span&gt; and &lt;span style="color: blue;"&gt;FigCaption&lt;/span&gt;&lt;/h6&gt;
+&lt;figure class="text-center p-3" style="border: 1px solid red;"&gt;
+  &lt;img  src="../../../../../img/custard-apple.jpg"
     alt="Eight Custard Apples in a Wicker Bowl"
     height="100"
     width="100"
-    align="left"
+    class="p-3"
   /&gt;
-  &lt;p&gt;The cherimoya, also...&lt;/p&gt;
+  &lt;figcaption style="border: 1px solid blue;" class="p-3"&gt;
+    The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
+    edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
+    closely related sweetsop and soursop.
+   &lt;/figcaption&gt;
+&lt;/figure&gt;
 </pre>
-                <p>
-                  <img  src="../../../../../img/custard-apple.jpg"
-                        alt="Eight Custard Apples in a Wicker Bowl"
-                        height="100"
-                        width="100"
-                        align="left"
-                  />
-                  The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
-                  edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
-                  closely related sweetsop and soursop.
-                </p>
-              </div>
-              <hr/>
-              <div class="example2" style="padding: .5rem;">
-                <h6>Example - Horizontal Right</h6>
-                <pre>
-  &lt;p&gt;
-   &lt;img
-    src="../../img/custard-apple.jpg"
-    alt="Eight Custard Apples in a Wicker Bowl"
-    height="100"
-    width="100"
-    align="right"
-   /&gt;
-  The cherimoya, also...
-  &lt;/p&gt;
-</pre>
-                <p>
-                  <img  src="../../../../../img/custard-apple.jpg"
-                        alt="Eight Custard Apples in a Wicker Bowl"
-                        height="100"
-                        width="100"
-                        align="right"
-                  />
-                  The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
-                  edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
-                  closely related sweetsop and soursop.
-                </p>
-              </div>
-              <hr/>
-              <div class="example3" style="padding: .5rem;">
-                <h6>Example - Vertical Top</h6>
-                <pre>
-  &lt;p&gt;
-   &lt;img
-    src="../../img/custard-apple.jpg"
-    alt="Eight Custard Apples in a Wicker Bowl"
-    height="100"
-    width="100"
-    align="top"
-   /&gt;
-  The cherimoya, also...
-  &lt;/p&gt;
-</pre>
-                <p>
-                  <img  src="../../../../../img/custard-apple.jpg"
-                        alt="Eight Custard Apples in a Wicker Bowl"
-                        height="100"
-                        width="100"
-                        align="top"
-                  />
-                  The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
-                  edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
-                  closely related sweetsop and soursop.
-                </p>
-              </div>
-              <hr/>
-              <div class="example4" style="padding: .5rem;">
-                <h6>Example - Vertical Middle</h6>
-                <pre>
-  &lt;p&gt;
-   &lt;img
-    src="../../img/custard-apple.jpg"
-    alt="Eight Custard Apples in a Wicker Bowl"
-    height="100"
-    width="100"
-    align="middle"
-   /&gt;
-  The cherimoya, also...
-  &lt;/p&gt;
-</pre>
-                <p>
-                  <img  src="../../../../../img/custard-apple.jpg"
-                        alt="Eight Custard Apples in a Wicker Bowl"
-                        height="100"
-                        width="100"
-                        align="middle"
-                  />
-                  The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
-                  edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
-                  closely related sweetsop and soursop.
-                </p>
-              </div>
-              <hr/>
-              <div class="example5" style="padding: .5rem;">
-                <h6>Example - Vertical Bottom</h6>
-                <pre>
-  &lt;p&gt;
-   &lt;img
-    src="../../img/custard-apple.jpg"
-    alt="Eight Custard Apples in a Wicker Bowl"
-    height="100"
-    width="100"
-    align="bottom"
-   /&gt;
-  The cherimoya, also...
-  &lt;/p&gt;
-</pre>
-                <p>
-                  <img  src="../../../../../img/custard-apple.jpg"
-                        alt="Eight Custard Apples in a Wicker Bowl"
-                        height="100"
-                        width="100"
-                        align="bottom"
-                  />
-                  The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
-                  edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
-                  closely related sweetsop and soursop.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3 id="imgFormats">Image Formats</h3>
-        <hr/>
-      </div>
-      <div id="imageFormats" class="w-75" style="margin: 0 auto;">
-        <div class="row">
-          <h3>When To Use A Specific Format</h3>
-          <div class="col-sm-12 col-lg-6">
-            <ul>
-              <li>Use <strong>JPEG</strong>: Whenever a photo has many different colors.</li>
-              <li>
-                Use <strong>GIF</strong> or <strong>PNG</strong>: Whenever images utilize few or flat colors. Logos, illustrations, and diagrams often use
-                flat colors.
-              </li>
-            </ul>
-          </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <div style="border: 1px solid black;">
-              <div class="example1" style="padding: .5rem;">
-                <h6>Example - JPEG</h6>
-                <p>
-                  <img  src="../../../../../img/custard-apple.jpg"
-                        alt="Eight Custard Apples in a Wicker Bowl"
-                        height="100"
-                        width="100"
-                  />
-                  Rich Color Contrast
-                </p>
-              </div>
-              <hr/>
-              <div class="example2" style="padding: .5rem;">
-                <h6>Example - PNG</h6>
-                <p>
-                  <img  src="../../../../../img/cherimoyaLogo.png"
-                        alt="Logo Of A Cherimoya Fruit With A Clock Face"
-                        height="100"
-                        width="100"
-                  />
-                  Three flat colors (Green, Black, White). No color contrast.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3 id="imgDimensions">Image Dimensions</h3>
-        <hr/>
-      </div>
-      <div id="imageDimensions" class="w-75" style="margin: 0 auto;">
-        <div class="row">
-          <h3>How to Determine An Image's Dimensions</h3>
-          <div class="col-sm-12 col-lg-6">
-            <p>
-              The images that must be used on a website should be saved at the same width and height that is needed
-              for them to appear on the page.
-            </p>
-            <p>
-              Images should be considered for whether they best present in landscape or portrait mode. Another example:
-              An image of a giraffe would be best suited to appearing in portrait mode. An image of an elephant would
-              be better suited to appearing in landscape mode. Cropping either images would
-              result in losing the head and feet of a giraffe (landscape mode), and losing the trunk and hidequarters
-              of the elephant (portrait mode). Extra space on either image would result in a background that is not
-              continued either horizontally or vertically.
-            </p>
-            <p>
-              For example, if a page is designed to include an image that is 300px wide by 150px tall, the image used
-              should be 300 x 150 pixels. The use of image editing tools to resize and/or crop an image can help with
-              achieving that goal.
-            </p>
-            <p>
-              When the dimensions of an image (example: 300 x 150) are altered, the following effects occur:
-            </p>
-            <ul>
-              <li>
-                <strong>Reducing Image Size</strong>
-                <p>
-                  If the dimensions of a loaded image were reduced by 50%, this would create an image that is
-                  <em>faster</em> to load.
-                </p>
-              </li>
-              <li>
-                <strong>Increasing Image Size</strong>
-                <p>
-                  If the dimensions of a loaded image were increased by 300%, this would create an image that is
-                  <em>blurry or blocked</em>.
-                </p>
-              </li>
-              <li>
-                <strong>Changing Image Shape</strong>
-                <p>
-                  If the image is cropped, it is possible to lose valuable information.
-                  Only some images can be cropped and still make sense.
-                </p>
-              </li>
-            </ul>
-          </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <div style="border: 1px solid black;">
-              <div class="example1" style="padding: .5rem;">
-                <h6>Example - Reducing Image Size By 50%</h6>
-                <p>
-                  <img  src="../../../../../img/custard-apple.jpg"
-                        alt="Eight Custard Apples in a Wicker Bowl"
-                        height="307"
-                        width="235"
-                  />
-                  Original Size: 470x614 - Reduced Size: 235x307
-                </p>
-              </div>
-              <hr/>
-              <div class="example2" style="padding: .5rem;">
-                <h6>Example - Increasing Image Size By 300%</h6>
-                <p style="overflow: hidden;">
-                  <img  src="../../../../../img/custard-apple.jpg"
-                        alt="Logo Of A Cherimoya Fruit With A Clock Face"
-                        height="1842"
-                        width="1410"
-                  />
-                  Image is blurred and disproportionate.
-                </p>
-              </div>
-              <hr/>
-              <div class="example2" style="padding: .5rem;">
-                <h6>Example - Bad Cropping</h6>
-                <p style="overflow: hidden;">
-                  <img  src="../../../../../img/croppedCherimoyaLogo.png"
-                        alt="Cropped Logo Of A Cherimoya Fruit With A Clock Face"
-                        height="104"
-                        width="272"
-                  />
-                  Hard to tell what this would be
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3 id="imgResolutions">Image Resolutions</h3>
-        <hr/>
-      </div>
-      <div id="imageResolutions" class="w-75" style="margin: 0 auto;">
-        <div class="row">
-          <h3 class="text-center">How to Determine An Image's Resolution</h3>
-          <div class="col-sm-12 col-lg-6" style="margin: 0 auto;">
-            <p>
-              When image sizes are set for use on the screen, they should always be set dimensions of the image in
-              terms of pixels. Not centimeters or inches.
-            </p>
-            <p>
-              Images are made up of tiny squares of color on a monitor which are known as pixels. The <strong>resolution</strong>
-              of the screen is the number of pixels represented on it and most computers can increase or decrease this
-              number.
-            </p>
-            <p>
-              If a screen's resolution is set at 640x480, and it is then increased to 1024x768 pixels, the images
-              and text will appear smaller because the screen is showing a lot more pixels within the same amount of space.
-              (There are more pixels per inch.) When creating images for print, it is best to save them at a resolution
-              of 300 dots per inch (DPI) or higher to ensure sharpness.
-            </p>
-            <p>
-              On the web however, the resolution of an image is irrelevant. The only important aspect of an image
-              is the size in terms of its <strong>dimensions</strong> in pixels. It is recommended that images for the
-              web should be 72 pixels per inch. But users can change the resolution of the screen itself (affecting
-              the number of pixels shown per inch of the screen). Screens therefore determine the size of an image
-              based solely on its width and height in pixels.
-            </p>
-            <p>
-              On a screen, an image that is 300x300 pixels at 72ppi looks exactly the same as an image that is 300x300
-              pixels at 500ppi. The resolution of the image only matters when the image is printed.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3 id="vectorImgs">Vector Images</h3>
-        <hr/>
-      </div>
-      <div id="vectorImages" class="w-75" style="margin: 0 auto;">
-        <div class="row">
-          <h3 class="text-center">What Are Vector Images?</h3>
-          <div class="col-sm-12 col-lg-6" style="margin: 0 auto;">
-            <p>
-              Vector images differ from bitmap images and are resolution-independent. Vector images are commonly created
-              in programs such as Sketch or CoreIDRAW.
-            </p>
-            <p>
-              When an image is a line drawing (such as a logo, illustration, or diagram), designers will often create
-              it in a vector format. Vector formatted images are created by placing points on a grid, and drawing lines
-              between those points. A color can then be added to "fill in" the lines that have been created. The
-              advantage of creating line drawings is that the dimensions may be increased without affecting the quality
-              of it.
-            </p>
-            <p>
-              The current method of using vector images for display on websites involves saving a bitmap version of the
-              original vector image and using that.
-            </p>
-            <p>
-              The Scalable Vector Graphics (<strong>SVG</strong>) format is relatively new and used to display vector
-              images directly on the web (eliminating the need to create bitmap versions of them), however its use
-              is not yet widespread.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3 id="animatedGifs">Animated GIFs</h3>
-        <hr/>
-      </div>
-      <div id="gifsAnimated" class="w-75" style="margin: 0 auto;">
-        <div class="row">
-          <h3 class="text-center">Using Animated GIFs</h3>
-          <div class="col-sm-12 col-lg-6" style="margin: 0 auto;">
-            <p>
-              Animated GIFs show several frames of an image in sequence and therefore can be used to create simple
-              animations. It's possible to create your own GIFs using specialized software.
-            </p>
-            <p>
-              When using an animated GIF, it is important to remember that: each extra frame of the image increases
-              the size of the file, and can add to the time it takes for an image to download (and web users do not
-              like to wait a long time for images to download).
-            </p>
-            <p>
-              Because GIFs are not an ideal format for displaying photographs, they are really only suitable for simple
-              illustrations.
-            </p>
-            <p>
-              Overuse of animated GIFs on a site can be seen as an amateur web design by other devs. But it is okay
-              to use them where they make sense.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3 id="transparency">Transparency</h3>
-        <hr/>
-      </div>
-      <div id="imgTransparency" class="w-75" style="margin: 0 auto;">
-        <div class="row">
-          <h3 class="text-center">Image Transparency</h3>
-          <div class="col-sm-12 col-lg-6" style="margin: 0 auto;">
-            <p>
-              Creating an image that is partially transparent (or "see-through") for the web involves selecting
-              1 (one) of 2 (two) formats:
-            </p>
-            <ol>
-              <li>
-                Transparent GIF
-                <p>
-                  If the transparent part of the image has straight edges and is 100% transparent (that is, not
-                  semi-opaque), save the image as a GIF (with the transparency option selected).
-                </p>
-              </li>
-              <li>
-                PNG
-                <p>
-                  If the transparent part of the image has a diagonal or rounded edges or if you want a semi-opaque
-                  transparency or drop-shadow, then save it as a PNG.
-                </p>
-              </li>
-            </ol>
-            <small>Note: Transparent PNGs were not supported back when IE6 existed...Not sure if this is still a use case today.</small>
-          </div>
-        </div>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3 id="html5FigureElement">HTML5 Figure And Figure Caption Elements</h3>
-        <hr/>
-      </div>
-      <div id="html5FigureElements" class="w-75" style="margin: 0 auto;">
-        <div class="row">
-          <h3>Figure and Figure Caption Elements</h3>
-          <div class="col-sm-12 col-lg-6">
-            <ul>
-              <li>
-                <strong>&lt;figure&gt;</strong> Tag: Images often come with captions. HTML5 introduced a new <strong>&lt;figure&gt;</strong>
-                element to contain images and their caption so that the two are more closely associated. There can
-                be more than one image inside the figure element so long as they call share the same caption. Some
-                browsers may indent the contents of the <strong>&lt;figure&gt;</strong> element.
-              </li>
-              <li>
-                <strong>&lt;figcaption&gt;</strong> Tag: The <strong>&lt;figcaption&gt;</strong> element has been added
-                to HTML5 in order to allow the web page authors to add a caption to an image. Before these elements
-                were created there was no way to associate an <strong>&lt;img&gt;</strong> Tag with its caption.
-                Older browsers that do not understand HTML5 elements will ignore the new elements and display the
-                content of them.
-              </li>
-            </ul>
-          </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Example:</small>
-            <div style="border: 1px solid black;">
-              <div class="example1" style="padding: .5rem;">
-                <h6>Example - Using <span style="color: red;">Figure</span> and <span style="color: blue;">FigCaption</span></h6>
-                <figure class="text-center" style="border: 1px solid red;">
-                  <img  src="../../../../../img/custard-apple.jpg"
-                        alt="Eight Custard Apples in a Wicker Bowl"
-                        height="100"
-                        width="100"
-                  />
-                  <br/>
-                  <figcaption style="border: 1px solid blue;">
-                    The cherimoya, also spelled chirimoya and called chirimuya by the Inca people, is a species of
-                    edible fruit-bearing plant in the genus Annona, from the family Annonaceae, which includes the
-                    closely related sweetsop and soursop.
-                  </figcaption>
-                </figure>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -903,10 +1238,6 @@
       </div>
     </div>
   </div>
-</div>
-<hr/>
-<div class="container-fluid text-center mt-5">
-  <button id="viewSourceBtn" class="btn btn-info">View Source In Page</button>
-</div>
+</main>
 </body>
 </html>

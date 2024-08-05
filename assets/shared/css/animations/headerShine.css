@@ -1,0 +1,132 @@
+/* Shining Header Animation */
+.neon {
+  background: #000;
+  overflow: hidden;
+  filter: brightness(200%);
+}
+
+.text {
+  background-color: black;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  user-select: none;
+  animation:
+    fontChange 20s linear infinite;
+}
+
+.text::before {
+  content: attr(data-text);
+  position: absolute;
+  color: white;
+  filter: blur(0.02em);
+  mix-blend-mode: difference;
+}
+
+.gradient {
+  position: absolute;
+  background: linear-gradient(45deg, red, gold, lightgreen, gold, red);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  mix-blend-mode: multiply;
+  width: 50%;
+  margin: 0 auto;
+}
+
+/*.spotlight {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(
+      circle,
+      white,
+      transparent 25%
+    ) center / 25% 25%,
+    radial-gradient(
+      circle,
+      white,
+      black 25%
+    ) center / 12.5% 12.5%;
+  animation: light 15s linear infinite;
+  mix-blend-mode: color-dodge;
+}*/
+
+/*@keyframes light {
+  to {
+    transform: translate(50%, 100%);
+  }
+}*/
+
+@keyframes fontChange {
+  0% {
+    font-family: 'mystregular',
+    sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+  10% {
+    font-family: 'mystregular',
+    sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+  20% {
+    font-family: 'mystregular',
+    sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+  30% {
+    font-family: 'mystregular',
+    sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+  40% {
+    font-family: 'mystregular',
+    sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+  50% {
+    font-family: 'mystregular',
+    sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+  60% {
+    font-family: 'dni',
+    sans-serif;
+    font-size: 3rem;
+    text-transform: lowercase;
+  }
+  70% {
+    font-family: 'dni',
+    sans-serif;
+    font-size: 3rem;
+    text-transform: lowercase;
+  }
+  80% {
+    font-family: 'dni',
+    sans-serif;
+    font-size: 3rem;
+    text-transform: lowercase;
+  }
+  90% {
+    font-family: 'dni',
+    sans-serif;
+    font-size: 3rem;
+    text-transform: lowercase;
+  }
+  100% {
+    font-family: 'dni',
+    sans-serif;
+    font-size: 3rem;
+    text-transform: lowercase;
+  }
+}
