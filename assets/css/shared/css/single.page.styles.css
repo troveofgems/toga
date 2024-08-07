@@ -14,7 +14,7 @@
 }
 
 .navigationContent {
-  background-image: url("../../images/main-site/oldBook.png");
+  background-image: url("../../../images/main-site/oldBook.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -76,7 +76,7 @@
 }
 
 #tableRest {
-  background-image: url("../../images/main-site/tableTop.jpg");
+  background-image: url("../../../images/main-site/tableTop.jpg");
   height: inherit;
 
   background-position: center;

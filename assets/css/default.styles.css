@@ -30,12 +30,12 @@ main.mainSubSection {
   height: 100vh;
 }
 footer {
-    text-align: center;
-    padding: 1rem 0;
-    margin: 0;
-    width: 100%;
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(36,113,9,1) 50%, rgba(28,54,3,1) 100%);
+  text-align: center;
+  padding: 1rem 0;
+  margin: 0;
+  width: 100%;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(36,113,9,1) 50%, rgba(28,54,3,1) 100%);
 }
 img {
   height: 128px;
@@ -91,11 +91,11 @@ p, ul, ol {
 .radioStatic {
   align-content: center;
   padding: 1px;
-  background-image: url("assets/images/main-site/radioStatic.gif");
+  background-image: url("../images/main-site/radioStatic.gif");
   height: inherit;
 }
 .deadLinkingPanel {
-  background-image: url("assets/images/main-site/deadRadioStatic.gif");
+  background-image: url("../images/main-site/deadRadioStatic.gif");
   background-color: slategray;
   cursor: not-allowed;
 }
@@ -150,7 +150,7 @@ p, ul, ol {
   text-align: right;
 }
 .main-site__content {
-  background-image: url("assets/images/main-site/tableTop.jpg");
+  background-image: url("../images/main-site/tableTop.jpg");
   height: 100%;
   background-position: center;
   background-repeat: repeat-y;
@@ -162,7 +162,7 @@ p, ul, ol {
 }
 .bookOfHTML, .bookOfCSS, .bookOfDataVisualizations,
 .bookOfAccessibility, .bookOfOWASP, .emptyLinkingBook {
-  background-image: url("assets/images/main-site/oldBook.png");
+  background-image: url("../images/main-site/oldBook.png");
   height: 600px;
 
   background-position: center;

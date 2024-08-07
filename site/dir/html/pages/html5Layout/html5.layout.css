@@ -1,0 +1,296 @@
+#fileUploadsDemo {
+  form {
+    background: #ccc;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid black;
+  }
+
+  form ol {
+    padding-left: 0;
+  }
+
+  form li,
+  div > p {
+    background: #eee;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    list-style-type: none;
+    border: 1px solid black;
+  }
+
+  form img {
+    height: 64px;
+    order: 1;
+  }
+
+  form p {
+    line-height: 32px;
+    padding-left: 10px;
+  }
+
+  form label,
+  form button {
+    background-color: #7f9ccb;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px ridge black;
+    font-size: var(--body-font-size-4);
+    height: auto;
+  }
+
+  form label:hover,
+  form button:hover {
+    background-color: #2d5ba3;
+    color: white;
+  }
+
+  form label:active,
+  form button:active {
+    background-color: #0d3f8f;
+    color: white;
+  }
+}
+
+
+
+#schoolSchedule, #gymSchedule, #longTable {
+  th, td {
+    padding: 7px 10px 10px 10px;
+  }
+
+  th {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 90%;
+    border-bottom: 2px solid var(--tiana-off-white);
+    border-top: 1px solid var(--tiana-off-white);
+    border-right: 1px solid var(--tiana-off-white);
+    text-align: left;
+    color: var(--book-cover-4);
+  }
+
+  td {
+    border-right: 1px solid var(--tiana-off-white);
+    border-bottom: 1px solid var(--tiana-off-white);
+    color: var(--book-cover-4);
+  }
+}
+
+* {
+  color: var(--book-cover-4);
+}
+
+.expandMenuBtn {
+  position: fixed;
+}
+
+/* Set Page Background */
+.topicContents {
+  background-image: url("../../../../../assets/images/main-site/oldPaper.jpg");
+  background-position: top;
+  background-repeat: repeat;
+  background-size: cover;
+  color: var(--book-cover-4);
+  padding-bottom: 3rem;
+}
+
+.material-symbols-outlined {
+  color: var(--tiana-off-white);
+}
+
+#pagePreambles {
+  margin: 0 auto;
+  width: 75%;
+}
+
+.pagePreamble_1 {
+  font-size: var(--h6-font-size);
+  margin: 2rem auto 1rem auto;
+  padding-bottom: 1rem;
+}
+
+.pagePreamble_2 {
+  font-size: var(--h6-font-size);
+  margin-bottom: 0;
+}
+
+ol {
+  list-style-type: upper-roman;
+  font-size: 1.5rem;
+}
+ul {
+  font-size: var(--body-font-size-3);
+}
+
+.olTypesOfMarkup {
+  margin-bottom: 4rem;
+}
+
+.hrStyle {
+  color: var(--book-cover-4);
+  border-width: 3px;
+  border-color: inherit;
+  opacity: .75;
+}
+
+.sectionHeader {
+  margin-bottom: 4rem;
+}
+
+.sectionHeader > p {
+  font-size: var(--h6-font-size);
+}
+
+.structuralMarkupContainer,
+.semanticMarkupContainer,
+.generalContainer {
+  width: 90%;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+#traditionalVsNewLayout,
+#headerAndFooterElements,
+#theNavTag,
+#theArticleTag,
+#theAsideTag,
+#theSectionTag,
+#theHGroupTag,
+#figuresSection {
+  text-align: left;
+  margin-bottom: 4rem;
+}
+
+.textEntry_1 {
+  font-size: 1.75rem;
+}
+
+.example {
+  border: 1px solid var(--book-cover-4);
+  font-size: 1.5rem;
+  margin: 1rem;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.tablePanel1 > p {
+  color: var(--font-color-old-page-text);
+  font-size: var(--h6-font-size);
+}
+
+.tablePanel2 > p {
+  color: var(--font-color-old-page-text);
+  font-size: var(--body-font-size-3);
+}
+
+.tablePanel1 {
+  background: rgba(169, 121, 66, .08);
+}
+
+.tablePanel2 {
+  background: rgba(169, 121, 66, .65);
+}
+
+.tablePanel3 {
+  background: rgba(169, 121, 66, .90);
+}
+
+.olExample1 {
+  list-style-type: revert!important;
+}
+
+
+.example1-container {
+  box-shadow:
+    rgba(190, 120, 40, 0.4) -5px 5px,
+    rgba(190, 120, 40, 0.3) -10px 10px,
+    rgba(190, 120, 40, 0.2) -15px 15px,
+    rgba(190, 120, 40, 0.1) -20px 20px,
+    rgba(190, 120, 40, 0.05) -25px 25px;
+}
+
+.nav-item > button {
+  background: var(--book-cover-2);
+}
+
+.nav-link {
+  color: var(--tiana-off-white);
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background: var(--book-cover-3);
+  color: var(--tiana-off-white);
+}
+
+.nav-pills .nav-link:hover {
+  font-size: 1.5rem;
+  background: var(--book-cover-4);
+}
+
+.nav-tabs .nav-link:hover {
+  font-size: 1.75rem;
+  color: var(--tiana-off-white);
+}
+
+.sidebarFooter {
+  color: var(--tiana-off-white);
+}
+
+.pagePreambles > ul > li {
+  font-size: var(--body-font-size-3);
+}
+
+a {
+  color: var(--split-complimentary-2);
+}
+
+a:hover {
+  color: var(--split-complimentary-3);
+  font-size: var(--body-font-size-2);
+}
+
+.tableRowInfo {
+  color: var(--split-complimentary-2);
+  font-size: var(--body-font-size-3);
+  margin-bottom: 0;
+  padding: .5rem .5rem 0;
+}
+
+th {
+  padding: 0 .5rem;
+  font-size: var(--body-font-size-2);
+}
+
+tr, td {
+  border: 1px solid var(--book-cover-4);
+}
+
+td > .relativePathSubText {
+  font-size: var(--body-font-size-4);
+  margin-bottom: 0;
+  padding: 0 .5rem;
+}
+
+.relativePathSubText {
+  font-size: var(--body-font-size-4);
+}
+
+.example-w50 {
+  font-size: var(--body-font-size-3);
+  width: 50%;
+  text-align: center;
+}
+
+td > a, td > a > strong {
+  font-size: var(--body-font-size-2);
+}
+
+td {
+  padding: .5rem;
+}
+
+label {
+  font-size: 1.5rem;
+}

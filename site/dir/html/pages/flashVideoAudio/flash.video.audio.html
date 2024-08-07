@@ -16,271 +16,168 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <link rel="stylesheet" href="../../../../../assets/css/root.variables.css" />
+  <link rel="stylesheet" href="../../../../../assets/css/default.styles.css" />
+  <link rel="stylesheet" href="../../../../../assets/css/shared/css/sidebar.styles.css" />
   <link href="flash.video.audio.css" rel="stylesheet">
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      let btn = document.getElementById('viewSourceBtn');
-      btn.addEventListener('click', function() {
-        let sourceCode = document.documentElement.outerHTML;
-        let pre = document.createElement('pre');
-        pre.textContent = sourceCode;
-        document.body.appendChild(pre);
-      });
-    });
-  </script>
 </head>
-<body style="overflow-x: hidden;">
-<header style="margin: 2rem; text-align: right;">
-  <button type="button" role="button" class="btn btn-danger">
-    <a href="../../../../../index.html" class="text-white">Back To Main Page</a>
-  </button>
-</header>
-<div class="container-fluid mb-5">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1 class="text-center mb-5">HTML5 Flash, Video, &amp; Audio</h1>
-      <div id="preamble" class="w-75" style="margin: 0 auto;">
-        <h5 class="mb-3">
-          <em>
-            Flash was a very popular technology (1990s) used to add animations, video, and audio to websites. Adobe was
-            unable to fix flash, and killed it by the end of 2020.
-          </em>
-        </h5>
-        <p>
-          Flash content today is barred from running in final versions of a website (production). A short history
-          will be provided in this section, but no examples with Flash will be found on this page.
-        </p>
-        <p>
-          Today, HTML5 offers two elements to replace the use of Flash, they are the: &lt;video&gt; and &lt;audio&gt;
-          Tags.
-        </p>
+<body>
+<main class="mainSubSection">
+  <!-- SideBar Nav -->
+  <div id="offcanvas" class="offcanvas offcanvas-start bg-dark canvasWidth" tabindex="-1" data-bs-keyboard="false" data-bs-backdrop="false">
+    <div class="offcanvas-header mb-0 pb-0">
+      <h6 class="offcanvas-title d-none d-sm-block sideBarHeader">Main Navigation</h6>
+      <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body px-0 pt-0">
+      <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+        <li class="nav-item">
+          <a href="/" class="nav-link text-truncate">
+            <i class="fs-5 bi-house"></i><span class="ms-1 d-none d-sm-inline navItemLabel">Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#submenu1" data-bs-toggle="collapse" class="nav-link active">
+            <span class="ms-1 d-none d-sm-inline navItemLabel">Flash &amp; HTML5 Video/Audio</span></a>
+          <ul class="collapse nav flex-column ms-1 show" id="submenu1" data-bs-parent="#menu">
+            <li style="padding-left: 10px;">
+              <a href="#htmlDir_8_1" class="nav-link"> <span class="d-none d-sm-inline subLink">1. The Evolution &amp; Death Of Flash</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#htmlDir_8_2" class="nav-link"> <span class="d-none d-sm-inline subLink">2. The Video Element</span></a>
+            </li>
+            <li style="padding-left: 10px;">
+              <a href="#htmlDir_8_3" class="nav-link"> <span class="d-none d-sm-inline subLink">3. The Audio Element</span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <footer>
+      <span class="sidebarFooter">2024 <a class="linkToMainWebsite" href="https://thegemtrove.herokuapp.com/">ToG</a> - DKGreco</span>
+    </footer>
+  </div>
+  <!-- End SideBar Nav -->
+
+  <div class="container-fluid pageContent">
+    <div class="row col-lg-12 col-sm-12 rowContainer">
+      <!-- Page Intro Section -->
+      <div class="col-lg-3 col-sm-12 menuTogglerContainer">
+        <div class="col-lg-12">
+          <div id="menuToggler">
+            <button class="btn expandMenuBtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
+              Menu <span class="material-symbols-outlined">subdirectory_arrow_right</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <h1 class="text-center m-3">Flash &amp; HTML5 Video &amp; Audio</h1>
+        <div id="pagePreambles">
+          <h5 class="mb-3">
+            <em>
+              Flash was a very popular technology (1990s) used to add animations, video, and audio to websites. Adobe was
+              unable to fix flash, and killed it by the end of 2020.
+            </em>
+          </h5>
+          <p class="pagePreamble_1">
+            Flash content today is barred from running in final versions of a website (production). A short history
+            will be provided in this section, but no examples with Flash will be found on this page.
+          </p>
+          <p class="pagePreamble_1">
+            Today, HTML5 offers two elements to replace the use of Flash, they are the: &lt;video&gt; and &lt;audio&gt;
+            Tags.
+          </p>
+        </div>
       </div>
 
-      <!-- Evolution And Death of Flash -->
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3>The Evolution &amp; Death of Flash</h3>
-        <hr/>
-      </div>
-      <div id="evolutionAndDeathOfFlash" class="w-75" style="margin: 0 auto;">
-        <div class="row">
-          <div class="col-sm-12">
-            <p>
-              Beginning in 2005, a number of factors occurred that saw fewer websites written in flash or even the use
-              of flash elements in their pages. When it was first released, it was developed to create animations. The
-              technology quickly evolved, however, and people began to use it to build media players or even entire
-              websites.
-            </p>
-            <p>
-              Some factors that led to the death of Flash were:
-            </p>
-            <ul>
-              <li>
-                In 2005-6, a set of JavaScript libraries were launched (including Prototype, script.aculo.us, and
-                JQuery) which made it easier to create animated effects using JavaScript.
-              </li>
-              <li>
-                When Apple launched the iPhone in 2007 and later the iPad in 2010, they made the decision to not
-                support flash.
-              </li>
-              <li>
-                Laws have been introduced to ensure that websites are usable by those with visual or physical impairments -
-                and flash had been criticized because flash content was not always able to meet accessibility requirements.
-              </li>
-              <li>
-                In 2008 HTML5 released the &lt;video&gt; and &lt;audio&gt; Tags which people have since migrated to,
-                as of today.
-              </li>
-            </ul>
-            <p>
-              As of today in 2024, Flash is defunct and dead, no longer supported nor offered as a product by Adobe.
-            </p>
+      <!-- The Evolution & Death Of Flash -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div id="htmlDir_8_1" class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>The Evolution & Death Of Flash</h2>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="evolutionDeathOfFlash">
+            <div class="row">
+              <div class="col-lg-12 col-sm-12">
+                <p class="textEntry_1">
+                  Beginning in 2005, a number of factors occurred that saw fewer websites written in flash or even the use
+                  of flash elements in their pages. When it was first released, it was developed to create animations. The
+                  technology quickly evolved, however, and people began to use it to build media players or even entire
+                  websites.
+                </p>
+                <p class="textEntry_1">
+                  Some factors that led to the death of Flash were:
+                </p>
+                <ul>
+                  <li>
+                    In 2005-6, a set of JavaScript libraries were launched (including Prototype, script.aculo.us, and
+                    JQuery) which made it easier to create animated effects using JavaScript.
+                  </li>
+                  <li>
+                    When Apple launched the iPhone in 2007 and later the iPad in 2010, they made the decision to not
+                    support flash.
+                  </li>
+                  <li>
+                    Laws have been introduced to ensure that websites are usable by those with visual or physical impairments -
+                    and flash had been criticized because flash content was not always able to meet accessibility requirements.
+                  </li>
+                  <li>
+                    In 2008 HTML5 released the &lt;video&gt; and &lt;audio&gt; Tags which people have since migrated to,
+                    as of today.
+                  </li>
+                </ul>
+                <p class="textEntry_1">
+                  As of today in 2024, Flash is defunct and dead, no longer supported nor offered as a product by Adobe.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- The Video Tag -->
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3>The &lt;video&gt; Tag</h3>
-        <hr/>
-      </div>
-      <div id="videoTag" class="w-75" style="margin: 0 auto;">
-        <div class="row">
-          <div class="col-sm-12 col-lg-5">
-            <h3>Preparing Video For Pages</h3>
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div id="htmlDir_8_2" class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>The Video Element</h2>
             <p>
-              The video Tag has seen widespread use since its release. There may be some key issues to be aware of:
+              Implementing Video
             </p>
-            <p>
-              The video tag does not support any type of Digital Rights Management (DRM - sometimes referred to as
-              copy protection).
-            </p>
-            <p>
-              Not all browsers may support the same video formats. Different video formats may need to be provided.
-              Generally to reach as many browsers as possible WebM or H264
-            </p>
-            <p>
-              Browsers supply their own controls for a player, and the control views can vary from browser to browser.
-              It is possible to control the appearance of the controls using JavaScript.
-            </p>
-            <h3>Adding Video To Pages</h3>
-            <p>
-              In HTML5, not all attributes need to be supplied values such as controls, autoplay, and loop.
-            </p>
-            <p>
-              If the browser does not support the video format or element, it will display whatever has been placed
-              between the opening and closing &lt;video&gt; Tags.<br/><br/>Here are some of the attributes available:
-            </p>
-            <p class="d-inline-flex gap-1 flex-wrap">
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSrc" aria-expanded="false" aria-controls="collapseSrc">
-                src
-              </button>
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePoster" aria-expanded="false" aria-controls="collapsePoster">
-                poster
-              </button>
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthHeight" aria-expanded="false" aria-controls="collapseWidthHeight">
-                width, height
-              </button>
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseControls" aria-expanded="false" aria-controls="collapseControls">
-                controls
-              </button>
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAutoplay" aria-expanded="false" aria-controls="collapseAutoplay">
-                autoplay
-              </button>
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLoop" aria-expanded="false" aria-controls="collapseLoop">
-                loop
-              </button>
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePreload" aria-expanded="false" aria-controls="collapsePreload">
-                preload
-              </button>
-            </p>
-            <div class="collapse" id="collapseSrc">
-              <div class="card card-body">
-                <h5>&lt;video src="...url..."&gt;</h5>
-                <p>
-                  This attribute specifies the path to the video.
-                </p>
-              </div>
-            </div>
-            <div class="collapse" id="collapsePoster">
-              <div class="card card-body">
-                <h5>&lt;video poster="...url..."&gt;</h5>
-                <p>
-                  This attribute specifies the path to an image that can be shown while the video is downloading or
-                  until the user tells the video to play.
-                </p>
-              </div>
-            </div>
-            <div class="collapse" id="collapseWidthHeight">
-              <div class="card card-body">
-                <h5>&lt;video width="500" height="500"&gt;</h5>
-                <p>
-                  These attributes specify the dimensions of the video element.
-                </p>
-              </div>
-            </div>
-            <div class="collapse" id="collapseControls">
-              <div class="card card-body">
-                <h5>&lt;video controls&gt;</h5>
-                <p>
-                  When used, this attribute indicates that the browser should supply its own controls for playback.
-                </p>
-              </div>
-            </div>
-            <div class="collapse" id="collapseAutoplay">
-              <div class="card card-body">
-                <h5>&lt;video autoplay&gt;</h5>
-                <p>
-                  When used, this attribute specifies that the file should play automatically upon load.
-                </p>
-              </div>
-            </div>
-            <div class="collapse" id="collapseLoop">
-              <div class="card card-body">
-                <h5>&lt;video loop&gt;</h5>
-                <p>
-                  When used, this attribute indicates that the video should start playing again once it has ended.
-                </p>
-              </div>
-            </div>
-            <div class="collapse" id="collapsePreload">
-              <div class="card card-body">
-                <h5>&lt;video preload&gt;</h5>
-                <p>
-                  This attribute tells the browser what to do when the page loads. It can have one of three values:
-                </p>
-                <ol>
-                  <li>
-                    <h5>none</h5>
-                    <p>
-                      The browser will not load the video until the user presses play.
-                    </p>
-                  </li>
-                  <li>
-                    <h5>auto</h5>
-                    <p>
-                      The browser should download the video when the page loads.
-                    </p>
-                  </li>
-                  <li>
-                    <h5>metadata</h5>
-                    <p>
-                      The browser should just collect information such as the size, first frame, track-list and duration.
-                    </p>
-                  </li>
-                </ol>
-              </div>
-            </div>
-            <p>Some solutions may require an iframe, like embedding videos from youtube.</p>
-            <h3>Multiple Video Sources</h3>
-            <p>
-              When using multiple sources for a video, a developer should add as many &lt;source&gt; Tags as needed within the
-              &lt;video&gt; Tag (This tag will replace the src attribute in the parent video element!). Here are
-              some common attributes associated with the &lt;source&gt; Tag
-            </p>
-            <p class="d-inline-flex gap-1 flex-wrap">
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSrcMS" aria-expanded="false" aria-controls="collapseSrcMS">
-                src
-              </button>
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTypeMS" aria-expanded="false" aria-controls="collapseTypeMS">
-                type
-              </button>
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCodecsMS" aria-expanded="false" aria-controls="collapseCodecsMS">
-                codecs
-              </button>
-            </p>
-            <div class="collapse" id="collapseSrcMS">
-              <div class="card card-body">
-                <h5>The <strong>src</strong> Attribute</h5>
-                <p>
-                  This attribute specifies the path to the video.
-                </p>
-              </div>
-            </div>
-            <div class="collapse" id="collapseTypeMS">
-              <div class="card card-body">
-                <h5>The <strong>type</strong> Attribute</h5>
-                <p>
-                  This attribute specifies the format that the video is in.
-                </p>
-              </div>
-            </div>
-            <div class="collapse" id="collapseCodecsMS">
-              <div class="card card-body">
-                <h5>The <strong>codecs</strong> Attribute</h5>
-                <p>
-                  The codec that was used to encode the video is supplied within the type attribute.
-                </p>
-              </div>
-            </div>
+            <hr class="hrStyle"/>
           </div>
-          <div class="col-sm-12 col-lg-7">
-            <div>
-              <small>Examples By Type:</small>
-              <div style="border: 1px solid black;">
-                <ul class="nav nav-tabs" id="videoExamplesTabber" role="tablist" style="margin: 2rem;">
+          <div id="theVideoTag">
+            <div class="row">
+              <div class="col-lg-12 col-sm-12">
+                <h3>Preparing Video For Pages</h3>
+                <p class="textEntry_1">
+                  The video Tag has seen widespread use since its release. There may be some key issues to be aware of:
+                </p>
+                <ul>
+                  <li>
+                    The video tag does not support any type of Digital Rights Management (DRM - sometimes referred to as
+                    copy protection).
+                  </li>
+                  <li>
+                    Not all browsers may support the same video formats. Different video formats may need to be provided.
+                    Generally to reach as many browsers as possible provide WebM or H264 formats.
+                  </li>
+                  <li>
+                    Browsers supply their own controls for a player, and the control views can vary from browser to browser.
+                    It is possible to control the appearance of the controls using JavaScript.
+                  </li>
+                </ul>
+              </div>
+              </div>
+              <div class="col-lg-12 col-sm-12">
+                <ul class="nav nav-tabs" id="videoExamplesTabber" role="tablist">
                   <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="video-tab" data-bs-toggle="tab" data-bs-target="#video-tab-pane" type="button" role="tab" aria-controls="video-tab-pane" aria-selected="true">Video</button>
                   </li>
@@ -288,33 +185,142 @@
                     <button class="nav-link" id="multipleSources-tab" data-bs-toggle="tab" data-bs-target="#multipleSources-tab-pane" type="button" role="tab" aria-controls="multipleSources-tab-pane" aria-selected="true">Multiple Sources</button>
                   </li>
                 </ul>
-                <div class="tab-content" id="videoExamplesTabberContent" style="margin: 2rem;">
-                  <div class="tab-pane fade show active" id="video-tab-pane" role="tabpanel" aria-labelledby="video-tab" tabindex="0">
+                <div class="tab-content" id="videoExamplesTabberContent">
+                  <div class="tab-pane fade show active" id="video-tab-pane" role="tabpanel" aria-labelledby="video-tab">
                     <div class="row">
-                      <div class="col-lg-6" style="border-right: 1px solid grey">
-                        <h6><em class="text-decoration-underline">Implementation</em></h6>
-                        <video
-                          src="https://www.youtube.com/embed/OuBmpQSVDZs?si=3RixzDJ0s0Eq5AW0"
-                          poster="../../../../../img/cherimoyaLogo.png"
-                          width="350" height="350"
-                          preload
-                          controls
-                          loop
-                          >
-                          <p>A video from Minus Tau</p>
-                        </video>
-                        <iframe
-                          width="350" height="350"
-                          src="https://www.youtube.com/embed/OuBmpQSVDZs?si=3RixzDJ0s0Eq5AW0"
-                          title="YouTube video player"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          referrerpolicy="strict-origin-when-cross-origin"
-                          allowfullscreen
-                        ></iframe>
+                      <div class="col-lg-12 col-sm-12 w-100 m-auto my-3">
+                        <h3 class="text-center w-100">Adding Video To Pages</h3>
+                        <p class="textEntry_1">
+                          In HTML5, not all attributes need to be supplied values such as controls, autoplay, and loop.
+                        </p>
+                        <p class="textEntry_1">
+                          If the browser does not support the video format or element, it will display whatever has been placed
+                          between the opening and closing &lt;video&gt; Tags.
+                        </p>
+                        <p class="textEntry_1">Some solutions may require an iframe, like embedding videos from youtube.</p>
+                        <p class="textEntry_1">
+                          Here are some of the attributes available:
+                        </p>
+                        <div class="mb-5">
+                          <p class="d-inline-flex gap-1 flex-wrap">
+                            <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSrc" aria-expanded="false" aria-controls="collapseSrc">
+                              src
+                            </button>
+                            <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePoster" aria-expanded="false" aria-controls="collapsePoster">
+                              poster
+                            </button>
+                            <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthHeight" aria-expanded="false" aria-controls="collapseWidthHeight">
+                              width, height
+                            </button>
+                            <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapseControls" aria-expanded="false" aria-controls="collapseControls">
+                              controls
+                            </button>
+                            <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAutoplay" aria-expanded="false" aria-controls="collapseAutoplay">
+                              autoplay
+                            </button>
+                            <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLoop" aria-expanded="false" aria-controls="collapseLoop">
+                              loop
+                            </button>
+                            <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePreload" aria-expanded="false" aria-controls="collapsePreload">
+                              preload
+                            </button>
+                          </p>
+                          <div class="collapse" id="collapseSrc">
+                            <div class="card card-body tablePanel2">
+                              <h5>&lt;video src="...url..."&gt;</h5>
+                              <p>
+                                This attribute specifies the path to the video.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="collapse" id="collapsePoster">
+                            <div class="card card-body tablePanel2">
+                              <h5>&lt;video poster="...url..."&gt;</h5>
+                              <p>
+                                This attribute specifies the path to an image that can be shown while the video is downloading or
+                                until the user tells the video to play.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="collapse" id="collapseWidthHeight">
+                            <div class="card card-body tablePanel2">
+                              <h5>&lt;video width="500" height="500"&gt;</h5>
+                              <p>
+                                These attributes specify the dimensions of the video element.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="collapse" id="collapseControls">
+                            <div class="card card-body tablePanel2">
+                              <h5>&lt;video controls&gt;</h5>
+                              <p>
+                                When used, this attribute indicates that the browser should supply its own controls for playback.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="collapse" id="collapseAutoplay">
+                            <div class="card card-body tablePanel2">
+                              <h5>&lt;video autoplay&gt;</h5>
+                              <p>
+                                When used, this attribute specifies that the file should play automatically upon load.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="collapse" id="collapseLoop">
+                            <div class="card card-body tablePanel2">
+                              <h5>&lt;video loop&gt;</h5>
+                              <p>
+                                When used, this attribute indicates that the video should start playing again once it has ended.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="collapse" id="collapsePreload">
+                            <div class="card card-body tablePanel2">
+                              <h5>&lt;video preload&gt;</h5>
+                              <p>
+                                This attribute tells the browser what to do when the page loads. It can have one of three values:
+                              </p>
+                              <ol>
+                                <li>
+                                  <h5>none</h5>
+                                  <p>
+                                    The browser will not load the video until the user presses play.
+                                  </p>
+                                </li>
+                                <li>
+                                  <h5>auto</h5>
+                                  <p>
+                                    The browser should download the video when the page loads.
+                                  </p>
+                                </li>
+                                <li>
+                                  <h5>metadata</h5>
+                                  <p>
+                                    The browser should just collect information such as the size, first frame, track-list and duration.
+                                  </p>
+                                </li>
+                              </ol>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div class="col-lg-6">
-                        <h6><em class="text-decoration-underline">Code</em></h6>
-                        <pre>
+                      <div class="row col-lg-12 col-sm-12">
+                        <div class="col-lg-4" style="border-right: 1px solid var(--book-cover-4)">
+                          <h6><em class="text-decoration-underline">Implementation</em></h6>
+                          <video
+                            src="https://www.youtube.com/embed/OuBmpQSVDZs?si=3RixzDJ0s0Eq5AW0"
+                            poster="../../../../../img/cherimoyaLogo.png"
+                            width="350" height="350"
+                            preload
+                            controls
+                            loop
+                          >
+                            <p>A video from Minus Tau</p>
+                          </video>
+                        </div>
+                        <div class="col-lg-8">
+                          <h6><em class="text-decoration-underline">Code</em></h6>
+                          <pre style="font-size: var(--body-font-size-5)">
 &lt;video
   src="https://www.youtube.com/embed/OuBmpQSVDZs?si=3RixzDJ0s0Eq5AW0"
   poster="../../img/cherimoyaLogo.png"
@@ -325,14 +331,22 @@
 &gt;
   &lt;p&gt;A video from Minus Tau&lt;/p&gt;
 &lt;/video&gt;
-
-
-
-
-
-
-
-
+                        </pre>
+                        </div>
+                        <div class="col-lg-4" style="border-right: 1px solid var(--book-cover-4)">
+                          <h6><em class="text-decoration-underline">IFrame Implementation</em></h6>
+                          <iframe
+                            width="350" height="350"
+                            src="https://www.youtube.com/embed/OuBmpQSVDZs?si=3RixzDJ0s0Eq5AW0"
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                          ></iframe>
+                        </div>
+                        <div class="col-lg-8">
+                          <h6><em class="text-decoration-underline">Code</em></h6>
+                          <pre style="font-size: var(--body-font-size-5)">
 &lt;iframe
   width="350" height="350"
   src="https://www.youtube.com/embed/OuBmpQSVDZs?si=3RixzDJ0s0Eq5AW0"
@@ -342,12 +356,55 @@
   allowfullscreen
 &gt;&lt;/iframe&gt;
                         </pre>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="tab-pane fade show" id="multipleSources-tab-pane" role="tabpanel" aria-labelledby="multipleSources-tab" tabindex="0">
+                  <div class="tab-pane fade show" id="multipleSources-tab-pane" role="tabpanel" aria-labelledby="multipleSources-tab">
                     <div class="row">
-                      <div class="col-lg-6" style="border-right: 1px solid grey">
+                      <div class="col-lg-12 col-sm-12 w-100 m-auto my-3">
+                        <p class="textEntry_1">
+                          When using multiple sources for a video, a developer should add as many &lt;source&gt; Tags as needed within the
+                          &lt;video&gt; Tag (This tag will replace the src attribute in the parent video element!). Here are
+                          some common attributes associated with the &lt;source&gt; Tag
+                        </p>
+                        <p class="d-inline-flex gap-1 flex-wrap">
+                          <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSrcMS" aria-expanded="false" aria-controls="collapseSrcMS">
+                            src
+                          </button>
+                          <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTypeMS" aria-expanded="false" aria-controls="collapseTypeMS">
+                            type
+                          </button>
+                          <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCodecsMS" aria-expanded="false" aria-controls="collapseCodecsMS">
+                            codecs
+                          </button>
+                        </p>
+                        <div class="collapse" id="collapseSrcMS">
+                          <div class="card card-body tablePanel2">
+                            <h5>The <strong>src</strong> Attribute</h5>
+                            <p>
+                              This attribute specifies the path to the video.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="collapse" id="collapseTypeMS">
+                          <div class="card card-body tablePanel2">
+                            <h5>The <strong>type</strong> Attribute</h5>
+                            <p>
+                              This attribute specifies the format that the video is in.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="collapse" id="collapseCodecsMS">
+                          <div class="card card-body tablePanel2">
+                            <h5>The <strong>codecs</strong> Attribute</h5>
+                            <p>
+                              The codec that was used to encode the video is supplied within the type attribute.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4" style="border-right: 1px solid var(--book-cover-4)">
                         <h6><em class="text-decoration-underline">Implementation</em></h6>
                         <video
                           poster="../../../../../img/cherimoyaLogo.png"
@@ -360,9 +417,9 @@
                           <p>A video of Ocean Waves</p>
                         </video>
                       </div>
-                      <div class="col-lg-6">
+                      <div class="col-lg-8">
                         <h6><em class="text-decoration-underline">Code</em></h6>
-                        <pre>
+                        <pre style="font-size: var(--body-font-size-5)">
 &lt;video
   poster="../../img/cherimoyaLogo.png"
   width="350" height="350"
@@ -385,200 +442,214 @@
             </div>
           </div>
         </div>
-      </div>
 
       <!-- The Audio Tag -->
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3>The &lt;audio&gt; Tag</h3>
-        <hr/>
-      </div>
-      <div id="audioTag" class="w-75" style="margin: 0 auto;">
-        <div class="row">
-          <div class="col-sm-5">
-            <h5>Adding Audio To Web Pages</h5>
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div id="htmlDir_8_3" class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>The Audio Element</h2>
             <p>
-              By far the most popular format for putting audio on web pages is MP3. There are two routes taken
-              to implement audio on a page:
+              Implementing Audio
             </p>
-            <ol>
-              <li>
-                <h6>Use a Hosted Service</h6>
-              </li>
-              <li>
-                <h6>Use HTML5's &lt;audio&gt; Tag</h6>
-              </li>
-            </ol>
-            <h5>The HTML5 &lt;audio&gt; Tag</h5>
-            <p>
-              HTML5 introduced the &lt;audio&gt; Tag to include audio files in web pages. The &lt;audio&gt; Tag carries
-              a number of attributes which allow a developer to control audio playback. Here are the common attributes:
-            </p>
-            <p class="d-inline-flex gap-1 flex-wrap">
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSrcAudio" aria-expanded="false" aria-controls="collapseSrcAudio">
-                src
-              </button>
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseControlsAudio" aria-expanded="false" aria-controls="collapseControlsAudio">
-                controls
-              </button>
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAutoplayAudio" aria-expanded="false" aria-controls="collapseAutoplayAudio">
-                autoplay
-              </button>
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLoopAudio" aria-expanded="false" aria-controls="collapseLoopAudio">
-                loop
-              </button>
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePreloadAudio" aria-expanded="false" aria-controls="collapsePreloadAudio">
-                preload
-              </button>
-            </p>
-            <div class="collapse" id="collapseSrcAudio">
-              <div class="card card-body">
-                <h5>&lt;video src="...url..."&gt;</h5>
-                <p>
-                  This attribute specifies the path to the audio file.
-                </p>
-              </div>
-            </div>
-            <div class="collapse" id="collapseControlsAudio">
-              <div class="card card-body">
-                <h5>&lt;video controls&gt;</h5>
-                <p>
-                  When used, this attribute indicates that the browser should supply its own controls for playback.
-                </p>
-              </div>
-            </div>
-            <div class="collapse" id="collapseAutoplayAudio">
-              <div class="card card-body">
-                <h5>&lt;video autoplay&gt;</h5>
-                <p>
-                  When used, this attribute specifies that the file should play automatically upon load.
-                </p>
-              </div>
-            </div>
-            <div class="collapse" id="collapseLoopAudio">
-              <div class="card card-body">
-                <h5>&lt;video loop&gt;</h5>
-                <p>
-                  When used, this attribute indicates that the audio file should start playing again once it has ended.
-                </p>
-              </div>
-            </div>
-            <div class="collapse" id="collapsePreloadAudio">
-              <div class="card card-body">
-                <h5>&lt;video preload&gt;</h5>
-                <p>
-                  This attribute tells the browser what to do when the page loads. It can have one of three values:
+            <hr class="hrStyle"/>
+          </div>
+          <div id="theAudioTag">
+            <div class="row">
+              <div class="col-lg-12 col-sm-12">
+                <h5>Adding Audio To Web Pages</h5>
+                <p class="textEntry_1">
+                  By far the most popular format for putting audio on web pages is MP3. There are two (2) routes taken
+                  to implement audio on a page:
                 </p>
                 <ol>
                   <li>
-                    <h5>none</h5>
-                    <p>
-                      The browser will not load the video until the user presses play.
-                    </p>
+                    Use a Hosted Service
                   </li>
                   <li>
-                    <h5>auto</h5>
-                    <p>
-                      The browser should download the video when the page loads.
-                    </p>
-                  </li>
-                  <li>
-                    <h5>metadata</h5>
-                    <p>
-                      The browser should just collect information such as the size, first frame, track-list and duration.
-                    </p>
+                    Use HTML5's &lt;audio&gt; Tag
                   </li>
                 </ol>
               </div>
             </div>
-            <h5>Multiple Sources For Audio</h5>
-            <p>
-              When using multiple sources for an audio file, a developer should add as many &lt;source&gt; Tags as needed within
-              the &lt;audio&gt; Tag (This tag will replace the src attribute in the parent audio element!).
-              Here are some common attributes associated with the &lt;audio&gt; Tag:
-            </p>
-            <p class="d-inline-flex gap-1 flex-wrap">
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSrcMSAudio" aria-expanded="false" aria-controls="collapseSrcMSAudio">
-                src
-              </button>
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTypeMSAudio" aria-expanded="false" aria-controls="collapseTypeMSAudio">
-                type
-              </button>
-            </p>
-            <div class="collapse" id="collapseSrcMSAudio">
-              <div class="card card-body">
-                <h5>The <strong>src</strong> Attribute</h5>
-                <p>
-                  This attribute specifies the path to the audio file.
-                </p>
-              </div>
-            </div>
-            <div class="collapse" id="collapseTypeMSAudio">
-              <div class="card card-body">
-                <h5>The <strong>type</strong> Attribute</h5>
-                <p>
-                  This attribute specifies the format that the audio file is in.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12 col-lg-7">
-            <div>
-              <small>Examples By Type:</small>
-              <div style="border: 1px solid black;">
-                <ul class="nav nav-tabs" id="audioExamplesTabber" role="tablist" style="margin: 2rem;">
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="audio-tab" data-bs-toggle="tab" data-bs-target="#audio-tab-pane" type="button" role="tab" aria-controls="audio-tab-pane" aria-selected="true">Audio</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="multipleSourcesAudio-tab" data-bs-toggle="tab" data-bs-target="#multipleSourcesAudio-tab-pane" type="button" role="tab" aria-controls="multipleSourcesAudio-tab-pane" aria-selected="true">Multiple Sources</button>
-                  </li>
-                </ul>
-                <div class="tab-content" id="audioExamplesTabberContent" style="margin: 2rem;">
-                  <div class="tab-pane fade show active" id="audio-tab-pane" role="tabpanel" aria-labelledby="audio-tab" tabindex="0">
-                    <div class="row">
-                      <div class="col-lg-6" style="border-right: 1px solid grey">
-                        <h6><em class="text-decoration-underline">Implementation</em></h6>
-                        <small>Czech National Anthem</small>
-                        <audio
-                          src="https://upload.wikimedia.org/wikipedia/commons/a/ac/02_Sbor-a-orchestr-Narodniho-divadla_dirigent-Jiri-Belohlavek_2008.ogg"
-                          controls>
-                          <p>This browser does not support the audio format.</p>
-                        </audio>
+            <div class="col-lg-12 col-sm-12">
+              <ul class="nav nav-tabs" id="audioExamplesTabber" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="audio-tab" data-bs-toggle="tab" data-bs-target="#audio-tab-pane" type="button" role="tab" aria-controls="audio-tab-pane" aria-selected="true">Audio</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="multipleSourcesAudio-tab" data-bs-toggle="tab" data-bs-target="#multipleSourcesAudio-tab-pane" type="button" role="tab" aria-controls="multipleSourcesAudio-tab-pane" aria-selected="true">Multiple Sources</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="audioExamplesTabberContent">
+                <div class="tab-pane fade show active" id="audio-tab-pane" role="tabpanel" aria-labelledby="audio-tab">
+                  <div class="row">
+                    <div class="col-lg-12 col-sm-12 w-100 m-auto my-3">
+                      <p class="textEntry_1">
+                        HTML5 introduced the &lt;audio&gt; Tag to include audio files in web pages. The &lt;audio&gt; Tag carries
+                        a number of attributes which allow a developer to control audio playback.
+                      </p>
+                      <p class="textEntry_1">
+                        Here are the common attributes:
+                      </p>
+                      <p class="d-inline-flex gap-1 flex-wrap">
+                        <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSrcAudio" aria-expanded="false" aria-controls="collapseSrcAudio">
+                          src
+                        </button>
+                        <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapseControlsAudio" aria-expanded="false" aria-controls="collapseControlsAudio">
+                          controls
+                        </button>
+                        <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAutoplayAudio" aria-expanded="false" aria-controls="collapseAutoplayAudio">
+                          autoplay
+                        </button>
+                        <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLoopAudio" aria-expanded="false" aria-controls="collapseLoopAudio">
+                          loop
+                        </button>
+                        <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePreloadAudio" aria-expanded="false" aria-controls="collapsePreloadAudio">
+                          preload
+                        </button>
+                      </p>
+                      <div class="collapse" id="collapseSrcAudio">
+                        <div class="card card-body tablePanel2">
+                          <h5>&lt;video src="...url..."&gt;</h5>
+                          <p>
+                            This attribute specifies the path to the audio file.
+                          </p>
+                        </div>
                       </div>
-                      <div class="col-lg-6">
-                        <h6><em class="text-decoration-underline">Code</em></h6>
-                        <pre>
-&lt;small&gt;Czech National Anthem&lt;/small&gt;
+                      <div class="collapse" id="collapseControlsAudio">
+                        <div class="card card-body tablePanel2">
+                          <h5>&lt;video controls&gt;</h5>
+                          <p>
+                            When used, this attribute indicates that the browser should supply its own controls for playback.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="collapse" id="collapseAutoplayAudio">
+                        <div class="card card-body tablePanel2">
+                          <h5>&lt;video autoplay&gt;</h5>
+                          <p>
+                            When used, this attribute specifies that the file should play automatically upon load.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="collapse" id="collapseLoopAudio">
+                        <div class="card card-body tablePanel2">
+                          <h5>&lt;video loop&gt;</h5>
+                          <p>
+                            When used, this attribute indicates that the audio file should start playing again once it has ended.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="collapse" id="collapsePreloadAudio">
+                        <div class="card card-body tablePanel2">
+                          <h5>&lt;video preload&gt;</h5>
+                          <p>
+                            This attribute tells the browser what to do when the page loads. It can have one of three values:
+                          </p>
+                          <ol>
+                            <li>
+                              none
+                              <ul>
+                                <li>
+                                  The browser will not load the video until the user presses play.
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              auto
+                              <ul>
+                                <li>
+                                  The browser should download the video when the page loads.
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              metadata
+                              <ul>
+                                <li>
+                                  The browser should just collect information such as the size, first frame, track-list and duration.
+                                </li>
+                              </ul>
+                            </li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4" style="border-right: 1px solid var(--book-cover-4)">
+                      <h6><em class="text-decoration-underline">Implementation</em></h6>
+                      <p class="textEntry_1">Czech National Anthem</p>
+                      <audio
+                        src="https://upload.wikimedia.org/wikipedia/commons/a/ac/02_Sbor-a-orchestr-Narodniho-divadla_dirigent-Jiri-Belohlavek_2008.ogg"
+                        controls>
+                        <p>This browser does not support the audio format.</p>
+                      </audio>
+                    </div>
+                    <div class="col-lg-8">
+                      <h6><em class="text-decoration-underline">Code</em></h6>
+                      <pre  style="font-size: var(--body-font-size-5)">
+&lt;p&gt;Czech National Anthem&lt;/small&gt;
 &lt;audio
   src="https://upload.wikimedia.org/wikipedia/commons/a/ac/02_Sbor-a-orchestr-Narodniho-divadla_dirigent-Jiri-Belohlavek_2008.ogg"
   controls&gt;
     &lt;p&gt;This browser does not support the audio format.&lt;/p&gt;
 &lt;/audio&gt;
                         </pre>
-                      </div>
                     </div>
                   </div>
-                  <div class="tab-pane fade show" id="multipleSourcesAudio-tab-pane" role="tabpanel" aria-labelledby="multipleSourcesAudio-tab" tabindex="0">
-                    <div class="row">
-                      <div class="col-lg-6" style="border-right: 1px solid grey">
-                        <h6><em class="text-decoration-underline">Implementation</em></h6>
-                        <audio controls>
-                          <source src="https://upload.wikimedia.org/wikipedia/commons/a/ac/02_Sbor-a-orchestr-Narodniho-divadla_dirigent-Jiri-Belohlavek_2008.ogg" />
-                          <source src="https://upload.wikimedia.org/wikipedia/commons/a/ac/02_Sbor-a-orchestr-Narodniho-divadla_dirigent-Jiri-Belohlavek_2008.mp3" />
-                          <p>This browser does not support the audio format.</p>
-                        </audio>
+                </div>
+                <div class="tab-pane fade show" id="multipleSourcesAudio-tab-pane" role="tabpanel" aria-labelledby="multipleSourcesAudio-tab">
+                  <div class="row">
+                    <div class="col-lg-12 col-sm-12 w-100 m-auto my-3">
+                      <p class="textEntry_1">
+                        When using multiple sources for an audio file, a developer should add as many &lt;source&gt; Tags as needed within
+                        the &lt;audio&gt; Tag (This tag will replace the src attribute in the parent audio element!).
+                        Here are some common attributes associated with the &lt;audio&gt; Tag:
+                      </p>
+                      <p class="d-inline-flex gap-1 flex-wrap">
+                        <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSrcMSAudio" aria-expanded="false" aria-controls="collapseSrcMSAudio">
+                          src
+                        </button>
+                        <button class="btn btn-primary exploreMore" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTypeMSAudio" aria-expanded="false" aria-controls="collapseTypeMSAudio">
+                          type
+                        </button>
+                      </p>
+                      <div class="collapse" id="collapseSrcMSAudio">
+                        <div class="card card-body tablePanel2">
+                          <h5>The <strong>src</strong> Attribute</h5>
+                          <p>
+                            This attribute specifies the path to the audio file.
+                          </p>
+                        </div>
                       </div>
-                      <div class="col-lg-6">
-                        <h6><em class="text-decoration-underline">Code</em></h6>
-                        <pre>
+                      <div class="collapse" id="collapseTypeMSAudio">
+                        <div class="card card-body tablePanel2">
+                          <h5>The <strong>type</strong> Attribute</h5>
+                          <p>
+                            This attribute specifies the format that the audio file is in.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4" style="border-right: 1px solid var(--book-cover-4)">
+                      <h6><em class="text-decoration-underline">Implementation</em></h6>
+                      <p class="textEntry_1">Czech National Anthem</p>
+                      <audio controls>
+                        <source src="https://upload.wikimedia.org/wikipedia/commons/a/ac/02_Sbor-a-orchestr-Narodniho-divadla_dirigent-Jiri-Belohlavek_2008.ogg" />
+                        <source src="https://upload.wikimedia.org/wikipedia/commons/a/ac/02_Sbor-a-orchestr-Narodniho-divadla_dirigent-Jiri-Belohlavek_2008.mp3" />
+                        <p>This browser does not support the audio format.</p>
+                      </audio>
+                    </div>
+                    <div class="col-lg-8">
+                      <h6><em class="text-decoration-underline">Code</em></h6>
+                      <pre style="font-size: var(--body-font-size-5)">
 &lt;audio controls&gt;
   &lt;source src="https://upload.wikimedia.org/wikipedia/commons/a/ac/02_Sbor-a-orchestr-Narodniho-divadla_dirigent-Jiri-Belohlavek_2008.ogg" /&gt;
   &lt;source src="https://upload.wikimedia.org/wikipedia/commons/a/ac/02_Sbor-a-orchestr-Narodniho-divadla_dirigent-Jiri-Belohlavek_2008.mp3" /&gt;
   &lt;p&gt;This browser does not support the audio format.&lt;/p&gt;
 &lt;/audio&gt;
                         </pre>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -587,12 +658,9 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
-</div>
-<hr/>
-<div class="container-fluid text-center mt-5">
-  <button id="viewSourceBtn" class="btn btn-info">View Source In Page</button>
-</div>
+</main>
 </body>
 </html>

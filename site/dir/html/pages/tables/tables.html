@@ -19,9 +19,9 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
-  <link rel="stylesheet" href="../../../../../constants/vars.css" />
-  <link rel="stylesheet" href="../../../../../default.css" />
-  <link rel="stylesheet" href="../../../../../assets/shared/css/sidebar.styles.css" />
+  <link rel="stylesheet" href="../../../../../assets/css/root.variables.css" />
+  <link rel="stylesheet" href="../../../../../assets/css/default.styles.css" />
+  <link rel="stylesheet" href="../../../../../assets/css/shared/css/sidebar.styles.css" />
   <link href="tables.css" rel="stylesheet">
 </head>
 <body style="overflow-x: hidden;">
@@ -44,22 +44,22 @@
             <span class="ms-1 d-none d-sm-inline navItemLabel">Tables</span></a>
           <ul class="collapse nav flex-column ms-1 show" id="submenu1" data-bs-parent="#menu">
             <li style="padding-left: 10px;">
-              <a href="#structuralMarkupAnchor" class="nav-link"> <span class="d-none d-sm-inline subLink">1. Basic Table Structure</span></a>
+              <a href="#htmlDir_5_1" class="nav-link"> <span class="d-none d-sm-inline subLink">1. Basic Table Structure</span></a>
             </li>
             <li style="padding-left: 10px;">
-              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">2. Table Headings</span></a>
+              <a href="#htmlDir_5_2" class="nav-link"> <span class="d-none d-sm-inline subLink">2. Table Headings</span></a>
             </li>
             <li style="padding-left: 10px;">
-              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">3. Spanning Columns</span></a>
+              <a href="#htmlDir_5_3" class="nav-link"> <span class="d-none d-sm-inline subLink">3. Spanning Columns</span></a>
             </li>
             <li style="padding-left: 10px;">
-              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">4. Spanning Rows</span></a>
+              <a href="#htmlDir_5_4" class="nav-link"> <span class="d-none d-sm-inline subLink">4. Spanning Rows</span></a>
             </li>
             <li style="padding-left: 10px;">
-              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">5. Long Tables</span></a>
+              <a href="#htmlDir_5_5" class="nav-link"> <span class="d-none d-sm-inline subLink">5. Long Tables</span></a>
             </li>
             <li style="padding-left: 10px;">
-              <a href="#" class="nav-link"> <span class="d-none d-sm-inline subLink">6. Deprecated Table Code</span></a>
+              <a href="#htmlDir_5_6" class="nav-link"> <span class="d-none d-sm-inline subLink">6. Deprecated Table Code</span></a>
             </li>
           </ul>
         </li>
@@ -103,7 +103,7 @@
       <!-- Basic Table Structure -->
       <div class="col-lg-3"></div>
       <div class="col-lg-9 col-sm-12 topicContents">
-        <div class="generalContainer">
+        <div id="htmlDir_5_1" class="generalContainer">
           <div class="sectionHeader">
             <hr class="hrStyle"/>
             <h2>Basic Table Structure</h2>
@@ -118,11 +118,11 @@
               <div class="col-sm-12 col-lg-6">
                 <div class="col-lg-12">
                   <p class="textEntry_1">
-                    To create an ordered list, two tags are used: &lt;ol&gt; and its child tag &lt;li&gt;
+                    To create a basic table, three (3) tags are used: &lt;table&gt; and its children tags &lt;tr&gt; &amp; &lt;td&gt;
                   </p>
                   <ol>
                     <li>
-                      table Tag &lt;table&gt;
+                      &lt;table&gt;
                       <ul>
                         <li>
                           Used to create a table. The contents of the table are written out row by row.
@@ -130,7 +130,7 @@
                       </ul>
                     </li>
                     <li>
-                      tr Tag &lt;tr&gt;
+                      &lt;tr&gt;
                       <ul>
                         <li>
                           Used to indicate the start of each row using the opening tr Tag. It is followed by one or more td
@@ -139,7 +139,7 @@
                       </ul>
                     </li>
                     <li>
-                      td Tag &lt;td&gt;
+                      &lt;td&gt;
                       <ul>
                         <li>
                           Each cell of a table is represented using a &lt;td&gt; Tag. At the end of each cell the closing
@@ -202,7 +202,7 @@
       <!-- Table Headings -->
       <div class="col-lg-3"></div>
       <div class="col-lg-9 col-sm-12 topicContents">
-        <div class="generalContainer">
+        <div id="htmlDir_5_2" class="generalContainer">
           <div class="sectionHeader">
             <hr class="hrStyle"/>
             <h2>Table Headings</h2>
@@ -212,37 +212,32 @@
             <hr class="hrStyle"/>
           </div>
           <div id="tableHeadings">
-            <h3>Creating a Table</h3>
+            <h3>Creating Table Headings</h3>
             <div class="row">
               <div class="col-sm-12 col-lg-6">
                 <div class="col-lg-12">
                   <p class="textEntry_1">
-                    To create an ordered list, two tags are used: &lt;ol&gt; and its child tag &lt;li&gt;
+                    To create a table heading, use the &lt;th&gt; Tag
                   </p>
                   <ol>
                     <li>
-                      table Tag &lt;table&gt;
+                      &lt;th&gt;
                       <ul>
                         <li>
-                          Used to create a table. The contents of the table are written out row by row.
+                          The &lt;th&gt; Tag is used just like the  &lt;td&gt; Tag but its purpose is to represent the heading for either
+                          a column or a row. Even if a cell has no content, a &lt;td&gt; or &lt;th&gt; Tag should still be used to represent
+                          the presence of an empty cell otherwise the table will not render correctly (The first cell in the
+                          first row of this example shows an empty cell).
                         </li>
-                      </ul>
-                    </li>
-                    <li>
-                      tr Tag &lt;tr&gt;
-                      <ul>
                         <li>
-                          Used to indicate the start of each row using the opening tr Tag. It is followed by one or more td
-                          Tags (one for each cell in that row). At the end of the row, a closing &lt;tr&gt; Tag is used.
+                          Using the &lt;th&gt; Tag helps people who use screen readers, improves the ability for search engines to
+                          index a site's pages, and also provides greater control over the appearance of tables when CSS
+                          is used to style them.
                         </li>
-                      </ul>
-                    </li>
-                    <li>
-                      td Tag &lt;td&gt;
-                      <ul>
                         <li>
-                          Each cell of a table is represented using a &lt;td&gt; Tag. At the end of each cell the closing
-                          &lt;/td&gt; Tag is used.
+                          The &lt;th&gt; Tag provides a <strong>scope</strong> attribute to indicate whether it is a heading for a column
+                          or row. It can take the values "row" to indicate a heading for a row or, "col" to indicate a heading for a column.
+                          Browsers will usually show the content of a &lt;th&gt; Tag in bold and in the middle of the cell.
                         </li>
                       </ul>
                     </li>
@@ -252,41 +247,41 @@
               <div class="col-sm-12 col-lg-6">
                 <div>
                   <div class="example p-3 text-center">
-                    <table class="tablePanel2">
+                    <table class="tablePanel2" style="padding: 1rem; margin: 1rem;">
                       <tr>
-                        <td>15</td>
-                        <td>30</td>
-                        <td>45</td>
+                        <th></th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
                       </tr>
                       <tr>
-                        <td>7</td>
-                        <td>14</td>
-                        <td>21</td>
+                        <th scope="row">Fruit Crates Sold:</th>
+                        <td>75</td>
+                        <td>100</td>
                       </tr>
                       <tr>
-                        <td>-1</td>
-                        <td>0</td>
-                        <td>1</td>
+                        <th scope="row">Total Fruit Crates Sales:</th>
+                        <td>$816.13</td>
+                        <td>$125.08</td>
                       </tr>
                     </table>
                   </div>
                   <div class="example p-3">
 <pre style="font-size: var(--body-font-size-5);">
-&lt;table class="tablePanel2"&gt;
+&lt;table class="tablePanel2" style="padding: 1rem; margin: 1rem;"&gt;
   &lt;tr&gt;
-    &lt;td&gt;15&lt;/td&gt;
-    &lt;td&gt;30&lt;/td&gt;
-    &lt;td&gt;45&lt;/td&gt;
+    &lt;th&gt;&lt;/th&gt;
+    &lt;th&gt;Monday&lt;/th&gt;
+    &lt;th&gt;Tuesday&lt;/th&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td&gt;7&lt;/td&gt;
-    &lt;td&gt;14&lt;/td&gt;
-    &lt;td&gt;21&lt;/td&gt;
+    &lt;th scope="row"&gt;Fruit Crates Sold:&lt;/th&gt;
+    &lt;td&gt;75&lt;/td&gt;
+    &lt;td&gt;100&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td&gt;-1&lt;/td&gt;
-    &lt;td&gt;0&lt;/td&gt;
-    &lt;td&gt;1&lt;/td&gt;
+    &lt;th scope="row"&gt;Total Fruit Crates Sales:&lt;/th&gt;
+    &lt;td&gt;$816.13&lt;/td&gt;
+    &lt;td&gt;$125.08&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
 </pre>
@@ -298,564 +293,941 @@
         </div>
       </div>
 
+      <!-- Spanning Columns -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div id="htmlDir_5_3" class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Spanning Columns</h2>
+            <p>
+              How to Span Columns
+            </p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="spanningColumns">
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <p class="textEntry_1">
+                    Sometimes entries are needed in a table to stretch across more than one column. The <strong>colspan</strong>
+                    attribute can be used on the &lt;th&gt; or  &lt;td&gt; Tags and indicates how man columns that cell should run across.
+                  </p>
+                  <p class="textEntry_1">
+                    Spanned Columns are shown with the <span style="background-color: var(--book-cover-4); color: var(--tiana-off-white);">darkened background and off-white text color in the following example.</span>
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-12">
+                <div class="example p-3 text-center" style="border: none;">
+                    <table id="schoolSchedule" class="tablePanel2">
+                      <tr>
+                        <th>B.S. Botany</th>
+                        <th>9AM</th>
+                        <th>10AM</th>
+                        <th>11AM</th>
+                        <th>12PM</th>
+                        <th>1PM</th>
+                        <th>2PM</th>
+                        <th>3PM</th>
+                        <th>4PM</th>
+                      </tr>
+                      <tr>
+                        <th>Monday</th>
+                        <td colspan="2" style="background-color: var(--book-cover-4); color: var(--tiana-off-white);">Cell & Molecular Biology</td>
+                        <td>Calculus For Management & Social Science</td>
+                        <td>Lunch</td>
+                        <td>Elementary Biochemistry</td>
+                        <td>Intro to Statistics</td>
+                        <td>Plant Ecology</td>
+                        <td>Lichenology</td>
+                      </tr>
+                      <tr>
+                        <th>Tuesday</th>
+                        <td colspan="2" style="background-color: var(--book-cover-4); color: var(--tiana-off-white);">Gym</td>
+                        <td>Czech Level 2</td>
+                        <td>Lunch</td>
+                        <td>Bryology</td>
+                        <td colspan="2" style="background-color: var(--book-cover-4); color: var(--tiana-off-white);">Flowering Plants of the World</td>
+                        <td>Plant Structure</td>
+                      </tr>
+                      <tr>
+                        <th>Wednesday</th>
+                        <td colspan="2" style="background-color: var(--book-cover-4); color: var(--tiana-off-white);">Discrete Mathematics</td>
+                        <td>Aquatic Botany</td>
+                        <td>Lunch</td>
+                        <td>World Soils</td>
+                        <td>Plant Systematics</td>
+                        <td>Plant Ecology</td>
+                        <td>Methods of Data Analysis</td>
+                      </tr>
+                      <tr>
+                        <th>Thursday</th>
+                        <td colspan="2" style="background-color: var(--book-cover-4); color: var(--tiana-off-white);">Cell & Molecular Biology</td>
+                        <td>Calculus For Management & Social Science</td>
+                        <td>Lunch</td>
+                        <td>Elementary Biochemistry</td>
+                        <td>Intro to Statistics</td>
+                        <td>Plant Ecology</td>
+                        <td>Lichenology</td>
+                      </tr>
+                      <tr>
+                        <th>Friday</th>
+                        <td colspan="2" style="background-color: var(--book-cover-4); color: var(--tiana-off-white);">Gym</td>
+                        <td>Czech Level 2</td>
+                        <td>Lunch</td>
+                        <td>Bryology</td>
+                        <td colspan="2" style="background-color: var(--book-cover-4); color: var(--tiana-off-white);">Flowering Plants of the World</td>
+                        <td>Plant Structure</td>
+                      </tr>
+                      <tr>
+                        <th>Saturday</th>
+                        <td colspan="2" style="background-color: var(--book-cover-4); color: var(--tiana-off-white);">Gym</td>
+                        <td>Aquatic Botany</td>
+                        <td>Lunch</td>
+                        <td>World Soils</td>
+                        <td>Plant Systematics</td>
+                        <td>Plant Ecology</td>
+                        <td>Methods of Data Analysis</td>
+                      </tr>
+                      <tr>
+                        <th>Sunday</th>
+                        <td class="text-center" colspan="8" style="background-color: var(--book-cover-4); color: var(--tiana-off-white);">No School</td>
+                      </tr>
+                    </table>
+                  </div>
+                <div class="example p-3">
+<pre style="font-size: var(--body-font-size-5);">
+&lt;table id="schoolSchedule" class="tablePanel2"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;B.S. Botany&lt;/th&gt;
+    &lt;th&gt;9AM&lt;/th&gt;
+    &lt;th&gt;10AM&lt;/th&gt;
+    &lt;th&gt;11AM&lt;/th&gt;
+    &lt;th&gt;12PM&lt;/th&gt;
+    &lt;th&gt;1PM&lt;/th&gt;
+    &lt;th&gt;2PM&lt;/th&gt;
+    &lt;th&gt;3PM&lt;/th&gt;
+    &lt;th&gt;4PM&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Monday&lt;/th&gt;
+    &lt;td colspan="2"&gt;Cell & Molecular Biology&lt;/td&gt;
+    &lt;td&gt;Calculus For Management & Social Science&lt;/td&gt;
+    &lt;td&gt;Lunch&lt;/td&gt;
+    &lt;td&gt;Elementary Biochemistry&lt;/td&gt;
+    &lt;td&gt;Intro to Statistics&lt;/td&gt;
+    &lt;td&gt;Plant Ecology&lt;/td&gt;
+    &lt;td&gt;Lichenology&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Tuesday&lt;/th&gt;
+    &lt;td colspan="2"&gt;Gym&lt;/td&gt;
+    &lt;td&gt;Czech Level 2&lt;/td&gt;
+    &lt;td&gt;Lunch&lt;/td&gt;
+    &lt;td&gt;Bryology&lt;/td&gt;
+    &lt;td colspan="2"&gt;Flowering Plants of the World&lt;/td&gt;
+    &lt;td&gt;Plant Structure&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Wednesday&lt;/th&gt;
+    &lt;td colspan="2"&gt;Discrete Mathematics&lt;/td&gt;
+    &lt;td&gt;Aquatic Botany&lt;/td&gt;
+    &lt;td&gt;Lunch&lt;/td&gt;
+    &lt;td&gt;World Soils&lt;/td&gt;
+    &lt;td&gt;Plant Systematics&lt;/td&gt;
+    &lt;td&gt;Plant Ecology&lt;/td&gt;
+    &lt;td&gt;Methods of Data Analysis&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Thursday&lt;/th&gt;
+    &lt;td colspan="2"&gt;Cell & Molecular Biology&lt;/td&gt;
+    &lt;td&gt;Calculus For Management & Social Science&lt;/td&gt;
+    &lt;td&gt;Lunch&lt;/td&gt;
+    &lt;td&gt;Elementary Biochemistry&lt;/td&gt;
+    &lt;td&gt;Intro to Statistics&lt;/td&gt;
+    &lt;td&gt;Plant Ecology&lt;/td&gt;
+    &lt;td&gt;Lichenology&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Friday&lt;/th&gt;
+    &lt;td colspan="2"&gt;Gym&lt;/td&gt;
+    &lt;td&gt;Czech Level 2&lt;/td&gt;
+    &lt;td&gt;Lunch&lt;/td&gt;
+    &lt;td&gt;Bryology&lt;/td&gt;
+    &lt;td colspan="2"&gt;Flowering Plants of the World&lt;/td&gt;
+    &lt;td&gt;Plant Structure&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Saturday&lt;/th&gt;
+    &lt;td colspan="2"&gt;Gym&lt;/td&gt;
+    &lt;td&gt;Aquatic Botany&lt;/td&gt;
+    &lt;td&gt;Lunch&lt;/td&gt;
+    &lt;td&gt;World Soils&lt;/td&gt;
+    &lt;td&gt;Plant Systematics&lt;/td&gt;
+    &lt;td&gt;Plant Ecology&lt;/td&gt;
+    &lt;td&gt;Methods of Data Analysis&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Sunday&lt;/th&gt;
+    &lt;td class="text-center" colspan="8"&gt;No School&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spanning Rows -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div id="htmlDir_5_4" class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Spanning Rows</h2>
+            <p>
+              How to Span Rows
+            </p>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="spanningRows">
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <p class="textEntry_1">
+                    Some entries in a table may need to stretch down across more than one row. The <strong>rowspan</strong>
+                    attribute can be used on the &lt;th&gt; or  &lt;td&gt; Tags to indicate how many rows a cell should span down the
+                    table.
+                  </p>
+                  <p class="textEntry_1">
+                    Spanned Rows are shown with the <span style="background-color: var(--book-cover-4); color: var(--tiana-off-white);">darkened background and off-white text color in the following example.</span>
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-12">
+                <div class="example p-3 text-center" style="border: none;">
+                  <table id="gymSchedule" class="tablePanel2">
+                    <tr>
+                      <th>Gym Schedule</th>
+                      <th>Back: Deadlift</th>
+                      <th>Back: T-Bar Row</th>
+                      <th>Back: Bird-Dog</th>
+                      <th>Back: 30-Degree Lat Pulldown</th>
+                      <th>End & Cleanup</th>
+                    </tr>
+                    <tr>
+                      <th>9AM-9:15AM</th>
+                      <td>2-3 Sets, 6-12 Reps, 1-2 minute rest.</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th>9:15AM-9:30AM</th>
+                      <td>-</td>
+                      <td>2-3 Sets, 6-12 Reps, 1-2 minute rest.</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th>9:30AM-9:45AM</th>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>2-3 Sets, 6-12 Reps, 1-2 minute rest.</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th>9:45AM-10:00AM</th>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>2-3 Sets, 6-12 Reps, 1-2 minute rest.</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th>10:00AM-10:15AM</th>
+                      <td rowspan="2" style="background-color: var(--book-cover-4); color: var(--tiana-off-white);">2-3 Sets, 6-12 Reps, 1-2 minute rest.</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th>10:15AM-10:30AM</th>
+                      <td>-</td>
+                      <td>2-3 Sets, 6-12 Reps, 1-2 minute rest.</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th>10:30AM-10:45AM</th>
+                      <td>-</td>
+                      <td></td>
+                      <td>-</td>
+                      <td>2-3 Sets, 6-12 Reps, 1-2 minute rest.</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th>10:45AM-11:00AM</th>
+                      <td>-</td>
+                      <td></td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>Workout Complete</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="example p-3">
+<pre style="font-size: var(--body-font-size-5);">
+ &lt;table id="gymSchedule" class="tablePanel2"&gt;
+   &lt;tr&gt;
+     &lt;th&gt;Gym Schedule&lt;/th&gt;
+     &lt;th&gt;Back: Deadlift&lt;/th&gt;
+     &lt;th&gt;Back: T-Bar Row&lt;/th&gt;
+     &lt;th&gt;Back: Bird-Dog&lt;/th&gt;
+     &lt;th&gt;Back: 30-Degree Lat Pulldown&lt;/th&gt;
+     &lt;th&gt;End & Cleanup&lt;/th&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;th&gt;9AM-9:15AM&lt;/th&gt;
+     &lt;td&gt;2-3 Sets, 6-12 Reps, 1-2 minute rest.&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;th&gt;9:15AM-9:30AM&lt;/th&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;2-3 Sets, 6-12 Reps, 1-2 minute rest.&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;th&gt;9:30AM-9:45AM&lt;/th&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;2-3 Sets, 6-12 Reps, 1-2 minute rest.&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;th&gt;9:45AM-10:00AM&lt;/th&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;2-3 Sets, 6-12 Reps, 1-2 minute rest.&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;th&gt;10:00AM-10:15AM&lt;/th&gt;
+     &lt;td rowspan="2" style="background-color: var(--book-cover-4); color: var(--tiana-off-white);"&gt;2-3 Sets, 6-12 Reps, 1-2 minute rest.&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;th&gt;10:15AM-10:30AM&lt;/th&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;2-3 Sets, 6-12 Reps, 1-2 minute rest.&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;th&gt;10:30AM-10:45AM&lt;/th&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;2-3 Sets, 6-12 Reps, 1-2 minute rest.&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;th&gt;10:45AM-11:00AM&lt;/th&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;-&lt;/td&gt;
+     &lt;td&gt;Workout Complete&lt;/td&gt;
+   &lt;/tr&gt;
+ &lt;/table&gt;
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Long Tables -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div id="htmlDir_5_5" class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Long Tables</h2>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="longTables">
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <p class="textEntry_1">
+                    There are three (3) elements that help distinguish between the main content of a table and the
+                    first and last rows (Which may contain different content). These elements are used to help screen
+                    readers as well as managing styling.
+                  </p>
+                  <p class="textEntry_1">
+                    The three (3) elements are:
+                  </p>
+                  <ol>
+                    <li>
+                      &lt;thead&gt;
+                      <ul>
+                        <li>
+                          Used to encapsulate all headings for the table.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      &lt;tbody&gt;
+                      <ul>
+                        <li>
+                          Used to encapsulate all data for the table.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      &lt;tfoot&gt;
+                      <ul>
+                        <li>
+                          Used to encapsulate footer data.
+                        </li>
+                      </ul>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div class="row col-sm-12 col-lg-12">
+                <div class="col-lg-6">
+                  <div class="example p-3 text-center" style="border: none;">
+                    <table id="longTable" class="tablePanel2">
+                      <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Income</th>
+                        <th>Expenditure</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>1<sup>st</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>2<sup>nd</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>3<sup>rd</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>4<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>5<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>6<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>7<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>8<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>9<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>10<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>11<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>12<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>13<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>14<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>15<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>16<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>17<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>18<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>19<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>20<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>21<sup>st</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>22<sup>nd</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>23<sup>rd</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>24<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>25<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>26<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>27<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>28<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>29<sup>th</sup> Feb</td>
+                        <td>250</td>
+                        <td>36</td>
+                      </tr>
+                      </tbody>
+                      <tfoot>
+                      <tr>
+                        <td>EOM Totals:</td>
+                        <td>7250</td>
+                        <td>1044</td>
+                      </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="example p-3">
+<pre style="font-size: var(--body-font-size-5); height: 800px;">
+&lt;table id="longTable" class="tablePanel2"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Date&lt;/th&gt;
+      &lt;th&gt;Income&lt;/th&gt;
+      &lt;th&gt;Expenditure&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;sup&gt;st&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;sup&gt;nd&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;sup&gt;rd&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;8&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;9&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;11&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;12&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;13&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;14&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;15&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;16&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;17&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;18&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;19&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;20&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;21&lt;sup&gt;st&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;22&lt;sup&gt;nd&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;23&lt;sup&gt;rd&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;24&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;25&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;26&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;27&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;28&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;29&lt;sup&gt;th&lt;/sup&gt; Feb&lt;/td&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;EOM Totals:&lt;/td&gt;
+      &lt;td&gt;7250&lt;/td&gt;
+      &lt;td&gt;1044&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deprecated Table Code -->
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9 col-sm-12 topicContents">
+        <div id="htmlDir_5_6" class="generalContainer">
+          <div class="sectionHeader">
+            <hr class="hrStyle"/>
+            <h2>Deprecated Table Code</h2>
+            <hr class="hrStyle"/>
+          </div>
+          <div id="deprecatedTableCode">
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div class="col-lg-12">
+                  <p class="textEntry_1">
+                    In older versions of HTML, there are attributes that were used that are now deprecated and should not
+                    be used on newer websites. All attributes mentioned in this section have been replaced by CSS.
+                    The attributes are:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>width</strong>
+                      <ul>
+                        <li>
+                          Used on the opening &lt;table&gt; Tag to indicate how wide that table should be, as well as, the &lt;th&gt; and
+                          &lt;td&gt; Tags to specify the width of individual cells. The value is provided in pixels. The columns in a
+                          table need to form a straight line, so it's often that width will be placed on the first row (and all
+                          subsequent rows would use that setting).
+                        </li>
+                        <li>
+                          The opening &lt;table&gt; Tag could also use the <strong>cellpadding</strong> attribute to add space inside
+                          each cell of the table, and the <strong>cellspacing</strong> attribute to create space between each
+                          cell of the table. The values provided should be specified in pixels.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>border</strong>
+                      <ul>
+                        <li>
+                          The <strong>border</strong> attribute was used on both the &lt;table&gt; and &lt;td&gt; Tags to indicate
+                          width of the border in pixels.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>bgcolor</strong>
+                      <ul>
+                        <li>
+                          The <strong>bgcolor</strong> attribute was used to indicate background colors of either the entire
+                          table or individual table cells. The value is usually a hex code.
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row col-sm-12 col-lg-12">
+                <div class="col col-lg-6 col-sm-12">
+                  <div class="col-lg-12">
+                    <div class="example p-3" style="border: none;">
+                      <small>Example Using Width & Spacing</small>
+                      <table class="tablePanel2" width="400" cellpadding="10" cellspacing="5">
+                        <tr>
+                          <th width="150"></th>
+                          <th>Withdrawn</th>
+                          <th>Credit</th>
+                          <th width="150">Balance</th>
+                        </tr>
+                        <tr>
+                          <th>January</th>
+                          <td>250.00</td>
+                          <td>660.50</td>
+                          <td>410.50</td>
+                        </tr>
+                        <tr>
+                          <th>February</th>
+                          <td>135.55</td>
+                          <td>895.20</td>
+                          <td>1170.15</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="example p-3">
+<pre style="font-size: var(--body-font-size-5);">
+&lt;table class="tablePanel2" width="400" cellpadding="10" cellspacing="5"&gt;
+  &lt;tr&gt;
+    &lt;th width="150"&gt;&lt;/th&gt;
+    &lt;th&gt;Withdrawn&lt;/th&gt;
+    &lt;th&gt;Credit&lt;/th&gt;
+    &lt;th width="150"&gt;Balance&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;January&lt;/th&gt;
+    &lt;td&gt;250.00&lt;/td&gt;
+    &lt;td&gt;660.50&lt;/td&gt;
+    &lt;td&gt;410.50&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;February&lt;/th&gt;
+    &lt;td&gt;135.55&lt;/td&gt;
+    &lt;td&gt;895.20&lt;/td&gt;
+    &lt;td&gt;1170.15&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+                    </div>
+                  </div>
+                </div>
+                <div class="col col-lg-6 col-sm-12">
+                  <div class="col-lg-12">
+                    <div class="example p-3" style="border: none;">
+                      <small>Example Using Border & Background</small>
+                      <table class="tablePanel2" border="3" bgcolor="#efefef" cellpadding="10" cellspacing="5">
+                        <tr>
+                          <th width="150"></th>
+                          <th>Withdrawn</th>
+                          <th>Credit</th>
+                          <th width="150" bgcolor="#ccc">Balance</th>
+                        </tr>
+                        <tr>
+                          <th>January</th>
+                          <td>250.00</td>
+                          <td>660.50</td>
+                          <td bgcolor="#ccc">410.50</td>
+                        </tr>
+                        <tr>
+                          <th>February</th>
+                          <td>135.55</td>
+                          <td>895.20</td>
+                          <td bgcolor="#ccc">1170.15</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="example p-3">
+<pre style="font-size: var(--body-font-size-5);">
+&lt;table class="tablePanel2" border="3" bgcolor="#efefef" cellpadding="10" cellspacing="5"&gt;
+  &lt;tr&gt;
+    &lt;th width="150"&gt;&lt;/th&gt;
+    &lt;th&gt;Withdrawn&lt;/th&gt;
+    &lt;th&gt;Credit&lt;/th&gt;
+    &lt;th width="150" bgcolor="#ccc"&gt;Balance&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;January&lt;/th&gt;
+    &lt;td&gt;250.00&lt;/td&gt;
+    &lt;td&gt;660.50&lt;/td&gt;
+    &lt;td bgcolor="#ccc"&gt;410.50&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;February&lt;/th&gt;
+    &lt;td&gt;135.55&lt;/td&gt;
+    &lt;td&gt;895.20&lt;/td&gt;
+    &lt;td bgcolor="#ccc"&gt;1170.15&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>
-<!--<div class="container-fluid mb-5">
-  <div class="row">
-    <div class="col-sm-12">
-
-
-      <div id="tableHeadings" class="w-75" style="margin: 0 auto;">
-        <h3>Using Table Headings</h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-6">
-            <p>
-              To create a table heading, the Tag used is: &lt;th&gt;
-            </p>
-            <ol>
-              <li>
-                <h5>th Tag &lt;th&gt;</h5>
-                <p>
-                  The &lt;th&gt; Tag is used just like the  &lt;td&gt; Tag but its purpose is to represent the heading for either
-                  a column or a row. Even if a cell has no content, a &lt;td&gt; or &lt;th&gt; Tag should still be used to represent
-                  the presence of an empty cell otherwise the table will not render correctly (The first cell in the
-                  first row of this example shows an empty cell).
-                </p>
-                <p>
-                  Using the &lt;th&gt; Tag helps people who use screen readers, improves the ability for search engines to
-                  index a site's pages, and also provides greater control over the appearance of tables when CSS
-                  is used to style them.
-                </p>
-                <p>
-                  The &lt;th&gt; Tag provides a <strong>scope</strong> attribute to indicate whether it is a heading for a column
-                  or row. It can take the values "row" to indicate a heading for a row or, "col" to indicate a heading for a column.
-                  Browsers will usually show the content of a &lt;th&gt; Tag in bold and in the middle of the cell.
-                </p>
-              </li>
-            </ol>
-          </div>
-          <div class="col-sm-12 col-lg-6">
-            <small>Examples:</small>
-            <div style="border: 1px solid black;">
-              <table style="padding: 1rem; margin: 1rem;">
-                <tr>
-                  <th></th>
-                  <th>Monday</th>
-                  <th>Tuesday</th>
-                </tr>
-                <tr>
-                  <th scope="row">Fruit Crates Sold:</th>
-                  <td>75</td>
-                  <td>100</td>
-                </tr>
-                <tr>
-                  <th scope="row">Total Fruit Crates Sales:</th>
-                  <td>$816.13</td>
-                  <td>$125.08</td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3>Spanning Columns</h3>
-        <hr/>
-      </div>
-      <div id="spanColumns" class="w-75" style="margin: 0 auto;">
-        <h3>How to span Columns</h3>
-        <div class="row">
-          <div class="col-sm-12 col-lg-4">
-            <p>
-              Sometimes entries are needed in a table to stretch across more than one column. The <strong>colspan</strong>
-              attribute can be used on the &lt;th&gt; or  &lt;td&gt; Tags and indicates how man columns that cell should run across.
-            </p>
-          </div>
-          <div class="col-sm-12 col-lg-8">
-            <small>Example:</small>
-            <div>
-              <table id="schoolSchedule" style="width: 500px; margin: 1rem; background-color: rgb(100,100,90)">
-                <tr style="">
-                  <th>B.S. Botany</th>
-                  <th>9AM</th>
-                  <th>10AM</th>
-                  <th>11AM</th>
-                  <th>12PM</th>
-                  <th>1PM</th>
-                  <th>2PM</th>
-                  <th>3PM</th>
-                  <th>4PM</th>
-                </tr>
-                <tr>
-                  <th>Monday</th>
-                  <td colspan="2">Cell & Molecular Biology</td>
-                  <td>Calculus For Management & Social Science</td>
-                  <td>Lunch</td>
-                  <td>Elementary Biochemistry</td>
-                  <td>Intro to Statistics</td>
-                  <td>Plant Ecology</td>
-                  <td>Lichenology</td>
-                </tr>
-                <tr>
-                  <th>Tuesday</th>
-                  <td colspan="2">Gym</td>
-                  <td>Czech Level 2</td>
-                  <td>Lunch</td>
-                  <td>Bryology</td>
-                  <td colspan="2">Flowering Plants of the World</td>
-                  <td>Plant Structure</td>
-                </tr>
-                <tr>
-                  <th>Wednesday</th>
-                  <td colspan="2">Discrete Mathematics</td>
-                  <td>Aquatic Botany</td>
-                  <td>Lunch</td>
-                  <td>World Soils</td>
-                  <td>Plant Systematics</td>
-                  <td>Plant Ecology</td>
-                  <td>Methods of Data Analysis</td>
-                </tr>
-                <tr>
-                  <th>Thursday</th>
-                  <td colspan="2">Cell & Molecular Biology</td>
-                  <td>Calculus For Management & Social Science</td>
-                  <td>Lunch</td>
-                  <td>Elementary Biochemistry</td>
-                  <td>Intro to Statistics</td>
-                  <td>Plant Ecology</td>
-                  <td>Lichenology</td>
-                </tr>
-                <tr>
-                  <th>Friday</th>
-                  <td colspan="2">Gym</td>
-                  <td>Czech Level 2</td>
-                  <td>Lunch</td>
-                  <td>Bryology</td>
-                  <td colspan="2">Flowering Plants of the World</td>
-                  <td>Plant Structure</td>
-                </tr>
-                <tr>
-                  <th>Saturday</th>
-                  <td colspan="2">Gym</td>
-                  <td>Aquatic Botany</td>
-                  <td>Lunch</td>
-                  <td>World Soils</td>
-                  <td>Plant Systematics</td>
-                  <td>Plant Ecology</td>
-                  <td>Methods of Data Analysis</td>
-                </tr>
-                <tr>
-                  <th>Sunday</th>
-                  <td class="text-center" colspan="8">No School</td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3>How To Span Rows</h3>
-        <hr/>
-      </div>
-      <div id="spanRows" class="w-75" style="margin: 0 auto;">
-        <div class="row">
-          <div class="col-sm-12 col-lg-4">
-            <p>
-              Some entries in a table may need to stretch down across more than one row. The <strong>rowspan</strong>
-              attribute can be used on the &lt;th&gt; or  &lt;td&gt; Tags to indicate how many rows a cell should span down the
-              table.
-            </p>
-          </div>
-          <div class="col-sm-12 col-lg-8">
-            <div>
-              <small>Example:</small>
-              <div>
-                <table id="gymSchedule" style="width: 100%; margin: 1rem; background-color: rgb(100,100,90)">
-                  <tr style="">
-                    <th>Gym Schedule</th>
-                    <th>Back: Deadlift</th>
-                    <th>Back: T-Bar Row</th>
-                    <th>Back: Bird-Dog</th>
-                    <th>Back: 30-Degree Lat Pulldown</th>
-                    <th>End & Cleanup</th>
-                  </tr>
-                  <tr>
-                    <th>9AM-9:15AM</th>
-                    <td>2-3 Sets, 6-12 Reps, 1-2 minute rest.</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <th>9:15AM-9:30AM</th>
-                    <td>-</td>
-                    <td>2-3 Sets, 6-12 Reps, 1-2 minute rest.</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <th>9:30AM-9:45AM</th>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>2-3 Sets, 6-12 Reps, 1-2 minute rest.</td>
-                    <td>-</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <th>9:45AM-10:00AM</th>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>2-3 Sets, 6-12 Reps, 1-2 minute rest.</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <th>10:00AM-10:15AM</th>
-                    <td rowspan="2">2-3 Sets, 6-12 Reps, 1-2 minute rest.</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <th>10:15AM-10:30AM</th>
-                    <td>-</td>
-                    <td>2-3 Sets, 6-12 Reps, 1-2 minute rest.</td>
-                    <td>-</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <th>10:30AM-10:45AM</th>
-                    <td>-</td>
-                    <td></td>
-                    <td>-</td>
-                    <td>2-3 Sets, 6-12 Reps, 1-2 minute rest.</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <th>10:45AM-11:00AM</th>
-                    <td>-</td>
-                    <td></td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>Workout Complete</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3>Long Tables</h3>
-        <hr/>
-      </div>
-      <div id="deprecatedTableCode" class="w-75" style="margin: 0 auto;">
-        <div class="row">
-          <div class="col-sm-12 col-lg-4">
-            <p>
-              There are three (3) elements that help distinguish between the main content of a table and the
-              first and last rows (Which may contain different content). These elements are used to help screen
-              readers as well as managing styling. The three (3) elements are:
-            </p>
-            <ol>
-              <li>
-                <h5>thead Tag &lt;thead&gt;</h5>
-                <p>
-                  Used to encapsulate all headings for the table.
-                </p>
-              </li>
-              <li>
-                <h5>tbody Tag &lt;tbody&gt;</h5>
-                <p>
-                  Used to encapsulate all data for the table.
-                </p>
-              </li>
-              <li>
-                <h5>tfoot Tag &lt;tfoot&gt;</h5>
-                <p>
-                  Used to encapsulate footer data.
-                </p>
-              </li>
-            </ol>
-          </div>
-          <div class="col-sm-12 col-lg-8">
-            <div>
-              <small>Example:</small>
-              <div>
-                <table id="longTable" style="width: 100%; margin: 1rem; background-color: rgb(100,100,90)">
-                  <thead>
-                    <tr>
-                      <th>Date</th>
-                      <th>Income</th>
-                      <th>Expenditure</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1<sup>st</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>2<sup>nd</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>3<sup>rd</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>4<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>5<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>6<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>7<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>8<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>9<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>10<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>11<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>12<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>13<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>14<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>15<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>16<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>17<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>18<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>19<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>20<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>21<sup>st</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>22<sup>nd</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>23<sup>rd</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>24<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>25<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>26<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>27<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>28<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                    <tr>
-                      <td>29<sup>th</sup> Feb</td>
-                      <td>250</td>
-                      <td>36</td>
-                    </tr>
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <td>EOM Totals:</td>
-                      <td>7250</td>
-                      <td>1044</td>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="width: 75%; margin: 5rem auto 0 auto; text-align: center;">
-        <hr/>
-        <h3>Deprecated Table Code</h3>
-        <hr/>
-      </div>
-      <div id="deprecatedTablesCode" class="w-75" style="margin: 0 auto;">
-        <div class="row">
-          <div class="col-sm-12 col-lg-4">
-            <p>
-              In older versions of HTML, there are attributes that were used that are now deprecated and should not
-              be used on newer websites. All attributes mentioned in this section have been replaced by CSS.
-              The attributes are:
-            </p>
-            <ul>
-              <li>
-                <h5><strong>width</strong></h5>
-                <p>
-                  Used on the opening &lt;table&gt; Tag to indicate how wide that table should be, as well as, the &lt;th&gt; and
-                  &lt;td&gt; Tags to specify the width of individual cells. The value is provided in pixels. The columns in a
-                  table need to form a straight line, so it's often that width will be placed on the first row (and all
-                  subsequent rows would use that setting).
-                </p>
-                <p>
-                  The opening &lt;table&gt; Tag could also use the <strong>cellpadding</strong> attribute to add space inside
-                  each cell of the table, and the <strong>cellspacing</strong> attribute to create space between each
-                  cell of the table. The values provided should be specified in pixels.
-                </p>
-              </li>
-              <li>
-                <h5><strong>border</strong></h5>
-                <p>
-                  The <strong>border</strong> attribute was used on both the &lt;table&gt; and &lt;td&gt; Tags to indicate
-                  width of the border in pixels.
-                </p>
-              </li>
-              <li>
-                <h5><strong>bgcolor</strong></h5>
-                <p>
-                  The <strong>bgcolor</strong> attribute was used to indicate background colors of either the entire
-                  table or individual table cells. The value is usually a hex code.
-                </p>
-              </li>
-            </ul>
-          </div>
-          <div class="col-sm-12 col-lg-8">
-            <div>
-              <small>Examples:</small>
-              <div>
-                <small>Example Using Width & Spacing</small>
-                <table width="400" cellpadding="10" cellspacing="5">
-                  <tr>
-                    <th width="150"></th>
-                    <th>Withdrawn</th>
-                    <th>Credit</th>
-                    <th width="150">Balance</th>
-                  </tr>
-                  <tr>
-                    <th>January</th>
-                    <td>250.00</td>
-                    <td>660.50</td>
-                    <td>410.50</td>
-                  </tr>
-                  <tr>
-                    <th>February</th>
-                    <td>135.55</td>
-                    <td>895.20</td>
-                    <td>1170.15</td>
-                  </tr>
-                </table>
-              </div>
-              <div>
-                <small>Example Using Border & Background</small>
-                <table border="3" bgcolor="#efefef" cellpadding="10" cellspacing="5">
-                  <tr>
-                    <th width="150"></th>
-                    <th>Withdrawn</th>
-                    <th>Credit</th>
-                    <th width="150" bgcolor="#ccc">Balance</th>
-                  </tr>
-                  <tr>
-                    <th>January</th>
-                    <td>250.00</td>
-                    <td>660.50</td>
-                    <td bgcolor="#ccc">410.50</td>
-                  </tr>
-                  <tr>
-                    <th>February</th>
-                    <td>135.55</td>
-                    <td>895.20</td>
-                    <td bgcolor="#ccc">1170.15</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>-->
 </body>
 </html>

@@ -7,17 +7,17 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-size: 90%;
-    border-bottom: 2px solid #999;
-    border-top: 1px solid #999;
-    border-right: 1px solid #999;
+    border-bottom: 2px solid var(--tiana-off-white);
+    border-top: 1px solid var(--tiana-off-white);
+    border-right: 1px solid var(--tiana-off-white);
     text-align: left;
-    color: #fff;
+    color: var(--book-cover-4);
   }
 
   td {
-    border-right: 1px solid #999;
-    border-bottom: 1px solid #999;
-    color: #fff;
+    border-right: 1px solid var(--tiana-off-white);
+    border-bottom: 1px solid var(--tiana-off-white);
+    color: var(--book-cover-4);
   }
 }
 
@@ -95,7 +95,11 @@ ul {
 }
 
 #creatingATable,
-#tableHeadings {
+#tableHeadings,
+#spanningColumns,
+#spanningRows,
+#longTables,
+#deprecatedTableCode {
   text-align: left;
   margin-bottom: 4rem;
 }
