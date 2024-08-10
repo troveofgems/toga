@@ -7,7 +7,7 @@
 }
 
 .foregroundExampleP {
-  color: rgb(100, 100, 90);
+  color: var(--tiana-off-white);
 }
 
 .backgroundExampleBody {
@@ -125,6 +125,8 @@
   width: 150px;
   height: 150px;
   background-color: red;
+  color: var(--tiana-off-white);
+  font-size: var(--body-font-size-3);
 }
 
 .css3Opacity2 {
@@ -140,6 +142,8 @@
   position: relative;
   top: -75px;
   right: -30px;
+  color: var(--tiana-off-white);
+  font-size: var(--body-font-size-3);
 }
 
 .css3Opacity3 {
@@ -151,6 +155,8 @@
   position: relative;
   top: -75px;
   right: -30px;
+  color: var(--tiana-off-white);
+  font-size: var(--body-font-size-3);
 }
 
 
@@ -205,4 +211,28 @@
 .hslExampleP {
   background-color: #ffffff;
   background-color: hsla(0, 100%, 100%, 0.5);
+}
+
+ul, ol {
+  font-size: var(--body-font-size-2);
+}
+
+.tablePanel2_css {
+  background-color: var(--book-cover-3)
+}
+
+.hueColorWheel {
+  width: 250px;
+  height: 250px;
+}
+
+.contrastExample {
+  width: 150px;
+  height: 150px;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  text-align: center;
 }

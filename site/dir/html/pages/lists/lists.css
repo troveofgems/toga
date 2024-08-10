@@ -16,9 +16,9 @@
   padding-bottom: 3rem;
 }
 
-.material-symbols-outlined {
+/*.material-symbols-outlined {
   color: var(--tiana-off-white);
-}
+}*/
 
 #pagePreambles {
   margin: 0 auto;
@@ -144,9 +144,5 @@ ul {
 .nav-pills .nav-link:hover {
   font-size: 1.5rem;
   background: var(--book-cover-4);
-  color: var(--tiana-off-white);
-}
-
-.sidebarFooter {
   color: var(--tiana-off-white);
 }

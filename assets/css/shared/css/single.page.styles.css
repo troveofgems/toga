@@ -1,102 +1,123 @@
-.pageContent {
-  height: inherit;
-  padding-right: 0;
-  margin-right: 0;
-  background: rgb(190,120,40);
-  background: linear-gradient(90deg, rgba(190,120,40,1) 0%, rgba(118,53,10,1) 6%, rgba(39,23,14,1) 13%);
+/* Set Page Background */
+.topicContents {
+  background-image: url("../../../../assets/images/main-site/oldPaper.jpg");
+  background-position: top;
+  background-repeat: repeat;
+  background-size: cover;
+  color: var(--book-cover-4);
 }
 
-.rowContainer {
-  height: inherit;
-  padding-right: 0;
-  margin-right: 0;
-  margin-left: 0;
+#pagePreambles {
+  margin: 0 auto;
+  width: 75%;
 }
 
-.navigationContent {
-  background-image: url("../../../images/main-site/oldBook.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-
-  height: 100%!important;
-  margin-right: 0;
+.pagePreamble_1 {
+  font-size: var(--h6-font-size);
+  margin: 2rem auto 1rem auto;
+  padding-bottom: 1rem;
 }
 
-.page__h2 {
-  font-size: 3rem;
-  color: var(--book-cover-3);
-  overflow-y: hidden;
+.pagePreamble_2 {
+  font-size: var(--h6-font-size);
+  margin-bottom: 2rem;
+}
+
+.pagePreamble_1, .pagePreamble_2 {
+  color: var(--font-color-old-page-text);
+}
+
+.generalContainer {
+  width: 90%;
+  margin: 0 auto;
   text-align: center;
 }
 
-.page__intro_1 {
-  font-size: 1.5rem;
-  padding-right: 4rem;
-  color: var(--book-cover-3);
-  overflow-y: hidden;
+.sectionHeader > p {
+  color: var(--font-color-old-page-text);
+  font-size: var(--h6-font-size);
 }
 
-.page__intro_2 {
-  margin-left: 2rem;
-  font-size: 1.5rem;
-  padding-right: 5rem;
-  color: var(--book-cover-3);
+.tablePanel1 > p {
+  color: var(--font-color-old-page-text);
+  font-size: var(--h6-font-size);
 }
 
-#linksDirectory {
-  list-style-type: upper-roman;
-  margin: 0 auto 1.5rem auto;
+.tablePanel2 > p {
+  color: var(--font-color-old-page-text);
+  font-size: var(--body-font-size-3);
 }
 
-#linksDirectory>li {
-  display: list-item;
-  list-style-position: inside;
+.tablePanel3 > ul > li {
+  color: var(--font-color-old-page-text);
+  font-size: var(--body-font-size-3);
 }
 
-#linksDirectory>li.linkToPage > a,
-#linksDirectory>li.linkToPage::marker {
-  font-size: 1.5rem;
-  color: var(--book-cover-3);
+.tablePanel2, .tablePanel3 {
+  background: rgba(169, 121, 66, .65);
 }
 
-#linksDirectory>li.linkToPage:hover > a:hover,
-#linksDirectory>li.linkToPage:hover::marker {
-  font-size: 1.65rem;
+.tablePanel3 > p {
+  font-size: var(--body-font-size-4);
+}
+
+.hrStyle {
   color: var(--book-cover-4);
+  border-width: 3px;
+  border-color: inherit;
+  opacity: .75;
+}
+
+.card-link {
+  color: var(--split-complimentary-2);
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card-link:hover {
+  font-size: 1.65rem;
   text-decoration: underline;
 }
 
-.page__footer {
-  text-align: center;
-  width: 75%;
-  margin: 0 auto 1rem auto;
+.contentContainer {
+  text-align: left;
+  margin-bottom: 4rem;
+}
+
+.textEntry_1 {
+  font-size: 1.75rem;
+}
+
+.exploreMore, .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background: var(--book-cover-3);
+  color: var(--tiana-off-white);
+}
+
+.exploreMore, .exploreMore:hover,
+.nav-pills .nav-link:hover {
   font-size: 1.5rem;
-  color: var(--book-cover-3);
+  background: var(--book-cover-4);
 }
 
-#tableRest {
-  background-image: url("../../../images/main-site/tableTop.jpg");
-  height: inherit;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  padding-left: 0;
-  margin-right: 0;
-
-  width: 75%;
+.nav-tabs .nav-link:hover {
+  font-size: 1.75rem;
+  color: var(--tiana-off-white);
 }
 
-.linkToPage>a {
-  text-decoration: none!important;
+.highlightCode {
+  font-size: var(--body-font-size-3);
+  color: var(--split-complimentary-2);
 }
 
-.linkToPage>a:hover {
-  text-decoration: underline!important;
+.nav-item > button {
+  background: var(--book-cover-2);
 }
 
-.material-symbols-outlined {
-  overflow: hidden;
+.nav-link {
+  color: var(--tiana-off-white);
+}
+
+.preStyler {
+  font-size: var(--body-font-size-5);
 }

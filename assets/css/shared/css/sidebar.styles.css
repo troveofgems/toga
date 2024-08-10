@@ -1,4 +1,9 @@
-/* SideBar */
+/* Base Elements */
+* {
+  color: var(--book-cover-4);
+}
+
+/* SideBar Ids And Classes */
 #menuToggler {
   display: flex;
   justify-content: center;
@@ -41,10 +46,18 @@
 
 .nav-link > span:hover {
   color: #fdcb9e;
+  font-size: 1.65rem;
 }
 
-body {
-  color: #f7f7f7;
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background: var(--book-cover-3);
+  color: var(--tiana-off-white);
+}
+
+.nav-pills .nav-link:hover {
+
+  background: var(--book-cover-4);
+  color: var(--tiana-off-white);
 }
 
 .expandMenuBtn {
@@ -53,18 +66,24 @@ body {
   border: 1px solid #f7f7f7;
   color: #f7f7f7;
   margin: 10px;
-  position: absolute;
+  position: fixed;
 }
 
 .expandMenuBtn:hover {
   border: 1px solid #cceabb;
   color: #cceabb;
+}
 
-  .material-symbols-outlined {
-    color: #cceabb!important;
-  }
+.material-symbols-outlined {
+  color: #cceabb!important;
+  overflow: hidden;
 }
 
 .sidebarFooter {
+  color: var(--tiana-off-white);
   font-size: 1.35rem;
+}
+
+.linkToMainWebsite {
+  color: var(--split-complimentary-3);
 }

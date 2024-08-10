@@ -234,3 +234,16 @@
   background-color: chocolate!important;
   color: #fff;
 }
+
+
+#fontFamilyExampleNoApply, .fontFamilyExampleNoApply > * {
+  font-family: sans-serif!important;
+}
+
+ol, ul {
+  font-size: var(--body-font-size-2);
+}
+
+pre {
+  font-size: var(--body-font-size-5);
+}

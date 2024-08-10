@@ -1,0 +1,76 @@
+.navigationContent {
+  background-image: url("../../../images/main-site/oldBook.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  height: 100%!important;
+  margin-right: 0;
+}
+
+#tableRest {
+  background-image: url("../../../images/main-site/tableTop.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 100%!important;
+  margin-right: 0;
+}
+
+.page__intro_1 {
+  font-size: 1.5rem;
+  padding-right: 4rem;
+  color: var(--book-cover-3);
+  overflow-y: hidden;
+}
+
+.page__intro_2 {
+  margin-left: 2rem;
+  font-size: 1.5rem;
+  padding-right: 5rem;
+  color: var(--book-cover-3);
+}
+
+.page__h2 {
+  font-size: 3rem;
+  color: var(--book-cover-3);
+  overflow-y: hidden;
+  text-align: center;
+}
+
+#linksDirectory {
+  list-style-type: upper-roman;
+  margin: 0 auto 1.5rem auto;
+}
+
+#linksDirectory>li {
+  display: list-item;
+  list-style-position: inside;
+}
+
+#linksDirectory>li.linkToPage > a,
+#linksDirectory>li.linkToPage::marker {
+  font-size: 1.5rem;
+  color: var(--book-cover-3);
+}
+
+#linksDirectory>li.linkToPage:hover > a:hover,
+#linksDirectory>li.linkToPage:hover::marker {
+  font-size: 1.65rem;
+  color: var(--book-cover-4);
+  text-decoration: underline;
+}
+
+.linkToPage>a {
+  text-decoration: none!important;
+}
+
+.linkToPage>a:hover {
+  text-decoration: underline!important;
+}
+
+.book__footer {
+  font-size: var(--body-font-size-4);
+  text-align: center;
+}
