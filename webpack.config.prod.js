@@ -5,6 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
+  port: 33701,
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
